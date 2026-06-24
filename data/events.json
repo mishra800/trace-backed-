@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "AI Innovation Summit 2025",
+    "description": "Join industry leaders, technology experts, and innovators for a full-day conference focused on the latest advancements in Artificial Intelligence. Attendees will gain valuable insights into AI trends, practical business applications, and emerging technologies shaping the future.\r\n\r\nThe event includes keynote speeches, panel discussions, networking sessions, and hands-on workshops designed for professionals across all industries.",
+    "event_date": "2026-06-21",
+    "location": "Grand Convention Center, New York",
+    "image": "/uploads/1781976726625-WhatsApp Image 2026-05-22 at 16.11.08.jpeg",
+    "image_path": null,
+    "gallery_images": [
+      "/uploads/1781976726630-s00010767.webp",
+      "/uploads/1781976726631-aruba-instant-on-1930-48g-poe-4sfp-sfp-and-370w-switch__73145.png",
+      "/uploads/1781976726634-download.jpg",
+      "/uploads/1781976726634-OIP (1).webp",
+      "/uploads/1781976726634-OIP.webp"
+    ],
+    "created_at": "2026-06-20T17:32:06.640Z",
+    "updated_at": "2026-06-20T17:32:06.640Z"
+  }
+]
