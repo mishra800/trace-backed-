@@ -1,49 +1,72 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const path = require('path');
-const db = require('../db');
+const { v4: uuidv4 } = require('uuid');
+const supabase = require('../db');
 
-const storage = multer.memoryStorage();
-const upload = multer({ storage });
+// Store files in memory so we can upload to Supabase Storage
+const upload = multer({ storage: multer.memoryStorage() });
 
-const fileToBase64 = (file) => {
+const BUCKET = 'blog-images';
+
+/**
+ * Upload a file buffer to Supabase Storage and return its public URL.
+ * Returns an empty string if no file is provided.
+ */
+async function uploadToStorage(file, folder = 'covers') {
     if (!file || !file.buffer) return '';
-    return `data:${file.mimetype};base64,${file.buffer.toString('base64')}`;
-};
+    const ext = file.originalname.split('.').pop();
+    const path = `${folder}/${uuidv4()}.${ext}`;
 
-// Ensure meta + slug columns exist and modify image1 to support Base64
-(async () => {
+    const { error } = await supabase.storage
+        .from(BUCKET)
+        .upload(path, file.buffer, {
+            contentType: file.mimetype,
+            upsert: false,
+        });
+
+    if (error) throw new Error(`Storage upload failed: ${error.message}`);
+
+    const { data } = supabase.storage.from(BUCKET).getPublicUrl(path);
+    return data.publicUrl;
+}
+
+/**
+ * Delete a file from Supabase Storage given its full public URL.
+ * Silently ignores errors (e.g. file already removed).
+ */
+async function deleteFromStorage(publicUrl) {
+    if (!publicUrl || publicUrl.startsWith('data:')) return; // skip base64 / empty
     try {
-        await db.query(`ALTER TABLE blogs MODIFY COLUMN image1 LONGTEXT`);
-        await db.query(`ALTER TABLE blogs ADD COLUMN IF NOT EXISTS meta_title VARCHAR(255) DEFAULT NULL`);
-        await db.query(`ALTER TABLE blogs ADD COLUMN IF NOT EXISTS meta_description TEXT DEFAULT NULL`);
-        await db.query(`ALTER TABLE blogs ADD COLUMN IF NOT EXISTS meta_keywords TEXT DEFAULT NULL`);
-        await db.query(`ALTER TABLE blogs ADD COLUMN IF NOT EXISTS slug VARCHAR(500) DEFAULT NULL`);
-        // Best-effort unique index — ignore if already exists
-        await db.query(`CREATE UNIQUE INDEX IF NOT EXISTS idx_blogs_slug ON blogs (slug)`).catch(() => {});
-    } catch (e) {
-        // Column may already exist on older MySQL — ignore
-    }
-})();
+        const url = new URL(publicUrl);
+        // Path after /storage/v1/object/public/<bucket>/
+        const parts = url.pathname.split(`/object/public/${BUCKET}/`);
+        if (parts.length > 1) {
+            await supabase.storage.from(BUCKET).remove([parts[1]]);
+        }
+    } catch (_) { /* ignore */ }
+}
 
-// GET all blogs
+// ─── GET all blogs ────────────────────────────────────────────
 router.get('/', async (req, res) => {
     try {
-        // Prevent browsers and CDNs from caching the blog list
         res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
         res.set('Pragma', 'no-cache');
         res.set('Expires', '0');
-        res.set('Surrogate-Control', 'no-store');
 
-        const [rows] = await db.query('SELECT * FROM blogs ORDER BY created_at DESC');
-        const blogs = rows.map(b => {
-            let gallery_images = [];
-            if (b.gallery_images) {
-                try { gallery_images = JSON.parse(b.gallery_images); } catch (e) { gallery_images = []; }
-            }
-            return { ...b, gallery_images };
-        });
+        const { data, error } = await supabase
+            .from('blogs')
+            .select('*')
+            .order('created_at', { ascending: false });
+
+        if (error) throw error;
+
+        // Normalise gallery_images — Supabase returns JSONB already parsed
+        const blogs = (data || []).map(b => ({
+            ...b,
+            gallery_images: Array.isArray(b.gallery_images) ? b.gallery_images : [],
+        }));
+
         res.json(blogs);
     } catch (err) {
         console.error('Error fetching blogs:', err);
@@ -51,98 +74,151 @@ router.get('/', async (req, res) => {
     }
 });
 
-// GET single blog
+// ─── GET single blog ──────────────────────────────────────────
 router.get('/:id', async (req, res) => {
     try {
-        // Prevent caching of individual blog pages so edits appear immediately
         res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
         res.set('Pragma', 'no-cache');
         res.set('Expires', '0');
 
-        const [rows] = await db.query('SELECT * FROM blogs WHERE id = ?', [req.params.id]);
-        if (!rows.length) return res.status(404).json({ message: 'Blog not found' });
-        let gallery_images = [];
-        if (rows[0].gallery_images) {
-            try { gallery_images = JSON.parse(rows[0].gallery_images); } catch (e) { gallery_images = []; }
+        const { data, error } = await supabase
+            .from('blogs')
+            .select('*')
+            .eq('id', req.params.id)
+            .single();
+
+        if (error) {
+            if (error.code === 'PGRST116') return res.status(404).json({ message: 'Blog not found' });
+            throw error;
         }
-        const blog = { ...rows[0], gallery_images };
-        res.json(blog);
+
+        res.json({
+            ...data,
+            gallery_images: Array.isArray(data.gallery_images) ? data.gallery_images : [],
+        });
     } catch (err) {
         console.error('Error fetching blog:', err);
         res.status(500).json({ error: err.message });
     }
 });
 
-// POST create blog
+// ─── POST create blog ─────────────────────────────────────────
 router.post('/', upload.fields([{ name: 'image1', maxCount: 1 }, { name: 'gallery', maxCount: 6 }]), async (req, res) => {
     try {
-        const { title, slug, content, author, image1_url, hero_image_link, existing_gallery, meta_title, meta_description, meta_keywords } = req.body;
-        if (!title || !content) return res.status(400).json({ error: 'Title and content are required.' });
+        const {
+            title, slug, content, author,
+            image1_url, hero_image_link, existing_gallery,
+            meta_title, meta_description, meta_keywords,
+        } = req.body;
 
-        const image1 = req.files && req.files['image1']
-            ? fileToBase64(req.files['image1'][0])
-            : (image1_url || '');
+        if (!title || !content) {
+            return res.status(400).json({ error: 'Title and content are required.' });
+        }
 
+        // Upload cover image
+        let image1 = image1_url || '';
+        if (req.files?.['image1']?.[0]) {
+            image1 = await uploadToStorage(req.files['image1'][0], 'covers');
+        }
+
+        // Upload gallery images
         let gallery_images = [];
-        if (req.files && req.files['gallery']) {
-            gallery_images = req.files['gallery'].map(f => fileToBase64(f));
+        if (req.files?.['gallery']?.length) {
+            gallery_images = await Promise.all(
+                req.files['gallery'].map(f => uploadToStorage(f, 'gallery'))
+            );
         } else if (existing_gallery) {
-            try { gallery_images = JSON.parse(existing_gallery); } catch (e) {}
+            try { gallery_images = JSON.parse(existing_gallery); } catch (_) {}
         }
 
-        // Generate final slug — append insertId suffix only if no slug provided,
-        // to guarantee uniqueness without a follow-up UPDATE race condition
-        let finalSlug = (slug && slug.trim()) ? slug.trim() : null;
+        const finalSlug = slug?.trim() || null;
 
-        const [result] = await db.query(
-            'INSERT INTO blogs (title, slug, content, image1, gallery_images, author, image1_url, hero_image_link, meta_title, meta_description, meta_keywords, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())',
-            [title, finalSlug, content, image1, JSON.stringify(gallery_images), author || null, image1_url || null, hero_image_link || null, meta_title || null, meta_description || null, meta_keywords || null]
-        );
+        const { data, error } = await supabase
+            .from('blogs')
+            .insert({
+                title,
+                slug: finalSlug,
+                content,
+                image1,
+                image1_url: image1_url || null,
+                hero_image_link: hero_image_link || null,
+                gallery_images,
+                author: author || null,
+                meta_title: meta_title || null,
+                meta_description: meta_description || null,
+                meta_keywords: meta_keywords || null,
+            })
+            .select('id')
+            .single();
 
-        // If a slug was provided and a duplicate key collision silently occurred,
-        // assign a guaranteed-unique fallback of slug-{insertId}
-        if (finalSlug) {
-            await db.query(
-                'UPDATE blogs SET slug = ? WHERE id = ? AND slug != ?',
-                [`${finalSlug}-${result.insertId}`, result.insertId, finalSlug]
-            ).catch(() => {});
-        }
+        if (error) throw error;
 
-        res.json({ success: true, id: result.insertId });
+        res.json({ success: true, id: data.id });
     } catch (err) {
         console.error('Error creating blog:', err);
         res.status(500).json({ error: err.message });
     }
 });
 
-// PUT update blog
+// ─── PUT update blog ──────────────────────────────────────────
 router.put('/:id', upload.fields([{ name: 'image1', maxCount: 1 }, { name: 'gallery', maxCount: 6 }]), async (req, res) => {
     try {
-        const { title, slug, content, author, image1_url, hero_image_link, existing_gallery, meta_title, meta_description, meta_keywords } = req.body;
-        const [rows] = await db.query('SELECT * FROM blogs WHERE id = ?', [req.params.id]);
-        if (!rows.length) return res.status(404).json({ message: 'Blog not found' });
+        const {
+            title, slug, content, author,
+            image1_url, hero_image_link, existing_gallery,
+            meta_title, meta_description, meta_keywords,
+        } = req.body;
 
-        const existing = rows[0];
-        const image1 = req.files && req.files['image1']
-            ? fileToBase64(req.files['image1'][0])
-            : (image1_url || existing.image1);
+        // Fetch existing record
+        const { data: existing, error: fetchErr } = await supabase
+            .from('blogs')
+            .select('*')
+            .eq('id', req.params.id)
+            .single();
 
-        let gallery_images = [];
-        if (existing.gallery_images) {
-            try { gallery_images = JSON.parse(existing.gallery_images); } catch (e) { gallery_images = []; }
+        if (fetchErr) {
+            if (fetchErr.code === 'PGRST116') return res.status(404).json({ message: 'Blog not found' });
+            throw fetchErr;
         }
-        if (existing_gallery) { try { gallery_images = JSON.parse(existing_gallery); } catch (e) {} }
-        if (req.files && req.files['gallery'] && req.files['gallery'].length > 0) {
-            gallery_images = [...gallery_images, ...req.files['gallery'].map(f => fileToBase64(f))];
+
+        // Handle cover image
+        let image1 = image1_url || existing.image1;
+        if (req.files?.['image1']?.[0]) {
+            await deleteFromStorage(existing.image1); // remove old cover from storage
+            image1 = await uploadToStorage(req.files['image1'][0], 'covers');
         }
 
-        // Use submitted slug if provided, otherwise keep the existing one
-        const finalSlug = (slug && slug.trim()) ? slug.trim() : (existing.slug || null);
+        // Handle gallery
+        let gallery_images = Array.isArray(existing.gallery_images) ? existing.gallery_images : [];
+        if (existing_gallery) { try { gallery_images = JSON.parse(existing_gallery); } catch (_) {} }
+        if (req.files?.['gallery']?.length) {
+            const newImages = await Promise.all(
+                req.files['gallery'].map(f => uploadToStorage(f, 'gallery'))
+            );
+            gallery_images = [...gallery_images, ...newImages];
+        }
 
-        await db.query(
-            'UPDATE blogs SET title=?, slug=?, content=?, image1=?, gallery_images=?, author=?, image1_url=?, hero_image_link=?, meta_title=?, meta_description=?, meta_keywords=?, updated_at=NOW() WHERE id=?',
-            [title, finalSlug, content, image1, JSON.stringify(gallery_images), author || null, image1_url || null, hero_image_link || null, meta_title || null, meta_description || null, meta_keywords || null, req.params.id]
-        );
+        const finalSlug = slug?.trim() || existing.slug || null;
+
+        const { error } = await supabase
+            .from('blogs')
+            .update({
+                title,
+                slug: finalSlug,
+                content,
+                image1,
+                image1_url: image1_url || null,
+                hero_image_link: hero_image_link || null,
+                gallery_images,
+                author: author || null,
+                meta_title: meta_title || null,
+                meta_description: meta_description || null,
+                meta_keywords: meta_keywords || null,
+            })
+            .eq('id', req.params.id);
+
+        if (error) throw error;
+
         res.json({ success: true });
     } catch (err) {
         console.error('Error updating blog:', err);
@@ -150,10 +226,29 @@ router.put('/:id', upload.fields([{ name: 'image1', maxCount: 1 }, { name: 'gall
     }
 });
 
-// DELETE blog
+// ─── DELETE blog ──────────────────────────────────────────────
 router.delete('/:id', async (req, res) => {
     try {
-        await db.query('DELETE FROM blogs WHERE id = ?', [req.params.id]);
+        // Fetch first so we can clean up storage files
+        const { data: blog } = await supabase
+            .from('blogs')
+            .select('image1, gallery_images')
+            .eq('id', req.params.id)
+            .single();
+
+        if (blog) {
+            await deleteFromStorage(blog.image1);
+            const gallery = Array.isArray(blog.gallery_images) ? blog.gallery_images : [];
+            await Promise.all(gallery.map(url => deleteFromStorage(url)));
+        }
+
+        const { error } = await supabase
+            .from('blogs')
+            .delete()
+            .eq('id', req.params.id);
+
+        if (error) throw error;
+
         res.json({ success: true });
     } catch (err) {
         console.error('Error deleting blog:', err);

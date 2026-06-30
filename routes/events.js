@@ -1,42 +1,57 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const path = require('path');
-const db = require('../db');
+const { v4: uuidv4 } = require('uuid');
+const supabase = require('../db');
 
-const storage = multer.memoryStorage();
-const upload = multer({ storage });
+const upload = multer({ storage: multer.memoryStorage() });
 
-const fileToBase64 = (file) => {
+const BUCKET = 'event-images';
+
+async function uploadToStorage(file, folder = 'covers') {
     if (!file || !file.buffer) return '';
-    return `data:${file.mimetype};base64,${file.buffer.toString('base64')}`;
-};
+    const ext = file.originalname.split('.').pop();
+    const path = `${folder}/${uuidv4()}.${ext}`;
 
-// Ensure meta + slug columns exist and modify image columns to LONGTEXT
-(async () => {
+    const { error } = await supabase.storage
+        .from(BUCKET)
+        .upload(path, file.buffer, {
+            contentType: file.mimetype,
+            upsert: false,
+        });
+
+    if (error) throw new Error(`Storage upload failed: ${error.message}`);
+
+    const { data } = supabase.storage.from(BUCKET).getPublicUrl(path);
+    return data.publicUrl;
+}
+
+async function deleteFromStorage(publicUrl) {
+    if (!publicUrl || publicUrl.startsWith('data:')) return;
     try {
-        await db.query(`ALTER TABLE events MODIFY COLUMN image LONGTEXT`);
-        await db.query(`ALTER TABLE events MODIFY COLUMN image_path LONGTEXT`);
-        await db.query(`ALTER TABLE events ADD COLUMN IF NOT EXISTS meta_title VARCHAR(255) DEFAULT NULL`);
-        await db.query(`ALTER TABLE events ADD COLUMN IF NOT EXISTS meta_description TEXT DEFAULT NULL`);
-        await db.query(`ALTER TABLE events ADD COLUMN IF NOT EXISTS meta_keywords TEXT DEFAULT NULL`);
-        await db.query(`ALTER TABLE events ADD COLUMN IF NOT EXISTS location_url VARCHAR(500) DEFAULT NULL`);
-        await db.query(`ALTER TABLE events ADD COLUMN IF NOT EXISTS slug VARCHAR(500) DEFAULT NULL`);
-        // Best-effort unique index — ignore if already exists
-        await db.query(`CREATE UNIQUE INDEX IF NOT EXISTS idx_events_slug ON events (slug)`).catch(() => {});
-    } catch (e) {
-        // Column may already exist on older MySQL — ignore
-    }
-})();
+        const url = new URL(publicUrl);
+        const parts = url.pathname.split(`/object/public/${BUCKET}/`);
+        if (parts.length > 1) {
+            await supabase.storage.from(BUCKET).remove([parts[1]]);
+        }
+    } catch (_) { /* ignore */ }
+}
 
-// GET all events
+// ─── GET all events ───────────────────────────────────────────
 router.get('/', async (req, res) => {
     try {
-        const [rows] = await db.query('SELECT * FROM events ORDER BY created_at DESC');
-        const events = rows.map(e => ({
+        const { data, error } = await supabase
+            .from('events')
+            .select('*')
+            .order('created_at', { ascending: false });
+
+        if (error) throw error;
+
+        const events = (data || []).map(e => ({
             ...e,
-            gallery_images: e.gallery_images ? JSON.parse(e.gallery_images) : []
+            gallery_images: Array.isArray(e.gallery_images) ? e.gallery_images : [],
         }));
+
         res.json(events);
     } catch (err) {
         console.error('Error fetching events:', err);
@@ -44,86 +59,146 @@ router.get('/', async (req, res) => {
     }
 });
 
-// GET single event
+// ─── GET single event ─────────────────────────────────────────
 router.get('/:id', async (req, res) => {
     try {
-        const [rows] = await db.query('SELECT * FROM events WHERE id = ?', [req.params.id]);
-        if (!rows.length) return res.status(404).json({ message: 'Event not found' });
-        const event = { ...rows[0], gallery_images: rows[0].gallery_images ? JSON.parse(rows[0].gallery_images) : [] };
-        res.json(event);
+        const { data, error } = await supabase
+            .from('events')
+            .select('*')
+            .eq('id', req.params.id)
+            .single();
+
+        if (error) {
+            if (error.code === 'PGRST116') return res.status(404).json({ message: 'Event not found' });
+            throw error;
+        }
+
+        res.json({
+            ...data,
+            gallery_images: Array.isArray(data.gallery_images) ? data.gallery_images : [],
+        });
     } catch (err) {
         console.error('Error fetching event:', err);
         res.status(500).json({ error: err.message });
     }
 });
 
-// POST create event
+// ─── POST create event ────────────────────────────────────────
 router.post('/', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'gallery', maxCount: 6 }]), async (req, res) => {
     try {
-        const { title, slug, description, event_date, date, location, location_url, image_path, existing_gallery, meta_title, meta_description, meta_keywords } = req.body;
+        const {
+            title, slug, description,
+            event_date, date,
+            location, location_url,
+            image_path, existing_gallery,
+            meta_title, meta_description, meta_keywords,
+        } = req.body;
+
         if (!title) return res.status(400).json({ error: 'Title is required.' });
 
-        const image = req.files && req.files['image']
-            ? fileToBase64(req.files['image'][0])
-            : (image_path || '');
+        let image = image_path || '';
+        if (req.files?.['image']?.[0]) {
+            image = await uploadToStorage(req.files['image'][0], 'covers');
+        }
 
         let gallery_images = [];
-        if (req.files && req.files['gallery']) {
-            gallery_images = req.files['gallery'].map(f => fileToBase64(f));
+        if (req.files?.['gallery']?.length) {
+            gallery_images = await Promise.all(
+                req.files['gallery'].map(f => uploadToStorage(f, 'gallery'))
+            );
         } else if (existing_gallery) {
-            try { gallery_images = JSON.parse(existing_gallery); } catch (e) {}
+            try { gallery_images = JSON.parse(existing_gallery); } catch (_) {}
         }
 
-        // Generate final slug — append insertId suffix only if no slug provided,
-        // to guarantee uniqueness without a follow-up UPDATE race condition
-        let finalSlug = (slug && slug.trim()) ? slug.trim() : null;
+        const finalSlug = slug?.trim() || null;
 
-        const [result] = await db.query(
-            'INSERT INTO events (title, slug, description, event_date, location, location_url, image, image_path, gallery_images, meta_title, meta_description, meta_keywords, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())',
-            [title, finalSlug, description || '', event_date || date || null, location || null, location_url || null, image, image_path || null, JSON.stringify(gallery_images), meta_title || null, meta_description || null, meta_keywords || null]
-        );
+        const { data, error } = await supabase
+            .from('events')
+            .insert({
+                title,
+                slug: finalSlug,
+                description: description || '',
+                event_date: event_date || date || null,
+                location: location || null,
+                location_url: location_url || null,
+                image,
+                image_path: image_path || null,
+                gallery_images,
+                meta_title: meta_title || null,
+                meta_description: meta_description || null,
+                meta_keywords: meta_keywords || null,
+            })
+            .select('id')
+            .single();
 
-        // If a slug was provided and a duplicate key collision silently occurred,
-        // assign a guaranteed-unique fallback of slug-{insertId}
-        if (finalSlug) {
-            await db.query(
-                'UPDATE events SET slug = ? WHERE id = ? AND slug != ?',
-                [`${finalSlug}-${result.insertId}`, result.insertId, finalSlug]
-            ).catch(() => {});
-        }
+        if (error) throw error;
 
-        res.json({ success: true, id: result.insertId });
+        res.json({ success: true, id: data.id });
     } catch (err) {
         console.error('Error creating event:', err);
         res.status(500).json({ error: err.message });
     }
 });
 
-// PUT update event
+// ─── PUT update event ─────────────────────────────────────────
 router.put('/:id', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'gallery', maxCount: 6 }]), async (req, res) => {
     try {
-        const { title, slug, description, event_date, date, location, location_url, image_path, existing_gallery, meta_title, meta_description, meta_keywords } = req.body;
-        const [rows] = await db.query('SELECT * FROM events WHERE id = ?', [req.params.id]);
-        if (!rows.length) return res.status(404).json({ message: 'Event not found' });
+        const {
+            title, slug, description,
+            event_date, date,
+            location, location_url,
+            image_path, existing_gallery,
+            meta_title, meta_description, meta_keywords,
+        } = req.body;
 
-        const existing = rows[0];
-        const image = req.files && req.files['image']
-            ? fileToBase64(req.files['image'][0])
-            : (image_path || existing.image);
+        const { data: existing, error: fetchErr } = await supabase
+            .from('events')
+            .select('*')
+            .eq('id', req.params.id)
+            .single();
 
-        let gallery_images = existing.gallery_images ? JSON.parse(existing.gallery_images) : [];
-        if (existing_gallery) { try { gallery_images = JSON.parse(existing_gallery); } catch (e) {} }
-        if (req.files && req.files['gallery'] && req.files['gallery'].length > 0) {
-            gallery_images = [...gallery_images, ...req.files['gallery'].map(f => fileToBase64(f))];
+        if (fetchErr) {
+            if (fetchErr.code === 'PGRST116') return res.status(404).json({ message: 'Event not found' });
+            throw fetchErr;
         }
 
-        // Use submitted slug if provided, otherwise keep the existing one
-        const finalSlug = (slug && slug.trim()) ? slug.trim() : (existing.slug || null);
+        let image = image_path || existing.image;
+        if (req.files?.['image']?.[0]) {
+            await deleteFromStorage(existing.image);
+            image = await uploadToStorage(req.files['image'][0], 'covers');
+        }
 
-        await db.query(
-            'UPDATE events SET title=?, slug=?, description=?, event_date=?, location=?, location_url=?, image=?, image_path=?, gallery_images=?, meta_title=?, meta_description=?, meta_keywords=?, updated_at=NOW() WHERE id=?',
-            [title, finalSlug, description || '', event_date || date || null, location || null, location_url || null, image, image_path || null, JSON.stringify(gallery_images), meta_title || null, meta_description || null, meta_keywords || null, req.params.id]
-        );
+        let gallery_images = Array.isArray(existing.gallery_images) ? existing.gallery_images : [];
+        if (existing_gallery) { try { gallery_images = JSON.parse(existing_gallery); } catch (_) {} }
+        if (req.files?.['gallery']?.length) {
+            const newImages = await Promise.all(
+                req.files['gallery'].map(f => uploadToStorage(f, 'gallery'))
+            );
+            gallery_images = [...gallery_images, ...newImages];
+        }
+
+        const finalSlug = slug?.trim() || existing.slug || null;
+
+        const { error } = await supabase
+            .from('events')
+            .update({
+                title,
+                slug: finalSlug,
+                description: description || '',
+                event_date: event_date || date || null,
+                location: location || null,
+                location_url: location_url || null,
+                image,
+                image_path: image_path || null,
+                gallery_images,
+                meta_title: meta_title || null,
+                meta_description: meta_description || null,
+                meta_keywords: meta_keywords || null,
+            })
+            .eq('id', req.params.id);
+
+        if (error) throw error;
+
         res.json({ success: true });
     } catch (err) {
         console.error('Error updating event:', err);
@@ -131,10 +206,28 @@ router.put('/:id', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'galle
     }
 });
 
-// DELETE event
+// ─── DELETE event ─────────────────────────────────────────────
 router.delete('/:id', async (req, res) => {
     try {
-        await db.query('DELETE FROM events WHERE id = ?', [req.params.id]);
+        const { data: event } = await supabase
+            .from('events')
+            .select('image, gallery_images')
+            .eq('id', req.params.id)
+            .single();
+
+        if (event) {
+            await deleteFromStorage(event.image);
+            const gallery = Array.isArray(event.gallery_images) ? event.gallery_images : [];
+            await Promise.all(gallery.map(url => deleteFromStorage(url)));
+        }
+
+        const { error } = await supabase
+            .from('events')
+            .delete()
+            .eq('id', req.params.id);
+
+        if (error) throw error;
+
         res.json({ success: true });
     } catch (err) {
         console.error('Error deleting event:', err);
