@@ -71,7 +71,7 @@ router.post('/send', async (req, res) => {
         await transporter.sendMail({
             from: `"${name}" <${process.env.EMAIL_USER}>`,
             replyTo: email,
-            to: process.env.CONTACT_TO_EMAIL || 'connect@tracenetwork.in',
+            to: process.env.CONTACT_TO_EMAIL || 'connect@tracenetwork.in, Support@tracenetwork.in',
             subject: `New Contact Form Submission from ${name}`,
             html: `
                 <h3>New message from your website contact form.</h3>
@@ -173,7 +173,7 @@ router.post('/service-request', async (req, res) => {
         await transporter.sendMail({
             from: `"${name}" <${process.env.EMAIL_USER}>`,
             replyTo: email,
-            to: process.env.CONTACT_TO_EMAIL || 'connect@tracenetwork.in',
+            to: process.env.CONTACT_TO_EMAIL || 'connect@tracenetwork.in, Support@tracenetwork.in',
             subject: `New Service Request: ${service} - ${name}`,
             html: `
                 <h3>New Service Request Received</h3>
