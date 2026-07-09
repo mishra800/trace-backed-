@@ -9,17 +9,17 @@ const upload = multer({ storage: multer.memoryStorage() });
 
 const RESUME_BUCKET = 'resumes';
 
-// ─── Nodemailer transporter ───────────────────────────────────
-const createTransporter = () =>
-    nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 587,
-        secure: false,
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS,
-        },
-    });
+// ─── Nodemailer transporter with connection pooling ───────────
+const transporter = nodemailer.createTransport({
+    pool: true, // Reuses SMTP connections instead of creating new TCP connections
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+    },
+});
 
 // ─── Upload resume to Supabase Storage ───────────────────────
 async function uploadResume(file) {
@@ -66,9 +66,8 @@ router.post('/send', async (req, res) => {
 
         if (dbErr) console.error('DB insert error (contact):', dbErr.message);
 
-        // 2. Send email notification
-        const transporter = createTransporter();
-        await transporter.sendMail({
+        // 2. Send email notification in the background (non-blocking)
+        transporter.sendMail({
             from: `"${name}" <${process.env.EMAIL_USER}>`,
             replyTo: email,
             to: process.env.CONTACT_TO_EMAIL || 'connect@tracenetwork.in, Support@tracenetwork.in',
@@ -82,6 +81,8 @@ router.post('/send', async (req, res) => {
                 <p><strong>Message:</strong></p>
                 <p>${message.replace(/\n/g, '<br>')}</p>
             `,
+        }).catch(err => {
+            console.error('Email send failure (contact):', err);
         });
 
         res.json({ success: true, message: 'Message sent successfully!' });
@@ -111,8 +112,7 @@ router.post('/submit', upload.single('resume'), async (req, res) => {
 
         if (dbErr) console.error('DB insert error (career):', dbErr.message);
 
-        // 2. Send email notification (resume as attachment if file was uploaded)
-        const transporter = createTransporter();
+        // 2. Send email notification in the background (non-blocking)
         const mailOptions = {
             from: `"${name}" <${process.env.EMAIL_USER}>`,
             replyTo: email,
@@ -136,7 +136,9 @@ router.post('/submit', upload.single('resume'), async (req, res) => {
             }];
         }
 
-        await transporter.sendMail(mailOptions);
+        transporter.sendMail(mailOptions).catch(err => {
+            console.error('Email send failure (career):', err);
+        });
 
         res.json({ success: true, message: 'Application sent successfully!' });
     } catch (error) {
@@ -168,9 +170,8 @@ router.post('/service-request', async (req, res) => {
 
         if (dbErr) console.error('DB insert error (service-request):', dbErr.message);
 
-        // 2. Send email notification
-        const transporter = createTransporter();
-        await transporter.sendMail({
+        // 2. Send email notification in the background (non-blocking)
+        transporter.sendMail({
             from: `"${name}" <${process.env.EMAIL_USER}>`,
             replyTo: email,
             to: process.env.CONTACT_TO_EMAIL || 'connect@tracenetwork.in, Support@tracenetwork.in',
@@ -185,6 +186,8 @@ router.post('/service-request', async (req, res) => {
                 ${message ? `<p><strong>Additional Info:</strong></p><p>${message.replace(/\n/g, '<br>')}</p>` : ''}
                 <br><p style="color:#ff7a00;font-weight:bold;">From the Free VAPT Offer popup.</p>
             `,
+        }).catch(err => {
+            console.error('Email send failure (service-request):', err);
         });
 
         res.json({ success: true, message: 'Service request sent successfully!' });
