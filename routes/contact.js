@@ -12,9 +12,9 @@ const RESUME_BUCKET = 'resumes';
 // ─── Nodemailer transporter with connection pooling ───────────
 const transporter = nodemailer.createTransport({
     pool: true, // Reuses SMTP connections instead of creating new TCP connections
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
+    host: process.env.EMAIL_HOST || 'smtp.gmail.com',
+    port: parseInt(process.env.EMAIL_PORT, 10) || 587,
+    secure: process.env.EMAIL_SECURE === 'true', // true for port 465, false for other ports
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
