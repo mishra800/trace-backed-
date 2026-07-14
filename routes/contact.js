@@ -9,9 +9,25 @@ const upload = multer({ storage: multer.memoryStorage() });
 
 const RESUME_BUCKET = 'resumes';
 
-// ─── Nodemailer transporter with connection pooling ───────────
+// ─── Helper to parse email recipients ─────────────────────────
+const getContactRecipients = () => {
+    const envEmails = process.env.CONTACT_TO_EMAIL;
+    if (envEmails) {
+        return envEmails.split(',').map(email => email.trim()).filter(Boolean);
+    }
+    return ['connect@tracenetwork.in'];
+};
+
+const getCareerRecipients = () => {
+    const envEmails = process.env.CAREER_TO_EMAIL;
+    if (envEmails) {
+        return envEmails.split(',').map(email => email.trim()).filter(Boolean);
+    }
+    return ['hr@tracenetwork.in'];
+};
+
+// ─── Nodemailer transporter ──────────────────────────────────
 const transporter = nodemailer.createTransport({
-    pool: true, // Reuses SMTP connections instead of creating new TCP connections
     host: process.env.EMAIL_HOST || 'smtp.gmail.com',
     port: parseInt(process.env.EMAIL_PORT, 10) || 587,
     secure: process.env.EMAIL_SECURE === 'true', // true for port 465, false for other ports
@@ -19,6 +35,9 @@ const transporter = nodemailer.createTransport({
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
     },
+    tls: {
+        rejectUnauthorized: false
+    }
 });
 
 // ─── Upload resume to Supabase Storage ───────────────────────
@@ -66,11 +85,10 @@ router.post('/send', async (req, res) => {
 
         if (dbErr) console.error('DB insert error (contact):', dbErr.message);
 
-        // 2. Send email notification in the background (non-blocking)
         transporter.sendMail({
             from: `"${name}" <${process.env.EMAIL_USER}>`,
             replyTo: email,
-            to: process.env.CONTACT_TO_EMAIL || 'connect@tracenetwork.in, Support@tracenetwork.in',
+            to: getContactRecipients(),
             subject: `New Contact Form Submission from ${name}`,
             html: `
                 <h3>New message from your website contact form.</h3>
@@ -83,6 +101,28 @@ router.post('/send', async (req, res) => {
             `,
         }).catch(err => {
             console.error('Email send failure (contact):', err);
+        });
+
+        // Send confirmation email to the submitter
+        transporter.sendMail({
+            from: `"Trace Network & Engineering" <${process.env.EMAIL_USER}>`,
+            to: email,
+            subject: 'Thank you for contacting Trace Network & Engineering',
+            html: `
+                <h3>Hello ${name},</h3>
+                <p>Thank you for reaching out to us. We have received your message and our team will get back to you shortly.</p>
+                <p><strong>Your Message details:</strong></p>
+                <hr>
+                <p><strong>Subject:</strong> ${subject || 'General Inquiry'}</p>
+                <p><strong>Message:</strong></p>
+                <p>${message.replace(/\n/g, '<br>')}</p>
+                <hr>
+                <br>
+                <p>Best regards,</p>
+                <p><strong>Trace Network & Engineering Team</strong></p>
+            `,
+        }).catch(err => {
+            console.error('Confirmation email send failure (contact):', err);
         });
 
         res.json({ success: true, message: 'Message sent successfully!' });
@@ -116,7 +156,7 @@ router.post('/submit', upload.single('resume'), async (req, res) => {
         const mailOptions = {
             from: `"${name}" <${process.env.EMAIL_USER}>`,
             replyTo: email,
-            to: process.env.CAREER_TO_EMAIL || 'hr@tracenetwork.in',
+            to: getCareerRecipients(),
             subject: 'New Career Application',
             html: `
                 <h3>New Career Application Received</h3>
@@ -138,6 +178,23 @@ router.post('/submit', upload.single('resume'), async (req, res) => {
 
         transporter.sendMail(mailOptions).catch(err => {
             console.error('Email send failure (career):', err);
+        });
+
+        // Send confirmation email to the applicant
+        transporter.sendMail({
+            from: `"Trace Career Team" <${process.env.EMAIL_USER}>`,
+            to: email,
+            subject: 'Application Received - Trace Network & Engineering',
+            html: `
+                <h3>Hello ${name},</h3>
+                <p>Thank you for submitting your application to join Trace Network & Engineering. We have received your resume and details successfully.</p>
+                <p>Our HR team will review your application and contact you if your profile matches our requirements.</p>
+                <br>
+                <p>Best regards,</p>
+                <p><strong>HR & Careers Team</strong><br>Trace Network & Engineering</p>
+            `,
+        }).catch(err => {
+            console.error('Confirmation email send failure (career):', err);
         });
 
         res.json({ success: true, message: 'Application sent successfully!' });
@@ -174,7 +231,7 @@ router.post('/service-request', async (req, res) => {
         transporter.sendMail({
             from: `"${name}" <${process.env.EMAIL_USER}>`,
             replyTo: email,
-            to: process.env.CONTACT_TO_EMAIL || 'connect@tracenetwork.in, Support@tracenetwork.in',
+            to: getContactRecipients(),
             subject: `New Service Request: ${service} - ${name}`,
             html: `
                 <h3>New Service Request Received</h3>
@@ -188,6 +245,27 @@ router.post('/service-request', async (req, res) => {
             `,
         }).catch(err => {
             console.error('Email send failure (service-request):', err);
+        });
+
+        // Send confirmation email to the submitter
+        transporter.sendMail({
+            from: `"Trace Network & Engineering" <${process.env.EMAIL_USER}>`,
+            to: email,
+            subject: 'Free VAPT Offer Request Received - Trace Network',
+            html: `
+                <h3>Hello ${name},</h3>
+                <p>Thank you for requesting our Free VAPT offer. We have received your request and our security team will get back to you shortly to begin the assessment.</p>
+                <p><strong>Request Details:</strong></p>
+                <hr>
+                <p><strong>Service:</strong> ${service}</p>
+                <p><strong>Company:</strong> ${company || 'N/A'}</p>
+                <hr>
+                <br>
+                <p>Best regards,</p>
+                <p><strong>Security Operations Team</strong><br>Trace Network & Engineering</p>
+            `,
+        }).catch(err => {
+            console.error('Confirmation email send failure (service-request):', err);
         });
 
         res.json({ success: true, message: 'Service request sent successfully!' });
