@@ -62,11 +62,16 @@ router.get('/', async (req, res) => {
 // ─── GET single event ─────────────────────────────────────────
 router.get('/:id', async (req, res) => {
     try {
-        const { data, error } = await supabase
-            .from('events')
-            .select('*')
-            .eq('id', req.params.id)
-            .single();
+        const { id } = req.params;
+        let query = supabase.from('events').select('*');
+
+        if (/^\d+$/.test(id)) {
+            query = query.or(`id.eq.${id},slug.eq.${id}`);
+        } else {
+            query = query.eq('slug', id);
+        }
+
+        const { data, error } = await query.single();
 
         if (error) {
             if (error.code === 'PGRST116') return res.status(404).json({ message: 'Event not found' });

@@ -81,11 +81,16 @@ router.get('/:id', async (req, res) => {
         res.set('Pragma', 'no-cache');
         res.set('Expires', '0');
 
-        const { data, error } = await supabase
-            .from('blogs')
-            .select('*')
-            .eq('id', req.params.id)
-            .single();
+        const { id } = req.params;
+        let query = supabase.from('blogs').select('*');
+
+        if (/^\d+$/.test(id)) {
+            query = query.or(`id.eq.${id},slug.eq.${id}`);
+        } else {
+            query = query.eq('slug', id);
+        }
+
+        const { data, error } = await query.single();
 
         if (error) {
             if (error.code === 'PGRST116') return res.status(404).json({ message: 'Blog not found' });
