@@ -26,6 +26,19 @@ const getCareerRecipients = () => {
     return ['hr@tracenetwork.in'];
 };
 
+const getCertificateRecipients = () => {
+    const envEmails = process.env.CERTIFICATE_TO_EMAIL;
+    if (envEmails) {
+        return envEmails.split(',').map(email => email.trim()).filter(Boolean);
+    }
+    return [
+        'Vaibhav@tracenetwork.in',
+        'ranadeep@tracenetwork.in',
+        'ravi@tracenetwork.in',
+        'abhishekmishra.it216@gmail.com'
+    ];
+};
+
 // ─── Nodemailer transporter ──────────────────────────────────
 const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST || 'smtp.gmail.com',
@@ -272,6 +285,100 @@ router.post('/service-request', async (req, res) => {
     } catch (error) {
         console.error('Service request error:', error);
         res.status(500).json({ success: false, message: 'Request sending failed. Please try again.' });
+    }
+});
+
+// ─── POST /api/contact/certificate-register (Certificate Account Registration) ──
+router.post('/certificate-register', async (req, res) => {
+    try {
+        const fullName = req.body.fullName || req.body.name;
+        const email = req.body.email || req.body.officialEmail;
+        const phone = req.body.phone || req.body.contactNumber;
+        const company = req.body.company || req.body.companyName;
+
+        if (!fullName || !email || !phone || !company) {
+            return res.status(400).json({ success: false, message: 'Full Name, Official Email ID, Contact Number, and Company Name are required' });
+        }
+
+        // 1. Persist to Supabase cert_users or contact_submissions table
+        try {
+            const { error: dbErr } = await supabase
+                .from('cert_users')
+                .insert({
+                    full_name: fullName,
+                    email: email,
+                    phone: phone,
+                    company: company,
+                    status: 'pending',
+                    access_allowed: false
+                });
+
+            if (dbErr) {
+                console.error('DB insert error (cert_users):', dbErr.message);
+                await supabase
+                    .from('contact_submissions')
+                    .insert({
+                        name: fullName,
+                        email: email,
+                        phone: phone,
+                        subject: `Certificate Account Registration: ${company}`,
+                        message: `Company Name: ${company}`,
+                        type: 'certificate_registration',
+                    }).catch(err => console.error('Fallback DB insert error:', err.message));
+            }
+        } catch (dbEx) {
+            console.error('DB insert exception (certificate-registration):', dbEx);
+        }
+
+        // 2. Send email notification to certificate recipients
+        transporter.sendMail({
+            from: `"${fullName}" <${process.env.EMAIL_USER}>`,
+            replyTo: email,
+            to: getCertificateRecipients(),
+            subject: `New Certificate Account Registration - ${fullName}`,
+            html: `
+                <h3>New Certificate Account Registration Received</h3>
+                <p>A new user has created an account on the Certificate & Training portal with the following details:</p>
+                <hr>
+                <p><strong>Full Name:</strong> ${fullName}</p>
+                <p><strong>Official Email ID:</strong> ${email}</p>
+                <p><strong>Contact Number:</strong> ${phone}</p>
+                <p><strong>Company Name:</strong> ${company}</p>
+                <hr>
+                <p style="font-size: 12px; color: #666;">This notification was automatically sent upon new account creation.</p>
+            `,
+        }).catch(err => {
+            console.error('Email send failure (certificate-registration):', err);
+        });
+
+        // 3. Send confirmation email to the user
+        transporter.sendMail({
+            from: `"Trace Network Academy" <${process.env.EMAIL_USER}>`,
+            to: email,
+            subject: 'Certificate Account Registration Received - Trace Network',
+            html: `
+                <h3>Hello ${fullName},</h3>
+                <p>Thank you for creating an account with Trace Network Academy.</p>
+                <p>We have received your account registration details:</p>
+                <hr>
+                <p><strong>Full Name:</strong> ${fullName}</p>
+                <p><strong>Official Email ID:</strong> ${email}</p>
+                <p><strong>Contact Number:</strong> ${phone}</p>
+                <p><strong>Company Name:</strong> ${company}</p>
+                <hr>
+                <p>Our team will review your registration and contact you shortly.</p>
+                <br>
+                <p>Best regards,</p>
+                <p><strong>Trace Network & Engineering Team</strong></p>
+            `,
+        }).catch(err => {
+            console.error('Confirmation email send failure (certificate-registration):', err);
+        });
+
+        res.json({ success: true, message: 'Account registration details submitted successfully!' });
+    } catch (error) {
+        console.error('Certificate registration error:', error);
+        res.status(500).json({ success: false, message: 'Registration email failed. Please try again.' });
     }
 });
 
