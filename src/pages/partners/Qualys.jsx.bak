@@ -1,0 +1,454 @@
+﻿import React from 'react';
+import { Link } from 'react-router-dom';
+import './Qualys.css';
+
+export default function Qualys() {
+  return (
+    <div className="qualys-page">
+
+          {/* Hero */}
+          <section className="qualys-hero">
+            <div className="qualys-hero-bg"></div>
+            <div className="container">
+              <div className="qualys-hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <div className="qualys-badge" data-aos="fade-down" data-aos-delay="200">
+                  <span className="qualys-badge-icon"><i className="fas fa-search"></i></span>
+                  One of the Leading Qualys Partners in SAARC
+                </div>
+                <h1 className="qualys-hero-title">
+                  Qualys
+                  <span className="qualys-gradient-text"> Cloud Security &amp; Vulnerability Management</span>
+                  <br />Solutions Provider
+                </h1>
+                <p className="qualys-hero-desc">
+                  Continuous vulnerability management, compliance monitoring, patch automation, and real-time threat visibility across hybrid IT environments - delivered by Trace Network &amp; Engineering.
+                </p>
+                <div className="qualys-hero-stats" data-aos="fade-up" data-aos-delay="400">
+                  <div className="qualys-stat-item">
+                    <span className="qualys-stat-number">1000+</span>
+                    <span className="qualys-stat-label">Enterprise Deployments</span>
+                  </div>
+                  <div className="qualys-stat-item">
+                    <span className="qualys-stat-number">6hrs</span>
+                    <span className="qualys-stat-label">Issue Resolution</span>
+                  </div>
+                  <div className="qualys-stat-item">
+                    <span className="qualys-stat-number">SAARC</span>
+                    <span className="qualys-stat-label">Leading Partner</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Why Choose */}
+          <section className="qualys-why-section">
+            <div className="container">
+              <div className="qualys-two-col">
+
+                {/* Left - Why Qualys */}
+                <div className="qualys-why-card" data-aos="fade-right" data-aos-duration="1000">
+                  <div className="partner-icon-circle"><i className="fas fa-search"></i></div>
+                  <h2>Why Choose Qualys?</h2>
+                  <p>
+                    Qualys is a global leader in cloud-based cybersecurity and compliance solutions, helping organizations continuously identify vulnerabilities, secure IT assets, monitor compliance, and respond to cyber threats in real time. With over 20 years of innovation, Qualys serves more than 19,000 customers worldwide.
+                  </p>
+                  <p>
+                    Powered by the Qualys Cloud Platform, Qualys delivers unified visibility across on-premises, cloud, endpoints, applications, and hybrid environments - allowing businesses to strengthen their security posture with automation, continuous monitoring, and risk prioritization.
+                  </p>
+                  <ul className="qualys-benefit-list">
+                    <li><span className="qualys-check">✓</span> <strong>Continuous Vulnerability Management</strong> across all IT assets</li>
+                    <li><span className="qualys-check">✓</span> <strong>Unified Cloud Platform</strong> - VM, compliance, patching &amp; threat detection</li>
+                    <li><span className="qualys-check">✓</span> <strong>Real-Time Threat Visibility</strong> - exposed assets &amp; missing patches</li>
+                    <li><span className="qualys-check">✓</span> <strong>Automated Patch Management</strong> &amp; remediation workflows</li>
+                    <li><span className="qualys-check">✓</span> <strong>Compliance Monitoring</strong> - ISO 27001, PCI-DSS, HIPAA, GDPR, SOC 2, CIS</li>
+                    <li><span className="qualys-check">✓</span> <strong>Complete Security Suite</strong> - VMDR, EDR, Web App Scanning, FIM &amp; Container Security</li>
+                    <li><span className="qualys-check">✓</span> <strong>Cloud-Native Architecture</strong> - Scalable, reliable, and always up-to-date</li>
+                    <li><span className="qualys-check">✓</span> <strong>Global Threat Intelligence</strong> - Powered by billions of security events</li>
+                  </ul>
+                  <div className="qualys-industries-box">
+                    <h4><i className="fas fa-industry"></i> Trusted by Every Industry</h4>
+                    <div className="qualys-industry-tags">
+                      <span>Large Enterprises</span>
+                      <span>Banking &amp; BFSI</span>
+                      <span>Healthcare</span>
+                      <span>Government &amp; Defense</span>
+                      <span>Education</span>
+                      <span>Manufacturing</span>
+                      <span>Retail &amp; E-commerce</span>
+                      <span>Energy &amp; Utilities</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right - Why Trace */}
+                <div className="qualys-why-card qualys-why-trace" data-aos="fade-left" data-aos-duration="1000">
+                  <div className="partner-icon-circle"><i className="fas fa-building"></i></div>
+                  <h2>Why Choose Trace Network &amp; Engineering?</h2>
+                  <div className="qualys-logo-display">
+                    <img src="/assets/images/partners/QUALYS.jpg" alt="Qualys Authorized Partner" className="qualys-partner-logo" />
+                  </div>
+                  <div className="qualys-partnership-badge">
+                    <span className="partnership-text"><i className="fas fa-trophy"></i> Authorized Qualys Partner</span>
+                    <span className="partnership-subtext">Certified for Enterprise Deployments</span>
+                  </div>
+                  <ul className="qualys-benefit-list">
+                    <li><span className="qualys-check">✓</span> <strong>Rapid Response:</strong> Critical issues resolved within 6 hours</li>
+                    <li><span className="qualys-check">✓</span> <strong>Certified Professionals:</strong> Qualys-certified cybersecurity engineers &amp; compliance specialists</li>
+                    <li><span className="qualys-check">✓</span> <strong>Proven Track Record:</strong> 1000+ successful enterprise security deployments</li>
+                    <li><span className="qualys-check">✓</span> <strong>Comprehensive Solutions:</strong> Cybersecurity, networking, cloud &amp; infrastructure services</li>
+                    <li><span className="qualys-check">✓</span> <strong>24/7 Support:</strong> Multi-channel support via email, WhatsApp &amp; dedicated portal</li>
+                    <li><span className="qualys-check">✓</span> <strong>Industry Expertise:</strong> Specialized solutions for healthcare, BFSI, manufacturing &amp; government</li>
+                    <li><span className="qualys-check">✓</span> <strong>End-to-End Service:</strong> From assessment to deployment to ongoing management</li>
+                    <li><span className="qualys-check">✓</span> <strong>Local Presence:</strong> On-ground support across India &amp; SAARC region</li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          {/* Certifications Section - Content Based */}
+          <section className="qualys-certifications">
+            <div className="container">
+              <div className="qualys-section-header" data-aos="fade-up">
+                <h2><i className="fas fa-graduation-cap header-icon-glow"></i> Our Qualys Expertise &amp; Capabilities</h2>
+                <p>Certified professionals delivering proven expertise across Qualys vulnerability management and compliance solutions</p>
+              </div>
+              <div className="qualys-expertise-showcase">
+                <div className="expertise-content">
+                  <h3>Professional Qualys Expertise</h3>
+                  <div className="expertise-grid">
+                    <div className="expertise-item">
+                      <span className="partner-icon-circle sm"><i className="fas fa-medal"></i></span>
+                      <div className="expertise-details">
+                        <h4>Qualys VMDR Specialists</h4>
+                        <p>Vulnerability Management, Detection &amp; Response implementation and optimization</p>
+                      </div>
+                    </div>
+                    <div className="expertise-item">
+                      <span className="partner-icon-circle sm"><i className="fas fa-medal"></i></span>
+                      <div className="expertise-details">
+                        <h4>Qualys Cloud Platform Experts</h4>
+                        <p>Complete platform administration, configuration, and deployment</p>
+                      </div>
+                    </div>
+                    <div className="expertise-item">
+                      <span className="partner-icon-circle sm"><i className="fas fa-medal"></i></span>
+                      <div className="expertise-details">
+                        <h4>Compliance Monitoring Specialists</h4>
+                        <p>ISO 27001, PCI-DSS, HIPAA, GDPR, SOC 2, CIS Benchmarks implementation</p>
+                      </div>
+                    </div>
+                    <div className="expertise-item">
+                      <span className="partner-icon-circle sm"><i className="fas fa-medal"></i></span>
+                      <div className="expertise-details">
+                        <h4>Web Application Security Experts</h4>
+                        <p>Web app scanning, API security, and DevSecOps integration</p>
+                      </div>
+                    </div>
+                    <div className="expertise-item">
+                      <span className="partner-icon-circle sm"><i className="fas fa-medal"></i></span>
+                      <div className="expertise-details">
+                        <h4>Endpoint Detection &amp; Response (EDR)</h4>
+                        <p>Advanced endpoint protection and threat hunting capabilities</p>
+                      </div>
+                    </div>
+                    <div className="expertise-item">
+                      <span className="partner-icon-circle sm"><i className="fas fa-medal"></i></span>
+                      <div className="expertise-details">
+                        <h4>Cloud &amp; Container Security</h4>
+                        <p>AWS, Azure, Google Cloud security and Kubernetes protection</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="qualys-solutions-overview">
+                  <h3>Complete Qualys Security Solutions</h3>
+                  <div className="solutions-list">
+                    <div className="solution-item-detailed">
+                      <span className="solution-icon"><i className="fas fa-search"></i></span>
+                      <div>
+                        <h4>Vulnerability Management (VMDR)</h4>
+                        <p>Continuous vulnerability assessment and threat detection</p>
+                      </div>
+                    </div>
+                    <div className="solution-item-detailed">
+                      <span className="solution-icon"><i className="fas fa-wrench"></i></span>
+                      <div>
+                        <h4>Patch Management</h4>
+                        <p>Automated patch deployment and remediation workflows</p>
+                      </div>
+                    </div>
+                    <div className="solution-item-detailed">
+                      <span className="solution-icon"><i className="fas fa-clipboard-list"></i></span>
+                      <div>
+                        <h4>Policy Compliance</h4>
+                        <p>Regulatory compliance monitoring and reporting</p>
+                      </div>
+                    </div>
+                    <div className="solution-item-detailed">
+                      <span className="solution-icon"><i className="fas fa-globe"></i></span>
+                      <div>
+                        <h4>Web Application Scanning</h4>
+                        <p>OWASP Top 10 coverage and API security testing</p>
+                      </div>
+                    </div>
+                    <div className="solution-item-detailed">
+                      <span className="solution-icon"><i className="fas fa-shield-alt"></i></span>
+                      <div>
+                        <h4>Endpoint Detection &amp; Response</h4>
+                        <p>Advanced endpoint protection and forensic analysis</p>
+                      </div>
+                    </div>
+                    <div className="solution-item-detailed">
+                      <span className="solution-icon"><i className="fas fa-cloud"></i></span>
+                      <div>
+                        <h4>Cloud &amp; Container Security</h4>
+                        <p>Multi-cloud security and container image scanning</p>
+                      </div>
+                    </div>
+                    <div className="solution-item-detailed">
+                      <span className="solution-icon"><i className="fas fa-chart-bar"></i></span>
+                      <div>
+                        <h4>Asset Inventory &amp; Discovery</h4>
+                        <p>Comprehensive asset management and classification</p>
+                      </div>
+                    </div>
+                    <div className="solution-item-detailed">
+                      <span className="solution-icon"><i className="fas fa-lock"></i></span>
+                      <div>
+                        <h4>File Integrity Monitoring</h4>
+                        <p>Real-time file and system change monitoring</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Top Reasons / Features */}
+          <section className="qualys-features-section">
+            <div className="container">
+              <div className="qualys-section-header" data-aos="fade-up">
+                <h2><i className="fas fa-search header-icon-glow"></i> Why Qualys is the Global Leader in Vulnerability Management</h2>
+                <p>Complete cloud-based vulnerability management and compliance platform trusted by 19,000+ organizations worldwide</p>
+              </div>
+              <div className="qualys-features-grid">
+                <div className="qualys-feature-card" data-aos="fade-up" data-aos-delay="100">
+                  <div className="partner-icon-circle"><i className="fas fa-search"></i></div>
+                  <h3>Continuous Vulnerability Management</h3>
+                  <p>Continuously scans and identifies vulnerabilities across servers, endpoints, applications, cloud workloads, and network devices with real-time threat intelligence and risk prioritization.</p>
+                </div>
+                <div className="qualys-feature-card" data-aos="fade-up" data-aos-delay="150">
+                  <div className="partner-icon-circle"><i className="fas fa-cloud"></i></div>
+                  <h3>Unified Cloud Platform</h3>
+                  <p>Single cloud-based platform managing vulnerability assessment, compliance monitoring, patch management, threat detection, and incident response from one centralized dashboard.</p>
+                </div>
+                <div className="qualys-feature-card" data-aos="fade-up" data-aos-delay="200">
+                  <div className="partner-icon-circle"><i className="fas fa-eye"></i></div>
+                  <h3>Real-Time Asset Discovery &amp; Visibility</h3>
+                  <p>Automatically discovers and inventories all IT assets including cloud instances, containers, endpoints, and IoT devices with continuous monitoring and classification.</p>
+                </div>
+                <div className="qualys-feature-card" data-aos="fade-up" data-aos-delay="250">
+                  <div className="partner-icon-circle"><i className="fas fa-cog"></i></div>
+                  <h3>Automated Patch Management</h3>
+                  <p>Intelligent patch deployment with automated testing, scheduling, and rollback capabilities. Reduces patch deployment time by 80% while maintaining system stability.</p>
+                </div>
+                <div className="qualys-feature-card" data-aos="fade-up" data-aos-delay="300">
+                  <div className="partner-icon-circle"><i className="fas fa-clipboard-list"></i></div>
+                  <h3>Comprehensive Compliance Monitoring</h3>
+                  <p>Built-in compliance templates for ISO 27001, PCI-DSS, HIPAA, GDPR, SOC 2, CIS Benchmarks, and NIST frameworks with automated reporting and remediation guidance.</p>
+                </div>
+                <div className="qualys-feature-card" data-aos="fade-up" data-aos-delay="350">
+                  <div className="partner-icon-circle"><i className="fas fa-shield-alt"></i></div>
+                  <h3>Advanced Threat Detection &amp; Response</h3>
+                  <p>VMDR (Vulnerability Management, Detection &amp; Response) with behavioral analysis, threat hunting, and automated incident response powered by global threat intelligence.</p>
+                </div>
+                <div className="qualys-feature-card" data-aos="fade-up" data-aos-delay="400">
+                  <div className="partner-icon-circle"><i className="fas fa-globe"></i></div>
+                  <h3>Web Application Security</h3>
+                  <p>Comprehensive web application scanning with OWASP Top 10 coverage, API security testing, and integration with CI/CD pipelines for DevSecOps workflows.</p>
+                </div>
+                <div className="qualys-feature-card" data-aos="fade-up" data-aos-delay="450">
+                  <div className="partner-icon-circle"><i className="fas fa-mobile-alt"></i></div>
+                  <h3>Endpoint Detection &amp; Response (EDR)</h3>
+                  <p>Advanced endpoint protection with behavioral monitoring, threat hunting, forensic analysis, and automated response capabilities for Windows, Mac, and Linux systems.</p>
+                </div>
+                <div className="qualys-feature-card" data-aos="fade-up" data-aos-delay="500">
+                  <div className="partner-icon-circle"><i className="fas fa-lock"></i></div>
+                  <h3>Container &amp; Cloud Security</h3>
+                  <p>Native cloud security for AWS, Azure, Google Cloud with container image scanning, Kubernetes security, and cloud configuration assessment.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Use Cases */}
+          <section className="qualys-use-cases">
+            <div className="container">
+              <div className="qualys-section-header" data-aos="fade-up">
+                <h2><i className="fas fa-rocket header-icon-glow"></i> Qualys Use Cases</h2>
+                <p>Successfully Deployed by Trace Network across diverse industry sectors</p>
+              </div>
+              <div className="qualys-cases-grid">
+
+                <div className="qualys-case-card" data-aos="fade-up" data-aos-delay="100">
+                  <div className="qualys-case-header">
+                    <span className="partner-icon-circle sm"><i className="fas fa-shield-alt"></i></span>
+                    <div>
+                      <h3>1. Defence Sector</h3>
+                      <span className="qualys-case-tag">Continuous Security Monitoring</span>
+                    </div>
+                  </div>
+                  <div className="qualys-case-body">
+                    <div className="qualys-case-problem"><h4><i className="fas fa-exclamation-triangle"></i> Problem:</h4><p>Defence organizations require continuous monitoring of critical infrastructure, systems, and endpoints against evolving cyber threats.</p>
+                      <Link to="/case-studies#qualys-cases" className="partner-read-more-btn">Read More <i className="fas fa-arrow-right"></i></Link></div>
+</div>
+                </div>
+
+                <div className="qualys-case-card" data-aos="fade-up" data-aos-delay="150">
+                  <div className="qualys-case-header">
+                    <span className="partner-icon-circle sm"><i className="fas fa-graduation-cap"></i></span>
+                    <div>
+                      <h3>2. Education Sector</h3>
+                      <span className="qualys-case-tag">Securing Campus Infrastructure</span>
+                    </div>
+                  </div>
+                  <div className="qualys-case-body">
+                    <div className="qualys-case-problem"><h4><i className="fas fa-exclamation-triangle"></i> Problem:</h4><p>Educational institutions require centralized visibility and protection for large-scale campus networks, servers, and endpoints.</p>
+                      <Link to="/case-studies#qualys-cases" className="partner-read-more-btn">Read More <i className="fas fa-arrow-right"></i></Link></div>
+</div>
+                </div>
+
+                <div className="qualys-case-card" data-aos="fade-up" data-aos-delay="200">
+                  <div className="qualys-case-header">
+                    <span className="partner-icon-circle sm"><i className="fas fa-shopping-cart"></i></span>
+                    <div>
+                      <h3>3. Retail Sector</h3>
+                      <span className="qualys-case-tag">Protecting POS &amp; Customer Systems</span>
+                    </div>
+                  </div>
+                  <div className="qualys-case-body">
+                    <div className="qualys-case-problem"><h4><i className="fas fa-exclamation-triangle"></i> Problem:</h4><p>Retail businesses require continuous monitoring of POS systems, branch networks, and customer-facing applications.</p>
+                      <Link to="/case-studies#qualys-cases" className="partner-read-more-btn">Read More <i className="fas fa-arrow-right"></i></Link></div>
+</div>
+                </div>
+
+                <div className="qualys-case-card" data-aos="fade-up" data-aos-delay="250">
+                  <div className="qualys-case-header">
+                    <span className="partner-icon-circle sm"><i className="fas fa-university"></i></span>
+                    <div>
+                      <h3>4. Banking Sector</h3>
+                      <span className="qualys-case-tag">Compliance &amp; Risk Management</span>
+                    </div>
+                  </div>
+                  <div className="qualys-case-body">
+                    <div className="qualys-case-problem"><h4><i className="fas fa-exclamation-triangle"></i> Problem:</h4><p>Banks require strict vulnerability management, compliance monitoring, and protection of sensitive financial systems.</p>
+                      <Link to="/case-studies#qualys-cases" className="partner-read-more-btn">Read More <i className="fas fa-arrow-right"></i></Link></div>
+</div>
+                </div>
+
+                <div className="qualys-case-card" data-aos="fade-up" data-aos-delay="300">
+                  <div className="qualys-case-header">
+                    <span className="partner-icon-circle sm"><i className="fas fa-hospital"></i></span>
+                    <div>
+                      <h3>5. Healthcare Sector</h3>
+                      <span className="qualys-case-tag">Protecting Critical Healthcare Infrastructure</span>
+                    </div>
+                  </div>
+                  <div className="qualys-case-body">
+                    <div className="qualys-case-problem"><h4><i className="fas fa-exclamation-triangle"></i> Problem:</h4><p>Hospitals and healthcare providers need to secure patient systems, medical applications, and connected healthcare devices.</p>
+                      <Link to="/case-studies#qualys-cases" className="partner-read-more-btn">Read More <i className="fas fa-arrow-right"></i></Link></div>
+</div>
+                </div>
+
+                <div className="qualys-case-card" data-aos="fade-up" data-aos-delay="350">
+                  <div className="qualys-case-header">
+                    <span className="partner-icon-circle sm"><i className="fas fa-building"></i></span>
+                    <div>
+                      <h3>6. Large Enterprises</h3>
+                      <span className="qualys-case-tag">Enterprise Risk Visibility</span>
+                    </div>
+                  </div>
+                  <div className="qualys-case-body">
+                    <div className="qualys-case-problem"><h4><i className="fas fa-exclamation-triangle"></i> Problem:</h4><p>Large organizations require centralized vulnerability management across multiple branches, cloud environments, and endpoints.</p>
+                      <Link to="/case-studies#qualys-cases" className="partner-read-more-btn">Read More <i className="fas fa-arrow-right"></i></Link></div>
+</div>
+                </div>
+
+                <div className="qualys-case-card qualys-case-card--wide">
+                  <div className="qualys-case-header">
+                    <span className="partner-icon-circle sm"><i className="fas fa-industry"></i></span>
+                    <div>
+                      <h3>7. Manufacturing Industry</h3>
+                      <span className="qualys-case-tag">Industrial Security &amp; Compliance</span>
+                    </div>
+                  </div>
+                  <div className="qualys-case-body qualys-case-body--row">
+                    <div className="qualys-case-problem"><h4><i className="fas fa-exclamation-triangle"></i> Problem:</h4><p>Manufacturing organizations require protection for production systems, industrial assets, and operational technology environments.</p>
+                      <Link to="/case-studies#qualys-cases" className="partner-read-more-btn">Read More <i className="fas fa-arrow-right"></i></Link></div>
+</div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+      {/* Career CTA Section */}
+      <section className="career-cta-section">
+        <div className="career-cta-container">
+          <h2 className="career-cta-title">Ready to Build a Future-Ready IT Environment?</h2>
+          <p className="career-cta-text">
+            Speak with a senior consultant today. In 30 minutes you'll know:
+            <br /><br />
+            • The top three risks hiding in your current stack<br />
+            • Quick wins that boost performance without new hardware<br />
+            • An exact timeline & cost estimate—no obligations
+          </p>
+
+          <div className="about-two__btn-box">
+            <a href="tel:9000314411" className="btn-get-started">
+              <span className="btn-text">Book Your Free Strategy Call </span>
+              <span className="btn-arrow"></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+
+
+          {/* Special Offer */}
+          <section className="qualys-special-offer" data-aos="zoom-in" data-aos-duration="1000">
+            <div className="container">
+              <div className="qualys-offer-banner">
+                <div className="qualys-offer-glow"></div>
+                <div className="qualys-offer-content">
+                  <div className="qualys-offer-badge"><span><i className="fas fa-gift"></i></span> EXCLUSIVE OFFER</div>
+                  <h2 className="qualys-offer-title"><i className="fas fa-fire"></i> FREE Vulnerability Assessment &amp; POC</h2>
+                  <p className="qualys-offer-subtitle"><i className="fas fa-gift"></i> Limited Time: Comprehensive Security Assessment at No Cost</p>
+                  <p className="qualys-offer-desc">
+                    Experience the power of Qualys vulnerability management and compliance platform firsthand. Our certified experts will conduct a complete security assessment of your environment and set up a tailored proof of concept - absolutely free, with no commitment required.
+                  </p>
+                  <div className="qualys-offer-highlights">
+                    <div className="qualys-offer-point"><span className="qualys-check">✓</span> <strong>Free Vulnerability Scan</strong> - Complete assessment of your IT infrastructure</div>
+                    <div className="qualys-offer-point"><span className="qualys-check">✓</span> <strong>Compliance Gap Analysis</strong> - Identify compliance gaps and remediation steps</div>
+                    <div className="qualys-offer-point"><span className="qualys-check">✓</span> <strong>Custom POC Setup</strong> - Tailored demonstration in your environment</div>
+                    <div className="qualys-offer-point"><span className="qualys-check">✓</span> <strong>Expert Consultation</strong> - Security recommendations from certified professionals</div>
+                    <div className="qualys-offer-point"><span className="qualys-check">✓</span> <strong>Exclusive Pricing</strong> - Special discounts on Qualys solutions</div>
+                    <div className="qualys-offer-point"><span className="qualys-check">✓</span> <strong>24/7 Support</strong> - Ongoing support and guidance throughout</div>
+                  </div>
+                  <div className="qualys-offer-cta">
+                    <Link to="/contact-us" className="qualys-contact-btn">
+                      <i className="fas fa-phone-alt"></i> Get Your FREE Security Assessment →
+                    </Link>
+                    <p className="offer-note">No upfront cost • No long-term commitment • Results in 48 hours</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+  );
+}

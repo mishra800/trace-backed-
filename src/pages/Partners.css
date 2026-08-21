@@ -1,0 +1,300 @@
+@import './partners/shared.css';
+
+/* ============================================================ */
+/* GLOBAL PARTNERS LAYOUT WRAPPER STYLES                        */
+/* ============================================================ */
+
+/* Scroll Progress Indicator styling */
+.scroll-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: transparent;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  background: var(--accent-color, #eb5a0f) !important;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.1s ease;
+  box-shadow: 0 0 20px var(--accent-glow, rgba(235, 90, 15, 0.6)) !important;
+}
+
+/* Common Entrance Animations used across all partner sub-elements */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Reduced Motion Support for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .scroll-progress-bar {
+    transition: none !important;
+  }
+}
+
+/* ============================================================ */
+/* ARUBA CASE STUDY CARDS — CaseStudies page #aruba-cases       */
+/* ============================================================ */
+
+.aruba-cs-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+}
+
+.aruba-cs-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 131, 0, 0.5);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 25px rgba(255, 131, 0, 0.15);
+}
+
+.aruba-cs-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.aruba-cs-card-header h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 5px 0;
+  line-height: 1.3;
+}
+
+.aruba-cs-icon {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(255, 131, 0, 0.18) 0%, rgba(255, 131, 0, 0.06) 100%);
+  border: 1px solid rgba(255, 131, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  color: #ff8300;
+}
+
+.aruba-cs-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  color: #ff8300;
+  background: rgba(255, 131, 0, 0.12);
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Coloured block sections */
+.aruba-cs-problem,
+.aruba-cs-solution,
+.aruba-cs-impact,
+.aruba-cs-strength {
+  padding: 16px 18px;
+  border-radius: 12px;
+  border-left: 3px solid transparent;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.aruba-cs-problem:hover,
+.aruba-cs-solution:hover,
+.aruba-cs-impact:hover,
+.aruba-cs-strength:hover {
+  transform: translateX(5px);
+}
+
+.aruba-cs-problem  { border-left-color: #f43f5e; background: rgba(244, 63, 94, 0.06); }
+.aruba-cs-solution { border-left-color: #ff8300; background: rgba(255, 131, 0, 0.06); }
+.aruba-cs-impact   { border-left-color: #10b981; background: rgba(16, 185, 129, 0.06); }
+.aruba-cs-strength { border-left-color: #ffb020; background: rgba(255, 176, 32, 0.06); }
+
+.aruba-cs-problem h4,
+.aruba-cs-solution h4,
+.aruba-cs-impact h4,
+.aruba-cs-strength h4 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.aruba-cs-problem h4 i  { color: #f43f5e; }
+.aruba-cs-solution h4 i { color: #ff8300; }
+.aruba-cs-impact h4 i   { color: #10b981; }
+.aruba-cs-strength h4 i { color: #ffb020; }
+
+.aruba-cs-problem p {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.aruba-cs-solution ul,
+.aruba-cs-impact ul,
+.aruba-cs-strength ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.aruba-cs-solution li,
+.aruba-cs-impact li,
+.aruba-cs-strength li {
+  color: #cbd5e1;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  padding-left: 20px;
+  position: relative;
+}
+
+.aruba-cs-solution li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #ff8300;
+  font-weight: 700;
+}
+
+.aruba-cs-impact li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #10b981;
+  font-weight: 700;
+}
+
+.aruba-cs-strength li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #ffb020;
+  font-weight: 700;
+}
+
+/* Dark background wrapper for the aruba-cases section */
+#aruba-cases {
+  background: #070a13;
+  border-radius: 24px;
+  padding: 60px 40px !important;
+}
+
+#aruba-cases .section-title__title {
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .aruba-cs-card {
+    padding: 22px 18px;
+  }
+  #aruba-cases {
+    padding: 40px 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .aruba-cs-card {
+    padding: 18px 14px;
+  }
+}
+
+/* ============================================================ */
+/* SHARED READ MORE BUTTON — all partner use case cards         */
+/* ============================================================ */
+
+.partner-read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 8px 20px;
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.15) 0%, rgba(244, 63, 94, 0.08) 100%);
+  border: 1px solid rgba(244, 63, 94, 0.4);
+  border-radius: 50px;
+  color: #f43f5e;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.partner-read-more-btn:hover {
+  background: linear-gradient(135deg, rgba(244, 63, 94, 0.3) 0%, rgba(244, 63, 94, 0.15) 100%);
+  border-color: #f43f5e;
+  color: #ffffff;
+  transform: translateX(4px);
+  box-shadow: 0 4px 15px rgba(244, 63, 94, 0.25);
+}
+
+.partner-read-more-btn i {
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.partner-read-more-btn:hover i {
+  transform: translateX(3px);
+}

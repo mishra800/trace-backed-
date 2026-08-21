@@ -1,0 +1,43 @@
+/* News Page Specific Styles - Prevent Owl Carousel Interference */
+
+#react-news-page {
+  /* Ensure this section is isolated from global carousel scripts */
+  position: relative;
+}
+
+#news-grid-container {
+  /* Prevent Owl Carousel from wrapping this */
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
+
+/* Prevent Owl Carousel classes from being applied */
+#react-news-page .owl-carousel,
+#react-news-page .owl-loaded,
+#react-news-page .owl-stage-outer,
+#react-news-page .owl-stage {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  position: static !important;
+  transform: none !important;
+  width: auto !important;
+}
+
+/* Hide any cloned items that Owl Carousel might create */
+#react-news-page .cloned,
+#react-news-page .owl-item.cloned {
+  display: none !important;
+}
+
+/* Ensure news cards are visible and properly styled */
+.news-card {
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+}
+
+/* Remove any Owl Carousel navigation that might appear */
+#react-news-page .owl-nav,
+#react-news-page .owl-dots {
+  display: none !important;
+}

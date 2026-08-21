@@ -1,0 +1,6261 @@
+/* 
+ * Sophos Partners Page Styles - Premium Design System
+ * Designed by Antigravity AI
+ * Harmonious color palettes, rich animations, responsive glassmorphism and modern typography.
+ */
+
+:root {
+  --sophos-blue: #007aff;
+  --sophos-blue-hover: #3395ff;
+  --sophos-blue-glow: rgba(0, 122, 255, 0.35);
+  --sophos-orange: #eb5a0f;
+  --sophos-orange-hover: #ff7324;
+  --sophos-orange-glow: rgba(235, 90, 15, 0.35);
+  --gold-award: #ffc107;
+  --gold-glow: rgba(255, 193, 7, 0.3);
+  --dark-bg-start: #030712;
+  --dark-bg-end: #09122c;
+  --card-bg: rgba(13, 25, 48, 0.45);
+  --card-border: rgba(0, 122, 255, 0.16);
+  --card-border-hover: rgba(0, 122, 255, 0.35);
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  
+  /* Heading accent — cyan-teal complement to the blue theme */
+  --heading-cyan: #00d4ff;
+  --heading-cyan-mid: #38bdf8;
+  --heading-cyan-deep: #0ea5e9;
+
+  /* Feature colors */
+  --firewall-color: #ef4444;
+  --endpoint-color: #3b82f6;
+  --cloud-color: #06b6d4;
+  --email-color: #8b5cf6;
+  --mdm-color: #ec4899;
+  --mdr-color: #10b981;
+}
+
+/* ── AWARD MDR TAGLINE ── */
+.award-mdr-tagline{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 18px 0 32px;
+  padding: 10px 20px;
+  background: rgba(0, 91, 200, 0.18);
+  border: 1px solid rgba(0, 91, 200, 0.4);
+  border-radius: 50px;
+  color: #e0f2fe;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.sophos-page .award-mdr-tagline i{
+  color: #fcd34d;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 576px) {
+  .sophos-page .award-mdr-tagline{
+    font-size: 0.85rem;
+    padding: 8px 14px;
+  }
+}
+
+/* ====================================================
+ * HEADING SHIMMER ANIMATION — Cyan-Teal Complement
+ * Applies a smooth wave of cyan light across all
+ * h1–h4 headings to complement the blue theme.
+ * ==================================================== */
+
+/* Keyframe: a highlight band slides left → right */
+@keyframes heading-shine{
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Applied to every h1–h4 inside .sophos-page that hasn't
+   already been given a specific colour via an inline
+   gradient (those keep their own colours untouched). */
+
+/* ── Light-theme heading shimmer: dark navy → Sophos Blue → navy ──────────
+   Replaces the original cyan-on-dark shimmer so text is always readable
+   against the new sky-blue backgrounds.
+   ────────────────────────────────────────────────────────────────────────── */
+.sophos-page h1:not(.gradient-text):not([class*="gradient"]), 
+.sophos-page h2:not(.gradient-text):not([class*="gradient"]), 
+.sophos-page h3:not(.gradient-text):not([class*="gradient"]), 
+.sophos-page h4:not(.gradient-text):not([class*="gradient"]) {
+  background: linear-gradient(
+    90deg,
+    #0a1929  0%,
+    #007aff  20%,
+    #0a3870  35%,
+    #007aff  50%,
+    #0a1929  65%,
+    #007aff  80%,
+    #0a1929  100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: heading-shine 5s linear infinite;
+  will-change: background-position;
+}
+
+/* Ensure span children with their own animated colours are not suppressed */
+.sophos-page h2 .gradient-text, 
+.sophos-page h3 .gradient-text, 
+.sophos-page h4 .gradient-text, 
+.sophos-page h2 .white-text, 
+.sophos-page h3 .white-text, 
+.sophos-page h4 .white-text, 
+.sophos-page h1 .why-title-highlight, 
+.sophos-page h2 .why-title-highlight, 
+.sophos-page h1 .highlight-gold, 
+.sophos-page h2 .highlight-gold {
+  animation: sophos-gold-shine 2.8s ease-in-out infinite;
+}
+
+/* Award title spans (h1) — gold sweep takes full priority */
+.sophos-page h1 .gradient-text, 
+.sophos-page h1 .white-text {
+  animation: sophos-gold-shine 2.8s ease-in-out infinite !important;
+  background: linear-gradient(
+    90deg,
+    #1a1a2e  0%,
+    #1a1a2e  10%,
+    #c8590a  25%,
+    #f59e0b  38%,
+    #fde68a  50%,
+    #f59e0b  62%,
+    #c8590a  75%,
+    #1a1a2e  90%,
+    #1a1a2e  100%
+  ) !important;
+  background-size: 300% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Also apply to headings that already have class-level colours */
+.sophos-page .award-title, 
+.sophos-page .sophos-hero-title, 
+.sophos-page .award-section-title, 
+.sophos-page .why-main-title, 
+.sophos-page .cert-carousel-header h2, 
+.sophos-page .title-content h2, 
+.sophos-page .award-title-bottom, 
+.sophos-page .pp-highlight-card-premium h4, 
+.sophos-page .cert-card-header-premium h3, 
+.sophos-page .cert-item-premium h4, 
+.sophos-page .wsbb-title, 
+.sophos-page .closing-content-enhanced h2, 
+.sophos-page .solution-category h3, 
+.sophos-page .solution-details h4, 
+.sophos-page .cert-card-header h3 {
+  background: linear-gradient(
+    90deg,
+    #0a1929  0%,
+    #007aff  20%,
+    #0a3870  35%,
+    #007aff  50%,
+    #0a1929  65%,
+    #007aff  80%,
+    #0a1929  100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: heading-shine 5s linear infinite;
+  will-change: background-position;
+}
+
+/* Stagger the animation on different heading levels so they
+   don't all pulse in perfect sync — feels more organic. */
+.sophos-page h2, 
+.sophos-page .title-content h2, 
+.sophos-page .cert-carousel-header h2 {
+  animation-delay: 0.5s;
+}
+.sophos-page h3, 
+.sophos-page .wsbb-title, 
+.sophos-page .cert-card-header-premium h3 {
+  animation-delay: 1s;
+}
+.sophos-page h4, 
+.sophos-page .cert-item-premium h4, 
+.sophos-page .pp-highlight-card-premium h4 {
+  animation-delay: 1.5s;
+}
+
+/* ====================================================
+ * END HEADING SHIMMER
+ * ==================================================== */
+
+/* ----------------------------------------------------
+ * Animated Background Canvas
+ * ---------------------------------------------------- */
+.animated-bg-canvas{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+  mix-blend-mode: screen;
+  will-change: transform; /* promote to compositor layer */
+}
+
+
+/* Base resets & styles inside .sophos-page */
+.sophos-page{
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at top right, rgba(0, 122, 255, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom left, rgba(0, 90, 200, 0.18) 0%, transparent 50%),
+    linear-gradient(155deg, #e8f4ff 0%, #cce2ff 40%, #daeeff 70%, #edf6ff 100%);
+  color: #0a1929;
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+/* Subtle dot-grid overlay on light background */
+.sophos-page::before{
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    linear-gradient(rgba(0, 122, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 122, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 1;
+}
+
+/* Soft radial accent — top right */
+.sophos-page::after{
+  content: '';
+  position: absolute;
+  top: -10%; right: -5%;
+  width: 60%; height: 80%;
+  background: radial-gradient(ellipse at center, rgba(0, 122, 255, 0.1) 0%, transparent 60%);
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.sophos-page * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container */
+.sophos-page .container{
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Animations */
+@keyframes fadeInUp{
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+@keyframes bounce {
+  0%,  20%,  50%,  80%,  100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+  60% { transform: translateY(-4px); }
+}
+
+@keyframes float {
+  0%,  100% { transform: translate3d(0, 0px, 0); }
+  50% { transform: translate3d(0, -10px, 0); }
+}
+
+@keyframes trophy-float {
+  0%,  100% { transform: translate3d(0, 0px, 0) scale(1); }
+  50% { transform: translate3d(0, -12px, 0) scale(1.02); }
+}
+
+@keyframes pulse {
+  0%,  100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
+  50% { transform: translate(-50%, -50%) scale(1.08); opacity: 0.7; }
+}
+
+@keyframes pulse-yellow {
+  0%,  100% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 193, 7, 0.4); }
+  50% { transform: scale(1.03); box-shadow: 0 0 25px rgba(255, 193, 7, 0.7); }
+}
+
+@keyframes progress-shine {
+  0%,  100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+/* Applying animations */
+.sophos-hero, 
+.sophos-page .why-sophos, 
+.sophos-page .certifications, 
+.sophos-page .enhanced-certifications, 
+.sophos-page .enhanced-closing-statement{
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+
+.sophos-page .enhanced-solutions-grid .solution-category:nth-child(1){ animation-delay: 0.1s; }
+.sophos-page .enhanced-solutions-grid .solution-category:nth-child(2){ animation-delay: 0.2s; }
+.sophos-page .enhanced-solutions-grid .solution-category:nth-child(3){ animation-delay: 0.3s; }
+.sophos-page .enhanced-solutions-grid .solution-category:nth-child(4){ animation-delay: 0.4s; }
+
+/* Interactive Hover transitions */
+.feature-card, 
+.sophos-page .cert-card-new, 
+.sophos-page .metric-card{
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sophos-page .feature-card:hover, 
+.sophos-page .cert-card-new:hover, 
+.sophos-page .metric-card:hover{
+  transform: translateY(-6px);
+  border-color: rgba(235, 90, 15, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ----------------------------------------------------
+ * 1. Sophos Award Highlight Section - New Design
+ * ---------------------------------------------------- */
+/* ── 6. HERO / AWARD HIGHLIGHT — premium light-blue animated gradient ─────── */
+.sophos-award-highlight{
+  position: relative;
+  padding: 100px 0;
+  background:
+    linear-gradient(-45deg,
+      #bdd7ff 0%,
+      #e8f4ff 25%,
+      #c4deff 50%,
+      #f0f8ff 75%,
+      #bdd7ff 100%
+    );
+  background-size: 400% 400%;
+  animation: award-gradient-shift 14s ease-in-out infinite;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 122, 255, 0.2);
+  isolation: isolate;
+}
+
+@keyframes award-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.sophos-page .sophos-award-highlight::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(45deg, transparent 48%, rgba(59, 130, 246, 0.08) 50%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, rgba(96, 165, 250, 0.08) 50%, transparent 52%);
+  background-size: 60px 60px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.sophos-page .sophos-award-highlight::after{
+  content: '';
+  position: absolute;
+  bottom: -50%;
+  right: -10%;
+  width: 60%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+}
+
+.sophos-page .award-celebration{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.sophos-page .award-content{
+  text-align: left;
+}
+
+.sophos-page .award-badge-large{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(59, 130, 246, 0.15);
+  border: 2px solid rgba(96, 165, 250, 0.4);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 30px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+}
+
+.sophos-page .award-badge-large .award-icon{
+  color: #60a5fa;
+  font-size: 1rem;
+}
+
+.sophos-page .award-badge-large .award-text{
+  color: #e0f2fe;
+}
+
+.sophos-page .award-title{
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 25px;
+  letter-spacing: -0.02em;
+}
+
+.sophos-page .gradient-text{
+  background: linear-gradient(
+    90deg,
+    #1a1a2e  0%,
+    #1a1a2e  10%,
+    #c8590a  25%,
+    #f59e0b  38%,
+    #fde68a  50%,
+    #f59e0b  62%,
+    #c8590a  75%,
+    #1a1a2e  90%,
+    #1a1a2e  100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: sophos-gold-shine 2.8s ease-in-out infinite;
+  font-weight: 900;
+}
+
+@keyframes sophos-gold-shine {
+  0%   { background-position: 150% center; }
+  100% { background-position: -150% center; }
+}
+
+.sophos-page .white-text{
+  background: linear-gradient(
+    90deg,
+    #1a1a2e  0%,
+    #1a1a2e  10%,
+    #c8590a  25%,
+    #f59e0b  38%,
+    #fde68a  50%,
+    #f59e0b  62%,
+    #c8590a  75%,
+    #1a1a2e  90%,
+    #1a1a2e  100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: sophos-gold-shine 2.8s ease-in-out infinite;
+  animation-delay: 0.5s;
+  font-weight: 900;
+  display: inline-block;
+}
+
+.sophos-page .award-description{
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+/* Stats Boxes Grid */
+.award-stats-boxes{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.sophos-page .stat-box{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 20px;
+  background: rgba(15, 35, 70, 0.5);
+  border: 2px solid rgba(59, 130, 246, 0.4);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.sophos-page .stat-box::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.sophos-page .stat-box:hover::before{
+  left: 100%;
+}
+
+.sophos-page .stat-box:hover{
+  background: rgba(30, 58, 138, 0.6);
+  border-color: rgba(96, 165, 250, 0.7);
+  transform: translateY(-4px);
+  box-shadow: 
+    0 10px 40px rgba(59, 130, 246, 0.4),
+    0 0 30px rgba(59, 130, 246, 0.3),
+    inset 0 0 20px rgba(59, 130, 246, 0.1);
+}
+
+.sophos-page .stat-icon-circle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(96, 165, 250, 0.3));
+  border: 2px solid rgba(96, 165, 250, 0.6);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.sophos-page .stat-icon-circle::before{
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(147, 197, 253, 0.5), rgba(59, 130, 246, 0.3));
+  z-index: -1;
+  filter: blur(8px);
+  opacity: 0.6;
+}
+
+.sophos-page .stat-icon-circle i{
+  font-size: 1.4rem;
+  color: #93c5fd;
+  filter: drop-shadow(0 0 8px rgba(147, 197, 253, 0.8));
+}
+
+.sophos-page .stat-content{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sophos-page .stat-content .stat-number{
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+  text-shadow: 
+    0 0 20px rgba(96, 165, 250, 0.8),
+    0 0 40px rgba(59, 130, 246, 0.5);
+}
+
+.sophos-page .stat-content .stat-label{
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #cbd5e1;
+  line-height: 1.3;
+}
+
+/* Award Image Container */
+.award-image-container{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Hero Award Auto-Slider */
+.award-image-slider{
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+  border-radius: 32px;
+  overflow: hidden !important;
+  background: rgba(30, 58, 138, 0.25);
+  border: 2px solid rgba(59, 130, 246, 0.4);
+  box-shadow: 
+    0 0 40px rgba(59, 130, 246, 0.6),
+    0 0 80px rgba(59, 130, 246, 0.4),
+    inset 0 0 40px rgba(59, 130, 246, 0.1);
+  padding: 16px 16px 28px 16px;
+}
+
+.sophos-page .award-image-slider::before{
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.8) 0%, 
+    rgba(147, 197, 253, 0.6) 25%,
+    rgba(59, 130, 246, 0.4) 50%,
+    rgba(147, 197, 253, 0.6) 75%,
+    rgba(59, 130, 246, 0.8) 100%);
+  border-radius: 32px;
+  z-index: 0;
+  animation: glowing-border 3s linear infinite;
+  filter: blur(4px);
+}
+
+@keyframes glowing-border {
+  0%,  100% { 
+    opacity: 0.8;
+    filter: blur(4px) brightness(1);
+  }
+  50% { 
+    opacity: 1;
+    filter: blur(6px) brightness(1.2);
+  }
+}
+
+.sophos-page .award-image-slides{
+  display: flex;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.sophos-page .award-slide-item{
+  flex: 0 0 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+}
+
+.sophos-page .award-slide-item img{
+  width: 100%;
+  max-width: 500px;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 3px solid rgba(147, 197, 253, 0.8);
+  box-shadow: 
+    0 0 0 3px rgba(59, 130, 246, 0.6),
+    0 20px 50px rgba(0, 0, 0, 0.8);
+  filter: brightness(1.1) contrast(1.05);
+}
+
+.sophos-page .award-slider-dots{
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.sophos-page .award-slider-dot{
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(59, 130, 246, 0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.sophos-page .award-slider-dot.active{
+  width: 32px;
+  border-radius: 20px;
+  background: #60a5fa;
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.9);
+}
+
+.sophos-page .award-glow{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 160%;
+  height: 160%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(96, 165, 250, 0.2) 40%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 4s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+  filter: blur(20px);
+  will-change: transform, opacity;
+}
+
+/* Award Highlights List */
+.award-highlights{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 20px;
+}
+
+.sophos-page .highlight-item{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: rgba(30, 58, 138, 0.3);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.sophos-page .highlight-item:hover{
+  background: rgba(30, 58, 138, 0.5);
+  border-color: rgba(96, 165, 250, 0.5);
+  transform: translateX(6px);
+}
+
+.sophos-page .highlight-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(96, 165, 250, 0.2));
+  border: 1.5px solid rgba(96, 165, 250, 0.4);
+  color: #60a5fa;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.sophos-page .highlight-text{
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  line-height: 1.4;
+}
+
+/* ----------------------------------------------------
+ * 2. Award Trophy Display Section - Modern Design with Animated Blue Border
+ * ---------------------------------------------------- */
+.award-trophy-display{
+  padding: 60px 0 80px 0;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  border-top: 2px solid rgba(59, 130, 246, 0.4);
+  border-bottom: 2px solid rgba(59, 130, 246, 0.4);
+  isolation: isolate;
+}
+
+.sophos-page .award-ceremony-bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: transparent;
+  /* Transparent overlay — page background shows through */
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.sophos-page .award-geometric-lines{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, transparent 49.5%, rgba(59, 130, 246, 0.08) 49.5%, rgba(59, 130, 246, 0.08) 50.5%, transparent 50.5%),
+    linear-gradient(0deg, transparent 49.5%, rgba(96, 165, 250, 0.06) 49.5%, rgba(96, 165, 250, 0.06) 50.5%, transparent 50.5%);
+  background-size: 100px 100px;
+  opacity: 0.4;
+  z-index: 2;
+}
+
+.sophos-page .award-particle-dots{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(59, 130, 246, 0.15) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.5;
+  z-index: 2;
+  animation: particleFloat 20s linear infinite;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-10px) translateX(10px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+.sophos-page .award-wave-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  opacity: 0.3;
+  background: 
+    radial-gradient(ellipse at 20% 30%, rgba(30, 90, 220, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(59, 130, 246, 0.4) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(96, 165, 250, 0.3) 0%, transparent 60%);
+  animation: waveMovement 12s ease-in-out infinite;
+}
+
+@keyframes waveMovement {
+  0%,  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  33% {
+    transform: translate(30px, -20px) scale(1.05);
+    opacity: 0.4;
+  }
+  66% {
+    transform: translate(-20px, 30px) scale(0.98);
+    opacity: 0.35;
+  }
+}
+
+.sophos-page .trophy-showcase{
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Left Card - Award Highlights */
+.trophy-content{
+  position: relative;
+  background: rgba(10, 25, 60, 0.5);
+  border-radius: 32px;
+  padding: 20px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 60px rgba(30, 80, 200, 0.15);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(59, 130, 246, 0.3);
+}
+
+/* Animated glowing border on the outer rectangle - left card */
+.trophy-content::before{
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg,
+    rgba(59, 130, 246, 0.8) 0%,
+    rgba(147, 197, 253, 0.6) 25%,
+    rgba(59, 130, 246, 0.4) 50%,
+    rgba(147, 197, 253, 0.6) 75%,
+    rgba(59, 130, 246, 0.8) 100%);
+  border-radius: 34px;
+  z-index: -1;
+  animation: glowing-border 3s linear infinite;
+  filter: blur(4px);
+}
+
+.sophos-page .award-highlights-card{
+  background: linear-gradient(135deg, rgba(8, 18, 45, 0.92) 0%, rgba(6, 14, 38, 0.95) 100%);
+  backdrop-filter: blur(16px);
+  border: 2px solid rgba(59, 130, 246, 0.6);
+  border-radius: 24px;
+  padding: 45px 35px;
+  box-shadow: 
+    0 25px 70px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(96, 165, 250, 0.3),
+    0 0 50px rgba(59, 130, 246, 0.25);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.sophos-page .award-highlights-card::before{
+  content: none;
+}
+
+.sophos-page .award-highlights-card::after{
+  content: none;
+}
+
+.sophos-page .award-icon-header{
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #1e5fd6 0%, #3b82f6 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.5);
+}
+
+.sophos-page .award-icon-header i{
+  font-size: 32px;
+  color: #fff;
+}
+
+.sophos-page .award-section-title{
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1.3;
+  color: #60a5fa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+
+.sophos-page .recognition-badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(96, 165, 250, 0.4);
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.sophos-page .recognition-badge i{
+  color: #60a5fa;
+  font-size: 14px;
+}
+
+.sophos-page .recognition-badge span{
+  color: #93c5fd;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.sophos-page .award-details-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sophos-page .award-details-list li{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(59, 130, 246, 0.05);
+  border-left: 3px solid #3b82f6;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.sophos-page .award-details-list li:hover{
+  background: rgba(59, 130, 246, 0.12);
+  transform: translateX(5px);
+}
+
+.sophos-page .award-details-list li i{
+  color: #60a5fa;
+  font-size: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.sophos-page .award-details-list li div{
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.sophos-page .award-details-list li strong{
+  color: #ffffff;
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+/* Right Card - Award Certificate */
+.trophy-image-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(10, 25, 60, 0.5);
+  border-radius: 32px;
+  padding: 20px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 60px rgba(30, 80, 200, 0.15);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  position: relative;
+}
+
+/* Animated glowing border on the outer rectangle - right card */
+.trophy-image-container::before{
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg,
+    rgba(59, 130, 246, 0.8) 0%,
+    rgba(147, 197, 253, 0.6) 25%,
+    rgba(59, 130, 246, 0.4) 50%,
+    rgba(147, 197, 253, 0.6) 75%,
+    rgba(59, 130, 246, 0.8) 100%);
+  border-radius: 34px;
+  z-index: -1;
+  animation: glowing-border 3s linear infinite;
+  filter: blur(4px);
+}
+
+.sophos-page .award-card-right{
+  background: linear-gradient(135deg, rgba(8, 18, 45, 0.92) 0%, rgba(6, 14, 38, 0.95) 100%);
+  backdrop-filter: blur(16px);
+  border: 2.5px solid rgba(59, 130, 246, 0.6);
+  border-radius: 28px;
+  padding: 40px 35px;
+  box-shadow: 
+    0 25px 70px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(96, 165, 250, 0.3),
+    0 0 50px rgba(59, 130, 246, 0.25);
+  position: relative;
+  max-width: 550px;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Animated moving blue border for right card */
+.award-card-right::after{
+  content: none;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotating-border {
+  from { --angle: 0deg; }
+  to   { --angle: 360deg; }
+}
+
+.sophos-page .award-card-right::before{
+  content: none;
+}
+
+.sophos-page .sophos-brand-header{
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.sophos-page .sophos-logo-text{
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+
+.sophos-page .celebrating-text{
+  font-family: 'Brush Script MT', cursive, serif;
+  font-size: 2rem;
+  color: #60a5fa;
+  text-align: center;
+  margin: 15px 0 25px 0;
+  position: relative;
+}
+
+.sophos-page .decorative-line{
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+  margin: 8px auto 0;
+}
+
+.sophos-page .award-photo-frame{
+  position: relative;
+  margin: 0 auto 25px;
+  max-width: 100%;
+  border: 3px solid rgba(59, 130, 246, 0.6);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.6),
+    inset 0 0 20px rgba(59, 130, 246, 0.1);
+}
+
+.sophos-page .award-photo-frame img{
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(1.05) contrast(1.05);
+}
+
+.sophos-page .frame-glow{
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  right: -20%;
+  bottom: -20%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%);
+  animation: glow-pulse 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes glow-pulse {
+  0%,  100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.sophos-page .award-title-bottom{
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #60a5fa;
+  text-align: center;
+  margin: 15px 0 8px 0;
+  line-height: 1.3;
+}
+
+.sophos-page .award-region{
+  font-size: 1.05rem;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+
+.sophos-page .award-contact-bar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px 20px;
+  background: rgba(59, 130, 246, 0.08);
+  border-radius: 12px;
+  border: 1px solid rgba(96, 165, 250, 0.25);
+}
+
+.sophos-page .contact-item{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #e0e0e0;
+  font-size: 0.9rem;
+}
+
+.sophos-page .contact-item i{
+  color: #60a5fa;
+  font-size: 14px;
+}
+
+.sophos-page .contact-divider{
+  width: 1px;
+  height: 20px;
+  background: rgba(96, 165, 250, 0.3);
+}
+
+/* Trace Logo Badge */
+.trace-logo-badge{
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 90px;
+  height: auto;
+}
+
+.sophos-page .trace-logo-badge img{
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 4px 12px rgba(59, 130, 246, 0.4));
+}
+
+/* ----------------------------------------------------
+ * 3. Hero Section (Compact & Default)
+ * ---------------------------------------------------- */
+.sophos-hero{
+  position: relative;
+  padding: 80px 0 100px;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(5, 10, 30, 0.35) 0%, rgba(10, 20, 55, 0.28) 50%, rgba(5, 10, 30, 0.35) 100%),
+    url('/assets/images/bggg.jpg') center center / cover no-repeat;
+}
+
+.sophos-page .sophos-hero::before{
+  content: none;
+}
+
+.sophos-page .sophos-hero::after{
+  content: none;
+}
+
+.sophos-page .sophos-hero.hero-compact{
+  padding: 100px 0 70px;
+}
+
+.sophos-page .sophos-hero-bg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at 5% 50%, rgba(180, 60, 10, 0.2) 0%, transparent 45%),
+    radial-gradient(ellipse at 85% 15%, rgba(0, 122, 255, 0.2) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sophos-page .sophos-hero-content{
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sophos-page .sophos-badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(0, 91, 200, 0.2) 0%, rgba(235, 90, 15, 0.08) 100%);
+  border: 1px solid rgba(0, 91, 200, 0.3);
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 28px;
+  backdrop-filter: blur(10px);
+  color: #fff;
+}
+
+.sophos-page .sophos-badge .badge-icon{
+  color: var(--sophos-blue);
+  font-size: 1.1rem;
+}
+
+.sophos-page .sophos-hero-title{
+  font-size: clamp(3.2rem, 6.5vw, 6rem);
+  font-weight: 850;
+  line-height: 1.1;
+  margin-bottom: 28px;
+  letter-spacing: -0.02em;
+}
+
+.sophos-page .sophos-hero-desc{
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  max-width: 750px;
+  margin: 0 auto 40px;
+  line-height: 1.65;
+}
+
+.sophos-page .sophos-hero-stats{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+  padding: 30px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+}
+
+.sophos-page .stat-item{
+  text-align: center;
+}
+
+.sophos-page .stat-item .stat-number{
+  display: block;
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--sophos-blue);
+  margin-bottom: 6px;
+  text-shadow: 0 0 20px var(--sophos-blue-glow);
+}
+
+.sophos-page .stat-item .stat-label{
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* ----------------------------------------------------
+ * 4. Why Choose Sophos Section - Image-Matching Design
+ * ---------------------------------------------------- */
+.why-sophos{
+  padding: 80px 0;
+  background: linear-gradient(135deg, #004aaa 0%, #005BC8 50%, #004aaa 100%);
+  position: relative;
+  overflow: hidden;
+  contain: layout style;
+}
+
+/* ── Layer 1: slow-rotating conic shimmer ── */
+.why-sophos::before{
+  content: '';
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent        0deg,
+    rgba(30, 90, 220, 0.06)  60deg,
+    transparent        120deg,
+    rgba(96, 165, 250, 0.08) 180deg,
+    transparent        240deg,
+    rgba(30, 90, 220, 0.06)  300deg,
+    transparent        360deg
+  );
+  animation: why-conic-spin 18s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes why-conic-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Layer 2: drifting dot grid ── */
+.why-sophos::after{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle 1.5px at 1px 1px, rgba(96, 165, 250, 0.3) 0%, transparent 100%);
+  background-size: 48px 48px;
+  animation: why-grid-drift 25s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 80%);
+}
+
+@keyframes why-grid-drift {
+  0%   { background-position: 0px 0px; }
+  100% { background-position: 48px 48px; }
+}
+
+/* ── Floating orbs ── */
+.why-sophos .why-orb-1, 
+.sophos-page .why-sophos .why-orb-2, 
+.sophos-page .why-sophos .why-orb-3{
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+.sophos-page .why-sophos .why-orb-1{
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(30, 90, 220, 0.28) 0%, transparent 70%);
+  top: -80px;
+  left: -60px;
+  animation: why-orb-float-a 12s ease-in-out infinite;
+}
+
+.sophos-page .why-sophos .why-orb-2{
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.22) 0%, transparent 70%);
+  bottom: -60px;
+  right: -40px;
+  animation: why-orb-float-b 15s ease-in-out infinite;
+}
+
+.sophos-page .why-sophos .why-orb-3{
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(218, 165, 32, 0.12) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: why-orb-float-c 20s ease-in-out infinite;
+}
+
+@keyframes why-orb-float-a {
+  0%,  100% { transform: translate(0px, 0px) scale(1); }
+  33%       { transform: translate(40px, 30px) scale(1.08); }
+  66%       { transform: translate(-20px, 50px) scale(0.95); }
+}
+
+@keyframes why-orb-float-b {
+  0%,  100% { transform: translate(0px, 0px) scale(1); }
+  40%       { transform: translate(-50px, -35px) scale(1.1); }
+  70%       { transform: translate(20px, -60px) scale(0.92); }
+}
+
+@keyframes why-orb-float-c {
+  0%,  100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.6; }
+  50%       { transform: translate(-50%, -55%) scale(1.15); opacity: 1;   }
+}
+
+.sophos-page .why-sophos .container{
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Top Row: Left text + Right shield ── */
+.why-sophos-top-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.sophos-page .why-sophos-left{
+  flex: 1;
+  max-width: 520px;
+}
+
+.sophos-page .why-sophos-label-row{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.sophos-page .why-header-icon{
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, #DAA520 0%, #FFD700 100%);
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(218, 165, 32, 0.45);
+}
+
+.sophos-page .why-header-icon i{
+  font-size: 24px;
+  color: #001B52;
+}
+
+.sophos-page .why-choose-label{
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #DAA520;
+}
+
+.sophos-page .why-main-title{
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 300;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+
+.sophos-page .why-title-highlight{
+  font-weight: 700;
+  display: block;
+  color: #5BA3E0;
+  background: linear-gradient(90deg, #5BA3E0 0%, #a8d4f5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sophos-page .why-title-divider{
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #DAA520, transparent);
+  border-radius: 2px;
+  margin: 20px 0;
+}
+
+.sophos-page .why-subtitle{
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+}
+
+/* ── Right shield image ── */
+.why-sophos-right{
+  flex: 0 0 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.sophos-page .why-sophos-shield-img{
+  width: 100%;
+  max-width: 360px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 40px rgba(91, 163, 224, 0.4));
+  animation: shield-float 6s ease-in-out infinite;
+}
+
+@keyframes shield-float {
+  0%,  100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+.sophos-page .why-sophos-shield-fallback{
+  display: none;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, #0a2c7a 0%, #1e5ae8 50%, #5ba3e0 100%);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 60px rgba(91, 163, 224, 0.5);
+}
+
+.sophos-page .why-sophos-shield-fallback i{
+  font-size: 80px;
+  color: #ffffff;
+}
+
+/* ── Sophos partner image ── */
+.why-sophos-image-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+/* Rotating glow ring behind the image */
+.why-sophos-image-wrapper::before{
+  content: '';
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(91, 163, 224, 0.35) 60deg,
+    transparent 120deg,
+    rgba(30, 90, 220, 0.25) 200deg,
+    transparent 270deg,
+    rgba(96, 165, 250, 0.3) 330deg,
+    transparent 360deg
+  );
+  animation: img-ring-spin 10s linear infinite;
+  filter: blur(18px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Pulsing soft halo */
+.why-sophos-image-wrapper::after{
+  content: '';
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(91, 163, 224, 0.22) 0%, transparent 70%);
+  animation: img-halo-pulse 4s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes img-ring-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes img-halo-pulse {
+  0%,  100% { transform: scale(1);    opacity: 0.6; }
+  50%       { transform: scale(1.18); opacity: 1;   }
+}
+
+.sophos-page .why-sophos-partner-img{
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 20px;
+  position: relative;
+  z-index: 1;
+
+  /* Blend modes so dark edges dissolve into the navy background */
+  mix-blend-mode: luminosity;
+  opacity: 0.92;
+
+  /* Vignette fade on all edges to merge with bg */
+  -webkit-mask-image:
+    radial-gradient(ellipse 88% 85% at 50% 50%, black 40%, transparent 100%);
+  mask-image:
+    radial-gradient(ellipse 88% 85% at 50% 50%, black 40%, transparent 100%);
+
+  /* Glow + float */
+  filter:
+    drop-shadow(0 0 30px rgba(91, 163, 224, 0.55))
+    drop-shadow(0 0 60px rgba(30, 90, 220, 0.3))
+    brightness(1.08)
+    saturate(1.1);
+
+  animation: sophos-img-float 7s ease-in-out infinite;
+  transition: opacity 0.4s ease, filter 0.4s ease;
+}
+
+.sophos-page .why-sophos-partner-img:hover{
+  opacity: 1;
+  mix-blend-mode: normal;
+  filter:
+    drop-shadow(0 0 45px rgba(91, 163, 224, 0.75))
+    drop-shadow(0 0 80px rgba(30, 90, 220, 0.45))
+    brightness(1.12)
+    saturate(1.2);
+}
+
+@keyframes sophos-img-float {
+  0%,  100% {
+    transform: translateY(0px) scale(1);
+    filter:
+      drop-shadow(0 0 30px rgba(91, 163, 224, 0.55))
+      drop-shadow(0 0 60px rgba(30, 90, 220, 0.3))
+      brightness(1.08)
+      saturate(1.1);
+  }
+  33% {
+    transform: translateY(-10px) scale(1.02);
+    filter:
+      drop-shadow(0 0 45px rgba(91, 163, 224, 0.75))
+      drop-shadow(0 0 80px rgba(30, 90, 220, 0.45))
+      brightness(1.12)
+      saturate(1.15);
+  }
+  66% {
+    transform: translateY(-5px) scale(0.99);
+    filter:
+      drop-shadow(0 0 25px rgba(91, 163, 224, 0.45))
+      drop-shadow(0 0 50px rgba(30, 90, 220, 0.25))
+      brightness(1.06)
+      saturate(1.08);
+  }
+}
+
+/* ── Bottom Banner ── */
+.why-sophos-bottom-banner{
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: rgba(8, 18, 42, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(91, 163, 224, 0.25);
+  border-radius: 18px;
+  padding: 28px 36px;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.sophos-page .why-sophos-bottom-banner::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(218, 165, 32, 0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.sophos-page .wsbb-left{
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+  flex: 1;
+  min-width: 0;
+}
+
+.sophos-page .wsbb-badge-circle{
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, #DAA520 0%, #8B6914 100%);
+  border: 3px solid rgba(218, 165, 32, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(218, 165, 32, 0.35);
+}
+
+.sophos-page .wsbb-badge-circle i{
+  font-size: 34px;
+  color: #fff8dc;
+}
+
+.sophos-page .wsbb-text{
+  flex: 1;
+  min-width: 0;
+}
+
+.sophos-page .wsbb-title{
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #DAA520;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  margin-bottom: 10px;
+}
+
+.sophos-page .wsbb-desc{
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.sophos-page .wsbb-divider{
+  width: 1px;
+  height: 90px;
+  background: rgba(91, 163, 224, 0.3);
+  margin: 0 36px;
+  flex-shrink: 0;
+}
+
+.sophos-page .wsbb-features{
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.sophos-page .wsbb-feature-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.sophos-page .wsbb-feature-icon{
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 2px solid rgba(218, 165, 32, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(218, 165, 32, 0.1);
+  transition: all 0.3s ease;
+}
+
+.sophos-page .wsbb-feature-icon:hover{
+  background: rgba(218, 165, 32, 0.2);
+  border-color: #DAA520;
+  box-shadow: 0 0 20px rgba(218, 165, 32, 0.3);
+}
+
+.sophos-page .wsbb-feature-icon i{
+  font-size: 22px;
+  color: #DAA520;
+}
+
+.sophos-page .wsbb-feature-label{
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px){
+  .why-sophos-top-row {
+    gap: 30px;
+  }
+  .sophos-page .why-sophos-right{
+    flex: 0 0 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sophos-page .why-sophos-top-row{
+    flex-direction: column;
+    text-align: center;
+  }
+  .sophos-page .why-sophos-label-row{
+    justify-content: center;
+  }
+  .sophos-page .why-sophos-right{
+    flex: none;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .sophos-page .why-title-divider{
+    margin: 20px auto;
+  }
+  .sophos-page .why-sophos-bottom-banner{
+    flex-direction: column;
+    text-align: center;
+    gap: 28px;
+    padding: 28px 24px;
+  }
+  .sophos-page .wsbb-left{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .sophos-page .wsbb-divider{
+    width: 90px;
+    height: 1px;
+    margin: 0 auto;
+  }
+  .sophos-page .wsbb-features{
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sophos-page .wsbb-features{
+    gap: 16px;
+  }
+  .sophos-page .wsbb-feature-label{
+    font-size: 0.75rem;
+  }
+}
+
+/* ----------------------------------------------------
+ * 5. Platinum Partner Section - PREMIUM DESIGN
+ * ---------------------------------------------------- */
+.platinum-partner-premium{
+  padding: 100px 0;
+  position: relative;
+  background: rgba(5, 10, 30, 0.45);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ── Layer 1: animated diagonal gold-blue gradient sweep ── */
+.platinum-partner-premium::before{
+  content: '';
+  position: absolute;
+  inset: -100%;
+  width: 300%;
+  height: 300%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent             0deg,
+    rgba(212, 175, 55, 0.06)  45deg,
+    transparent              90deg,
+    rgba(0, 91, 200, 0.07)  135deg,
+    transparent             180deg,
+    rgba(212, 175, 55, 0.06) 225deg,
+    transparent             270deg,
+    rgba(96, 165, 250, 0.05) 315deg,
+    transparent             360deg
+  );
+  animation: pp-conic-spin 22s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes pp-conic-spin {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Layer 2: moving diagonal light beam streaks ── */
+.platinum-partner-premium::after{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -55deg,
+    transparent             0px,
+    transparent             60px,
+    rgba(212, 175, 55, 0.04) 60px,
+    rgba(212, 175, 55, 0.04) 61px,
+    transparent             61px,
+    transparent             120px,
+    rgba(96, 165, 250, 0.03) 120px,
+    rgba(96, 165, 250, 0.03) 121px
+  );
+  background-size: 200% 200%;
+  animation: pp-beam-slide 8s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes pp-beam-slide {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+/* ── Floating premium orbs (added via JSX) ── */
+.pp-orb{
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform, opacity;
+}
+
+.sophos-page .pp-orb-gold{
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.18) 0%, transparent 65%);
+  top: -100px;
+  right: -80px;
+  animation: pp-orb-a 14s ease-in-out infinite;
+}
+
+.sophos-page .pp-orb-blue{
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(0, 91, 200, 0.22) 0%, transparent 65%);
+  bottom: -80px;
+  left: -60px;
+  animation: pp-orb-b 18s ease-in-out infinite;
+}
+
+.sophos-page .pp-orb-cyan{
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.15) 0%, transparent 65%);
+  top: 40%;
+  left: 42%;
+  animation: pp-orb-c 24s ease-in-out infinite;
+}
+
+@keyframes pp-orb-a {
+  0%,  100% { transform: translate(0, 0) scale(1);     opacity: 0.7; }
+  30%       { transform: translate(-60px, 50px) scale(1.1); opacity: 1;   }
+  65%       { transform: translate(30px, 80px) scale(0.9);  opacity: 0.8; }
+}
+
+@keyframes pp-orb-b {
+  0%,  100% { transform: translate(0, 0) scale(1);      opacity: 0.7; }
+  40%       { transform: translate(70px, -50px) scale(1.12); opacity: 1;   }
+  75%       { transform: translate(-30px, -80px) scale(0.92); opacity: 0.8; }
+}
+
+@keyframes pp-orb-c {
+  0%,  100% { transform: translate(0, 0) scale(1);    opacity: 0.5; }
+  50%       { transform: translate(-40px, -40px) scale(1.2); opacity: 0.9; }
+}
+
+/* ── Pulsing gold ring ── */
+.pp-ring{
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  pointer-events: none;
+  z-index: 0;
+  animation: pp-ring-expand 6s ease-out infinite;
+}
+
+.sophos-page .pp-ring-1{
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -150px;
+  animation-delay: 0s;
+}
+
+.sophos-page .pp-ring-2{
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -250px;
+  animation-delay: 2s;
+}
+
+.sophos-page .pp-ring-3{
+  width: 700px;
+  height: 700px;
+  top: 50%;
+  left: 50%;
+  margin-top: -350px;
+  margin-left: -350px;
+  animation-delay: 4s;
+}
+
+@keyframes pp-ring-expand {
+  0%   { transform: scale(0.6); opacity: 0.6; }
+  80%  { transform: scale(1.2); opacity: 0;   }
+  100% { transform: scale(1.2); opacity: 0;   }
+}
+
+/* Section Title with Laurels */
+.platinum-partner-premium .container{
+  position: relative;
+  z-index: 2;
+}
+
+.sophos-page .pp-section-title-premium{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.sophos-page .laurel-left, 
+.sophos-page .laurel-right{
+  color: #d4af37;
+  font-size: 3rem;
+  opacity: 0.9;
+  animation: glow-pulse 2s infinite alternate;
+}
+
+@keyframes glow-pulse {
+  0% {
+    filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+  }
+  100% {
+    filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.8));
+  }
+}
+
+.sophos-page .title-content{
+  text-align: center;
+  max-width: 800px;
+}
+
+.sophos-page .title-content h2{
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.sophos-page .title-content .highlight-gold{
+  color: #ffc107;
+  background: linear-gradient(135deg, #ffd700 0%, #ffa500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sophos-page .title-content p{
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+/* Stats Container with Blue Border */
+.pp-stats-container-premium{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.9) 0%, rgba(3, 7, 20, 0.9) 100%);
+  border: 2px solid #0066cc;
+  padding: 40px 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 10px 40px rgba(0, 102, 204, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.sophos-page .pp-stats-container-premium::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg, transparent 0%, rgba(0, 102, 204, 0.05) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+.sophos-page .pp-stat-premium{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+  min-width: 200px;
+  text-align: left;
+}
+
+.sophos-page .stat-icon-premium{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0066cc 0%, #004999 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  box-shadow: 0 5px 20px rgba(0, 102, 204, 0.4);
+}
+
+.sophos-page .stat-content{
+  display: flex;
+  flex-direction: column;
+}
+
+.sophos-page .pp-stat-number-premium{
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.sophos-page .pp-stat-label-premium{
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Golden Award Banner */
+.pp-award-banner-premium{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(255, 193, 7, 0.08) 100%);
+  border: 2px solid #d4af37;
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 60px;
+  box-shadow: 
+    0 15px 40px rgba(212, 175, 55, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.sophos-page .pp-award-banner-premium::before{
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 215, 0, 0.05) 50%,
+    transparent 70%
+  );
+  animation: shimmer-gold 3s infinite linear;
+}
+
+@keyframes shimmer-gold {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+.sophos-page .award-left-section{
+  flex-shrink: 0;
+}
+
+.sophos-page .trophy-icon-premium{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffd700 0%, #ffb300 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 2.5rem;
+  box-shadow: 
+    0 10px 30px rgba(255, 215, 0, 0.4),
+    inset 0 2px 5px rgba(255, 255, 255, 0.3);
+  animation: trophy-bounce 2s infinite ease-in-out;
+}
+
+@keyframes trophy-bounce {
+  0%,  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.sophos-page .award-center-section{
+  flex: 1;
+  text-align: left;
+}
+
+.sophos-page .award-center-section h3{
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffd700;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.sophos-page .award-center-section p{
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+.sophos-page .award-right-section{
+  flex-shrink: 0;
+}
+
+.sophos-page .star-badge-premium{
+  display: flex;
+  gap: 8px;
+  padding: 15px 20px;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 179, 0, 0.1) 100%);
+  border: 1.5px solid #d4af37;
+  border-radius: 50px;
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+}
+
+.sophos-page .star-badge-premium i{
+  color: #ffd700;
+  font-size: 1.2rem;
+  animation: star-twinkle 1.5s infinite alternate;
+}
+
+.sophos-page .star-badge-premium i:nth-child(2){
+  animation-delay: 0.3s;
+}
+
+.sophos-page .star-badge-premium i:nth-child(3){
+  animation-delay: 0.6s;
+}
+
+@keyframes star-twinkle {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+/* Highlight Cards - Three Bottom Boxes */
+.pp-highlights-grid-premium{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.sophos-page .pp-highlight-card-premium{
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.8) 0%, rgba(3, 7, 20, 0.8) 100%);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(0, 102, 204, 0.3);
+  border-radius: 20px;
+  padding: 35px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.sophos-page .pp-highlight-card-premium::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0066cc, #00a8ff);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.sophos-page .pp-highlight-card-premium:hover{
+  border-color: #0066cc;
+  box-shadow: 0 20px 50px rgba(0, 102, 204, 0.3);
+  transform: translateY(-8px);
+}
+
+.sophos-page .pp-highlight-card-premium:hover::before{
+  transform: scaleX(1);
+}
+
+.sophos-page .pp-highlight-icon-premium{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0066cc 0%, #004999 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 2rem;
+  margin: 0 auto 20px;
+  box-shadow: 0 10px 30px rgba(0, 102, 204, 0.4);
+  transition: all 0.3s ease;
+}
+
+.sophos-page .pp-highlight-card-premium:hover .pp-highlight-icon-premium{
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 15px 40px rgba(0, 102, 204, 0.6);
+}
+
+.sophos-page .pp-highlight-card-premium h4{
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.sophos-page .pp-highlight-card-premium p{
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 992px){
+  .pp-section-title-premium {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .sophos-page .laurel-left, 
+  .sophos-page .laurel-right{
+    font-size: 2.5rem;
+  }
+  
+  .sophos-page .pp-stats-container-premium{
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .sophos-page .pp-stat-premium{
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .sophos-page .pp-award-banner-premium{
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .sophos-page .award-center-section{
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .sophos-page .title-content h2{
+    font-size: 1.8rem;
+  }
+  
+  .sophos-page .pp-stats-container-premium{
+    padding: 30px 20px;
+  }
+  
+  .sophos-page .pp-stat-number-premium{
+    font-size: 2rem;
+  }
+  
+  .sophos-page .stat-icon-premium{
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .sophos-page .trophy-icon-premium{
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+  
+  .sophos-page .pp-highlights-grid-premium{
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ----------------------------------------------------
+ * 6. Team Certifications (MISSING `cert-card` & `cert-pill` DEFINED)
+ * ---------------------------------------------------- */
+.certifications{
+  padding: 100px 0;
+  background: rgba(3, 7, 20, 0.4);
+}
+
+.sophos-page .enhanced-certifications{
+  padding: 100px 0;
+  background: rgba(8, 14, 40, 0.4);
+  border-top: 1px solid rgba(0, 91, 200, 0.15);
+}
+
+.sophos-page .cert-redesign-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.sophos-page .cert-card-new{
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.sophos-page .cert-card-header{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  position: relative;
+}
+
+/* Dynamic color bar indicators on card headers */
+.cert-card-header::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Assign unique border-color indicators */
+.cert-card-header.firewall::after{ background: var(--firewall-color); }
+.sophos-page .cert-card-header.endpoint::after{ background: var(--endpoint-color); }
+.sophos-page .cert-card-header.cloud::after{ background: var(--cloud-color); }
+.sophos-page .cert-card-header.email::after{ background: var(--email-color); }
+.sophos-page .cert-card-header.mdm::after{ background: var(--mdm-color); }
+.sophos-page .cert-card-header.mdr::after{ background: var(--mdr-color); }
+
+.sophos-page .cert-card-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  color: #fff;
+}
+
+/* Categorized header icons */
+.cert-card-header.firewall .cert-card-icon{ background: rgba(239, 68, 68, 0.15); color: var(--firewall-color); border: 1px solid rgba(239, 68, 68, 0.3); }
+.sophos-page .cert-card-header.endpoint .cert-card-icon{ background: rgba(59, 130, 246, 0.15); color: var(--endpoint-color); border: 1px solid rgba(59, 130, 246, 0.3); }
+.sophos-page .cert-card-header.cloud .cert-card-icon{ background: rgba(6, 182, 212, 0.15); color: var(--cloud-color); border: 1px solid rgba(6, 182, 212, 0.3); }
+.sophos-page .cert-card-header.email .cert-card-icon{ background: rgba(139, 92, 246, 0.15); color: var(--email-color); border: 1px solid rgba(139, 92, 246, 0.3); }
+.sophos-page .cert-card-header.mdm .cert-card-icon{ background: rgba(236, 72, 153, 0.15); color: var(--mdm-color); border: 1px solid rgba(236, 72, 153, 0.3); }
+.sophos-page .cert-card-header.mdr .cert-card-icon{ background: rgba(16, 185, 129, 0.15); color: var(--mdr-color); border: 1px solid rgba(16, 185, 129, 0.3); }
+
+.sophos-page .cert-card-header h3{
+  font-size: 1.15rem;
+  font-weight: 750;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.sophos-page .cert-tag{
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sophos-page .cert-card-header.firewall .cert-tag{ background: rgba(239, 68, 68, 0.1); color: var(--firewall-color); }
+.sophos-page .cert-card-header.endpoint .cert-tag{ background: rgba(59, 130, 246, 0.1); color: var(--endpoint-color); }
+.sophos-page .cert-card-header.cloud .cert-tag{ background: rgba(6, 182, 212, 0.1); color: var(--cloud-color); }
+.sophos-page .cert-card-header.email .cert-tag{ background: rgba(139, 92, 246, 0.1); color: var(--email-color); }
+.sophos-page .cert-card-header.mdm .cert-tag{ background: rgba(236, 72, 153, 0.1); color: var(--mdm-color); }
+.sophos-page .cert-card-header.mdr .cert-tag{ background: rgba(16, 185, 129, 0.1); color: var(--mdr-color); }
+
+.sophos-page .cert-card-body{
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+/* Beautiful Cert Pill List items */
+.cert-pill{
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px;
+  background: rgba(0, 91, 200, 0.06);
+  border-left: 3px solid rgba(0, 91, 200, 0.3);
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+}
+
+.sophos-page .cert-card-new:hover .cert-pill{
+  background: rgba(0, 91, 200, 0.1);
+}
+
+.sophos-page .cert-pill:hover{
+  background: rgba(0, 91, 200, 0.15) !important;
+  transform: translateX(4px);
+}
+
+.sophos-page .cert-card-header.firewall ~ .cert-card-body .cert-pill{ border-left-color: var(--firewall-color); }
+.sophos-page .cert-card-header.endpoint ~ .cert-card-body .cert-pill{ border-left-color: var(--endpoint-color); }
+.sophos-page .cert-card-header.cloud ~ .cert-card-body .cert-pill{ border-left-color: var(--cloud-color); }
+.sophos-page .cert-card-header.email ~ .cert-card-body .cert-pill{ border-left-color: var(--email-color); }
+.sophos-page .cert-card-header.mdm ~ .cert-card-body .cert-pill{ border-left-color: var(--mdm-color); }
+.sophos-page .cert-card-header.mdr ~ .cert-card-body .cert-pill{ border-left-color: var(--mdr-color); }
+
+.sophos-page .cert-pill-name{
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin-bottom: 3px;
+}
+
+.sophos-page .cert-pill-desc{
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* ----------------------------------------------------
+ * 8. Enhanced Closing Statement Section
+ * ---------------------------------------------------- */
+.enhanced-closing-statement{
+  padding: 120px 0;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(0, 105, 224, 0.25) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(0, 55, 140, 0.2) 0%, transparent 50%),
+    linear-gradient(180deg, #004aaa 0%, #005BC8 50%, #004aaa 100%);
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.sophos-page .closing-content-enhanced{
+  text-align: center;
+}
+
+.sophos-page .closing-header{
+  margin-bottom: 60px;
+}
+
+.sophos-page .closing-badge{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(0, 91, 200, 0.2) 0%, rgba(235, 90, 15, 0.08) 100%);
+  border: 1.5px solid rgba(0, 91, 200, 0.35);
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 750;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 20px rgba(0, 91, 200, 0.15);
+}
+
+/* Animated gradient text for "Award-Winning Security Solutions" */
+.closing-badge span:not(.badge-icon){
+  display: inline-block;
+  background: linear-gradient(
+    270deg,
+    #ffffff 0%,
+    #a8d4f5 20%,
+    #5BA3E0 40%,
+    #DAA520 60%,
+    #FFD700 80%,
+    #ffffff 100%
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: awardBadgeColorShift 6s ease infinite;
+}
+
+@keyframes awardBadgeColorShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.sophos-page .closing-badge .badge-icon{
+  color: var(--sophos-blue);
+  animation: bounce 2s infinite;
+}
+
+.sophos-page .closing-content-enhanced h2{
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 850;
+  line-height: 1.35;
+  color: #fff;
+  max-width: 950px;
+  margin: 0 auto 20px;
+}
+
+.sophos-page .closing-subtitle{
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.sophos-page .enhanced-solutions-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin: 60px 0;
+}
+
+.sophos-page .solution-category{
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 24px;
+  text-align: left;
+}
+
+.sophos-page .solution-category:hover{
+  border-color: var(--card-border-hover);
+  box-shadow: 0 15px 35px rgba(0, 91, 200, 0.2);
+  transform: translateY(-4px);
+}
+
+.sophos-page .solution-category h3{
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 12px;
+}
+
+.sophos-page .solution-items{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sophos-page .solution-item-enhanced{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.sophos-page .solution-item-enhanced:hover{
+  background: rgba(0, 91, 200, 0.06);
+  border-color: rgba(0, 91, 200, 0.25);
+  transform: translateX(4px);
+}
+
+.sophos-page .solution-icon-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: rgba(0, 91, 200, 0.15);
+  border: 1px solid rgba(0, 91, 200, 0.3);
+  color: var(--sophos-blue);
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+
+.sophos-page .solution-details h4{
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 3px;
+}
+
+.sophos-page .solution-details p{
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Performance Metrics cards */
+.performance-metrics{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: 24px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.sophos-page .metric-card{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+}
+
+.sophos-page .metric-card:hover{
+  background: rgba(0, 91, 200, 0.08);
+  border-color: rgba(0, 91, 200, 0.25);
+  transform: translateY(-2px);
+}
+
+.sophos-page .metric-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(0, 91, 200, 0.15);
+  border: 1px solid rgba(0, 91, 200, 0.3);
+  color: var(--sophos-blue);
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.sophos-page .metric-content{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.sophos-page .metric-number{
+  font-size: 1.4rem;
+  font-weight: 850;
+  color: var(--sophos-blue);
+  line-height: 1.1;
+  margin-bottom: 2px;
+}
+
+.sophos-page .metric-label{
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-secondary);
+}
+
+/* ----------------------------------------------------
+ * 9. Special Offers Section - REDESIGNED
+ * ---------------------------------------------------- */
+.special-offers-new{
+  padding: 90px 0 100px;
+  position: relative;
+  background: linear-gradient(180deg, #003d8a 0%, #005BC8 40%, #004aaa 100%);
+  overflow: hidden;
+}
+
+/* ── Floating background orbs ── */
+.so-orb{
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+}
+.sophos-page .so-orb1{
+  width: 500px; height: 500px;
+  top: -100px; left: -150px;
+  background: radial-gradient(circle, rgba(20, 80, 200, 0.18) 0%, transparent 70%);
+  animation: soOrbFloat 12s ease-in-out infinite;
+}
+.sophos-page .so-orb2{
+  width: 400px; height: 400px;
+  bottom: -80px; right: -100px;
+  background: radial-gradient(circle, rgba(30, 100, 220, 0.14) 0%, transparent 70%);
+  animation: soOrbFloat 16s ease-in-out infinite reverse;
+}
+
+/* ── Floating particles ── */
+.so-particle{
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.6;
+}
+.sophos-page .so-p1{ width: 6px; height: 6px; background: rgba(100, 160, 255, 0.7); top: 15%; left: 8%; animation: soParticle 8s ease-in-out infinite; }
+.sophos-page .so-p2{ width: 4px; height: 4px; background: rgba(218, 165, 32, 0.8); top: 60%; left: 92%; animation: soParticle 11s ease-in-out infinite 2s; }
+.sophos-page .so-p3{ width: 5px; height: 5px; background: rgba(100, 160, 255, 0.6); top: 80%; left: 15%; animation: soParticle 9s ease-in-out infinite 1s; }
+.sophos-page .so-p4{ width: 3px; height: 3px; background: rgba(218, 165, 32, 0.7); top: 25%; left: 80%; animation: soParticle 13s ease-in-out infinite 3s; }
+
+@keyframes soOrbFloat {
+  0%,  100% { transform: translate(0, 0); }
+  50%       { transform: translate(30px, 40px); }
+}
+@keyframes soParticle {
+  0%,  100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  33%       { transform: translate(20px, -25px) scale(1.3); opacity: 1; }
+  66%       { transform: translate(-15px, 15px) scale(0.8); opacity: 0.4; }
+}
+
+/* ── Header ── */
+.offers-header-new{
+  text-align: center;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 2;
+}
+
+.sophos-page .offers-icon-badge{
+  width: 72px; height: 72px;
+  background: linear-gradient(135deg, #1a4fa0 0%, #2563eb 100%);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.15), 0 10px 30px rgba(37, 99, 235, 0.4);
+  animation: soIconPulse 3s ease-in-out infinite;
+}
+@keyframes soIconPulse {
+  0%,  100% { box-shadow: 0 0 0 8px rgba(37,99,235,0.15), 0 10px 30px rgba(37,99,235,0.4); }
+  50%       { box-shadow: 0 0 0 16px rgba(37,99,235,0.08), 0 14px 40px rgba(37,99,235,0.55); }
+}
+.sophos-page .offers-icon-badge i{ font-size: 30px; color: #fff; }
+
+.sophos-page .offers-main-title{
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 18px;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+/* Golden divider */
+.offers-golden-divider{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.sophos-page .divider-line{
+  display: block;
+  width: 80px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(218,165,32,0.7));
+}
+.sophos-page .divider-line:last-child{
+  background: linear-gradient(90deg, rgba(218,165,32,0.7), transparent);
+}
+.sophos-page .divider-diamond{
+  display: block;
+  width: 8px; height: 8px;
+  background: #DAA520;
+  transform: rotate(45deg);
+  box-shadow: 0 0 8px rgba(218,165,32,0.8);
+}
+
+/* ── Celebration banner ── */
+.celebration-banner-gold{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(139, 115, 85, 0.15);
+  border: 1px solid rgba(218, 165, 32, 0.45);
+  border-radius: 8px;
+  padding: 14px 30px;
+  margin: 0 auto 44px;
+  max-width: 680px;
+  position: relative;
+  z-index: 2;
+  font-size: 0.93rem;
+  font-weight: 500;
+  color: #d4a574;
+  text-align: center;
+}
+.sophos-page .celebration-banner-gold i{ font-size: 16px; color: #DAA520; }
+
+/* ── Offer boxes ── */
+.offer-boxes-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.sophos-page .offer-box-card{
+  background: rgba(8, 20, 50, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(40, 90, 180, 0.35);
+  border-radius: 18px;
+  padding: 32px 28px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.sophos-page .offer-box-card::after{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(37,99,235,0.06) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.sophos-page .offer-box-card:hover::after{ opacity: 1; }
+.sophos-page .offer-box-card:hover{
+  border-color: rgba(60, 130, 220, 0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(60,130,220,0.2);
+}
+
+.sophos-page .offer-box-icon{
+  width: 66px; height: 66px;
+  background: linear-gradient(135deg, rgba(15,40,100,0.9) 0%, rgba(25,60,140,0.9) 100%);
+  border: 2px solid rgba(60, 120, 220, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(37,99,235,0.3);
+}
+.sophos-page .offer-box-icon i{ font-size: 28px; color: #93c5fd; }
+
+.sophos-page .offer-box-body{ flex: 1; }
+.sophos-page .offer-box-title{
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px;
+}
+.sophos-page .offer-box-description{
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.sophos-page .offer-box-arrow{
+  width: 34px; height: 34px;
+  border: 1px solid rgba(60,120,220,0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: rgba(147,197,253,0.7);
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+.sophos-page .offer-box-card:hover .offer-box-arrow{
+  background: rgba(37,99,235,0.3);
+  border-color: rgba(93,165,255,0.7);
+  color: #fff;
+  transform: translateX(3px);
+}
+
+/* ── Ready to Secure CTA ── */
+.ready-to-secure-section{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  background: rgba(7, 18, 48, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(40, 90, 180, 0.35);
+  border-radius: 20px;
+  padding: 60px 55px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* Animated grid overlay inside the CTA card */
+.rts-grid-overlay{
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(60,120,220,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(60,120,220,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.sophos-page .secure-content-left{ position: relative; z-index: 2; }
+
+.sophos-page .secure-title{
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 18px;
+  line-height: 1.18;
+}
+.sophos-page .secure-subtitle{
+  font-size: 1rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.65;
+  margin-bottom: 36px;
+  max-width: 420px;
+}
+
+.sophos-page .secure-buttons{
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.sophos-page .secure-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 28px;
+  border-radius: 50px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.8px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.sophos-page .secure-btn i{ font-size: 15px; transition: transform 0.3s ease; }
+.sophos-page .secure-btn:hover i{ transform: translateX(4px); }
+
+.sophos-page .primary-btn{
+  background: linear-gradient(135deg, #c89b20 0%, #e8b830 50%, #d4a820 100%);
+  color: #0a1020;
+  box-shadow: 0 8px 24px rgba(200,155,32,0.4);
+}
+.sophos-page .primary-btn:hover{
+  background: linear-gradient(135deg, #e8b830 0%, #ffd040 50%, #e8b830 100%);
+  box-shadow: 0 12px 32px rgba(200,155,32,0.55);
+  transform: translateY(-3px);
+  color: #0a1020;
+}
+
+.sophos-page .secondary-btn{
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid rgba(255,255,255,0.35);
+}
+.sophos-page .secondary-btn:hover{
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.6);
+  transform: translateY(-3px);
+  color: #ffffff;
+}
+
+/* ── Lock / Shield visual ── */
+.secure-shield-right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.sophos-page .shield-glow-container{
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Rotating rings */
+.shield-ring{
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(60, 130, 220, 0.25);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.sophos-page .shield-ring-1{
+  width: 260px; height: 260px;
+  border-color: rgba(60,130,220,0.2);
+  animation: soRingRotate 12s linear infinite;
+}
+.sophos-page .shield-ring-2{
+  width: 210px; height: 210px;
+  border-color: rgba(60,130,220,0.15);
+  animation: soRingRotate 8s linear infinite reverse;
+}
+@keyframes soRingRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Hexagon container */
+.shield-hex-wrap{
+  position: relative;
+  z-index: 2;
+  animation: soHexFloat 6s ease-in-out infinite;
+}
+@keyframes soHexFloat {
+  0%,  100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+.sophos-page .shield-hex{
+  width: 160px;
+  height: 160px;
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  background: linear-gradient(145deg, #1a3a7a 0%, #1e4fad 40%, #2563eb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow:
+    0 0 50px rgba(37, 99, 235, 0.6),
+    0 0 100px rgba(37, 99, 235, 0.3);
+}
+/* Inner highlight */
+.shield-hex::before{
+  content: '';
+  position: absolute;
+  inset: 6px;
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  background: linear-gradient(145deg, rgba(255,255,255,0.12) 0%, transparent 60%);
+}
+/* Outer glow pulse */
+.shield-hex::after{
+  content: '';
+  position: absolute;
+  inset: -12px;
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  background: rgba(37, 99, 235, 0.2);
+  filter: blur(16px);
+  animation: soHexGlow 3s ease-in-out infinite;
+  z-index: -1;
+}
+@keyframes soHexGlow {
+  0%,  100% { opacity: 0.5; }
+  50%       { opacity: 1; }
+}
+
+.sophos-page .shield-hex i{
+  font-size: 60px;
+  color: #e0eeff;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 0 16px rgba(147,197,253,0.8));
+}
+
+/* ── Bottom features row ── */
+.bottom-features-row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  padding: 28px 40px;
+  background: rgba(7, 18, 48, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(40, 90, 180, 0.3);
+  border-radius: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.sophos-page .bfi-separator{
+  width: 1px;
+  height: 50px;
+  background: rgba(60,120,220,0.25);
+  flex-shrink: 0;
+  margin: 0 40px;
+}
+
+.sophos-page .bottom-feature-item{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+.sophos-page .bottom-feature-item:hover{ transform: translateY(-3px); }
+
+.sophos-page .bfi-icon-wrap{
+  width: 46px; height: 46px;
+  background: linear-gradient(135deg, rgba(15,40,100,0.9) 0%, rgba(25,60,140,0.9) 100%);
+  border: 1px solid rgba(60,120,220,0.4);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.sophos-page .bfi-icon-wrap i{ font-size: 20px; color: #93c5fd; }
+.sophos-page .bfi-icon-wrap.gold{ background: linear-gradient(135deg, rgba(100,70,0,0.6) 0%, rgba(160,110,0,0.6) 100%); border-color: rgba(218,165,32,0.4); }
+.sophos-page .bfi-icon-wrap.gold i{ color: #DAA520; }
+
+.sophos-page .bfi-text{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.sophos-page .bfi-title{
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+.sophos-page .bfi-sub{
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px){
+  .ready-to-secure-section {
+    grid-template-columns: 1fr;
+    padding: 50px 36px;
+    text-align: center;
+  }
+  .sophos-page .secure-subtitle{ margin: 0 auto 30px; }
+  .sophos-page .secure-buttons{ justify-content: center; }
+  .sophos-page .secure-shield-right{ margin-top: 20px; }
+}
+@media (max-width: 768px) {
+  .sophos-page .offer-boxes-grid{ grid-template-columns: 1fr; }
+  .sophos-page .bottom-features-row{ flex-direction: column; gap: 24px; padding: 28px 24px; }
+  .sophos-page .bfi-separator{ width: 80%; height: 1px; margin: 0; }
+  .sophos-page .offers-main-title{ font-size: 1.8rem; }
+  .sophos-page .secure-title{ font-size: 2rem; }
+  .sophos-page .secure-buttons{ flex-direction: column; }
+}
+
+/* ----------------------------------------------------
+ * 10. Floating Action Button
+ * ---------------------------------------------------- */
+.floating-action-button{
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+}
+
+.sophos-page .fab-button{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, var(--sophos-blue) 0%, #0072ff 100%);
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  box-shadow: 
+    0 10px 30px var(--sophos-blue-glow),
+    0 0 0 0 rgba(0, 91, 200, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  animation: pulse-fab 3s infinite;
+}
+
+@keyframes pulse-fab {
+  0%,  100% {
+    box-shadow: 
+      0 10px 30px var(--sophos-blue-glow),
+      0 0 0 0 rgba(0, 91, 200, 0.4);
+  }
+  50% {
+    box-shadow: 
+      0 15px 40px rgba(0, 91, 200, 0.5),
+      0 0 0 10px rgba(0, 91, 200, 0);
+  }
+}
+
+.sophos-page .fab-button:hover{
+  transform: translateY(-4px) scale(1.03);
+  background: linear-gradient(135deg, #0072ff 0%, #3b82f6 100%);
+  color: #fff;
+  box-shadow: 0 15px 35px rgba(0, 91, 200, 0.5);
+}
+
+.sophos-page .fab-icon{
+  font-size: 1.1rem;
+  animation: bounce 2s infinite;
+}
+
+/* ----------------------------------------------------
+ * 11. Responsive Media Queries
+ * ---------------------------------------------------- */
+@media (max-width: 1200px){
+  .award-celebration {
+    gap: 50px;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .sophos-page .award-stats-boxes{
+    grid-template-columns: 1fr;
+  }
+  
+  .sophos-page .trophy-showcase{
+    gap: 40px;
+  }
+  
+  .sophos-page .award-image img, 
+  .sophos-page .trophy-image-large img{
+    max-width: 380px;
+  }
+  
+  .sophos-page .use-case-content-enhanced{
+    gap: 30px;
+  }
+}
+
+@media (max-width: 992px) {
+  .sophos-page .award-celebration{
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 50px;
+  }
+  
+  .sophos-page .award-content{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .sophos-page .award-description{
+    max-width: 600px;
+  }
+  
+  .sophos-page .award-stats-boxes{
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  /* Remove mobile reordering so header remains on top */
+  .award-image-container{
+    order: unset;
+  }
+  
+  .sophos-page .award-highlights{
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  /* Updated Trophy Showcase Responsive */
+  .trophy-showcase{
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .sophos-page .trophy-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .sophos-page .award-highlights-card{
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .sophos-page .award-card-right{
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .sophos-page .use-case-header{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .sophos-page .case-title-section{
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .sophos-page .sophos-hero{
+    padding: 70px 0 60px;
+  }
+  
+  .sophos-page .sophos-hero.hero-compact{
+    padding: 80px 0 50px;
+  }
+  
+  .sophos-page .section-header{
+    margin-bottom: 40px;
+  }
+  
+  /* Award Trophy Display Mobile */
+  .award-trophy-display{
+    padding: 40px 0 60px 0;
+  }
+  
+  .sophos-page .trophy-showcase{
+    gap: 30px;
+  }
+  
+  .sophos-page .award-highlights-card, 
+  .sophos-page .award-card-right{
+    padding: 30px 20px;
+  }
+  
+  .sophos-page .award-icon-header{
+    width: 60px;
+    height: 60px;
+  }
+  
+  .sophos-page .award-icon-header i{
+    font-size: 28px;
+  }
+  
+  .sophos-page .award-section-title{
+    font-size: 1.5rem;
+  }
+  
+  .sophos-page .celebrating-text{
+    font-size: 1.6rem;
+  }
+  
+  .sophos-page .award-title-bottom{
+    font-size: 1.2rem;
+  }
+  
+  .sophos-page .award-contact-bar{
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .sophos-page .contact-divider{
+    width: 40px;
+    height: 1px;
+  }
+
+  /* Why Choose Sophos Mobile */
+  .why-sophos{
+    padding: 60px 0;
+  }
+
+  .sophos-page .why-main-title{
+    font-size: 2rem;
+  }
+
+  .sophos-page .why-subtitle{
+    font-size: 0.95rem;
+  }
+  
+  .sophos-page .cert-redesign-grid{
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .sophos-page .cert-card-new{
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .sophos-page .enhanced-solutions-grid{
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .sophos-page .solution-category{
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .sophos-page .solution-item-enhanced{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .sophos-page .solution-details{
+    text-align: center;
+  }
+  
+  .sophos-page .performance-metrics{
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .sophos-page .metric-card{
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .sophos-page .metric-content{
+    text-align: center;
+  }
+  
+  .sophos-page .floating-action-button{
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .sophos-page .fab-button{
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    padding: 0;
+    justify-content: center;
+  }
+  
+  .sophos-page .fab-text{
+    display: none;
+  }
+  
+  .sophos-page .fab-icon{
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sophos-page .container {
+    padding: 0 16px;
+  }
+  
+  .sophos-page .award-badge-large{
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+  
+  .sophos-page .award-title{
+    font-size: 1.9rem;
+  }
+  
+  .sophos-page .award-description{
+    font-size: 1rem;
+  }
+  
+  .sophos-page .key-point{
+    padding: 10px 14px;
+    gap: 12px;
+  }
+  
+  .sophos-page .key-point span:not(.key-point-icon){
+    font-size: 0.9rem;
+  }
+  
+  .sophos-page .award-image img, 
+  .sophos-page .trophy-image-large img{
+    max-width: 100%;
+  }
+  
+  .sophos-page .sophos-hero-title{
+    font-size: 2.6rem;
+  }
+  
+  .sophos-page .sophos-hero-desc{
+    font-size: 1.2rem;
+  }
+  
+  .sophos-page .stat-item .stat-number{
+    font-size: 2.2rem;
+  }
+  
+  .sophos-page .section-header h2{
+    font-size: 1.6rem;
+  }
+  
+  .sophos-page .section-header p{
+    font-size: 1rem;
+  }
+  
+}
+
+/* ----------------------------------------------------
+ * 12. Use Case Read More Styling
+ * ---------------------------------------------------- */
+.use-case-read-more-wrapper{
+  margin-top: 25px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sophos-page .use-case-read-more{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, rgba(0, 91, 200, 0.2) 0%, rgba(0, 91, 200, 0.08) 100%);
+  border: 1px solid rgba(0, 91, 200, 0.45);
+  border-radius: 30px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 750;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0, 91, 200, 0.15);
+  cursor: pointer;
+}
+
+.sophos-page .use-case-read-more i{
+  font-size: 0.85rem;
+  color: var(--sophos-blue);
+  transition: transform 0.3s ease;
+}
+
+.sophos-page .use-case-read-more:hover{
+  background: linear-gradient(135deg, var(--sophos-blue) 0%, #0072ff 100%);
+  border-color: var(--sophos-blue);
+  color: #fff !important;
+  box-shadow: 0 8px 20px var(--sophos-blue-glow);
+  transform: translateY(-2px);
+}
+
+.sophos-page .use-case-read-more:hover i{
+  color: #fff !important;
+  transform: translateX(4px);
+}
+
+
+/* ============================================================
+ * PREMIUM CERTIFICATIONS CAROUSEL
+ * ============================================================ */
+
+/* ── 4. CERTIFICATIONS CAROUSEL — light blue with animated shimmer ────────── */
+.certifications-carousel-premium{
+  padding: 80px 0 40px;
+  background:
+    linear-gradient(145deg, #c8e2ff 0%, #aacfff 30%, #bfdaff 60%, #cce5ff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.sophos-page .certifications-carousel-premium::before{
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 300%; height: 100%;
+  background: repeating-linear-gradient(
+    95deg,
+    transparent 0px, transparent 90px,
+    rgba(255, 255, 255, 0.07) 90px, rgba(255, 255, 255, 0.07) 180px
+  );
+  animation: sophosWave 22s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sophos-page .certifications-carousel-premium .container{ position: relative; z-index: 1; }
+
+/* Text colours inside certifications */
+.certifications-carousel-premium .cert-carousel-header h2{ color: #0a1929 !important; }
+.sophos-page .certifications-carousel-premium .cert-carousel-header p{ color: #1e3a5f !important; }
+.sophos-page .certifications-carousel-premium .sophos-highlight{ color: #007aff !important; }
+/* End Certifications ─────────────────────────────────────────────────────── */
+
+/* Header with Golden Badge */
+.cert-carousel-header{
+  text-align: center;
+  margin-bottom: 70px;
+  position: relative;
+}
+
+.sophos-page .cert-badge-icon{
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffd700 0%, #ffb300 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 2.2rem;
+  box-shadow: 
+    0 10px 40px rgba(255, 215, 0, 0.4),
+    inset 0 2px 5px rgba(255, 255, 255, 0.3);
+  animation: pulse-gold 2s infinite ease-in-out;
+}
+
+@keyframes pulse-gold {
+  0%,  100% {
+    transform: scale(1);
+    box-shadow: 0 10px 40px rgba(255, 215, 0, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 15px 50px rgba(255, 215, 0, 0.6);
+  }
+}
+
+.sophos-page .cert-carousel-header h2{
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 15px;
+  letter-spacing: -0.5px;
+}
+
+.sophos-page .cert-carousel-header p{
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.sophos-page .cert-carousel-header .sophos-highlight{
+  color: #ffc107;
+  font-weight: 800;
+}
+
+/* Swiper Wrapper */
+.certifications-swiper-wrapper{
+  position: relative;
+  padding: 20px 0 0;
+}
+
+.sophos-page .certifications-swiper{
+  padding: 20px 20px 50px;
+}
+
+.sophos-page .certifications-swiper .swiper-slide{
+  width: 450px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Certification Card Premium */
+.cert-card-premium{
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.95) 0%, rgba(3, 7, 20, 0.95) 100%);
+  border-radius: 30px;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.sophos-page .cert-card-premium::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 30px;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(0, 102, 204, 0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.sophos-page .swiper-slide-active .cert-card-premium::before{
+  opacity: 1;
+}
+
+.sophos-page .swiper-slide-active .cert-card-premium{
+  transform: scale(1.05);
+  box-shadow: 0 30px 80px rgba(0, 102, 204, 0.4);
+}
+
+/* Color-specific borders for each card */
+.firewall-card{ border-color: rgba(239, 68, 68, 0.3); }
+.sophos-page .endpoint-card{ border-color: rgba(59, 130, 246, 0.3); }
+.sophos-page .cloud-card{ border-color: rgba(6, 182, 212, 0.3); }
+.sophos-page .email-card{ border-color: rgba(139, 92, 246, 0.3); }
+.sophos-page .mdm-card{ border-color: rgba(236, 72, 153, 0.3); }
+.sophos-page .mdr-card{ border-color: rgba(16, 185, 129, 0.3); }
+
+.sophos-page .swiper-slide-active .firewall-card{ border-color: rgba(239, 68, 68, 0.6); }
+.sophos-page .swiper-slide-active .endpoint-card{ border-color: rgba(59, 130, 246, 0.6); }
+.sophos-page .swiper-slide-active .cloud-card{ border-color: rgba(6, 182, 212, 0.6); }
+.sophos-page .swiper-slide-active .email-card{ border-color: rgba(139, 92, 246, 0.6); }
+.sophos-page .swiper-slide-active .mdm-card{ border-color: rgba(236, 72, 153, 0.6); }
+.sophos-page .swiper-slide-active .mdr-card{ border-color: rgba(16, 185, 129, 0.6); }
+
+/* Card Header */
+.cert-card-header-premium{
+  padding: 40px 35px 30px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sophos-page .cert-icon-large{
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.sophos-page .cert-icon-large::after{
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  background: inherit;
+  filter: blur(15px);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.sophos-page .firewall-card .cert-icon-large{
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.4);
+}
+
+.sophos-page .endpoint-card .cert-icon-large{
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+}
+
+.sophos-page .cloud-card .cert-icon-large{
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  box-shadow: 0 10px 30px rgba(6, 182, 212, 0.4);
+}
+
+.sophos-page .email-card .cert-icon-large{
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+}
+
+.sophos-page .mdm-card .cert-icon-large{
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);
+}
+
+.sophos-page .mdr-card .cert-icon-large{
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+}
+
+.sophos-page .swiper-slide-active .cert-icon-large{
+  transform: scale(1.1) rotate(5deg);
+}
+
+.sophos-page .cert-icon-large i{
+  color: #fff;
+}
+
+.sophos-page .cert-card-header-premium h3{
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.sophos-page .cert-badge-tag{
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sophos-page .cert-badge-tag.red{
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.sophos-page .cert-badge-tag.blue{
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.sophos-page .cert-badge-tag.cyan{
+  background: rgba(6, 182, 212, 0.15);
+  color: #06b6d4;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.sophos-page .cert-badge-tag.purple{
+  background: rgba(139, 92, 246, 0.15);
+  color: #8b5cf6;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.sophos-page .cert-badge-tag.pink{
+  background: rgba(236, 72, 153, 0.15);
+  color: #ec4899;
+  border: 1px solid rgba(236, 72, 153, 0.3);
+}
+
+.sophos-page .cert-badge-tag.green{
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* Card Body */
+.cert-card-body-premium{
+  padding: 30px 35px 40px;
+}
+
+.sophos-page .cert-item-premium{
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  transition: all 0.3s ease;
+}
+
+.sophos-page .cert-item-premium:last-child{
+  border-bottom: none;
+}
+
+.sophos-page .cert-item-premium:hover{
+  padding-left: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+.sophos-page .cert-bullet{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffd700, #ffa500);
+  flex-shrink: 0;
+  margin-top: 8px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.sophos-page .cert-item-premium h4{
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+
+.sophos-page .cert-item-premium p{
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.4;
+}
+
+/* Swiper Navigation Buttons */
+.certifications-swiper .swiper-button-next, 
+.sophos-page .certifications-swiper .swiper-button-prev{
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, rgba(0, 102, 204, 0.9) 0%, rgba(0, 70, 140, 0.9) 100%);
+  border-radius: 50%;
+  color: #fff;
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0, 102, 204, 0.4);
+}
+
+.sophos-page .certifications-swiper .swiper-button-next::after, 
+.sophos-page .certifications-swiper .swiper-button-prev::after{
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.sophos-page .certifications-swiper .swiper-button-next:hover, 
+.sophos-page .certifications-swiper .swiper-button-prev:hover{
+  background: linear-gradient(135deg, #ffd700 0%, #ffb300 100%);
+  border-color: #ffd700;
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+}
+
+/* Swiper Pagination */
+.certifications-swiper .swiper-pagination{
+  bottom: 20px;
+}
+
+.sophos-page .certifications-swiper .swiper-pagination-bullet{
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.sophos-page .certifications-swiper .swiper-pagination-bullet-active{
+  background: linear-gradient(135deg, #ffd700, #ffa500);
+  width: 30px;
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+}
+
+/* Progress Bar */
+.carousel-progress-bar{
+  margin-top: 50px;
+  text-align: center;
+}
+
+.sophos-page .progress-text{
+  display: inline-block;
+  padding: 12px 30px;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(0, 102, 204, 0.1) 100%);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 50px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.sophos-page .progress-text::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+  animation: progress-slide 2s infinite;
+}
+
+@keyframes progress-slide {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px){
+  .certifications-swiper .swiper-slide {
+    width: 400px;
+  }
+}
+
+@media (max-width: 992px) {
+  .sophos-page .certifications-carousel-premium{
+    padding: 60px 0 30px;
+  }
+
+  .sophos-page .cert-carousel-header h2{
+    font-size: 2.5rem;
+  }
+
+  .sophos-page .certifications-swiper .swiper-slide{
+    width: 350px;
+  }
+
+  .sophos-page .cert-icon-large{
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sophos-page .certifications-carousel-premium{
+    padding: 50px 0 20px;
+  }
+
+  .sophos-page .cert-badge-icon{
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+  }
+
+  .sophos-page .cert-carousel-header h2{
+    font-size: 2rem;
+  }
+
+  .sophos-page .certifications-swiper .swiper-slide{
+    width: 300px;
+  }
+
+  .sophos-page .cert-card-header-premium{
+    padding: 30px 25px 20px;
+  }
+
+  .sophos-page .cert-card-body-premium{
+    padding: 20px 25px 30px;
+  }
+
+  .sophos-page .cert-card-header-premium h3{
+    font-size: 1.3rem;
+  }
+
+  .sophos-page .cert-item-premium h4{
+    font-size: 0.95rem;
+  }
+
+  .sophos-page .cert-item-premium p{
+    font-size: 0.85rem;
+  }
+
+  .sophos-page .certifications-swiper .swiper-button-next, 
+  .sophos-page .certifications-swiper .swiper-button-prev{
+    width: 45px;
+    height: 45px;
+  }
+
+  .sophos-page .certifications-swiper .swiper-button-next::after, 
+  .sophos-page .certifications-swiper .swiper-button-prev::after{
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .sophos-page .certifications-swiper .swiper-slide{
+    width: 280px;
+  }
+
+  .sophos-page .cert-icon-large{
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+  }
+}
+
+
+/* ====================================================
+ * COMPREHENSIVE UI IMPROVEMENTS — PROFESSIONAL POLISH
+ * Scroll-reveal,  .sophos-page section eyebrow,  .sophos-page hero enhancements, 
+ .sophos-page * career CTA,  .sophos-page improved animations across all sections.
+ * ==================================================== */
+
+/* ── Scroll-Reveal Utility ─────────────────────────── */
+.sph-reveal{
+  opacity: 0;
+  will-change: opacity, transform;
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+
+.sophos-page .sph-fade-up{ transform: translateY(12px); }
+.sophos-page .sph-fade-left{ transform: translateX(-12px); }
+.sophos-page .sph-fade-right{ transform: translateX(12px); }
+.sophos-page .sph-fade-scale{ transform: scale(0.98) translateY(8px); }
+
+/* Fast delays for rapid responsiveness when scrolling */
+.sph-d1{ transition-delay: 0.02s; }
+.sophos-page .sph-d2{ transition-delay: 0.04s; }
+.sophos-page .sph-d3{ transition-delay: 0.06s; }
+.sophos-page .sph-d4{ transition-delay: 0.08s; }
+
+/* Triggered state — added by IntersectionObserver */
+.sph-reveal.sph-visible{
+  opacity: 1;
+  transform: none;
+}
+
+/* Force scroll-reveal elements to be visible on mobile to prevent layout jank or hidden elements */
+@media (max-width: 992px){
+  .sph-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ── Section Eyebrow ───────────────────────────────── */
+.sph-section-eyebrow{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.sophos-page .eyebrow-line{
+  display: block;
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.6));
+}
+.sophos-page .eyebrow-line:last-child{
+  background: linear-gradient(90deg, rgba(0, 212, 255, 0.6), transparent);
+}
+
+.sophos-page .eyebrow-text{
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--heading-cyan, #00d4ff);
+  white-space: nowrap;
+}
+
+/* ── Hero Enhancements ─────────────────────────────── */
+/* Floating decorative orbs inside the hero */
+.hero-orb{
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(90px);
+  z-index: 0;
+  will-change: transform;
+}
+
+.sophos-page .hero-orb-1{
+  width: 500px;
+  height: 500px;
+  top: -120px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(0, 91, 200, 0.22) 0%, transparent 70%);
+  animation: heroOrbFloat 14s ease-in-out infinite;
+}
+
+.sophos-page .hero-orb-2{
+  width: 380px;
+  height: 380px;
+  bottom: -80px;
+  right: -60px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.14) 0%, transparent 70%);
+  animation: heroOrbFloat 18s ease-in-out infinite reverse;
+}
+
+@keyframes heroOrbFloat {
+  0%,  100% { transform: translate(0, 0); }
+  33%       { transform: translate(40px, -30px); }
+  66%       { transform: translate(-25px, 40px); }
+}
+
+/* Scroll indicator at the bottom of the hero */
+.hero-scroll-indicator{
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sophos-page .scroll-dot{
+  width: 26px;
+  height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-radius: 14px;
+  position: relative;
+}
+
+.sophos-page .scroll-dot::after{
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: rgba(0, 212, 255, 0.8);
+  border-radius: 50%;
+  animation: scrollDotBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollDotBounce {
+  0%,  100% { top: 6px; opacity: 1; }
+  60%       { top: 20px; opacity: 0.4; }
+}
+
+/* Improved hero badge — pulsing ring */
+.sophos-badge{
+  position: relative;
+}
+
+.sophos-page .sophos-badge::before{
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, rgba(0, 91, 200, 0.4), rgba(0, 212, 255, 0.3));
+  filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: -1;
+}
+
+.sophos-page .sophos-badge:hover::before{
+  opacity: 1;
+}
+
+/* ── Award Highlight Section — extra polish ────────── */
+/* Staggered entrance for the award title lines */
+.award-title .gradient-text, 
+.sophos-page .award-title .white-text{
+  display: inline-block;
+  animation: none; /* shimmer from heading rules handles colour */
+}
+
+/* Pulse border on stat boxes — enhanced */
+.stat-box{
+  animation: statBoxEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.sophos-page .sph-d1.stat-box{ animation-delay: 0.15s; }
+.sophos-page .sph-d2.stat-box{ animation-delay: 0.25s; }
+.sophos-page .sph-d3.stat-box{ animation-delay: 0.35s; }
+.sophos-page .sph-d4.stat-box{ animation-delay: 0.45s; }
+
+@keyframes statBoxEntrance {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Award details list — animated border-left on hover */
+.award-details-list li{
+  position: relative;
+  overflow: hidden;
+}
+
+.sophos-page .award-details-list li::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #60a5fa, #00d4ff);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+}
+
+.sophos-page .award-details-list li:hover::after{
+  transform: scaleY(1);
+}
+
+/* ── Why Sophos — shield image glow pulse ──────────── */
+@keyframes shield-float{
+  0%, 100% { transform: translateY(0px) rotate(-1deg); filter: drop-shadow(0 0 30px rgba(91, 163, 224, 0.35)); }
+  50%       { transform: translateY(-14px) rotate(1deg); filter: drop-shadow(0 0 50px rgba(91, 163, 224, 0.55)); }
+}
+
+/* Fallback shield icon */
+.why-sophos-shield-fallback{
+  display: none;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0, 91, 200, 0.3), rgba(0, 212, 255, 0.15));
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  color: rgba(0, 212, 255, 0.7);
+  animation: shield-float 6s ease-in-out infinite;
+  box-shadow: 0 0 60px rgba(0, 91, 200, 0.2);
+}
+
+/* ── Platinum Partner — stat counter pop-in ────────── */
+.pp-stat-premium{
+  position: relative;
+}
+
+.sophos-page .pp-stat-premium::after{
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 10%;
+  bottom: 10%;
+  width: 1px;
+  background: rgba(0, 102, 204, 0.25);
+}
+
+.sophos-page .pp-stat-premium:last-child::after{ display: none; }
+
+/* Hover lift on stat items */
+.pp-stat-premium{
+  padding: 10px 20px;
+  border-radius: 12px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.sophos-page .pp-stat-premium:hover{
+  background: rgba(0, 102, 204, 0.08);
+  transform: translateY(-4px);
+}
+
+/* ── Certifications Carousel — header underline ─────── */
+.cert-carousel-header h2::after{
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #ffd700, #ffa500);
+  margin: 12px auto 0;
+  border-radius: 2px;
+  animation: underlineGrow 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+
+@keyframes underlineGrow {
+  from { width: 0; opacity: 0; }
+  to   { width: 60px; opacity: 1; }
+}
+
+/* Cert card hover — lift + glow ring */
+.cert-card-premium{
+  cursor: pointer;
+}
+
+.sophos-page .cert-card-premium:not(.swiper-slide-active .cert-card-premium):hover{
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.12);
+}
+
+/* Cert items — left accent bar appears on hover */
+.cert-item-premium{
+  border-left: 2px solid transparent;
+  padding-left: 8px;
+  transition: border-color 0.3s ease, padding-left 0.3s ease, background 0.3s ease;
+}
+
+.sophos-page .cert-item-premium:hover{
+  border-left-color: #ffd700;
+  padding-left: 14px;
+}
+
+/* ── Enhanced Closing Statement ─────────────────────── */
+/* Solution category cards — top accent line on hover */
+.solution-category{
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  border-top: 2px solid transparent;
+}
+
+.sophos-page .solution-category:hover{
+  border-top-color: rgba(0, 212, 255, 0.5);
+}
+
+/* Solution icon wrapper — colour glow on hover */
+.solution-item-enhanced:hover .solution-icon-wrapper{
+  background: rgba(0, 212, 255, 0.15);
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+.sophos-page .solution-item-enhanced:hover .solution-icon-wrapper i{
+  color: #00d4ff;
+}
+
+/* Metric cards — number counter-style pop */
+.metric-number{
+  background: linear-gradient(135deg, #00d4ff 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sophos-page .metric-card:hover .metric-icon{
+  background: rgba(0, 212, 255, 0.2);
+  border-color: rgba(0, 212, 255, 0.5);
+}
+
+.sophos-page .metric-card:hover .metric-icon i{
+  color: #00d4ff;
+}
+
+/* ── Career CTA — Sophos scoped override ─────────────── */
+.sophos-page .sophos-career-cta{
+  position: relative;
+  padding: 100px 20px;
+  background:
+    linear-gradient(135deg, rgba(5, 10, 30, 0.96) 0%, rgba(10, 25, 55, 0.94) 50%, rgba(5, 10, 30, 0.96) 100%),
+    url('/assets/images/bggg.jpg') center center / cover no-repeat;
+  background-attachment: fixed;
+  overflow: hidden;
+  text-align: center;
+  border-top: 1px solid rgba(0, 91, 200, 0.2);
+  border-bottom: 1px solid rgba(0, 91, 200, 0.2);
+}
+
+/* Animated orbs inside the career CTA */
+.sophos-cta-orb{
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+}
+
+.sophos-page .sophos-cta-orb-1{
+  width: 450px;
+  height: 450px;
+  top: -100px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(0, 91, 200, 0.2) 0%, transparent 70%);
+  animation: heroOrbFloat 14s ease-in-out infinite;
+}
+
+.sophos-page .sophos-cta-orb-2{
+  width: 350px;
+  height: 350px;
+  bottom: -80px;
+  right: -60px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.12) 0%, transparent 70%);
+  animation: heroOrbFloat 18s ease-in-out infinite reverse;
+}
+
+/* Headset icon ring */
+.sophos-cta-icon-ring{
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0, 91, 200, 0.3), rgba(0, 212, 255, 0.2));
+  border: 2px solid rgba(0, 212, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 28px;
+  font-size: 2.4rem;
+  color: #00d4ff;
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.25), 0 0 0 10px rgba(0, 91, 200, 0.08);
+  animation: ctaIconPulse 3s ease-in-out infinite;
+}
+
+@keyframes ctaIconPulse {
+  0%,  100% { box-shadow: 0 0 40px rgba(0, 212, 255, 0.25), 0 0 0 10px rgba(0, 91, 200, 0.08); }
+  50%       { box-shadow: 0 0 60px rgba(0, 212, 255, 0.4), 0 0 0 18px rgba(0, 91, 200, 0.04); }
+}
+
+.sophos-page .sophos-career-cta .career-cta-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  color: #f8fafc;
+  margin-bottom: 24px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.3;
+  position: relative;
+  z-index: 2;
+}
+
+.sophos-page .sophos-career-cta .career-cta-text {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: rgba(203, 213, 225, 0.9);
+  max-width: 680px;
+  margin: 0 auto 36px;
+  position: relative;
+  z-index: 2;
+}
+
+.sophos-page .sophos-career-cta .career-cta-container {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(8, 18, 45, 0.55);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 91, 200, 0.3);
+  border-radius: 28px;
+  padding: 60px 50px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(0, 212, 255, 0.1);
+}
+
+/* Bullet points in CTA text — styled */
+.sophos-page .sophos-career-cta .career-cta-text br + br + *{
+  text-align: left;
+}
+
+/* ── Special Offers — improved offer box cards ────── */
+.offer-box-card{
+  position: relative;
+}
+
+/* Animated top border sweep */
+.offer-box-card::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.6), transparent);
+  transition: left 0.5s ease;
+  border-radius: 18px 18px 0 0;
+}
+
+.sophos-page .offer-box-card:hover::before{
+  left: 100%;
+}
+
+/* Offer box title — improved */
+.offer-box-title{
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.sophos-page .offer-box-title::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: rgba(0, 212, 255, 0.5);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.sophos-page .offer-box-card:hover .offer-box-title::after{
+  width: 80px;
+}
+
+/* ── Ready to Secure section — top accent glow ───── */
+.ready-to-secure-section{
+  position: relative;
+}
+
+.sophos-page .ready-to-secure-section::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.4), transparent);
+}
+
+/* ── Bottom features row — individual hover glow ─── */
+.bfi-icon-wrap{
+  transition: all 0.3s ease;
+}
+
+.sophos-page .bottom-feature-item:hover .bfi-icon-wrap{
+  box-shadow: 0 0 20px rgba(0, 91, 200, 0.4);
+  border-color: rgba(0, 212, 255, 0.5);
+}
+
+.sophos-page .bottom-feature-item:hover .bfi-icon-wrap i{
+  color: #00d4ff;
+}
+
+/* ── Section dividers — subtle animated separator ── */
+.sophos-page section{
+  position: relative;
+}
+
+/* ── Offers main title — gradient text ───────────── */
+.offers-main-title{
+  background: linear-gradient(135deg, #ffffff 0%, rgba(200, 230, 255, 0.9) 50%, #ffffff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: heading-shine 6s linear infinite;
+}
+
+/* ── Secure CTA title — gradient ─────────────────── */
+.secure-title{
+  background: linear-gradient(135deg, #ffffff 0%, rgba(200, 230, 255, 0.9) 50%, #ffffff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: heading-shine 6s linear infinite 1s;
+}
+
+/* ── Global section header helper (used across sections) */
+.sophos-page .section-label{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--heading-cyan, #00d4ff);
+  margin-bottom: 14px;
+}
+
+.sophos-page .section-label::before, 
+.sophos-page .section-label::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+/* ── Responsive for new elements ─────────────────── */
+@media (max-width: 768px){
+  .hero-orb { display: none; }
+  .sophos-page .hero-scroll-indicator{ display: none; }
+  .sophos-page .sph-section-eyebrow{ margin-bottom: 24px; }
+  .sophos-page .eyebrow-line{ width: 30px; }
+
+  .sophos-page .sophos-career-cta .career-cta-container {
+    padding: 40px 24px;
+  }
+
+  .sophos-page .sophos-cta-orb{ display: none; }
+}
+
+@media (max-width: 480px) {
+  .sophos-page .sph-section-eyebrow{ flex-direction: column; gap: 6px; }
+  .sophos-page .eyebrow-line{ display: none; }
+}
+
+/* ====================================================
+ * END COMPREHENSIVE UI IMPROVEMENTS
+ * ==================================================== */
+
+
+/* ── Team Certifications — Horizontal Infinite Marquee ──────────────────── */
+@keyframes cert-scroll{
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.cert-marquee-outer{
+  overflow: hidden;
+  /* Soft fade masks on both edges */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  padding: 16px 0 32px;
+}
+
+.cert-marquee-track{
+  display: flex;
+  width: max-content;
+  animation: cert-scroll 60s linear infinite;
+}
+
+/* Pause on hover */
+.cert-marquee-outer:hover .cert-marquee-track{
+  animation-play-state: paused;
+}
+
+.cert-marquee-item{
+  flex: 0 0 auto;
+  margin: 0 16px;
+  background: rgba(8, 20, 42, 0.75);
+  border: 1px solid rgba(0, 102, 204, 0.3);
+  border-radius: 14px;
+  padding: 14px 16px;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.cert-marquee-item:hover{
+  transform: translateY(-4px) scale(1.04);
+  border-color: rgba(255, 193, 7, 0.65);
+  box-shadow: 0 10px 32px rgba(0, 102, 204, 0.45);
+}
+
+.cert-marquee-item img{
+  width: 240px;
+  height: 160px;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.cert-marquee-title{
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  margin-top: 4px;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .cert-marquee-item img{
+    width: 200px;
+    height: 130px;
+  }
+  .cert-marquee-item{
+    margin: 0 10px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cert-marquee-item img{
+    width: 160px;
+    height: 110px;
+  }
+}
+/* ── End Team Certifications Marquee ─────────────────────────────────────── */
+
+/* ── Other Certifications Tab Layout ────────────────────────────────────────── */
+.cert-sub-title-dark {
+  font-size: 1.6rem !important;
+  font-weight: 800 !important;
+  color: #ff6600 !important;
+  text-align: center !important;
+  margin-top: 10px !important;
+  margin-bottom: 28px !important;
+  letter-spacing: -0.01em !important;
+}
+
+.cert-grid-dark {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+  gap: 20px !important;
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  padding: 10px 0 30px !important;
+}
+
+.other-cert-card {
+  flex: 0 1 200px !important;
+  min-width: 180px !important;
+  max-width: 220px !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 16px !important;
+  padding: 18px 14px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(8px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.other-cert-card:hover {
+  transform: translateY(-5px) !important;
+  border-color: #ff6600 !important;
+  box-shadow: 0 12px 30px rgba(255, 102, 0, 0.3) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.other-cert-card img,
+.cert-grid-dark > img {
+  width: 100% !important;
+  height: 110px !important;
+  object-fit: contain !important;
+  border-radius: 10px !important;
+  background: #ffffff !important;
+  padding: 10px !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+  display: block !important;
+}
+
+.other-cert-card span {
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  color: #e2e8f0 !important;
+  text-align: center !important;
+  line-height: 1.3 !important;
+}
+
+
+/* ── POC Section — Vertical Auto-Scrolling Image Strip ──────────────────── */
+@keyframes poc-scroll-up{
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.sophos-page .poc-img-scroll-outer{
+  overflow: hidden;
+  height: 520px;
+  border-radius: 16px;
+  /* Soft fade top & bottom */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.sophos-page .poc-img-scroll-track{
+  display: flex;
+  flex-direction: column;
+  animation: poc-scroll-up 20s linear infinite;
+}
+
+/* Pause on hover */
+.poc-img-scroll-outer:hover .poc-img-scroll-track{
+  animation-play-state: paused;
+}
+
+.sophos-page .poc-img-scroll-item{
+  flex: 0 0 auto;
+  margin: 10px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 91, 200, 0.22);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.sophos-page .poc-img-scroll-item:hover{
+  transform: scale(1.03);
+  border-color: rgba(235, 90, 15, 0.55);
+}
+
+.sophos-page .poc-img-scroll-item img{
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .sophos-page .poc-img-scroll-outer{
+    height: 380px;
+  }
+  .sophos-page .poc-img-scroll-item img{
+    height: 170px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sophos-page .poc-img-scroll-outer{
+    height: 300px;
+    margin-bottom: 32px;
+  }
+  .sophos-page .poc-img-scroll-item img{
+    height: 140px;
+  }
+}
+/* ── End POC Vertical Scroll ─────────────────────────────────────────────── */
+
+
+/* ── POC Section — Sophos Product Carousel ───────────────────────────────── */
+.sph-poc-carousel-container{
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  min-width: 0;
+}
+
+.sophos-page .sph-carousel-wrapper{
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(10, 20, 38, 0.98) 0%, rgba(5, 12, 28, 1) 100%);
+  border: 2px solid rgba(235, 90, 15, 0.28);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    0 0 48px rgba(235, 90, 15, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.sophos-page .sph-carousel-track{
+  display: flex;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sophos-page .sph-carousel-slide{
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image area */
+.sph-carousel-image-box{
+  width: 100%;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: radial-gradient(ellipse at 50% 40%, rgba(235, 90, 15, 0.08) 0%, transparent 70%);
+  position: relative;
+  overflow: hidden;
+}
+
+.sophos-page .sph-carousel-img{
+  max-width: 88%;
+  max-height: 88%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+  filter:
+    drop-shadow(0 12px 36px rgba(0, 0, 0, 0.65))
+    drop-shadow(0 0 20px rgba(235, 90, 15, 0.18))
+    brightness(1.1)
+    contrast(1.08);
+  animation: sphImgFloat 6s ease-in-out infinite;
+}
+
+@keyframes sphImgFloat {
+  0%,  100% { transform: translateY(0);    }
+  50%       { transform: translateY(-8px); }
+}
+
+/* Name + underline */
+.sph-carousel-info{
+  padding: 22px 32px 28px;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(5, 14, 28, 0.98) 0%, rgba(3, 10, 22, 1) 100%);
+  border-top: 1px solid rgba(235, 90, 15, 0.18);
+}
+
+.sophos-page .sph-carousel-title{
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 14px 0;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.sophos-page .sph-carousel-underline{
+  width: 72px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #eb5a0f, transparent);
+  margin: 0 auto;
+  border-radius: 2px;
+  box-shadow: 0 0 14px rgba(235, 90, 15, 0.55), 0 0 28px rgba(235, 90, 15, 0.3);
+  animation: sphUnderlinePulse 3s ease-in-out infinite;
+}
+
+@keyframes sphUnderlinePulse {
+  0%,  100% { opacity: 0.7; box-shadow: 0 0 14px rgba(235,90,15,0.5), 0 0 28px rgba(235,90,15,0.3); }
+  50%       { opacity: 1;   box-shadow: 0 0 20px rgba(235,90,15,0.75), 0 0 40px rgba(235,90,15,0.5); }
+}
+
+/* Dots */
+.sph-carousel-dots{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.sophos-page .sph-dot{
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  border: 2px solid rgba(235, 90, 15, 0.32);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sophos-page .sph-dot:hover{
+  background: rgba(235, 90, 15, 0.42);
+  border-color: rgba(235, 90, 15, 0.65);
+}
+
+.sophos-page .sph-dot.active{
+  background: linear-gradient(135deg, #eb5a0f 0%, #c94800 100%);
+  border-color: #eb5a0f;
+  box-shadow: 0 0 14px rgba(235, 90, 15, 0.65);
+  transform: scale(1.25);
+}
+
+/* Arrows */
+.sph-carousel-arrow{
+  position: absolute;
+  top: calc(50% - 30px); /* vertically centered on image area */
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, rgba(235, 90, 15, 0.28) 0%, rgba(235, 90, 15, 0.16) 100%);
+  border: 2px solid rgba(235, 90, 15, 0.45);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: #eb5a0f;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 4;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4), 0 0 12px rgba(235, 90, 15, 0.2);
+}
+
+.sophos-page .sph-carousel-arrow:hover{
+  background: linear-gradient(135deg, #eb5a0f 0%, #c94800 100%);
+  border-color: #eb5a0f;
+  color: #fff;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 24px rgba(235, 90, 15, 0.45);
+}
+
+.sophos-page .sph-carousel-prev{ left:  -24px; }
+.sophos-page .sph-carousel-next{ right: -24px; }
+
+/* Responsive */
+@media (max-width: 992px){
+  .sph-carousel-image-box { height: 320px; }
+}
+
+@media (max-width: 768px) {
+  .sophos-page .sph-carousel-image-box{ height: 260px; padding: 20px; }
+  .sophos-page .sph-carousel-title{ font-size: 1.2rem; }
+  .sophos-page .sph-carousel-prev{ left:  -16px; }
+  .sophos-page .sph-carousel-next{ right: -16px; }
+}
+/* ── End POC Carousel ────────────────────────────────────────────────────── */
+
+
+/* ── 5. POC / PRODUCTS SECTION — light blue + floating orb ──────────────── */
+.sophos-page.partner-sophos .aruba-products-poc-section{
+  background:
+    radial-gradient(ellipse at 5% 50%, rgba(0, 122, 255, 0.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 95% 50%, rgba(0, 90, 200, 0.14) 0%, transparent 50%),
+    linear-gradient(155deg, #d4e9ff 0%, #bcd5ff 40%, #cce2ff 70%, #d8eaff 100%) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.sophos-page.partner-sophos .aruba-products-poc-section::before {
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(0, 122, 255, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 50%, rgba(0, 90, 200, 0.07) 0%, transparent 60%) !important;
+}
+
+.sophos-page.partner-sophos .aruba-products-poc-section::after {
+  background-image:
+    linear-gradient(rgba(0, 122, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 122, 255, 0.04) 1px, transparent 1px) !important;
+}
+
+/* POC box */
+.sophos-page.partner-sophos .aruba-products-poc-grid{
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sophos-page.partner-sophos .aruba-poc-offer-box {
+  background: rgba(255, 255, 255, 0.80) !important;
+  border-color: rgba(0, 122, 255, 0.3) !important;
+  box-shadow: 0 0 40px rgba(0, 122, 255, 0.12), 0 20px 60px rgba(0, 0, 0, 0.08) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .sophos-page.partner-sophos .aruba-poc-offer-box {
+    padding: 30px 20px !important;
+  }
+}
+
+.sophos-page.partner-sophos .aruba-poc-offer-box::before {
+  background:
+    radial-gradient(ellipse at 10% 20%, rgba(0, 122, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 80%, rgba(0, 90, 200, 0.06) 0%, transparent 50%) !important;
+}
+
+/* POC text colours — all !important to beat heading shimmer */
+.sophos-page.partner-sophos .aruba-poc-main-title{
+  color: #0a1929 !important;
+  -webkit-text-fill-color: #0a1929 !important;
+  background: none !important;
+  animation: none !important;
+}
+.sophos-page.partner-sophos .aruba-poc-intro-text {
+  color: #1e3a5f !important;
+  -webkit-text-fill-color: #1e3a5f !important;
+}
+.sophos-page.partner-sophos .aruba-benefit-text h4 {
+  color: #0a1929 !important;
+  -webkit-text-fill-color: #0a1929 !important;
+  background: none !important;
+  animation: none !important;
+}
+.sophos-page.partner-sophos .aruba-benefit-text p {
+  color: #1e3a5f !important;
+  -webkit-text-fill-color: #1e3a5f !important;
+}
+.sophos-page.partner-sophos .aruba-closing-text {
+  color: #1e3a5f !important;
+  -webkit-text-fill-color: #1e3a5f !important;
+}
+.sophos-page.partner-sophos .aruba-highlight      { color: #007aff !important; -webkit-text-fill-color: #007aff !important; }
+.sophos-page.partner-sophos .aruba-poc-tagline    { color: #007aff !important; -webkit-text-fill-color: #007aff !important; letter-spacing: 1.5px !important; background: none !important; animation: none !important; }
+.sophos-page.partner-sophos .aruba-orange-text    { color: #007aff !important; -webkit-text-fill-color: #007aff !important; text-shadow: 0 0 20px rgba(0,122,255,0.35) !important; background: none !important; animation: none !important; }
+.sophos-page.partner-sophos .sph-carousel-title {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  animation: none !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4) !important;
+}
+.sophos-page.partner-sophos .sph-carousel-underline { background: #007aff !important; }
+.sophos-page.partner-sophos .sph-dot              { background: rgba(0,122,255,0.35) !important; }
+.sophos-page.partner-sophos .sph-dot.active       { background: #007aff !important; }
+
+/* Benefit items */
+.sophos-page.partner-sophos .aruba-benefit-item{
+  border-color: rgba(0, 122, 255, 0.18) !important;
+  background: rgba(255, 255, 255, 0.55) !important;
+}
+.sophos-page.partner-sophos .aruba-benefit-item:hover {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-color: rgba(0, 122, 255, 0.4) !important;
+}
+.sophos-page.partner-sophos .aruba-benefit-icon {
+  background: linear-gradient(135deg, rgba(0,122,255,0.18) 0%, rgba(0,122,255,0.08) 100%) !important;
+  border-color: rgba(0, 122, 255, 0.4) !important;
+  color: #007aff !important;
+  box-shadow: 0 4px 14px rgba(0,122,255,0.18) !important;
+}
+/* End POC ────────────────────────────────────────────────────────────────── */
+
+.sophos-page.partner-sophos .aruba-benefit-item:hover .aruba-benefit-icon{
+  box-shadow: 0 6px 20px rgba(0, 91, 200, 0.4);
+}
+
+/* Carousel wrapper border & glow */
+.sophos-page.partner-sophos .aruba-carousel-wrapper{
+  border-color: rgba(0, 91, 200, 0.3);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    0 0 50px rgba(0, 91, 200, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.sophos-page.partner-sophos .aruba-carousel-wrapper::before {
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(0, 91, 200, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 80%, rgba(0, 60, 140, 0.08) 0%, transparent 60%);
+}
+
+/* Carousel image glow */
+.sophos-page.partner-sophos .aruba-carousel-img{
+  filter:
+    drop-shadow(0 15px 40px rgba(0, 0, 0, 0.6))
+    drop-shadow(0 0 25px rgba(0, 91, 200, 0.25))
+    brightness(1.15)
+    contrast(1.1);
+}
+
+/* Carousel info border */
+.sophos-page.partner-sophos .aruba-carousel-info{
+  border-top-color: rgba(0, 91, 200, 0.2);
+}
+
+/* Carousel underline */
+.sophos-page.partner-sophos .aruba-carousel-underline{
+  background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5), 0 0 30px rgba(59, 130, 246, 0.3);
+}
+
+/* Carousel dots */
+.sophos-page.partner-sophos .aruba-dot{
+  border-color: rgba(0, 91, 200, 0.35);
+}
+
+.sophos-page.partner-sophos .aruba-dot:hover {
+  background: rgba(0, 91, 200, 0.4);
+  border-color: rgba(0, 91, 200, 0.6);
+}
+
+.sophos-page.partner-sophos .aruba-dot.active {
+  background: linear-gradient(135deg, #1d6ef5 0%, #0055cc 100%);
+  border-color: #3b82f6;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+}
+
+/* Carousel arrows */
+.sophos-page.partner-sophos .aruba-carousel-arrow{
+  background: linear-gradient(135deg, rgba(0, 91, 200, 0.28) 0%, rgba(0, 91, 200, 0.15) 100%);
+  border-color: rgba(0, 91, 200, 0.5);
+  color: #3b82f6;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 91, 200, 0.2);
+}
+
+.sophos-page.partner-sophos .aruba-carousel-arrow:hover {
+  background: linear-gradient(135deg, #1d6ef5 0%, #0055cc 100%);
+  border-color: #3b82f6;
+  color: #ffffff;
+  box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4), 0 0 25px rgba(59, 130, 246, 0.3);
+}
+
+/* Carousel image box glow */
+.sophos-page.partner-sophos .aruba-carousel-image-box::before{
+  background:
+    radial-gradient(circle at center, rgba(0, 91, 200, 0.08) 0%, transparent 70%),
+    repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(0, 91, 200, 0.02) 60px, rgba(0, 91, 200, 0.02) 61px),
+    repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(0, 91, 200, 0.02) 60px, rgba(0, 91, 200, 0.02) 61px);
+}
+/* ── End Sophos POC Blue Override ────────────────────────────────────────── */
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * SOPHOS PAGE — PREMIUM LIGHT-BLUE THEME (all sections)
+ * Base: #007aff  |  Light bg: #e8f4ff→#cce5ff  |  Text: #0a1929 / #ffffff
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Shared animation keyframes ──────────────────────────────────────────── */
+@keyframes sophosOrb1{
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(70px, 50px) scale(1.15); }
+  66%       { transform: translate(-40px, 90px) scale(0.88); }
+}
+@keyframes sophosOrb2 {
+  0%,  100% { transform: translate(0, 0) scale(1); }
+  40%       { transform: translate(-80px, -55px) scale(1.2); }
+  70%       { transform: translate(35px, -70px) scale(0.85); }
+}
+@keyframes sophosWave {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(33.33%); }
+}
+@keyframes sophosFloat {
+  0%,  100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-55px) scale(1.08); }
+}
+@keyframes sophosPulse {
+  0%,  100% { transform: scale(1); opacity: 0.55; }
+  50%       { transform: scale(1.12); opacity: 0.85; }
+}
+
+/* ── 1. USE CASE SLIDER — soft sky-blue ──────────────────────────────────── */
+.sophos-page .use-case-slider-section{
+  background:
+    radial-gradient(ellipse at 8% 15%, rgba(0, 122, 255, 0.22) 0%, transparent 48%),
+    radial-gradient(ellipse at 92% 85%, rgba(0, 100, 220, 0.16) 0%, transparent 48%),
+    linear-gradient(155deg, #d6ebff 0%, #bdd9ff 40%, #cce5ff 70%, #d8edff 100%) !important;
+  border-top: 1px solid rgba(0, 122, 255, 0.2) !important;
+  border-bottom: 1px solid rgba(0, 122, 255, 0.2) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+.sophos-page .use-case-slider-section::before {
+  background-image:
+    linear-gradient(rgba(0, 122, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 122, 255, 0.05) 1px, transparent 1px) !important;
+}
+.sophos-page .use-case-slider-section::after {
+  background: radial-gradient(circle, rgba(0, 122, 255, 0.18) 0%, transparent 70%) !important;
+}
+.sophos-page .use-case-slider-right {
+  background: radial-gradient(ellipse at center, rgba(0, 122, 255, 0.12) 0%, transparent 65%) !important;
+}
+/* Use case text overrides — section header only (sits on light bg) */
+.sophos-page .use-case-slider-title, 
+.sophos-page .use-case-slider-title * {
+  color: #0a1929 !important;
+  -webkit-text-fill-color: #0a1929 !important;
+}
+.sophos-page .use-case-slider-subtitle {
+  color: rgba(10, 25, 41, 0.65) !important;
+  -webkit-text-fill-color: rgba(10, 25, 41, 0.65) !important;
+}
+.sophos-page .use-case-slider-header::after {
+  background: #007aff !important;
+}
+
+/* Category badge — Sophos Orange accent matching Aruba design */
+.sophos-page .use-case-category-badge {
+  background: rgba(235, 90, 15, 0.12) !important;
+  color: #eb5a0f !important;
+  border-color: rgba(235, 90, 15, 0.35) !important;
+}
+.sophos-page .use-case-category-badge i {
+  color: #eb5a0f !important;
+  -webkit-text-fill-color: #eb5a0f !important;
+}
+
+/* Card interior — dark panel, .sophos-page so all text must be white/light */
+.sophos-page .use-case-slider-left {
+  padding: 48px 48px !important;
+  gap: 20px !important;
+  box-sizing: border-box !important;
+}
+.sophos-page .use-case-slider-case-title {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-size: 1.75rem !important;
+  line-height: 1.35 !important;
+  margin: 0 !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+.sophos-page .use-case-slider-description {
+  color: rgba(255, 255, 255, 0.88) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.88) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.65 !important;
+  margin: 0 !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+}
+.sophos-page .meta-label {
+  color: rgba(255, 255, 255, 0.55) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.55) !important;
+}
+.sophos-page .meta-value {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+.sophos-page .use-case-slider-meta {
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+/* Outlined "LEARN MORE" Button matching Aruba */
+.sophos-page .use-case-slider-read-more {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 12px 28px !important;
+  background: transparent !important;
+  border: 1.5px solid #eb5a0f !important;
+  border-radius: 50px !important;
+  color: #eb5a0f !important;
+  -webkit-text-fill-color: #eb5a0f !important;
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  width: fit-content !important;
+  margin-top: 8px !important;
+  box-shadow: none !important;
+}
+.sophos-page .use-case-slider-read-more i {
+  color: inherit !important;
+  -webkit-text-fill-color: inherit !important;
+  transition: transform 0.3s ease !important;
+  font-size: 0.85rem !important;
+}
+.sophos-page .use-case-slider-read-more:hover {
+  background: #eb5a0f !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  box-shadow: 0 8px 28px rgba(235, 90, 15, 0.4) !important;
+  transform: translateY(-2px) !important;
+  gap: 14px !important;
+}
+.sophos-page .use-case-slider-read-more:hover i {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  transform: translateX(4px) !important;
+}
+/* Arrow nav buttons matching Aruba translucent style */
+.sophos-page .use-case-slider-nav {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+.sophos-page .use-case-slider-nav:hover {
+  background: #eb5a0f !important;
+  border-color: #eb5a0f !important;
+}
+/* Active slide indicator pill matching Aruba */
+.sophos-page .use-case-slider-dot.active {
+  background: #eb5a0f !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  width: 32px !important;
+  border-radius: 6px !important;
+  box-shadow: 0 0 16px #eb5a0f !important;
+}
+/* End Use Case ────────────────────────────────────────────────────────────── */
+
+/* ── 2. AWARDS SECTION ───────────────────────────────────────────────────── */
+.sophos-page .awards-section{
+  background:
+    linear-gradient(135deg, #eaf4ff 0%, #cde3ff 35%, #ddeeff 65%, #eaf4ff 100%) !important;
+  border-top: 1px solid rgba(0, 122, 255, 0.18) !important;
+  border-bottom: 1px solid rgba(0, 122, 255, 0.18) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+.sophos-page .awards-section::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -90px !important; left: -90px !important;
+  width: 360px !important; height: 360px !important;
+  background: radial-gradient(circle, rgba(0, 122, 255, 0.16) 0%, transparent 70%) !important;
+  border-radius: 50% !important;
+  animation: sophosOrb1 11s ease-in-out infinite !important;
+  pointer-events: none !important; z-index: 0 !important;
+}
+.sophos-page .awards-section::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: -65px !important; right: -65px !important;
+  width: 300px !important; height: 300px !important;
+  background: radial-gradient(circle, rgba(0, 122, 255, 0.12) 0%, transparent 70%) !important;
+  border-radius: 50% !important;
+  animation: sophosOrb2 14s ease-in-out infinite !important;
+  pointer-events: none !important; z-index: 0 !important;
+}
+.sophos-page .awards-section .section-title, 
+.sophos-page .awards-section .awards-slider { position: relative !important; z-index: 1 !important; }
+.sophos-page .awards-section .section-title__tagline { color: #007aff !important; }
+.sophos-page .awards-section .section-title__tagline-shape-1, 
+.sophos-page .awards-section .section-title__tagline-shape-2 { background: #007aff !important; }
+.sophos-page .awards-section .section-title__title { color: #0a1929 !important; }
+.sophos-page .awards-section .section-title__title span { color: #007aff !important; }
+.sophos-page .award-card {
+  background: rgba(255, 255, 255, 0.80) !important;
+  border: 1px solid rgba(0, 122, 255, 0.2) !important;
+  box-shadow: 0 4px 20px rgba(0, 122, 255, 0.1) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+.sophos-page .award-card:hover {
+  background: #ffffff !important;
+  border-color: #007aff !important;
+  box-shadow: 0 14px 38px rgba(0, 122, 255, 0.22) !important;
+  transform: translateY(-6px) !important;
+}
+.sophos-page .award-card span { color: #1e3a5f !important; font-weight: 600 !important; }
+/* End Awards ──────────────────────────────────────────────────────────────── */
+
+/* ── 3. PREMIUM CARDS (WHY LEADING BRANDS) ───────────────────────────────── */
+.sophos-page .premium-cards-section{
+  background:
+    linear-gradient(160deg, #ddeeff 0%, #c5deff 30%, #d8eaff 60%, #daeeff 100%) !important;
+  border-top: 1px solid rgba(0, 122, 255, 0.16) !important;
+  border-bottom: 1px solid rgba(0, 122, 255, 0.16) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+.sophos-page .premium-cards-section::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important; left: -100% !important;
+  width: 300% !important; height: 100% !important;
+  background: repeating-linear-gradient(
+    105deg,
+    transparent 0px, transparent 110px,
+    rgba(0, 122, 255, 0.05) 110px, rgba(0, 122, 255, 0.05) 220px
+  ) !important;
+  animation: sophosWave 20s linear infinite !important;
+  pointer-events: none !important; z-index: 0 !important;
+}
+.sophos-page .premium-cards-section::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 5% !important; right: -130px !important;
+  width: 440px !important; height: 440px !important;
+  background: radial-gradient(circle, rgba(0, 122, 255, 0.12) 0%, transparent 70%) !important;
+  border-radius: 50% !important;
+  animation: sophosFloat 15s ease-in-out infinite !important;
+  pointer-events: none !important; z-index: 0 !important;
+}
+.sophos-page .premium-cards-section .premium-container { position: relative !important; z-index: 1 !important; }
+.sophos-page .premium-cards-section .section-title__title { color: #0a1929 !important; }
+.sophos-page .premium-cards-section .section-title__title span { color: #007aff !important; }
+.sophos-page .premium-service-card {
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(0, 122, 255, 0.16) !important;
+  box-shadow: 0 8px 32px rgba(0, 122, 255, 0.1) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+}
+.sophos-page .premium-service-card:hover {
+  background: #ffffff !important;
+  border-color: #007aff !important;
+  box-shadow: 0 22px 52px rgba(0, 122, 255, 0.2) !important;
+  transform: translateY(-8px) !important;
+}
+.sophos-page .premium-service-card strong { color: #0a1929 !important; }
+.sophos-page .premium-service-card p { color: #1e3a5f !important; }
+.sophos-page .premium-icon-wrapper { border-color: #c8e4ff !important; }
+/* End Premium Cards ───────────────────────────────────────────────────────── */
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * SOPHOS LIGHT-THEME OVERRIDES — hero text,  .sophos-page stat boxes,  .sophos-page CTA section
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Hero / Award Highlight — text on light background ──────────────────── */
+.sophos-page .award-description{
+  color: #1e3a5f !important;
+}
+
+.sophos-page .award-mdr-tagline {
+  background: rgba(0, 122, 255, 0.1) !important;
+  border-color: rgba(0, 122, 255, 0.3) !important;
+  color: #0a2a5e !important;
+}
+.sophos-page .award-mdr-tagline i { color: #f59e0b !important; }
+
+/* Stat boxes — white glass on light bg */
+.sophos-page .stat-box{
+  background: rgba(255, 255, 255, 0.72) !important;
+  border-color: rgba(0, 122, 255, 0.3) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+.sophos-page .stat-box:hover {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-color: #007aff !important;
+  box-shadow: 0 10px 35px rgba(0, 122, 255, 0.2) !important;
+}
+.sophos-page .stat-content .stat-number {
+  color: #0a1929 !important;
+  text-shadow: none !important;
+}
+.sophos-page .stat-content .stat-label { color: #1e3a5f !important; }
+.sophos-page .stat-icon-circle {
+  background: linear-gradient(135deg, rgba(0,122,255,0.18), rgba(0,90,200,0.1)) !important;
+  border-color: rgba(0, 122, 255, 0.45) !important;
+}
+.sophos-page .stat-icon-circle i {
+  color: #007aff !important;
+  filter: none !important;
+}
+
+/* Award image frame */
+.sophos-page .award-image{
+  background: rgba(255, 255, 255, 0.55) !important;
+  border-color: rgba(0, 122, 255, 0.35) !important;
+  box-shadow:
+    0 0 40px rgba(0, 122, 255, 0.2),
+    0 0 80px rgba(0, 122, 255, 0.1),
+    inset 0 0 30px rgba(0, 122, 255, 0.05) !important;
+}
+
+/* ── 7. CTA SECTION — keep the dark photo bg but lighten overlay ──────────
+   The CTA uses an inline background-image (bggg.jpg),  .sophos-page so we just let it be.
+   We only ensure text/buttons remain pure white and readable.              */
+/* CTA section — white base with moving light-orange shine on the title */
+.sophos-page.partner-sophos .aruba-cta-with-bg .aruba-cta-title{
+  background: linear-gradient(
+    90deg,
+    #ffffff  0%,
+    #ffffff  15%,
+    #ffcc80  28%,
+    #ffe0b2  38%,
+    #ffffff  50%,
+    #ffe0b2  62%,
+    #ffcc80  72%,
+    #ffffff  85%,
+    #ffffff  100%
+  ) !important;
+  background-size: 300% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  animation: cta-orange-shine 3s ease-in-out infinite !important;
+}
+
+@keyframes cta-orange-shine {
+  0%   { background-position: 150% center; }
+  100% { background-position: -150% center; }
+}
+
+.sophos-page.partner-sophos .aruba-cta-with-bg .aruba-cta-subtitle { color: #ffffff !important; }
+.sophos-page.partner-sophos .aruba-cta-with-bg .aruba-cta-list {
+  list-style: none !important;
+  list-style-type: none !important;
+  padding: 0 !important;
+  margin: 0 auto 35px auto !important;
+  text-align: left !important;
+  display: inline-flex !important;
+  flex-direction: column !important;
+  gap: 14px !important;
+}
+.sophos-page.partner-sophos .aruba-cta-with-bg .aruba-cta-list li {
+  list-style: none !important;
+  list-style-type: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: #e0f0ff !important;
+  font-size: 1.1rem !important;
+  font-weight: 500 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+}
+.sophos-page.partner-sophos .aruba-cta-with-bg .aruba-cta-list li .cta-check-icon {
+  color: #ff8300 !important;
+  font-size: 1.25rem !important;
+  flex-shrink: 0 !important;
+  filter: drop-shadow(0 0 8px rgba(255, 131, 0, 0.6)) !important;
+}
+
+
+/* ── End Sophos Light-Theme Overrides ────────────────────────────────────── */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * SOPHOS — SECTION HEADING UNDERLINE DECORATOR
+ * A small centred bar with a glowing dot in the middle appears under every
+ * major section h2 across the page.
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Target every h2 inside the main section wrappers */
+.sophos-page.partner-sophos .certifications-carousel-premium .cert-carousel-header h2, 
+.sophos-page.partner-sophos .awards-section .section-title__title, 
+.sophos-page.partner-sophos .premium-cards-section .section-title__title, 
+.sophos-page.partner-sophos .use-case-slider-section .use-case-slider-title, 
+.sophos-page.partner-sophos .aruba-products-poc-section .aruba-poc-main-title, 
+.sophos-page.partner-sophos .sophos-award-highlight .award-title {
+  position: relative;
+  display: inline-block; /* so ::after is sized to the text */
+  padding-bottom: 18px;  /* space for the underline */
+}
+
+/* The underline bar */
+.sophos-page.partner-sophos .certifications-carousel-premium .cert-carousel-header h2::after, 
+.sophos-page.partner-sophos .awards-section .section-title__title::after, 
+.sophos-page.partner-sophos .premium-cards-section .section-title__title::after, 
+.sophos-page.partner-sophos .use-case-slider-section .use-case-slider-title::after, 
+.sophos-page.partner-sophos .aruba-products-poc-section .aruba-poc-main-title::after, 
+.sophos-page.partner-sophos .sophos-award-highlight .award-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 72px;
+  height: 3px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, transparent 0%, #007aff 30%, #f59e0b 50%, #007aff 70%, transparent 100%);
+  background-size: 200% auto;
+  animation: sophos-underline-shimmer 3s linear infinite;
+}
+
+@keyframes sophos-underline-shimmer {
+  0%   { background-position: 150% center; }
+  100% { background-position: -150% center; }
+}
+
+/* Glowing dot in the centre of the bar */
+.sophos-page.partner-sophos .certifications-carousel-premium .cert-carousel-header h2::before, 
+.sophos-page.partner-sophos .awards-section .section-title__title::before, 
+.sophos-page.partner-sophos .premium-cards-section .section-title__title::before, 
+.sophos-page.partner-sophos .use-case-slider-section .use-case-slider-title::before, 
+.sophos-page.partner-sophos .aruba-products-poc-section .aruba-poc-main-title::before, 
+.sophos-page.partner-sophos .sophos-award-highlight .award-title::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f59e0b;
+  box-shadow: 0 0 8px 2px rgba(245, 158, 11, 0.6);
+  animation: sophos-dot-pulse 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes sophos-dot-pulse {
+  0%,  100% { transform: translateX(-50%) scale(1);   box-shadow: 0 0 8px 2px rgba(245,158,11,0.55); }
+  50%       { transform: translateX(-50%) scale(1.35); box-shadow: 0 0 14px 4px rgba(245,158,11,0.85); }
+}
+/* ── End Section Heading Underline ────────────────────────────────────────── */
+
+
+
+/* ==========================================================================
+ * SOPHOS PAGE ENHANCEMENT & DEFECT FIXES
+ * Dedicated scoped overrides for card grids, slider pagination & POC section
+ * ========================================================================== */
+
+/* ── 1. WHY LEADING BRANDS - PREMIUM SERVICE CARDS FIX ── */
+.sophos-page .premium-card-grid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 40px !important;
+  justify-content: center !important;
+  margin-top: 60px !important;
+}
+
+.sophos-page .premium-service-card {
+  position: relative !important;
+  flex: 1 1 calc(25% - 40px) !important;
+  max-width: calc(25% - 40px) !important;
+  padding: 80px 25px 30px !important;
+  border-radius: 20px !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  border: 1px solid rgba(0, 122, 255, 0.16) !important;
+  box-shadow: 0 8px 32px rgba(0, 122, 255, 0.1) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  margin-bottom: 30px !important;
+  text-align: center !important;
+  transition: all 0.4s ease !important;
+}
+
+.sophos-page .premium-service-card:hover {
+  background: #ffffff !important;
+  border-color: #007aff !important;
+  box-shadow: 0 22px 52px rgba(0, 122, 255, 0.2) !important;
+  transform: translateY(-8px) !important;
+}
+
+.sophos-page .premium-icon-wrapper {
+  position: absolute !important;
+  top: -40px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 80px !important;
+  height: 80px !important;
+  border-radius: 50% !important;
+  background: #eb5a0f !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 8px 25px rgba(235, 90, 15, 0.40) !important;
+  border: 3px solid #c8e4ff !important;
+  z-index: 10 !important;
+  transition: transform 0.6s ease !important;
+}
+
+.sophos-page .premium-service-card:hover .premium-icon-wrapper {
+  transform: translateX(-50%) rotate(360deg) !important;
+  box-shadow: 0 8px 25px rgba(235, 90, 15, 0.7) !important;
+}
+
+.sophos-page .premium-icon-wrapper img {
+  width: 44px !important;
+  height: 44px !important;
+  object-fit: contain !important;
+  filter: brightness(0) invert(1) !important;
+}
+
+.sophos-page .premium-service-card strong {
+  font-size: 16px !important;
+  color: #0a1929 !important;
+  font-weight: 800 !important;
+  display: block !important;
+  margin-bottom: 10px !important;
+  line-height: 1.4 !important;
+}
+
+.sophos-page .premium-service-card p {
+  font-size: 13.5px !important;
+  color: #1e3a5f !important;
+  line-height: 1.7 !important;
+  margin: 0 !important;
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .sophos-page .premium-service-card {
+    flex: 1 1 calc(33.333% - 40px) !important;
+    max-width: calc(33.333% - 40px) !important;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .sophos-page .premium-service-card {
+    flex: 1 1 calc(50% - 40px) !important;
+    max-width: calc(50% - 40px) !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .sophos-page .premium-service-card {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+  }
+  .sophos-page .premium-card-grid {
+    gap: 50px !important;
+  }
+}
+
+/* ── 2. USE CASE SLIDER PAGINATION & SECTION SPACING FIX ── */
+.sophos-page .use-case-slider-section {
+  padding: 80px 0 100px !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.sophos-page .use-case-slider-dots {
+  position: relative !important;
+  z-index: 20 !important;
+  margin-top: 36px !important;
+  margin-bottom: 10px !important;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  pointer-events: auto !important;
+}
+
+.sophos-page .use-case-slider-dot {
+  position: relative !important;
+  z-index: 20 !important;
+  width: 14px !important;
+  height: 14px !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+/* ── 3. SOPHOS PRODUCTS & POC OVERRIDES (BLUE / ORANGE THEME) ── */
+.sophos-page .aruba-products-poc-section {
+  background: linear-gradient(135deg, #030712 0%, #09122c 50%, #041026 100%) !important;
+  border-top: 1px solid rgba(0, 122, 255, 0.2) !important;
+  border-bottom: 1px solid rgba(0, 122, 255, 0.2) !important;
+}
+
+.sophos-page .aruba-products-poc-section::before {
+  background: 
+    radial-gradient(ellipse at 30% 50%, rgba(0, 122, 255, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 50%, rgba(0, 90, 200, 0.12) 0%, transparent 60%) !important;
+}
+
+.sophos-page .aruba-carousel-wrapper,
+.sophos-page .sph-carousel-wrapper {
+  border-color: rgba(0, 122, 255, 0.35) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 50px rgba(0, 122, 255, 0.15) !important;
+}
+
+.sophos-page .aruba-poc-offer-box {
+  background: linear-gradient(135deg, rgba(8, 20, 42, 0.95) 0%, rgba(4, 12, 28, 0.98) 100%) !important;
+  border: 2px solid rgba(0, 122, 255, 0.35) !important;
+  box-shadow: 0 0 40px rgba(0, 122, 255, 0.15), 0 20px 60px rgba(0, 0, 0, 0.5) !important;
+}
+
+.sophos-page .aruba-orange-text {
+  color: #eb5a0f !important;
+  text-shadow: 0 0 20px rgba(235, 90, 15, 0.4) !important;
+}
+
+.sophos-page .aruba-poc-tagline {
+  color: #eb5a0f !important;
+}
+
+.sophos-page .aruba-benefit-icon {
+  background: linear-gradient(135deg, rgba(0, 122, 255, 0.25) 0%, rgba(0, 122, 255, 0.12) 100%) !important;
+  border-color: rgba(0, 122, 255, 0.4) !important;
+  color: #007aff !important;
+  box-shadow: 0 4px 15px rgba(0, 122, 255, 0.2) !important;
+}
+
+.sophos-page .aruba-cta-btn {
+  background: linear-gradient(135deg, #007aff 0%, #0056b3 100%) !important;
+  border-color: rgba(0, 122, 255, 0.4) !important;
+  box-shadow: 0 10px 30px rgba(0, 122, 255, 0.35) !important;
+}
+
+.sophos-page .aruba-cta-btn:hover {
+  background: linear-gradient(135deg, #3395ff 0%, #007aff 100%) !important;
+  box-shadow: 0 15px 40px rgba(0, 122, 255, 0.5) !important;
+}
+
+
+
+/* ── SOPHOS STRATEGY CALL / CTA SECTION STYLES ── */
+.sophos-page .aruba-cta-with-bg,
+.sophos-page .sophos-cta-with-bg {
+  position: relative !important;
+  padding: 100px 0 !important;
+  overflow: hidden !important;
+  border-top: 2px solid rgba(0, 122, 255, 0.3) !important;
+  border-bottom: 2px solid rgba(0, 122, 255, 0.3) !important;
+  min-height: 520px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.sophos-page .aruba-cta-content,
+.sophos-page .sophos-cta-content {
+  position: relative !important;
+  z-index: 2 !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+  padding: 0 20px !important;
+}
+
+.sophos-page .aruba-cta-title,
+.sophos-page .sophos-cta-title {
+  font-size: clamp(2rem, 4.5vw, 3rem) !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  margin-bottom: 20px !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.02em !important;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+.sophos-page .aruba-cta-subtitle,
+.sophos-page .sophos-cta-subtitle {
+  font-size: 1.2rem !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.9) !important;
+  margin-bottom: 35px !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+}
+
+.sophos-page .aruba-cta-list,
+.sophos-page .sophos-cta-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 auto 40px auto !important;
+  text-align: left !important;
+  display: inline-block !important;
+}
+
+.sophos-page .aruba-cta-list li,
+.sophos-page .sophos-cta-list li {
+  font-size: 1.1rem !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  margin-bottom: 16px !important;
+  padding-left: 10px !important;
+  line-height: 1.6 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4) !important;
+}
+
+.sophos-page .aruba-cta-list li .cta-check-icon,
+.sophos-page .sophos-cta-list li .cta-check-icon {
+  color: #eb5a0f !important;
+  -webkit-text-fill-color: #eb5a0f !important;
+  font-size: 1.3rem !important;
+  flex-shrink: 0 !important;
+}
+
+.sophos-page .aruba-cta-btn-wrapper,
+.sophos-page .sophos-cta-btn-wrapper {
+  display: flex !important;
+  justify-content: center !important;
+  margin-top: 35px !important;
+}
+
+.sophos-page .sophos-cta-btn,
+.sophos-page .aruba-cta-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 15px !important;
+  padding: 18px 45px !important;
+  background: linear-gradient(135deg, #eb5a0f 0%, #d44d05 100%) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  border-radius: 50px !important;
+  border: 2px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 10px 30px rgba(235, 90, 15, 0.45) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  cursor: pointer !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.sophos-page .sophos-cta-btn:hover,
+.sophos-page .aruba-cta-btn:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  background: linear-gradient(135deg, #ff6a1d 0%, #eb5a0f 100%) !important;
+  box-shadow: 0 15px 40px rgba(235, 90, 15, 0.65) !important;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.sophos-page .sophos-cta-btn i,
+.sophos-page .aruba-cta-btn i {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  font-size: 1.2rem !important;
+  transition: transform 0.3s ease !important;
+}
+
+.sophos-page .sophos-cta-btn:hover i,
+.sophos-page .aruba-cta-btn:hover i {
+  transform: translateX(5px) !important;
+}

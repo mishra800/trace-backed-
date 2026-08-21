@@ -1,0 +1,312 @@
+﻿import React from 'react';
+import { Link } from 'react-router-dom';
+import UseCaseSlider from '../../components/UseCaseSlider';
+import { useAwardsSlider } from '../../hooks/useAwardsSlider';
+import './Accops.css';
+
+const accopsUseCases = [
+  { id: 'fmcg', category: 'FMCG', icon: 'fas fa-shopping-cart', title: 'Fast-Moving Consumer Goods (Distributed Workforce & Supply Chain Security)', description: 'Problem: FMCG organizations require secure remote access and centralized application access for distributed sales teams, warehouses, and branch offices.', image: '/assets/images/use-cases/usecase3.png', linkTo: '/case-studies' },
+  { id: 'metals', category: 'METALS & MINING', icon: 'fas fa-hammer', title: 'Metals & Mining (Secure Connectivity for Remote Sites)', description: 'Problem: Mining organizations require secure connectivity between sites, operational centers, and corporate offices while protecting critical operational data.', image: '/assets/images/use-cases/usecase7.png', linkTo: '/case-studies' },
+  { id: 'industrials', category: 'INDUSTRIALS', icon: 'fas fa-industry', title: 'Capital Goods & Industrials (ERP & Industrial Application Security)', description: 'Problem: Industrial organizations require secure access to ERP systems, production applications, engineering platforms, and remote operational environments.', image: '/assets/images/use-cases/usecase6.png', linkTo: '/case-studies' },
+  { id: 'enterprise', category: 'ENTERPRISE', icon: 'fas fa-building', title: 'Large Enterprises (Zero Trust Hybrid Workforce)', description: 'Problem: Large enterprises need Zero Trust access to corporate resources for thousands of hybrid workers across multiple locations.', image: '/assets/images/use-cases/usecase4.png', linkTo: '/case-studies' },
+  { id: 'bfsi', category: 'BANKING', icon: 'fas fa-university', title: 'Banking & Financial Services (Secure Compliant Access)', description: 'Problem: Financial institutions require compliant, auditable remote access with MFA and strong identity verification for sensitive financial data.', image: '/assets/images/use-cases/usecase5.png', linkTo: '/case-studies' },
+];
+
+export default function Accops() {
+  useAwardsSlider();
+  return (
+    <div className="accops-page acp-v2-page">
+
+      {/* -- HERO -- */}
+      <section className="acp2-hero">
+        <div className="acp2-hero-glow-left" aria-hidden="true"></div>
+        <div className="acp2-hero-glow-right" aria-hidden="true"></div>
+        <div className="acp2-hero-inner container">
+
+          <div className="acp2-left" data-aos="fade-right" data-aos-duration="900">
+            <h1 className="acp2-headline">
+              Accops Zero Trust &amp; VDI<br />
+              Solutions for<br />
+              <span className="acp2-headline-accent">Secure Modern Enterprises</span>
+            </h1>
+            <div className="acp2-headline-rule"></div>
+            <p className="acp2-desc">
+              Secure remote access, ZTNA, virtual desktop infrastructure, and digital workspace solutions for modern hybrid enterprises � delivered by{' '}
+              <a href="/contact-us" className="acp2-desc-link">Trace Network &amp; Engineering.</a>
+            </p>
+
+            <div className="acp2-feature-row">
+              <div className="acp2-feat">
+                <div className="acp2-feat-icon"><i className="fas fa-user-lock"></i></div>
+                <div className="acp2-feat-body"><strong>Zero Trust Network Access</strong><span>Verify every user, every device, every time.</span></div>
+              </div>
+              <div className="acp2-feat">
+                <div className="acp2-feat-icon"><i className="fas fa-desktop"></i></div>
+                <div className="acp2-feat-body"><strong>Virtual Desktop Infrastructure</strong><span>Centralized, secure desktop delivery.</span></div>
+              </div>
+              <div className="acp2-feat">
+                <div className="acp2-feat-icon"><i className="fas fa-key"></i></div>
+                <div className="acp2-feat-body"><strong>Multi-Factor Authentication</strong><span>Advanced identity verification for all users.</span></div>
+              </div>
+            </div>
+
+            <div className="acp2-stats-row">
+              <div className="acp2-stat-card"><i className="fas fa-shield-alt"></i><div><span className="acp2-stat-num">1000+</span><span className="acp2-stat-lbl">ENTERPRISE<br />DEPLOYMENTS</span></div></div>
+              <div className="acp2-stat-card"><i className="fas fa-clock"></i><div><span className="acp2-stat-num">6hrs</span><span className="acp2-stat-lbl">ISSUE<br />RESOLUTION</span></div></div>
+              <div className="acp2-stat-card acp2-stat-brand">
+                <img src="/assets/images/partners/ACCOPS.jpg" alt="Accops" className="acp2-brand-logo" onError={e=>{e.target.style.opacity='0.3';}} />
+                <span className="acp2-stat-lbl">ASIA<br />PARTNER</span>
+              </div>
+            </div>
+
+            <div className="acp2-cta-row">
+              <a href="#acp-portfolio" className="acp2-btn-primary">Explore Accops Solutions <i className="fas fa-arrow-right"></i></a>
+              <a href="/contact-us" className="acp2-btn-ghost">Talk to Our Experts <i className="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+
+          <div className="acp2-right" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
+            <div className="acp2-product-glow" aria-hidden="true"></div>
+            <div className="acp2-showcase">
+              <img src="/assets/images/partners/ACCOPS.jpg" alt="Accops ZTNA Platform" className="acp2-hero-product-img" onError={e=>{e.target.style.opacity='0.3';}} />
+            </div>
+            <div className="acp2-industry-strip">
+              <span className="acp2-ind-item"><i className="fas fa-building"></i> Enterprises</span>
+              <span className="acp2-ind-sep"></span>
+              <span className="acp2-ind-item"><i className="fas fa-industry"></i> Industrials</span>
+              <span className="acp2-ind-sep"></span>
+              <span className="acp2-ind-item"><i className="fas fa-shopping-cart"></i> FMCG</span>
+              <span className="acp2-ind-sep"></span>
+              <span className="acp2-ind-item"><i className="fas fa-hammer"></i> Mining</span>
+              <span className="acp2-ind-sep"></span>
+              <span className="acp2-ind-item"><i className="fas fa-university"></i> Banking</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* -- WHY CHOOSE -- */}
+      <section className="acp2-why-section">
+        <div className="acp2-why-container">
+          <div className="acp2-why-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="acp2-why-badge"><i className="fas fa-user-lock"></i><span>LEADING ACCOPS PARTNER IN ASIA.</span></div>
+            <h2 className="acp2-why-title">Why Choose <span className="acp2-why-accent">Accops &amp;</span><br /><span className="acp2-why-accent">Trace Network &amp; Engineering?</span></h2>
+            <p className="acp2-why-subtitle">Zero trust security. Proven expertise. Partnership you can trust.</p>
+            <div className="acp2-why-title-rule"></div>
+          </div>
+
+          <div className="acp2-why-card-outer" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
+            <div className="acp2-why-panel acp2-why-panel-left">
+              <div className="acp2-why-icon-circle"><i className="fas fa-user-lock"></i></div>
+              <p className="acp2-why-card-sup">Why Choose</p>
+              <h3 className="acp2-why-card-title">Accops Solutions?</h3>
+              <p className="acp2-why-card-desc">Accops is a leading provider of secure remote access, ZTNA, VDI, and digital workspace solutions helping organizations securely enable hybrid work and centralized application delivery.</p>
+              <ul className="acp2-why-list">
+                <li><span className="acp2-why-list-icon"><i className="fas fa-shield-alt"></i></span><span>Secure Remote Access &amp; ZTNA<br /><small>Zero Trust principles for authorized access only</small></span></li>
+                <li><span className="acp2-why-list-icon"><i className="fas fa-desktop"></i></span><span>Virtual Desktop Infrastructure (VDI)<br /><small>for hybrid workforce environments</small></span></li>
+                <li><span className="acp2-why-list-icon"><i className="fas fa-key"></i></span><span>Multi-Factor Authentication (MFA)<br /><small>&amp; identity verification</small></span></li>
+                <li><span className="acp2-why-list-icon"><i className="fas fa-cog"></i></span><span>Centralized Endpoint &amp; Workspace<br /><small>management console</small></span></li>
+                <li><span className="acp2-why-list-icon"><i className="fas fa-mobile-alt"></i></span><span>Secure BYOD Enablement<br /><small>for employees &amp; vendors</small></span></li>
+              </ul>
+            </div>
+            <div className="acp2-why-panel acp2-why-panel-right">
+              <div className="acp2-why-icon-circle acp2-why-icon-alt"><i className="fas fa-building"></i></div>
+              <p className="acp2-why-card-sup">Why Choose</p>
+              <h3 className="acp2-why-card-title acp2-why-card-title-alt">Trace Network &amp; Engineering?</h3>
+              <p className="acp2-why-card-desc">Trace Network &amp; Engineering Pvt Ltd is a trusted Accops partner delivering end-to-end ZTNA and VDI deployments. With certified professionals and 1000+ successful enterprise deployments, Trace provides consultative design and seamless deployment.</p>
+              <ul className="acp2-why-list acp2-why-list-check">
+                <li><span className="acp2-why-list-icon acp2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>Issues addressed within 6 hours of complaint</span></li>
+                <li><span className="acp2-why-list-icon acp2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>1000+ successful enterprise IT deployments</span></li>
+                <li><span className="acp2-why-list-icon acp2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>Complete end-to-end security &amp; VDI solutions</span></li>
+                <li><span className="acp2-why-list-icon acp2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>Multi-channel support: Email, WhatsApp &amp; portal</span></li>
+                <li><span className="acp2-why-list-icon acp2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>Solutions for enterprise, industrial &amp; hybrid work</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="acp2-why-stats-bar" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <div className="acp2-why-stat"><div className="acp2-why-stat-icon"><i className="fas fa-user-lock"></i></div><div className="acp2-why-stat-text"><strong>Zero Trust</strong><span>access by design</span></div></div>
+            <div className="acp2-why-stat-sep" aria-hidden="true"></div>
+            <div className="acp2-why-stat"><div className="acp2-why-stat-icon"><i className="fas fa-desktop"></i></div><div className="acp2-why-stat-text"><strong>VDI Ready</strong><span>centralized desktops</span></div></div>
+            <div className="acp2-why-stat-sep" aria-hidden="true"></div>
+            <div className="acp2-why-stat"><div className="acp2-why-stat-icon"><i className="fas fa-sync-alt"></i></div><div className="acp2-why-stat-text"><strong>Business Continuity</strong><span>always-on access</span></div></div>
+            <div className="acp2-why-stat-sep" aria-hidden="true"></div>
+            <div className="acp2-why-stat"><div className="acp2-why-stat-icon"><i className="fas fa-handshake"></i></div><div className="acp2-why-stat-text"><strong>Trusted</strong><span>ASIA partnership</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      {/* -- PORTFOLIO -- */}
+      <section className="acp2-port-section" id="acp-portfolio">
+        <div className="acp2-port-container">
+          <div className="acp2-port-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="acp2-port-header-icon" aria-hidden="true"><i className="fas fa-user-lock"></i></div>
+            <h2 className="acp2-port-title">Complete <span className="acp2-port-accent">Accops</span> Portfolio</h2>
+            <div className="acp2-port-title-decor" aria-hidden="true"><span className="acp2-port-decor-line"></span><span className="acp2-port-decor-dot"></span><span className="acp2-port-decor-line"></span></div>
+            <p className="acp2-port-subtitle">End-to-end Zero Trust and virtual workspace solutions for every enterprise need</p>
+          </div>
+
+          <div className="acp2-port-top-row">
+            <div className="acp2-port-card" data-aos="fade-up" data-aos-duration="800">
+              <div className="acp2-port-card-img acp2-port-img-a"><div className="acp2-port-card-img-overlay"></div></div>
+              <div className="acp2-port-card-body">
+                <div className="acp2-port-card-icon"><i className="fas fa-shield-alt"></i></div>
+                <h3 className="acp2-port-card-title">Secure Remote <span className="acp2-port-accent">Access &amp; ZTNA</span></h3>
+                <p className="acp2-port-card-desc">Secure access with Zero Trust principles ensuring only authorized users reach corporate resources.</p>
+                <ul className="acp2-port-list"><li><i className="fas fa-check"></i>Zero Trust Network Access</li><li><i className="fas fa-check"></i>Policy-based access control</li><li><i className="fas fa-check"></i>Continuous verification</li></ul>
+                <a href="/contact-us" className="acp2-port-link">Explore <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="acp2-port-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+              <div className="acp2-port-card-img acp2-port-img-b"><div className="acp2-port-card-img-overlay"></div></div>
+              <div className="acp2-port-card-body">
+                <div className="acp2-port-card-icon"><i className="fas fa-desktop"></i></div>
+                <h3 className="acp2-port-card-title">Virtual Desktop <span className="acp2-port-accent">Infrastructure</span></h3>
+                <p className="acp2-port-card-desc">Deliver secure virtual desktops and applications from centralized infrastructure for remote teams.</p>
+                <ul className="acp2-port-list"><li><i className="fas fa-check"></i>Centralized VDI deployment</li><li><i className="fas fa-check"></i>Application virtualization</li><li><i className="fas fa-check"></i>Seamless hybrid work access</li></ul>
+                <a href="/contact-us" className="acp2-port-link">Explore <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="acp2-port-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+              <div className="acp2-port-card-img acp2-port-img-c"><div className="acp2-port-card-img-overlay"></div></div>
+              <div className="acp2-port-card-body">
+                <div className="acp2-port-card-icon"><i className="fas fa-key"></i></div>
+                <h3 className="acp2-port-card-title">Multi-Factor <span className="acp2-port-accent">Authentication</span></h3>
+                <p className="acp2-port-card-desc">Strengthen enterprise security using advanced MFA and identity verification mechanisms.</p>
+                <ul className="acp2-port-list"><li><i className="fas fa-check"></i>Advanced MFA solutions</li><li><i className="fas fa-check"></i>Identity &amp; access management</li><li><i className="fas fa-check"></i>SSO integration</li></ul>
+                <a href="/contact-us" className="acp2-port-link">Explore <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div className="acp2-port-bottom-row" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+            <div className="acp2-port-dc-card">
+              <div className="acp2-port-dc-img"><div className="acp2-port-dc-img-overlay"></div></div>
+              <div className="acp2-port-dc-body">
+                <div className="acp2-port-card-icon acp2-port-dc-icon"><i className="fas fa-mobile-alt"></i></div>
+                <h3 className="acp2-port-card-title">BYOD &amp; <span className="acp2-port-accent">Endpoint Management</span></h3>
+                <p className="acp2-port-card-desc">Allow employees and vendors to securely access enterprise resources from personal devices.</p>
+                <ul className="acp2-port-list"><li><i className="fas fa-check"></i>Secure BYOD enablement</li><li><i className="fas fa-check"></i>Centralized workspace management</li><li><i className="fas fa-check"></i>Business continuity support</li></ul>
+                <a href="/contact-us" className="acp2-port-link">Explore <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="acp2-port-why-panel">
+              <h3 className="acp2-port-why-title">Why Choose <span className="acp2-port-accent">Accops?</span></h3>
+              <div className="acp2-port-why-grid">
+                <div className="acp2-port-why-item"><div className="acp2-port-why-icon"><i className="fas fa-user-lock"></i></div><strong>Zero Trust</strong><span>Verify every access request.</span></div>
+                <div className="acp2-port-why-item"><div className="acp2-port-why-icon"><i className="fas fa-desktop"></i></div><strong>VDI Ready</strong><span>Full virtual workspace delivery.</span></div>
+                <div className="acp2-port-why-item"><div className="acp2-port-why-icon"><i className="fas fa-expand-arrows-alt"></i></div><strong>Scalable</strong><span>From SMB to enterprise.</span></div>
+                <div className="acp2-port-why-item"><div className="acp2-port-why-icon"><i className="fas fa-headset"></i></div><strong>Asia Leader</strong><span>Trusted across Asia region.</span></div>
+              </div>
+              <div className="acp2-port-cta-bar">
+                <div className="acp2-port-cta-icon"><i className="fas fa-comments"></i></div>
+                <div className="acp2-port-cta-text"><strong>Need a ZTNA assessment?</strong><span>Our security experts are ready.</span></div>
+                <a href="/contact-us" className="acp2-port-cta-btn">Talk to an Expert <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* -- INDUSTRIES -- */}
+      <section className="acp2-ind-section">
+        <div className="acp2-ind-bg-glow acp2-ind-bg-glow-left" aria-hidden="true"></div>
+        <div className="acp2-ind-bg-glow acp2-ind-bg-glow-right" aria-hidden="true"></div>
+        <div className="acp2-ind-container">
+          <div className="acp2-ind-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="acp2-ind-badge"><span className="acp2-ind-badge-dot"></span><i className="fas fa-crown"></i><span>TRUSTED ACROSS INDUSTRIES</span><span className="acp2-ind-badge-dot"></span></div>
+            <h2 className="acp2-ind-title">Industries Where <span className="acp2-ind-accent">Accops</span><br /><span className="acp2-ind-accent">ZTNA</span> Excels</h2>
+            <p className="acp2-ind-subtitle">Zero Trust security deployed across diverse sectors</p>
+          </div>
+          <div className="acp2-ind-grid">
+            {[
+              { cls:'violet',   icon:'fa-building',       num:'01', title:'Large Enterprises',              desc:'Zero Trust access for distributed enterprise workforce.' },
+              { cls:'purple',   icon:'fa-university',     num:'02', title:'Banking & Financial Services',    desc:'Compliant, auditable access for sensitive financial operations.' },
+              { cls:'indigo',   icon:'fa-industry',       num:'03', title:'Capital Goods & Industrials',     desc:'Secure ERP and industrial application access for operations teams.' },
+              { cls:'fuchsia',  icon:'fa-shopping-cart',  num:'04', title:'FMCG & Retail',                  desc:'Secure access for distributed sales teams and supply chain.' },
+              { cls:'pink',     icon:'fa-hammer',         num:'05', title:'Metals & Mining',                 desc:'Secure connectivity for remote mining sites and operations.' },
+              { cls:'lavender', icon:'fa-hospital',       num:'06', title:'Healthcare & Government',         desc:'Compliant remote access for healthcare and public sector workers.' },
+            ].map(({ cls, icon, num, title, desc }) => (
+              <div key={num} className={`acp2-ind-card acp2-ind-card-${cls}`} data-aos="fade-up" data-aos-duration="700">
+                <div className="acp2-ind-card-top">
+                  <div className={`acp2-ind-icon-wrap acp2-ind-icon-${cls}`}><i className={`fas ${icon}`}></i></div>
+                  <span className="acp2-ind-num">{num}</span>
+                </div>
+                <div className={`acp2-ind-num-rule acp2-ind-rule-${cls}`}></div>
+                <h3 className="acp2-ind-card-title">{title}</h3>
+                <p className="acp2-ind-card-desc">{desc}</p>
+                <a href="/contact-us" className={`acp2-ind-arrow acp2-ind-arrow-${cls}`} aria-label={`Learn more about ${title}`}><i className="fas fa-arrow-right"></i></a>
+                <div className="acp2-ind-card-bg-pattern" aria-hidden="true"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases */}
+      <UseCaseSlider useCases={accopsUseCases} partnerColor="#8b5cf6" title="Accops Use Cases" subtitle="Successfully Deployed by Trace Network across diverse industry sectors" />
+
+      {/* Awards */}
+      <section className="awards-section">
+        <div className="section-title text-center">
+          <div className="section-title__tagline-box"><div className="section-title__tagline-shape-1"></div><span className="section-title__tagline">Awards</span><div className="section-title__tagline-shape-2"></div></div>
+          <h2 className="section-title__title">Recognized &amp; Trusted <span>for Delivering </span><br />Value &amp; Excellence</h2>
+        </div>
+        <div className="awards-slider"><div className="awards-track">
+          {[1,2,3,4,5,6,7,11,12,13,14,15,16,17,18,19].map(n => (
+            <div key={n} className="award-card"><img src={`/assets/images/award/${n}.png`} alt={`Award ${n}`} /><span>Award {n}</span></div>
+          ))}
+        </div></div>
+      </section>
+
+      {/* Why Leading Brands */}
+      <section className="premium-cards-section" style={{ marginTop: '-20px' }}>
+        <div className="premium-container">
+          <div className="section-title text-center pb-4"><h2 className="section-title__title">Why Leading<span> Brands</span> Choose<span> Trace</span></h2></div>
+          <div className="premium-card-grid">
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/certified.png" alt="certified" /></div><p><strong>Multi-vendor, Certified Network Security Expertise</strong> Partnering with 40+ global OEMs, Trace Network offers future-proof, scalable cybersecurity solutions.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/leadership.png" alt="leadership" /></div><p><strong>20+ Years of Cybersecurity Leadership</strong> Two decades of proven expertise in enterprise IT security solutions across India.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/luxury.png" alt="luxury" /></div><p><strong>Customer-First, Value-Driven</strong> Cost-effective solutions ensuring maximum protection and lowest TCO for businesses.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/technical-support.png" alt="technical-support" /></div><p><strong>Local Presence with Rapid IT Support</strong> Engineers available in Hyderabad, Bengaluru, Chennai, Vijayawada, and Vizag.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/iso-certificate.png" alt="iso-certificate" /></div><p><strong>ISO 27001-Certified Cybersecurity Provider</strong> Stringent change management and global compliance practices.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/frame.png" alt="frame" /></div><p><strong>Proven Deployment Framework</strong> Assess → Design → Deploy → Optimise → Support for maximum ROI.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/agile.png" alt="agile" /></div><p><strong>Flexible MSSP &amp; Security Pricing Models</strong> CapEx, OpEx, or MSSP models aligned with your goals.</p></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Career CTA */}
+      <section className="career-cta-section">
+        <div className="career-cta-container">
+          <h2 className="career-cta-title">Ready to Adopt Zero Trust Security?</h2>
+          <p className="career-cta-text">Speak with a senior security consultant today. In 30 minutes you'll know:<br /><br />� The top three access risks in your current environment<br />� How ZTNA can eliminate them with zero hardware changes<br />� An exact timeline &amp; cost estimate�no obligations</p>
+          <div className="about-two__btn-box"><a href="tel:9000314411" className="btn-get-started"><span className="btn-text">Book Your Free Strategy Call </span><span className="btn-arrow"></span></a></div>
+        </div>
+      </section>
+
+      {/* Special Offer */}
+      <section className="acp2-offer-section" data-aos="zoom-in" data-aos-duration="1000">
+        <div className="acp2-offer-container">
+          <div className="acp2-offer-banner">
+            <div className="acp2-offer-glow"></div>
+            <div className="acp2-offer-content">
+              <div className="acp2-offer-badge"><i className="fas fa-gift"></i> SPECIAL OFFER</div>
+              <h2 className="acp2-offer-title"><i className="fas fa-fire"></i> FREE POC Available</h2>
+              <p className="acp2-offer-subtitle">Exclusive Offers on Accops ZTNA &amp; VDI Solutions</p>
+              <p className="acp2-offer-desc">Experience the power of Accops secure access and VDI solutions firsthand � zero risk, zero commitment. Our team will set up a complete proof of concept tailored to your environment so you can see the results before you invest.</p>
+              <div className="acp2-offer-highlights">
+                <div className="acp2-offer-point"><span className="acp2-offer-check">?</span> No upfront cost for POC</div>
+                <div className="acp2-offer-point"><span className="acp2-offer-check">?</span> Tailored to your infrastructure</div>
+                <div className="acp2-offer-point"><span className="acp2-offer-check">?</span> Exclusive pricing on Accops solutions</div>
+                <div className="acp2-offer-point"><span className="acp2-offer-check">?</span> Expert guidance throughout</div>
+              </div>
+              <Link to="/contact-us" className="acp2-contact-btn"><i className="fas fa-phone-alt"></i> Get in Touch for a FREE Demo &amp; Consultation ?</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
+}

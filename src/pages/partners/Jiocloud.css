@@ -1,0 +1,309 @@
+@import './shared.css';
+
+/* ================================================================
+   JIO CLOUD PREMIUM — OCEAN BLUE EDITION
+   Accent: #005b9f   Secondary: #00c5ff
+   ================================================================ */
+
+.jio-page.jio-v2-page { 
+  overflow-x: hidden; 
+  --accent-color: #00c5ff; 
+  --accent-glow: rgba(0, 197, 255, 0.25); 
+}
+
+.jio-page .jio2-hero, section.jio2-hero {
+  background: linear-gradient(135deg, #020714 0%, #04122d 50%, #020714 100%) !important;
+  padding: 0 !important; overflow: hidden !important; min-height: unset !important;
+}
+.jio2-hero { position: relative; display: flex; align-items: center; overflow: hidden; }
+.jio2-hero-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.jio2-hero-glow-left { position: absolute; top: 0; left: 0; width: 50%; height: 100%; z-index: 0; pointer-events: none; background: radial-gradient(ellipse at center, rgba(0,91,159,0.22) 0%, rgba(0,40,90,0.10) 50%, transparent 80%); animation: jio2-glow-pulse 7s ease-in-out infinite alternate; }
+.jio2-hero-glow-right { position: absolute; bottom: 0; right: 0; width: 55%; height: 100%; z-index: 0; pointer-events: none; background: radial-gradient(ellipse at center, rgba(0,91,159,0.16) 0%, rgba(0,40,90,0.08) 50%, transparent 80%); animation: jio2-glow-pulse 9s ease-in-out infinite alternate-reverse; }
+@keyframes jio2-glow-pulse { 0% { opacity: 0.7; } 100% { opacity: 1; } }
+
+.jio2-hero-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 52% 48%; gap: 24px; align-items: flex-start; padding: 90px 20px 20px; max-width: 1280px; margin: 0 auto; width: 100%; }
+.jio2-headline { font-size: clamp(1.7rem,2.8vw,2.5rem); font-weight: 900; line-height: 1.12; color: #fff; letter-spacing: -0.02em; margin-bottom: 6px; }
+.jio2-headline-accent { color: #00c5ff; display: block; }
+.jio2-headline-rule { width: 40px; height: 3px; background: #005b9f; border-radius: 2px; margin: 10px 0 12px; }
+.jio2-desc { font-size: 0.88rem; color: #b0c8e8; line-height: 1.6; max-width: 480px; margin-bottom: 14px; }
+.jio2-desc-link { color: #00c5ff; text-decoration: none; font-weight: 600; }
+.jio2-desc-link:hover { text-decoration: underline; }
+.jio2-subtitle-text { font-size: 0.82rem; color: rgba(255,255,255,0.7); line-height: 1.5; margin-bottom: 14px; max-width: 480px; }
+
+.jio2-feature-row { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+.jio2-feat { display: flex; align-items: flex-start; gap: 12px; padding: 10px; border-radius: 10px; background: rgba(255,255,255,0.04); border: 1px solid rgba(0,91,159,0.15); transition: border-color 0.3s, background 0.3s; }
+.jio2-feat:hover { border-color: rgba(0,91,159,0.35); background: rgba(0,40,90,0.08); }
+.jio2-feat-icon { min-width: 36px; height: 36px; border-radius: 8px; background: rgba(0,91,159,0.2); border: 1px solid rgba(0,91,159,0.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.jio2-feat-icon i { font-size: 0.85rem; color: #00c5ff; }
+.jio2-feat-body { display: flex; flex-direction: column; }
+.jio2-feat-body strong { display: block; font-size: 0.88rem; font-weight: 700; color: #dce8ff; margin-bottom: 2px; }
+.jio2-feat-body span { font-size: 0.78rem; color: #6888aa; line-height: 1.4; }
+
+.jio2-stats-row { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+.jio2-stat-card { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 10px; background: rgba(255,255,255,0.04); border: 1px solid rgba(0,91,159,0.2); backdrop-filter: blur(8px); min-width: 100px; flex: 1; }
+.jio2-stat-card > i { font-size: 1.2rem; color: #005b9f; flex-shrink: 0; }
+.jio2-stat-card > div { display: flex; flex-direction: column; gap: 2px; }
+.jio2-stat-num { font-size: 1.4rem; font-weight: 900; color: #fff; letter-spacing: -0.02em; line-height: 1; }
+.jio2-stat-lbl { font-size: 0.6rem; font-weight: 700; color: #5a7aa0; letter-spacing: 0.8px; text-transform: uppercase; line-height: 1.4; }
+.jio2-stat-brand { border-color: rgba(0,91,159,0.3); background: rgba(0,91,159,0.07); flex-direction: column; align-items: flex-start; gap: 4px; }
+.jio2-brand-logo { width: 64px; height: auto; object-fit: contain; border-radius: 6px; display: block; background: #fff; padding: 4px; }
+
+.jio2-cta-row { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+.jio2-btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 50px; background: linear-gradient(135deg, #004080 0%, #005b9f 60%, #00c5ff 100%); background-size: 200% auto; color: #fff; font-size: 0.85rem; font-weight: 700; text-decoration: none; box-shadow: 0 6px 24px rgba(0,91,159,0.4); transition: all 0.4s ease; border: none; cursor: pointer; }
+.jio2-btn-primary:hover { background-position: right center; transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,91,159,0.6); color: #fff; }
+.jio2-btn-ghost { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 50px; background: transparent; border: 1px solid rgba(255,255,255,0.18); color: #c0d4f0; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: all 0.3s ease; }
+.jio2-btn-ghost:hover { border-color: rgba(0,91,159,0.5); background: rgba(0,91,159,0.08); color: #fff; transform: translateY(-2px); }
+
+.jio2-industry-strip { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; padding: 12px 12px 6px; border-top: 1px solid rgba(0,91,159,0.2); row-gap: 8px; width: 100%; max-width: 520px; margin-top: 12px; position: relative; z-index: 3; }
+.jio2-ind-item { display: inline-flex; align-items: center; gap: 8px; font-size: 0.92rem; font-weight: 600; color: #c8e8ff; padding: 4px 12px; white-space: nowrap; }
+.jio2-ind-item i { font-size: 1.05rem; color: #005b9f; }
+.jio2-ind-sep { width: 1px; height: 16px; background: rgba(0,91,159,0.25); flex-shrink: 0; }
+
+.jio2-right { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; margin-top: -10px; }
+.jio2-product-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 85% 70% at 55% 50%, rgba(0,91,159,0.22) 0%, rgba(0,40,90,0.10) 50%, transparent 80%); pointer-events: none; z-index: 0; animation: jio2-glow-breathe 6s ease-in-out infinite; }
+@keyframes jio2-glow-breathe { 0%,100% { opacity: 0.8; } 50% { opacity: 1; } }
+
+.jio2-showcase { position: relative; width: 580px; z-index: 2; display: flex; align-items: center; justify-content: center; min-height: 380px; }
+.jio2-hero-product-img { width: 100%; max-width: 440px; height: auto; object-fit: contain; display: block; position: relative; z-index: 2; border-radius: 12px; filter: drop-shadow(0 30px 60px rgba(0,0,0,0.7)) drop-shadow(0 0 60px rgba(0,91,159,0.3)); animation: jio2-float 6s ease-in-out infinite; }
+@keyframes jio2-float { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-14px) scale(1.012); } }
+
+.jio2-platform { position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 360px; height: 90px; pointer-events: none; z-index: 1; }
+.jio2-plat-ring { position: absolute; left: 50%; transform: translateX(-50%); bottom: 0; border-radius: 50%; border: 1px solid rgba(0,91,159,0.3); animation: jio2-ring-pulse 4s ease-in-out infinite; }
+.jio2-plat-ring-1 { width: 360px; height: 44px; background: radial-gradient(ellipse at 50% 80%, rgba(0,91,159,0.18) 0%, transparent 70%); }
+.jio2-plat-ring-2 { width: 240px; height: 28px; background: radial-gradient(ellipse at 50% 80%, rgba(0,91,159,0.28) 0%, transparent 70%); animation-delay: 0.5s; }
+.jio2-plat-ring-3 { width: 130px; height: 16px; background: radial-gradient(ellipse at 50% 80%, rgba(0,91,159,0.55) 0%, transparent 70%); animation-delay: 1s; }
+.jio2-plat-surface { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 2px; height: 60px; background: linear-gradient(to top, rgba(0,91,159,0.7), transparent); filter: blur(3px); }
+@keyframes jio2-ring-pulse { 0%,100% { opacity: 0.5; } 50% { opacity: 1; } }
+
+@media (max-width:1100px) { .jio2-hero-inner { grid-template-columns: 1fr; padding: 50px 20px 60px; } .jio2-right { justify-content: center; margin-top: 0; } }
+@media (max-width:768px) { .jio2-hero-inner { padding: 80px 16px 28px; } .jio2-cta-row { flex-direction: column; align-items: flex-start; } .jio2-btn-primary, .jio2-btn-ghost { width: 100%; justify-content: center; } .jio2-showcase { width: 100%; min-height: 280px; } .jio2-hero-product-img { max-width: 320px; } }
+@media (max-width:480px) { .jio2-hero-inner { padding: 72px 14px 24px; } }
+
+/* ================================================================
+   AWARDS SECTION & WHY CHOOSE TRACE BACKGROUNDS
+   Scoped to Jio Cloud partner page
+   ================================================================ */
+
+.partner-jiocloud .awards-section {
+  background: #020714 !important;
+  border-top: 1px solid rgba(0,91,159,0.15) !important;
+  border-bottom: 1px solid rgba(0,91,159,0.15) !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+.partner-jiocloud .awards-section .section-title__title {
+  color: #ffffff !important;
+}
+.partner-jiocloud .awards-section .section-title__title span {
+  color: #00c5ff !important;
+}
+.partner-jiocloud .awards-section .section-title__tagline {
+  color: #00c5ff !important;
+}
+.partner-jiocloud .awards-section .section-title__tagline-shape-1,
+.partner-jiocloud .awards-section .section-title__tagline-shape-2 {
+  background: #005b9f !important;
+}
+.partner-jiocloud .awards-section .award-card span {
+  color: #94a3b8 !important;
+}
+.partner-jiocloud .awards-section .award-card {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-color: rgba(0,91,159,0.15) !important;
+}
+.partner-jiocloud .awards-section .award-card:hover {
+  border-color: #00c5ff !important;
+  background: rgba(0,91,159,0.1) !important;
+}
+
+.partner-jiocloud .premium-cards-section {
+  background: #020714 !important;
+  border-bottom: 1px solid rgba(0,91,159,0.15) !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+.partner-jiocloud .premium-cards-section .section-title__title {
+  color: #ffffff !important;
+}
+.partner-jiocloud .premium-cards-section .section-title__title span {
+  color: #00c5ff !important;
+}
+.partner-jiocloud .premium-service-card {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(0,91,159,0.15) !important;
+}
+.partner-jiocloud .premium-service-card:hover {
+  border-color: #00c5ff !important;
+  background: rgba(0,91,159,0.1) !important;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 25px rgba(0,91,159,0.15) !important;
+}
+.partner-jiocloud .premium-service-card strong {
+  color: #ffffff !important;
+}
+.partner-jiocloud .premium-service-card p {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* ================================================================
+   SPECIAL OFFER / FREE POC SECTION
+   ================================================================ */
+
+.jio-special-offer {
+  background: linear-gradient(180deg, #020714 0%, #030d22 100%) !important;
+  padding: 80px 0;
+  position: relative;
+  z-index: 2;
+}
+.jio-offer-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(0, 91, 159, 0.25);
+  border-radius: 24px;
+  padding: 60px 40px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+.jio-offer-glow-left {
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 60%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 91, 159, 0.25) 0%, transparent 60%);
+  pointer-events: none;
+}
+.jio-offer-glow-right {
+  position: absolute;
+  bottom: -50%;
+  right: -20%;
+  width: 60%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 197, 255, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+.jio-offer-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.jio-offer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 91, 159, 0.15);
+  border: 1px solid rgba(0, 91, 159, 0.35);
+  padding: 8px 18px;
+  border-radius: 50px;
+  color: #00c5ff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
+}
+.jio-offer-badge i {
+  color: #00c5ff;
+}
+.jio-offer-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.jio-offer-free {
+  color: #00c5ff;
+}
+.jio-offer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 16px;
+  border-radius: 50px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.jio-offer-pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00c5ff;
+  box-shadow: 0 0 10px #00c5ff;
+}
+.jio-offer-desc {
+  font-size: 0.95rem;
+  color: #a3b8cc;
+  line-height: 1.65;
+  margin-bottom: 36px;
+}
+.jio-offer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.jio-offer-feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.jio-offer-feat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(0, 91, 159, 0.15);
+  border: 1px solid rgba(0, 91, 159, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.jio-offer-feat-icon i {
+  color: #00c5ff;
+  font-size: 1.1rem;
+}
+.jio-offer-feature span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #dce8ff;
+  line-height: 1.4;
+}
+.jio-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #004080 0%, #005b9f 60%, #00c5ff 100%);
+  background-size: 200% auto;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0, 91, 159, 0.4);
+  transition: all 0.4s ease;
+  border: none;
+  cursor: pointer;
+}
+.jio-contact-btn:hover {
+  background-position: right center;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 91, 159, 0.6);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .jio-offer-card {
+    padding: 40px 20px;
+  }
+  .jio-offer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}

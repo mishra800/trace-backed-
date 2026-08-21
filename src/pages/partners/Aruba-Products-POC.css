@@ -1,0 +1,935 @@
+/* ============================================================ */
+/* PRODUCTS & POC SECTION - AUTO-SLIDING CAROUSEL DESIGN */
+/* ============================================================ */
+
+.aruba-products-poc-section {
+  padding: 80px 0 !important;
+  background: linear-gradient(135deg, #2d2416 0%, #1a2632 45%, #0a1420 100%) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure the aruba-page wrapper never causes horizontal scroll */
+.aruba-page {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+.aruba-products-poc-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 30% 50%, rgba(255, 131, 0, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 50%, rgba(193, 140, 60, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.aruba-products-poc-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 131, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 131, 0, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(circle at 50% 50%, black 50%, transparent 95%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 50%, transparent 95%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.aruba-products-poc-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 40px !important;
+  align-items: center !important;
+  position: relative !important;
+  z-index: 2 !important;
+  max-width: 1400px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 15px !important;
+}
+
+/* Ensure the container inside this section never overflows */
+.aruba-products-poc-section .container {
+  max-width: 100% !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  box-sizing: border-box !important;
+}
+
+/* ===== LEFT SIDE - AUTO-SLIDING CAROUSEL ===== */
+.aruba-products-carousel-container {
+  position: relative;
+  width: 100% !important;
+  max-width: 750px;
+  margin: 0 auto;
+  /* NO padding here — arrows go inside the wrapper */
+}
+
+.aruba-carousel-wrapper {
+  width: 100% !important;
+  overflow: hidden !important;  /* THIS clips the off-screen slides */
+  border-radius: 24px;
+  background: transparent;
+  border: 2px solid rgba(255, 131, 0, 0.25);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 0 50px rgba(255, 131, 0, 0.1);
+  position: relative;
+  box-sizing: border-box !important;
+}
+
+.aruba-carousel-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 50% 20%, rgba(255, 131, 0, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.aruba-carousel-track {
+  display: flex !important;
+  /* Track is 5x the wrapper width — must NOT have max-width constraint */
+  width: 100% !important;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;
+  will-change: transform;
+}
+
+.aruba-carousel-slide {
+  flex: 0 0 100% !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  box-sizing: border-box !important;
+  /* Slides overflow the wrapper but are clipped by overflow:hidden on wrapper */
+  overflow: hidden;
+}
+
+/* Carousel Image Box - Extra Large and Professional */
+.aruba-carousel-image-box {
+  width: 100%;
+  height: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.aruba-carousel-image-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at center, rgba(255, 131, 0, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.aruba-carousel-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+  filter: 
+    drop-shadow(0 20px 50px rgba(0, 0, 0, 0.5))
+    drop-shadow(0 0 30px rgba(255, 131, 0, 0.15))
+    brightness(1.05);
+  animation: carouselImageFloat 6s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+@keyframes carouselImageFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Carousel Info Section */
+.aruba-carousel-info {
+  padding: 35px 40px;
+  text-align: center;
+  background: transparent;
+  border-top: 1px solid rgba(255, 131, 0, 0.15);
+}
+
+.aruba-carousel-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+.aruba-carousel-desc {
+  font-size: 1.05rem;
+  color: #a0aec0;
+  margin: 0 0 18px 0;
+  line-height: 1.5;
+}
+
+/* Orange Underline with Glow */
+.aruba-carousel-underline {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #ff8300, transparent);
+  margin: 0 auto;
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(255, 131, 0, 0.5), 0 0 30px rgba(255, 131, 0, 0.3);
+  animation: underlinePulse 3s ease-in-out infinite;
+}
+
+@keyframes underlinePulse {
+  0%, 100% {
+    opacity: 0.7;
+    box-shadow: 0 0 15px rgba(255, 131, 0, 0.5), 0 0 30px rgba(255, 131, 0, 0.3);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(255, 131, 0, 0.7), 0 0 40px rgba(255, 131, 0, 0.5);
+  }
+}
+
+/* Carousel Navigation Dots */
+.aruba-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 25px;
+  position: relative;
+  z-index: 3;
+}
+
+.aruba-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 131, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.aruba-dot::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 131, 0, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.aruba-dot:hover {
+  background: rgba(255, 131, 0, 0.4);
+  border-color: rgba(255, 131, 0, 0.6);
+  transform: scale(1.1);
+}
+
+.aruba-dot.active {
+  background: linear-gradient(135deg, #ff8300 0%, #ff6600 100%);
+  border-color: #ff8300;
+  box-shadow: 0 0 15px rgba(255, 131, 0, 0.6);
+  transform: scale(1.2);
+}
+
+.aruba-dot.active::before {
+  opacity: 1;
+}
+
+/* Carousel Navigation Arrows */
+.aruba-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, rgba(255, 131, 0, 0.25) 0%, rgba(255, 131, 0, 0.15) 100%);
+  border: 2px solid rgba(255, 131, 0, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #ff8300;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 3;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 131, 0, 0.2);
+}
+
+.aruba-carousel-arrow:hover {
+  background: linear-gradient(135deg, #ff8300 0%, #ff6600 100%);
+  border-color: #ff8300;
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 25px rgba(255, 131, 0, 0.4), 0 0 25px rgba(255, 131, 0, 0.3);
+}
+
+.aruba-carousel-arrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.aruba-carousel-prev {
+  left: 10px;
+}
+
+.aruba-carousel-next {
+  right: 10px;
+}
+
+/* On screens where arrows would overflow, keep them inside */
+@media (max-width: 1100px) {
+  .aruba-carousel-prev {
+    left: 8px;
+  }
+
+  .aruba-carousel-next {
+    right: 8px;
+  }
+}
+
+/* ===== RIGHT SIDE - POC OFFER BOX ===== */
+.aruba-poc-offer-box {
+  background: linear-gradient(135deg, rgba(10, 20, 35, 0.98) 0%, rgba(5, 15, 30, 1) 100%);
+  border: 2px solid rgba(255, 131, 0, 0.25);
+  border-radius: 20px;
+  padding: 40px 35px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(255, 131, 0, 0.12), 0 20px 60px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.aruba-poc-offer-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 10% 20%, rgba(255, 131, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 80%, rgba(0, 100, 200, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.aruba-poc-header {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.aruba-poc-main-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.aruba-orange-text {
+  color: #ff8300;
+  text-shadow: 0 0 25px rgba(255, 131, 0, 0.4);
+}
+
+.aruba-poc-tagline {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #ff8300;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.aruba-poc-intro-text {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin: 0 0 30px 0;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.aruba-poc-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 35px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+  max-width: 500px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.aruba-benefit-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  background: linear-gradient(135deg, rgba(20, 30, 45, 0.5) 0%, rgba(15, 25, 40, 0.6) 100%);
+  border: 1px solid rgba(255, 131, 0, 0.15);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.aruba-benefit-item:hover {
+  background: linear-gradient(135deg, rgba(255, 131, 0, 0.1) 0%, rgba(255, 131, 0, 0.05) 100%);
+  border-color: rgba(255, 131, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.aruba-benefit-icon {
+  width: 45px;
+  height: 45px;
+  min-width: 45px;
+  background: linear-gradient(135deg, rgba(255, 131, 0, 0.25) 0%, rgba(255, 131, 0, 0.15) 100%);
+  border: 1.5px solid rgba(255, 131, 0, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #ff8300;
+  box-shadow: 0 4px 15px rgba(255, 131, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.aruba-benefit-item:hover .aruba-benefit-icon {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(255, 131, 0, 0.35);
+}
+
+.aruba-benefit-text h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+}
+
+.aruba-benefit-text p {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* aruba-cta-btn-wrapper and aruba-cta-btn are the class names used in JSX */
+.aruba-contact-btn-wrapper,
+.aruba-cta-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.aruba-contact-btn,
+.aruba-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 45px;
+  background: linear-gradient(135deg, #ff8300 0%, #ff6600 100%);
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 50px;
+  border: 2px solid rgba(255, 131, 0, 0.3);
+  box-shadow: 
+    0 10px 30px rgba(255, 131, 0, 0.35),
+    0 0 40px rgba(255, 131, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.aruba-contact-btn::before,
+.aruba-cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.aruba-contact-btn:hover::before,
+.aruba-cta-btn:hover::before {
+  left: 100%;
+}
+
+.aruba-contact-btn:hover,
+.aruba-cta-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: linear-gradient(135deg, #ff9500 0%, #ff7700 100%);
+  border-color: rgba(255, 131, 0, 0.6);
+  box-shadow: 
+    0 15px 40px rgba(255, 131, 0, 0.5),
+    0 0 60px rgba(255, 131, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+.aruba-contact-btn:active,
+.aruba-cta-btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.aruba-contact-btn-text,
+.aruba-cta-btn-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.aruba-contact-btn i,
+.aruba-cta-btn i {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.aruba-contact-btn:hover i,
+.aruba-cta-btn:hover i {
+  transform: translateX(5px);
+}
+
+.aruba-closing-text {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  margin: 0;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.aruba-highlight {
+  color: #ff8300;
+  font-weight: 700;
+}
+
+/* ============================================================ */
+/* RESPONSIVE DESIGN                                            */
+/* NOTE: POC-offer selectors use .aruba-page prefix to win     */
+/* over the higher-specificity rules in Aruba.css              */
+/* ============================================================ */
+
+@media (max-width: 1024px) {
+  .aruba-carousel-image-box {
+    height: 500px !important;
+    padding: 30px !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .aruba-products-poc-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px !important;
+    padding: 0 16px !important;
+  }
+
+  .aruba-products-carousel-container {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .aruba-carousel-prev { left: 8px !important; }
+  .aruba-carousel-next { right: 8px !important; }
+
+  .aruba-carousel-image-box {
+    height: 420px !important;
+    padding: 24px !important;
+  }
+
+  .aruba-page .aruba-poc-offer-box {
+    width: 100% !important;
+    padding: 30px 20px !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Section & container — prevent any horizontal bleed */
+  .aruba-products-poc-section {
+    padding: 60px 0 !important;
+    overflow: hidden !important;
+    max-width: 100vw !important;
+  }
+
+  .aruba-products-poc-section .container {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* Grid */
+  .aruba-products-poc-grid {
+    grid-template-columns: 1fr !important;
+    padding: 0 !important;
+    gap: 24px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* Carousel */
+  .aruba-products-carousel-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .aruba-carousel-wrapper {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .aruba-carousel-image-box {
+    height: 280px !important;
+    padding: 16px !important;
+  }
+
+  .aruba-carousel-img {
+    max-width: 100% !important;
+    width: 100% !important;
+    object-fit: contain !important;
+  }
+
+  .aruba-carousel-info {
+    padding: 18px 14px !important;
+  }
+
+  .aruba-carousel-title {
+    font-size: 1.1rem !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .aruba-carousel-desc {
+    font-size: 0.88rem !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .aruba-carousel-arrow {
+    width: 34px !important;
+    height: 34px !important;
+    font-size: 0.85rem !important;
+  }
+
+  .aruba-carousel-prev { left: 6px !important; }
+  .aruba-carousel-next { right: 6px !important; }
+
+  /* ── POC offer box ── */
+  .aruba-poc-offer-box,
+  .aruba-page .aruba-poc-offer-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 24px 16px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .aruba-poc-header,
+  .aruba-page .aruba-poc-header {
+    overflow: hidden !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .aruba-poc-main-title,
+  .aruba-page .aruba-poc-main-title {
+    font-size: clamp(1.4rem, 7vw, 2rem) !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+  }
+
+  /* Tagline — letter-spacing causes overflow on small screens */
+  .aruba-poc-tagline,
+  .aruba-page .aruba-poc-tagline {
+    font-size: 0.6rem !important;
+    letter-spacing: 0px !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+    line-height: 1.5 !important;
+    padding: 0 4px !important;
+    text-align: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .aruba-poc-intro-text,
+  .aruba-page .aruba-poc-intro-text {
+    font-size: 0.86rem !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  .aruba-poc-benefits-grid,
+  .aruba-page .aruba-poc-benefits-grid {
+    grid-template-columns: 1fr 1fr !important;
+    max-width: 100% !important;
+    gap: 10px !important;
+    margin: 0 0 20px 0 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  .aruba-benefit-item,
+  .aruba-page .aruba-benefit-item {
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .aruba-benefit-text,
+  .aruba-page .aruba-benefit-text {
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .aruba-benefit-text h4,
+  .aruba-page .aruba-benefit-text h4 {
+    font-size: 0.8rem !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  .aruba-benefit-text p,
+  .aruba-page .aruba-benefit-text p { font-size: 0.73rem !important; }
+
+  .aruba-cta-btn-wrapper,
+  .aruba-contact-btn-wrapper,
+  .aruba-page .aruba-cta-btn-wrapper,
+  .aruba-page .aruba-contact-btn-wrapper {
+    width: 100% !important;
+    margin-top: 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  .aruba-cta-btn,
+  .aruba-contact-btn,
+  .aruba-page .aruba-cta-btn,
+  .aruba-page .aruba-contact-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 13px 16px !important;
+    font-size: 0.88rem !important;
+    gap: 10px !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  .aruba-cta-btn-text,
+  .aruba-contact-btn-text,
+  .aruba-page .aruba-cta-btn-text,
+  .aruba-page .aruba-contact-btn-text {
+    font-size: 0.88rem !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  .aruba-closing-text,
+  .aruba-page .aruba-closing-text {
+    font-size: 0.86rem !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .aruba-products-poc-section {
+    padding: 48px 0 !important;
+    overflow: hidden !important;
+    max-width: 100vw !important;
+  }
+
+  .aruba-products-poc-section .container {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  .aruba-products-poc-grid {
+    padding: 0 !important;
+    gap: 20px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    width: 100% !important;
+  }
+
+  .aruba-carousel-image-box {
+    height: 220px !important;
+    padding: 12px !important;
+  }
+
+  .aruba-carousel-info {
+    padding: 14px 10px !important;
+  }
+
+  .aruba-carousel-title { font-size: 0.95rem !important; }
+  .aruba-carousel-desc  { font-size: 0.82rem !important; }
+
+  .aruba-carousel-arrow {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 0.78rem !important;
+  }
+
+  .aruba-carousel-prev { left: 4px !important; }
+  .aruba-carousel-next { right: 4px !important; }
+
+  .aruba-carousel-dots { margin-top: 12px !important; gap: 7px !important; }
+  .aruba-dot { width: 9px !important; height: 9px !important; }
+
+  .aruba-poc-offer-box,
+  .aruba-page .aruba-poc-offer-box {
+    padding: 20px 12px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .aruba-poc-main-title,
+  .aruba-page .aruba-poc-main-title {
+    font-size: clamp(1.25rem, 8vw, 1.6rem) !important;
+    word-break: break-word !important;
+    white-space: normal !important;
+  }
+
+  .aruba-poc-tagline,
+  .aruba-page .aruba-poc-tagline {
+    font-size: 0.52rem !important;
+    letter-spacing: 0px !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+    line-height: 1.5 !important;
+    white-space: normal !important;
+    padding: 0 4px !important;
+    box-sizing: border-box !important;
+  }
+
+  .aruba-poc-benefits-grid,
+  .aruba-page .aruba-poc-benefits-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    margin: 0 0 16px 0 !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  .aruba-benefit-item,
+  .aruba-page .aruba-benefit-item {
+    padding: 10px 8px !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .aruba-benefit-icon,
+  .aruba-page .aruba-benefit-icon {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    font-size: 0.95rem !important;
+  }
+
+  .aruba-cta-btn,
+  .aruba-contact-btn,
+  .aruba-page .aruba-cta-btn,
+  .aruba-page .aruba-contact-btn {
+    padding: 12px !important;
+    font-size: 0.82rem !important;
+    gap: 8px !important;
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  .aruba-cta-btn-text,
+  .aruba-contact-btn-text,
+  .aruba-page .aruba-cta-btn-text,
+  .aruba-page .aruba-contact-btn-text { font-size: 0.82rem !important; }
+}
+
+/* ── Awards Section — Pure Black Design ── */
+.aruba-page .awards-section,
+.hpearubanetworking-page .awards-section {
+  background: #000000 !important;
+}
+.aruba-page .awards-section .section-title__title,
+.hpearubanetworking-page .awards-section .section-title__title {
+  color: #ffffff !important;
+}
+.aruba-page .awards-section .award-card span,
+.hpearubanetworking-page .awards-section .award-card span {
+  color: #94a3b8 !important;
+}
+
+.aruba-page .premium-cards-section,
+.hpearubanetworking-page .premium-cards-section {
+  background: #000000 !important;
+}
+.aruba-page .premium-cards-section .section-title__title,
+.hpearubanetworking-page .premium-cards-section .section-title__title {
+  color: #ffffff !important;
+}
+.aruba-page .premium-service-card,
+.hpearubanetworking-page .premium-service-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+.aruba-page .premium-service-card strong,
+.hpearubanetworking-page .premium-service-card strong {
+  color: #ffffff !important;
+}
+.aruba-page .premium-service-card p,
+.hpearubanetworking-page .premium-service-card p {
+  color: rgba(255, 255, 255, 0.75) !important;
+}

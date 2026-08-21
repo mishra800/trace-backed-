@@ -1,0 +1,402 @@
+/* ============================================================
+   Thank You Page — Full Styles & Animations
+   ============================================================ */
+
+/* ---- Keyframes ---- */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.5); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes checkDraw {
+  from { stroke-dashoffset: 100; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes circlePulse {
+  0%   { box-shadow: 0 0 0 0   rgba(243, 110, 33, 0.45); }
+  70%  { box-shadow: 0 0 0 30px rgba(243, 110, 33, 0);   }
+  100% { box-shadow: 0 0 0 0   rgba(243, 110, 33, 0);    }
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0)   scale(1); }
+  33%       { transform: translate(20px, -30px) scale(1.1); }
+  66%       { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+@keyframes particleDrift {
+  0%   { transform: translateY(0)   rotate(0deg);   opacity: 1; }
+  100% { transform: translateY(-120px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Page wrapper ---- */
+.thankyou-page {
+  min-height: 100vh;
+  background: #060c18;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 40px 20px;
+}
+
+/* ---- Animated background orbs ---- */
+.ty-bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  animation: orbFloat 10s ease-in-out infinite;
+}
+
+.ty-bg-orb--1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(243,110,33,0.18) 0%, transparent 70%);
+  top: -120px; right: -100px;
+  animation-duration: 12s;
+}
+
+.ty-bg-orb--2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(0,174,239,0.14) 0%, transparent 70%);
+  bottom: -80px; left: -80px;
+  animation-duration: 9s;
+  animation-delay: -3s;
+}
+
+.ty-bg-orb--3 {
+  width: 250px; height: 250px;
+  background: radial-gradient(circle, rgba(243,110,33,0.10) 0%, transparent 70%);
+  top: 50%; left: 30%;
+  animation-duration: 15s;
+  animation-delay: -6s;
+}
+
+/* ---- Floating particles ---- */
+.ty-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ty-particle {
+  position: absolute;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(243, 110, 33, 0.7);
+  animation: particleDrift linear infinite;
+}
+
+.ty-particle:nth-child(1)  { left: 10%; bottom: 10%; animation-duration: 5s;  animation-delay: 0s;    width: 4px;  height: 4px; }
+.ty-particle:nth-child(2)  { left: 25%; bottom: 20%; animation-duration: 7s;  animation-delay: 1s;    background: rgba(0,174,239,0.7); }
+.ty-particle:nth-child(3)  { left: 40%; bottom: 5%;  animation-duration: 6s;  animation-delay: 2s;    width: 8px;  height: 8px; }
+.ty-particle:nth-child(4)  { left: 55%; bottom: 15%; animation-duration: 8s;  animation-delay: 0.5s;  background: rgba(0,174,239,0.6); width: 5px; height: 5px; }
+.ty-particle:nth-child(5)  { left: 70%; bottom: 8%;  animation-duration: 5.5s; animation-delay: 3s;   }
+.ty-particle:nth-child(6)  { left: 85%; bottom: 25%; animation-duration: 7.5s; animation-delay: 1.5s; background: rgba(0,174,239,0.7); width: 4px; height: 4px; }
+.ty-particle:nth-child(7)  { left: 15%; bottom: 40%; animation-duration: 9s;  animation-delay: 4s;    width: 3px;  height: 3px; }
+.ty-particle:nth-child(8)  { left: 60%; bottom: 35%; animation-duration: 6.5s; animation-delay: 2.5s; background: rgba(243,110,33,0.5); }
+.ty-particle:nth-child(9)  { left: 75%; bottom: 50%; animation-duration: 8.5s; animation-delay: 0s;   width: 3px;  height: 3px; }
+.ty-particle:nth-child(10) { left: 90%; bottom: 10%; animation-duration: 5s;  animation-delay: 3.5s;  background: rgba(0,174,239,0.8); }
+
+/* ---- Card ---- */
+.thankyou-card {
+  position: relative;
+  z-index: 10;
+  background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 28px;
+  padding: 60px 50px;
+  max-width: 680px;
+  width: 100%;
+  text-align: center;
+  box-shadow:
+    0 25px 60px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(243,110,33,0.15) inset,
+    0 1px 0 rgba(255,255,255,0.1) inset;
+  animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* shimmer top edge */
+.thankyou-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  border-radius: 28px 28px 0 0;
+  background: linear-gradient(90deg, transparent, #f36e21, #00aeef, #f36e21, transparent);
+  background-size: 400px 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ---- Check icon ---- */
+.ty-check-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 32px;
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f36e21 0%, #e05510 100%);
+  box-shadow: 0 0 0 0 rgba(243,110,33,0.45);
+  animation: scaleIn 0.5s 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both,
+             circlePulse 2s 0.8s ease-out infinite;
+}
+
+.ty-check-icon {
+  width: 48px; height: 48px;
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: checkDraw 0.6s 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+/* ---- Typography ---- */
+.ty-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #f36e21;
+  margin-bottom: 12px;
+  animation: fadeInDown 0.6s 0.4s both;
+}
+
+.ty-heading {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  animation: fadeInDown 0.6s 0.5s both;
+}
+
+.ty-heading span {
+  background: linear-gradient(90deg, #f36e21, #ff9a5c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ty-subtext {
+  font-size: 16px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  margin-bottom: 36px;
+  animation: fadeInUp 0.6s 0.6s both;
+}
+
+/* ---- Steps list ---- */
+.ty-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeInUp 0.6s 0.7s both;
+}
+
+.ty-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 14px 18px;
+  transition: background 0.25s, border-color 0.25s;
+}
+
+.ty-step:hover {
+  background: rgba(243,110,33,0.08);
+  border-color: rgba(243,110,33,0.3);
+}
+
+.ty-step-icon {
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(243,110,33,0.25), rgba(243,110,33,0.1));
+  border: 1px solid rgba(243,110,33,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px;
+}
+
+.ty-step-text {
+  flex: 1;
+}
+
+.ty-step-text strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 3px;
+}
+
+.ty-step-text span {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+}
+
+/* ---- Divider ---- */
+.ty-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 36px;
+  animation: fadeIn 0.6s 0.8s both;
+}
+
+.ty-divider::before,
+.ty-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+}
+
+.ty-divider-text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+/* ---- Buttons ---- */
+.ty-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.6s 0.9s both;
+}
+
+.ty-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 30px;
+  background: linear-gradient(135deg, #f36e21 0%, #e05510 100%);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 8px 24px rgba(243,110,33,0.35);
+}
+
+.ty-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(243,110,33,0.5);
+  color: #fff;
+  text-decoration: none;
+}
+
+.ty-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 30px;
+  background: transparent;
+  color: rgba(255,255,255,0.8);
+  font-size: 15px;
+  font-weight: 600;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.ty-btn-secondary:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.4);
+  color: #fff;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+/* ---- Timer badge ---- */
+.ty-timer {
+  margin-top: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  animation: fadeIn 0.6s 1.1s both;
+}
+
+.ty-timer-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 6px #22c55e;
+  animation: circlePulse 1.5s ease-out infinite;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  .thankyou-card {
+    padding: 40px 24px;
+    border-radius: 20px;
+  }
+
+  .ty-check-wrapper {
+    width: 80px; height: 80px;
+  }
+
+  .ty-check-icon {
+    width: 38px; height: 38px;
+  }
+
+  .ty-actions {
+    flex-direction: column;
+  }
+
+  .ty-btn-primary,
+  .ty-btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}

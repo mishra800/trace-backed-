@@ -1,0 +1,384 @@
+/* =============================================================
+   AdminUsers.css - Admin User & Certification Access Control
+   ============================================================= */
+
+.admin-users-page {
+  background: #0B132B;
+  min-height: 100vh;
+  color: #FFFFFF;
+  font-family: 'Inter', -apple-system, sans-serif;
+  padding-bottom: 60px;
+}
+
+.admin-users-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.admin-users-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-users-title i {
+  color: #EB5A0F;
+}
+
+.admin-users-sub {
+  font-size: 14px;
+  color: #94A3B8;
+  margin-top: 4px;
+}
+
+.admin-users-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.admin-users-search i {
+  position: absolute;
+  left: 14px;
+  color: #64748B;
+}
+
+.admin-users-search input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 10px 16px 10px 40px;
+  color: #FFFFFF;
+  font-size: 14px;
+  width: 280px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.admin-users-search input:focus {
+  border-color: #EB5A0F;
+  width: 320px;
+  box-shadow: 0 0 12px rgba(235, 90, 15, 0.3);
+}
+
+.admin-users-alert {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #34D399;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-users-card {
+  background: #0F172A;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.admin-users-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-users-table th {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 16px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #94A3B8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.admin-users-table td {
+  padding: 16px 20px;
+  font-size: 14px;
+  color: #E2E8F0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  vertical-align: middle;
+}
+
+.admin-users-table tr.row-deactivated {
+  opacity: 0.6;
+  background: rgba(239, 68, 68, 0.03);
+}
+
+.user-cell-name {
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.user-cell-id {
+  font-size: 11px;
+  color: #64748B;
+}
+
+.user-cell-email {
+  color: #60A5FA;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.user-cell-email:hover {
+  text-decoration: underline;
+}
+
+.user-cell-company, .user-cell-phone {
+  font-size: 13px;
+  color: #CBD5E1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.password-cell-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.password-display {
+  font-family: monospace;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #F59E0B;
+}
+
+.password-display.revealed {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34D399;
+  font-weight: 700;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.pwd-toggle-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #94A3B8;
+  border-radius: 6px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.pwd-toggle-btn:hover {
+  background: #EB5A0F;
+  color: #FFFFFF;
+  border-color: #EB5A0F;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.status-badge.active {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.status-badge.pending {
+  background: rgba(245, 158, 11, 0.15);
+  color: #FBBF24;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.status-badge.deactivated {
+  background: rgba(239, 68, 68, 0.15);
+  color: #F87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.row-pending {
+  background: rgba(245, 158, 11, 0.03);
+}
+
+.action-btn-approve {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  color: #34D399;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn-approve:hover {
+  background: #10B981;
+  color: #0F172A;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+}
+
+.admin-user-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.action-btn-toggle {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn-toggle.active {
+  color: #F87171;
+  border-color: rgba(239, 68, 68, 0.4);
+}
+
+.action-btn-toggle.deactivated {
+  color: #34D399;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.action-btn-reset {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #F59E0B;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn-reset:hover {
+  background: #F59E0B;
+  color: #0F172A;
+}
+
+.action-btn-delete {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #EF4444;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.action-btn-delete:hover {
+  background: #EF4444;
+  color: #FFFFFF;
+}
+
+.no-users {
+  text-align: center;
+  padding: 40px !important;
+  color: #64748B;
+  font-size: 15px;
+}
+
+/* Reset Modal */
+.admin-reset-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.admin-reset-modal {
+  background: #0F172A;
+  border: 1px solid #EB5A0F;
+  border-radius: 16px;
+  padding: 28px;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+}
+
+.admin-reset-modal h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #FFFFFF;
+}
+
+.admin-reset-modal p {
+  font-size: 14px;
+  color: #94A3B8;
+  margin-bottom: 20px;
+}
+
+.admin-reset-modal .form-group input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: #FFFFFF;
+  font-size: 14px;
+  outline: none;
+  margin-top: 6px;
+}
+
+.reset-modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.reset-modal-actions .btn-cancel {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #94A3B8;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.reset-modal-actions .btn-save {
+  background: #EB5A0F;
+  border: none;
+  color: #FFFFFF;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}

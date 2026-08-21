@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "The Future of Artificial Intelligence in Everyday Life",
+    "content": "<p data-start=\"408\" data-end=\"646\">Artificial Intelligence (AI) is rapidly transforming how we live, work, and communicate. From voice assistants and recommendation systems to healthcare diagnostics and smart transportation, AI is becoming an essential part of modern life.</p>\r\n<p data-start=\"648\" data-end=\"884\">Businesses are using AI to automate repetitive tasks, improve customer experiences, and make data-driven decisions. Consumers benefit from personalized services, faster support, and innovative products that simplify everyday activities.</p>\r\n<p data-start=\"886\" data-end=\"1115\">As AI technology continues to evolve, ethical considerations such as privacy, transparency, and responsible use remain important. Organizations must balance innovation with accountability to ensure AI benefits society as a whole.</p>\r\n<h3 data-section-id=\"1gy73hw\" data-start=\"1117\" data-end=\"1139\">Key Benefits of AI</h3>\r\n<ul data-start=\"1140\" data-end=\"1342\">\r\n<li data-section-id=\"1rr9q2s\" data-start=\"1140\" data-end=\"1179\"><b>\r\nIncreased productivity and efficiency\r\n</b></li>\r\n<li data-section-id=\"1t7o84x\" data-start=\"1180\" data-end=\"1209\"><b>\r\nBetter customer experiences\r\n</b></li>\r\n<li data-section-id=\"12qkhlh\" data-start=\"1210\" data-end=\"1258\"><b>\r\nImproved decision-making through data analysis\r\n</b></li>\r\n<li data-section-id=\"n1l3q8\" data-start=\"1259\" data-end=\"1303\"><b>\r\nEnhanced healthcare and education services\r\n</b></li>\r\n<li data-section-id=\"79twoq\" data-start=\"1304\" data-end=\"1342\"><b>\r\nSmarter automation across industries</b></li></ul><hr><h4 data-start=\"1374\" data-end=\"1395\">AI in Healthcare</h4>\r\n<p data-start=\"1397\" data-end=\"1606\">Artificial Intelligence is helping medical professionals diagnose diseases earlier and more accurately. Machine learning models can analyze medical images, predict health risks, and support treatment planning.</p>\r\n<p data-start=\"1608\" data-end=\"1765\"><strong data-start=\"1608\" data-end=\"1623\">Case Study:</strong><br>\r\nA hospital implemented an AI-assisted diagnostic system and reduced image review time by 40%, allowing doctors to focus more on patient care.</p><hr><h4 data-start=\"1800\" data-end=\"1818\">Looking Ahead</h4>\r\n<p data-start=\"1820\" data-end=\"2016\">The future of AI is not about replacing humans but empowering them. By combining human creativity with intelligent systems, organizations can unlock new opportunities and solve complex challenges.</p>\r\n<p data-start=\"2018\" data-end=\"2134\">Businesses that embrace AI responsibly today will be better positioned to thrive in the digital economy of tomorrow.</p>",
+    "image1": "/uploads/1781976521815-team-1sophose (1).jpeg",
+    "gallery_images": [
+      "/uploads/1781976585016-Gemini_Generated_Image_hatjs4hatjs4hatj.png",
+      "/uploads/1781976585024-Gemini_Generated_Image_r16xqur16xqur16x.png",
+      "/uploads/1781976585031-Gemini_Generated_Image_rj20hfrj20hfrj20.png",
+      "/uploads/1781976585052-WhatsApp Image 2026-05-22 at 16.11.08.jpeg",
+      "/uploads/1781976585054-Twin Track BMU Machine.png"
+    ],
+    "author": "Sarah Johnson",
+    "image1_url": "/uploads/1781976521815-team-1sophose (1).jpeg",
+    "hero_image_link": "https://example.com/ai-insights",
+    "created_at": "2026-06-20T17:28:41.825Z",
+    "updated_at": "2026-06-20T17:29:45.134Z"
+  },
+  {
+    "id": 2,
+    "title": "erwsdr",
+    "content": "wdrsfweds<hr/>trsdcfr<hr/>esdrf4wesdf",
+    "image1": "/uploads/1781980942786-logo11 - Copy.png",
+    "gallery_images": [],
+    "author": "ewsdreqwas",
+    "image1_url": null,
+    "hero_image_link": null,
+    "created_at": "2026-06-20T18:42:22.792Z",
+    "updated_at": "2026-06-20T18:42:22.792Z"
+  },
+  {
+    "id": 3,
+    "title": "rewsdrfwes",
+    "content": "wresdfwaesd<hr/>rsdfxcf<hr/>rgsdfxc",
+    "image1": "/uploads/1781980954212-podiums.avif",
+    "gallery_images": [],
+    "author": "wesdfwedszf",
+    "image1_url": null,
+    "hero_image_link": null,
+    "created_at": "2026-06-20T18:42:34.216Z",
+    "updated_at": "2026-06-20T18:42:34.216Z"
+  }
+]

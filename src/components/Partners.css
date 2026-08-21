@@ -1,0 +1,117 @@
+/* ===== Partners Section ===== */
+
+.partners-section {
+  padding: 50px 20px;
+  /* background: #f9f9f9; */
+}
+
+.partners-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.partners-content {
+  flex: 1 1 300px;
+  /* padding-top: 120px; */
+}
+
+.partners-content h2 {
+  font-size: 2rem;
+}
+
+.partners-content p {
+  padding-bottom: 20px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgb(255, 255, 255);
+}
+
+.partners-logos {
+  flex: 1 1 300px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.logo-slider {
+  flex: 1 1 45%;
+  max-height: 450px;
+  overflow: hidden;
+  position: relative;
+}
+
+.logo-track {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-track img {
+  border-radius: 25px;
+  background: transparent !important;
+  max-width: 160px;
+  margin: 10px auto;
+  object-fit: contain;
+}
+
+.upwards .logo-track {
+  animation: scroll-up 34s linear infinite;
+}
+
+.downwards .logo-track {
+  animation: scroll-down 34s linear infinite;
+}
+
+@keyframes scroll-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scroll-down {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.logo-slider:hover .logo-track {
+  animation-play-state: paused;
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+  .logo-track img {
+    max-width: 70px;
+  }
+}
+
+/* Specific styling for OWL Labs logo - reduce image size, keep box same, match border radius */
+.logo-track img.logo-owl-labs {
+  max-width: 160px !important;
+  margin: 10px auto !important;
+  padding: 15px !important; /* Reduced padding to prevent text cutoff */
+  object-fit: contain !important;
+  box-sizing: border-box !important;
+  border-radius: 25px !important; /* Match the border radius of other logos */
+  background: white !important; /* Keep white background for the logo */
+}
+
+/* Halofort logo - match styling with other logos */
+.logo-track img.logo-halofort {
+  max-width: 160px !important;
+  margin: 10px auto !important;
+  padding: 15px !important; /* Add padding to reduce the logo size slightly */
+  object-fit: contain !important;
+  box-sizing: border-box !important;
+  border-radius: 25px !important; /* Match the border radius of other logos */
+  background: white !important; /* Keep white background for the logo */
+}

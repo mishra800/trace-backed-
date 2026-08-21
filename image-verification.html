@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🖼️ Image Verification - Sophos Award Images</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f5f5f5; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .success { background: #4CAF50; color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .error { background: #f44336; color: white; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .image-test { background: white; padding: 20px; margin: 20px 0; border-radius: 8px; border: 1px solid #ddd; }
+        .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .image-item { text-align: center; padding: 15px; border: 2px solid #ffeb3b; border-radius: 8px; }
+        .image-item img { max-width: 100%; height: 150px; object-fit: contain; border-radius: 5px; }
+        .status { margin-top: 10px; font-weight: bold; }
+        .working { color: #4CAF50; }
+        .broken { color: #f44336; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🖼️ Sophos Award Images Verification</h1>
+        
+        <div class="success">
+            ✅ FIXED: Updated to use existing working Sophos images from the assets folder
+        </div>
+        
+        <div class="image-test">
+            <h2>📍 Current Image Sources Being Used:</h2>
+            <div class="image-grid">
+                <div class="image-item">
+                    <h3>Main Award Image</h3>
+                    <img src="/assets/images/award/sophos 2025.jpeg" alt="Sophos 2025 Award" 
+                         onload="this.nextElementSibling.innerHTML='✅ WORKING'; this.nextElementSibling.className='status working';"
+                         onerror="this.nextElementSibling.innerHTML='❌ BROKEN'; this.nextElementSibling.className='status broken';">
+                    <div class="status">Loading...</div>
+                    <p><code>/assets/images/award/sophos 2025.jpeg</code></p>
+                </div>
+                
+                <div class="image-item">
+                    <h3>Trophy Display</h3>
+                    <img src="/assets/images/partners/partner-of-year-photo.jpeg" alt="Partner of Year Photo" 
+                         onload="this.nextElementSibling.innerHTML='✅ WORKING'; this.nextElementSibling.className='status working';"
+                         onerror="this.nextElementSibling.innerHTML='❌ BROKEN'; this.nextElementSibling.className='status broken';">
+                    <div class="status">Loading...</div>
+                    <p><code>/assets/images/partners/partner-of-year-photo.jpeg</code></p>
+                </div>
+                
+                <div class="image-item">
+                    <h3>Sophos Firewall</h3>
+                    <img src="/assets/images/partners/Sophos-8500.png" alt="Sophos Firewall" 
+                         onload="this.nextElementSibling.innerHTML='✅ WORKING'; this.nextElementSibling.className='status working';"
+                         onerror="this.nextElementSibling.innerHTML='❌ BROKEN'; this.nextElementSibling.className='status broken';">
+                    <div class="status">Loading...</div>
+                    <p><code>/assets/images/partners/Sophos-8500.png</code></p>
+                </div>
+                
+                <div class="image-item">
+                    <h3>Sophos Endpoint</h3>
+                    <img src="/assets/images/partners/Sophos1.png" alt="Sophos Endpoint" 
+                         onload="this.nextElementSibling.innerHTML='✅ WORKING'; this.nextElementSibling.className='status working';"
+                         onerror="this.nextElementSibling.innerHTML='❌ BROKEN'; this.nextElementSibling.className='status broken';">
+                    <div class="status">Loading...</div>
+                    <p><code>/assets/images/partners/Sophos1.png</code></p>
+                </div>
+                
+                <div class="image-item">
+                    <h3>Sophos Symbol</h3>
+                    <img src="/assets/images/partners/Sophos-Symbol.png" alt="Sophos Symbol" 
+                         onload="this.nextElementSibling.innerHTML='✅ WORKING'; this.nextElementSibling.className='status working';"
+                         onerror="this.nextElementSibling.innerHTML='❌ BROKEN'; this.nextElementSibling.className='status broken';">
+                    <div class="status">Loading...</div>
+                    <p><code>/assets/images/partners/Sophos-Symbol.png</code></p>
+                </div>
+                
+                <div class="image-item">
+                    <h3>Sophos Logo</h3>
+                    <img src="/assets/images/partners/SOPHOS.jpg" alt="Sophos Logo" 
+                         onload="this.nextElementSibling.innerHTML='✅ WORKING'; this.nextElementSibling.className='status working';"
+                         onerror="this.nextElementSibling.innerHTML='❌ BROKEN'; this.nextElementSibling.className='status broken';">
+                    <div class="status">Loading...</div>
+                    <p><code>/assets/images/partners/SOPHOS.jpg</code></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="image-test">
+            <h2>🔗 Test the Partners Page:</h2>
+            <ul>
+                <li><a href="/partners?partner=sophos" target="_blank"><strong>🏆 Sophos Award Page</strong></a> - Should now show all images correctly</li>
+                <li><a href="/partners" target="_blank">Regular Partners Page</a> - Normal view without award highlighting</li>
+            </ul>
+        </div>
+        
+        <div class="image-test">
+            <h2>✅ What Was Fixed:</h2>
+            <ul>
+                <li><strong>Removed empty placeholder files</strong> that were causing image loading issues</li>
+                <li><strong>Updated image paths</strong> to use existing working Sophos images</li>
+                <li><strong>Added multiple Sophos images</strong> for visual variety and impact</li>
+                <li><strong>Enhanced yellow highlighting</strong> with proper borders and effects</li>
+                <li><strong>Added solutions showcase</strong> with 4 different Sophos product images</li>
+            </ul>
+        </div>
+        
+        <div class="image-test">
+            <h2>🎯 Expected Results:</h2>
+            <ul>
+                <li>✅ All images should load and display correctly</li>
+                <li>✅ Yellow borders and glow effects around award images</li>
+                <li>✅ Large, prominent display of the main award image</li>
+                <li>✅ Solutions showcase with 4 Sophos product images</li>
+                <li>✅ Responsive design working on all devices</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

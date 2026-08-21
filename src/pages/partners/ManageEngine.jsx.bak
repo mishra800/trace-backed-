@@ -1,0 +1,560 @@
+﻿import React from 'react';
+import { Link } from 'react-router-dom';
+import UseCaseSlider from '../../components/UseCaseSlider';
+import { useAwardsSlider } from '../../hooks/useAwardsSlider';
+import './ManageEngine.css';
+
+const manageEngineUseCases = [
+  { id: 'healthcare', category: 'HEALTHCARE', icon: 'fas fa-hospital', title: 'Healthcare & Pharmaceuticals (IT Management & Compliance)', description: 'Problem: Healthcare and pharmaceutical organizations require secure management of hospital systems, endpoints, user access, medical applications, and regulatory compliance.', image: '/assets/images/use-cases/usecase5.png', linkTo: '/case-studies' },
+  { id: 'banking', category: 'BANKING', icon: 'fas fa-university', title: 'Financial Services (Secure Access & Compliance Reporting)', description: 'Problem: Financial institutions require secure access control, continuous monitoring, compliance reporting, and centralized IT management for critical banking systems.', image: '/assets/images/use-cases/usecase4.png', linkTo: '/case-studies' },
+  { id: 'textiles', category: 'MANUFACTURING', icon: 'fas fa-cut', title: 'Textiles, Apparel & Luxury Goods (ERP & IT Operations)', description: 'Problem: Textile and apparel organizations require centralized IT management across factories, warehouses, retail branches, and corporate offices.', image: '/assets/images/use-cases/usecase7.png', linkTo: '/case-studies' },
+  { id: 'agriculture', category: 'AGRICULTURE', icon: 'fas fa-seedling', title: 'Agriculture & Fertilizers (Remote Site IT Management)', description: 'Problem: Agriculture and fertilizer companies require reliable monitoring and management of IT infrastructure across production plants, remote offices, warehouses, and operational sites.', image: '/assets/images/use-cases/usecase3.png', linkTo: '/case-studies' }
+];
+
+export default function ManageEngine() {
+  useAwardsSlider();
+  return (
+    <div className="me-page me-v2-page">
+
+      {/* -- Hero -- */}
+      <section className="me2-hero">
+        <div className="me2-hero-bg" aria-hidden="true"></div>
+        <div className="me2-hero-glow-left" aria-hidden="true"></div>
+        <div className="me2-hero-glow-right" aria-hidden="true"></div>
+        <div className="me2-hero-inner container">
+
+          {/* LEFT */}
+          <div className="me2-left" data-aos="fade-right" data-aos-duration="900">
+            <h1 className="me2-headline">
+              Zoho ManageEngine<br />
+              IT Management &amp;<br />
+              <span className="me2-headline-accent">Security Solutions</span>
+            </h1>
+            <div className="me2-headline-rule"></div>
+            <p className="me2-desc">
+              Complete enterprise IT management, network monitoring, identity management, endpoint
+              management, and ITSM solutions � delivered by{' '}
+              <a href="/contact-us" className="me2-desc-link">Trace Network &amp; Engineering.</a>
+            </p>
+            <div className="me2-feature-row">
+              <div className="me2-feat">
+                <div className="me2-feat-icon"><i className="fas fa-desktop"></i></div>
+                <div className="me2-feat-body">
+                  <strong>Complete IT Platform</strong>
+                  <span>ITSM, Endpoint &amp; Network Management.</span>
+                </div>
+              </div>
+              <div className="me2-feat">
+                <div className="me2-feat-icon"><i className="fas fa-shield-alt"></i></div>
+                <div className="me2-feat-body">
+                  <strong>Security &amp; Compliance</strong>
+                  <span>PAM, SIEM, MFA &amp; patch management.</span>
+                </div>
+              </div>
+              <div className="me2-feat">
+                <div className="me2-feat-icon"><i className="fas fa-robot"></i></div>
+                <div className="me2-feat-body">
+                  <strong>IT Automation</strong>
+                  <span>Ticketing, provisioning &amp; patch workflows.</span>
+                </div>
+              </div>
+            </div>
+            <div className="me2-stats-row">
+              <div className="me2-stat-card">
+                <i className="fas fa-server"></i>
+                <div>
+                  <span className="me2-stat-num">1000+</span>
+                  <span className="me2-stat-lbl">ENTERPRISE<br />DEPLOYMENTS</span>
+                </div>
+              </div>
+              <div className="me2-stat-card">
+                <i className="fas fa-clock"></i>
+                <div>
+                  <span className="me2-stat-num">6hrs</span>
+                  <span className="me2-stat-lbl">ISSUE<br />RESOLUTION</span>
+                </div>
+              </div>
+              <div className="me2-stat-card me2-stat-brand">
+                <img src="/assets/images/partners/Manage-Engine.jpg" alt="ManageEngine" className="me2-brand-logo"
+                  onError={(e) => { e.target.style.opacity = '0.3'; }} />
+                <span className="me2-stat-lbl">INDIA<br />LEADING PARTNER</span>
+              </div>
+            </div>
+            <div className="me2-cta-row">
+              <a href="#me-portfolio" className="me2-btn-primary">
+                Explore ManageEngine Solutions <i className="fas fa-arrow-right"></i>
+              </a>
+              <a href="/contact-us" className="me2-btn-ghost">
+                Talk to Our Experts <i className="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+          {/* RIGHT */}
+          <div className="me2-right" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
+            <div className="me2-product-glow" aria-hidden="true"></div>
+            <div className="me2-showcase">
+              <img src="/assets/images/partners/Manage-Engine.jpg" alt="ManageEngine IT Platform"
+                className="me2-hero-product-img"
+                onError={(e) => { e.target.style.opacity = '0.3'; }} />
+              <div className="me2-platform" aria-hidden="true">
+                <div className="me2-plat-ring me2-plat-ring-1"></div>
+                <div className="me2-plat-ring me2-plat-ring-2"></div>
+                <div className="me2-plat-ring me2-plat-ring-3"></div>
+                <div className="me2-plat-surface"></div>
+              </div>
+            </div>
+            <div className="me2-industry-strip">
+              <span className="me2-ind-item"><i className="fas fa-hospital"></i> Healthcare</span>
+              <span className="me2-ind-sep"></span>
+              <span className="me2-ind-item"><i className="fas fa-university"></i> Banking</span>
+              <span className="me2-ind-sep"></span>
+              <span className="me2-ind-item"><i className="fas fa-cut"></i> Textiles</span>
+              <span className="me2-ind-sep"></span>
+              <span className="me2-ind-item"><i className="fas fa-seedling"></i> Agriculture</span>
+              <span className="me2-ind-sep"></span>
+              <span className="me2-ind-item"><i className="fas fa-building"></i> Enterprise</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Why Choose Section */}
+      <section className="me2-why-section">
+        <div className="me2-why-container">
+          <div className="me2-why-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="me2-why-badge">
+              <i className="fas fa-cog"></i>
+              <span>ONE OF THE LEADING ZOHO MANAGEENGINE PARTNERS IN INDIA</span>
+            </div>
+            <h2 className="me2-why-title">
+              Why Choose <span className="me2-why-accent">ManageEngine &amp;</span><br />
+              <span className="me2-why-accent">Trace Network &amp; Engineering?</span>
+            </h2>
+            <p className="me2-why-subtitle">Complete IT management. Certified expertise. Operations you can rely on.</p>
+            <div className="me2-why-title-rule"></div>
+          </div>
+
+          <div className="me2-why-card-outer" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
+            {/* Left panel */}
+            <div className="me2-why-panel me2-why-panel-left">
+              <div className="me2-why-content">
+                <div className="me2-why-icon-row">
+                  <div className="me2-why-icon-circle"><i className="fas fa-cog"></i></div>
+                </div>
+                <p className="me2-why-card-sup">Why Choose</p>
+                <h3 className="me2-why-card-title me2-why-card-title-orange">ManageEngine Solutions?</h3>
+                <p className="me2-why-card-desc">
+                  ManageEngine is a leading provider of enterprise IT management, IT security, network monitoring, identity management, and ITSM solutions � helping organizations simplify and secure their IT operations with unified visibility, automation, and control.
+                </p>
+                <ul className="me2-why-list">
+                  <li>
+                    <span className="me2-why-list-icon"><i className="fas fa-desktop"></i></span>
+                    <span>Complete IT management platform<br /><small>ITSM, Endpoint, Network Monitoring</small></span>
+                  </li>
+                  <li>
+                    <span className="me2-why-list-icon"><i className="fas fa-eye"></i></span>
+                    <span>Centralized IT visibility<br /><small>servers, endpoints, users &amp; applications</small></span>
+                  </li>
+                  <li>
+                    <span className="me2-why-list-icon"><i className="fas fa-shield-alt"></i></span>
+                    <span>Strong cybersecurity &amp; compliance<br /><small>PAM, SIEM, MFA, patch management</small></span>
+                  </li>
+                  <li>
+                    <span className="me2-why-list-icon"><i className="fas fa-robot"></i></span>
+                    <span>Automated IT operations<br /><small>ticketing, patch deployment, provisioning</small></span>
+                  </li>
+                  <li>
+                    <span className="me2-why-list-icon"><i className="fas fa-chart-line"></i></span>
+                    <span>Enterprise scalability<br /><small>SMBs to large multi-location organizations</small></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="me2-why-divider" aria-hidden="true"></div>
+
+            {/* Right panel */}
+            <div className="me2-why-panel me2-why-panel-right">
+              <div className="me2-why-content">
+                <div className="me2-why-icon-row">
+                  <div className="me2-why-icon-circle me2-why-icon-teal"><i className="fas fa-building"></i></div>
+                </div>
+                <p className="me2-why-card-sup">Why Choose</p>
+                <h3 className="me2-why-card-title me2-why-card-title-teal">Trace Network &amp; Engineering?</h3>
+                <p className="me2-why-card-desc">
+                  Trace Network &amp; Engineering is a trusted Authorized ManageEngine Partner delivering end-to-end IT management expertise. With certified professionals and 1000+ successful enterprise deployments, Trace provides consultative design, seamless deployment, and proactive long-term support.
+                </p>
+                <ul className="me2-why-list me2-why-list-check">
+                  <li>
+                    <span className="me2-why-list-icon me2-why-list-check-icon"><i className="fas fa-check-circle"></i></span>
+                    <span>Critical issues resolved within 6 hours</span>
+                  </li>
+                  <li>
+                    <span className="me2-why-list-icon me2-why-list-check-icon"><i className="fas fa-check-circle"></i></span>
+                    <span>Certified IT management &amp; cybersecurity specialists</span>
+                  </li>
+                  <li>
+                    <span className="me2-why-list-icon me2-why-list-check-icon"><i className="fas fa-check-circle"></i></span>
+                    <span>1000+ successful enterprise deployments</span>
+                  </li>
+                  <li>
+                    <span className="me2-why-list-icon me2-why-list-check-icon"><i className="fas fa-check-circle"></i></span>
+                    <span>Multi-channel support: Email, WhatsApp, Phone &amp; portal</span>
+                  </li>
+                  <li>
+                    <span className="me2-why-list-icon me2-why-list-check-icon"><i className="fas fa-check-circle"></i></span>
+                    <span>Solutions for healthcare, BFSI, manufacturing &amp; textiles</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="me2-why-img-wrap me2-why-img-right" aria-hidden="true">
+                <div className="me2-why-img-gradient me2-why-img-gradient-right"></div>
+                <div className="me2-why-server-bg"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Stats bar */}
+          <div className="me2-why-stats-bar" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <div className="me2-why-stat">
+              <div className="me2-why-stat-icon"><i className="fas fa-desktop"></i></div>
+              <div className="me2-why-stat-text"><strong>Complete Platform</strong><span>ITSM to endpoint management</span></div>
+            </div>
+            <div className="me2-why-stat-sep" aria-hidden="true"></div>
+            <div className="me2-why-stat">
+              <div className="me2-why-stat-icon"><i className="fas fa-shield-alt"></i></div>
+              <div className="me2-why-stat-text"><strong>Secure</strong><span>compliance-ready operations</span></div>
+            </div>
+            <div className="me2-why-stat-sep" aria-hidden="true"></div>
+            <div className="me2-why-stat">
+              <div className="me2-why-stat-icon"><i className="fas fa-robot"></i></div>
+              <div className="me2-why-stat-text"><strong>Automated</strong><span>intelligent IT workflows</span></div>
+            </div>
+            <div className="me2-why-stat-sep" aria-hidden="true"></div>
+            <div className="me2-why-stat">
+              <div className="me2-why-stat-icon"><i className="fas fa-handshake"></i></div>
+              <div className="me2-why-stat-text"><strong>Trusted</strong><span>authorized partner</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Section */}
+      <section className="me2-port-section" id="me-portfolio">
+        <div className="me2-port-container">
+          <div className="me2-port-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="me2-port-header-icon" aria-hidden="true"><i className="fas fa-cog"></i></div>
+            <h2 className="me2-port-title">Complete <span className="me2-port-accent">ManageEngine</span> Portfolio</h2>
+            <div className="me2-port-title-decor" aria-hidden="true">
+              <span className="me2-port-decor-line"></span>
+              <span className="me2-port-decor-dot"></span>
+              <span className="me2-port-decor-line"></span>
+            </div>
+            <p className="me2-port-subtitle">End-to-end IT management and security solutions for every business need</p>
+          </div>
+
+          <div className="me2-port-top-row">
+            <div className="me2-port-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
+              <div className="me2-port-card-img me2-port-img-itsm"><div className="me2-port-card-img-overlay"></div></div>
+              <div className="me2-port-card-body">
+                <div className="me2-port-card-icon"><i className="fas fa-ticket-alt"></i></div>
+                <h3 className="me2-port-card-title">IT Service <span className="me2-port-accent">Management (ITSM)</span></h3>
+                <p className="me2-port-card-desc">Streamline IT operations with automated ticketing, asset management, and service delivery.</p>
+                <ul className="me2-port-list">
+                  <li><i className="fas fa-check"></i> ServiceDesk Plus</li>
+                  <li><i className="fas fa-check"></i> Asset management</li>
+                  <li><i className="fas fa-check"></i> Incident &amp; problem management</li>
+                </ul>
+                <a href="/contact-us" className="me2-port-link">Explore ITSM <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="me2-port-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+              <div className="me2-port-card-img me2-port-img-endpoint"><div className="me2-port-card-img-overlay"></div></div>
+              <div className="me2-port-card-body">
+                <div className="me2-port-card-icon"><i className="fas fa-laptop"></i></div>
+                <h3 className="me2-port-card-title">Endpoint &amp; <span className="me2-port-accent">Device Management</span></h3>
+                <p className="me2-port-card-desc">Secure and manage desktops, laptops, servers, and mobile devices across all environments.</p>
+                <ul className="me2-port-list">
+                  <li><i className="fas fa-check"></i> Endpoint Central (UEM)</li>
+                  <li><i className="fas fa-check"></i> Patch management</li>
+                  <li><i className="fas fa-check"></i> Remote device control</li>
+                </ul>
+                <a href="/contact-us" className="me2-port-link">Explore Endpoint Mgmt <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="me2-port-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+              <div className="me2-port-card-img me2-port-img-security"><div className="me2-port-card-img-overlay"></div></div>
+              <div className="me2-port-card-body">
+                <div className="me2-port-card-icon"><i className="fas fa-shield-alt"></i></div>
+                <h3 className="me2-port-card-title">Cybersecurity &amp; <span className="me2-port-accent">Compliance</span></h3>
+                <p className="me2-port-card-desc">Protect enterprise environments with PAM, SIEM monitoring, MFA, and threat detection.</p>
+                <ul className="me2-port-list">
+                  <li><i className="fas fa-check"></i> PAM360 (Privileged Access)</li>
+                  <li><i className="fas fa-check"></i> Log360 (SIEM)</li>
+                  <li><i className="fas fa-check"></i> ADSelfService Plus (MFA)</li>
+                </ul>
+                <a href="/contact-us" className="me2-port-link">Explore Security <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div className="me2-port-bottom-row" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+            <div className="me2-port-dc-card">
+              <div className="me2-port-dc-img"><div className="me2-port-dc-img-overlay"></div></div>
+              <div className="me2-port-dc-body">
+                <div className="me2-port-card-icon me2-port-dc-icon"><i className="fas fa-network-wired"></i></div>
+                <h3 className="me2-port-card-title">Network &amp; <span className="me2-port-accent">Infrastructure Monitoring</span></h3>
+                <p className="me2-port-card-desc">Real-time monitoring of networks, servers, applications, and cloud infrastructure.</p>
+                <ul className="me2-port-list">
+                  <li><i className="fas fa-check"></i> OpManager (Network Monitoring)</li>
+                  <li><i className="fas fa-check"></i> Applications Manager</li>
+                  <li><i className="fas fa-check"></i> Cloud infrastructure monitoring</li>
+                </ul>
+                <a href="/contact-us" className="me2-port-link">Explore Network Monitoring <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="me2-port-why-panel">
+              <h3 className="me2-port-why-title">Why Choose <span className="me2-port-accent">ManageEngine?</span></h3>
+              <div className="me2-port-why-grid">
+                <div className="me2-port-why-item">
+                  <div className="me2-port-why-icon"><i className="fas fa-desktop"></i></div>
+                  <strong>Unified Platform</strong>
+                  <span>One platform for all IT management needs.</span>
+                </div>
+                <div className="me2-port-why-item">
+                  <div className="me2-port-why-icon"><i className="fas fa-shield-alt"></i></div>
+                  <strong>Secure</strong>
+                  <span>Built-in security, compliance, and access control.</span>
+                </div>
+                <div className="me2-port-why-item">
+                  <div className="me2-port-why-icon"><i className="fas fa-chart-bar"></i></div>
+                  <strong>Scalable</strong>
+                  <span>Flexible solutions from SMBs to enterprises.</span>
+                </div>
+                <div className="me2-port-why-item">
+                  <div className="me2-port-why-icon"><i className="fas fa-headset"></i></div>
+                  <strong>Trusted Partner</strong>
+                  <span>Authorized India partner with certified experts.</span>
+                </div>
+              </div>
+              <div className="me2-port-cta-bar">
+                <div className="me2-port-cta-icon"><i className="fas fa-comments"></i></div>
+                <div className="me2-port-cta-text">
+                  <strong>Need help choosing the right solution?</strong>
+                  <span>Our IT management experts are here to help.</span>
+                </div>
+                <a href="/contact-us" className="me2-port-cta-btn">Talk to an Expert <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Industries */}
+      <section className="me2-ind-section">
+        <div className="me2-ind-bg-glow me2-ind-bg-glow-left" aria-hidden="true"></div>
+        <div className="me2-ind-bg-glow me2-ind-bg-glow-right" aria-hidden="true"></div>
+        <div className="me2-ind-container">
+          <div className="me2-ind-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="me2-ind-badge">
+              <span className="me2-ind-badge-dot"></span>
+              <i className="fas fa-crown"></i>
+              <span>TRUSTED ACROSS INDUSTRIES</span>
+              <span className="me2-ind-badge-dot"></span>
+            </div>
+            <h2 className="me2-ind-title">
+              Industries Where <span className="me2-ind-accent">ManageEngine</span><br />
+              <span className="me2-ind-accent">Solutions</span> Excel
+            </h2>
+            <p className="me2-ind-subtitle">Trusted IT management and security across diverse sectors</p>
+          </div>
+          <div className="me2-ind-grid">
+            {[
+              { icon: 'fas fa-hospital', num: '01', title: 'Healthcare & Pharma', desc: 'Secure management of hospital systems, endpoints, and regulatory compliance.' },
+              { icon: 'fas fa-university', num: '02', title: 'Banking & Financial', desc: 'Secure access control, compliance reporting, and IT management for banking.' },
+              { icon: 'fas fa-cut', num: '03', title: 'Textiles & Apparel', desc: 'Centralized IT management across factories, warehouses, and corporate offices.' },
+              { icon: 'fas fa-seedling', num: '04', title: 'Agriculture & Fertilizers', desc: 'Remote site IT monitoring across production plants and operational sites.' },
+              { icon: 'fas fa-industry', num: '05', title: 'Manufacturing', desc: 'ERP, production systems, and IT operations management.' },
+              { icon: 'fas fa-building', num: '06', title: 'Large Enterprises', desc: 'Scalable IT management for enterprise-wide digital transformation.' },
+            ].map((item) => (
+              <div className="me2-ind-card" key={item.num} data-aos="fade-up" data-aos-duration="700">
+                <div className="me2-ind-card-top">
+                  <div className="me2-ind-icon-wrap"><i className={item.icon}></i></div>
+                  <span className="me2-ind-num">{item.num}</span>
+                </div>
+                <div className="me2-ind-num-rule"></div>
+                <h3 className="me2-ind-card-title">{item.title}</h3>
+                <p className="me2-ind-card-desc">{item.desc}</p>
+                <a href="/contact-us" className="me2-ind-arrow" aria-label={`Learn more about ${item.title}`}>
+                  <i className="fas fa-arrow-right"></i>
+                </a>
+                <div className="me2-ind-card-bg-pattern" aria-hidden="true"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases Slider */}
+      <UseCaseSlider
+        useCases={manageEngineUseCases}
+        partnerColor="#e1541a"
+        title="ManageEngine Use Cases"
+        subtitle="Successfully Deployed by Trace Network across diverse industry sectors"
+      />
+
+      {/* Career CTA */}
+      <section className="career-cta-section">
+        <div className="career-cta-container">
+          <h2 className="career-cta-title">Ready to Simplify &amp; Secure Your IT Operations?</h2>
+          <p className="career-cta-text">
+            Speak with a senior IT management consultant today. In 30 minutes you'll know:<br /><br />
+            � The top three inefficiencies in your current IT operations<br />
+            � Quick wins to improve visibility and reduce overhead<br />
+            � An exact timeline &amp; cost estimate�no obligations
+          </p>
+          <div className="about-two__btn-box">
+            <a href="tel:9000314411" className="btn-get-started">
+              <span className="btn-text">Book Your Free IT Assessment</span>
+              <span className="btn-arrow"></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* POC Section */}
+      <section className="me2-poc-section" data-aos="fade-up" data-aos-duration="900">
+        <div className="me2-poc-glow-tl" aria-hidden="true"></div>
+        <div className="me2-poc-glow-br" aria-hidden="true"></div>
+        <div className="me2-poc-inner container">
+          <div className="me2-poc-left">
+            <div className="me2-poc-badge">
+              <i className="fas fa-cog"></i>
+              <span>SPECIAL OFFER</span>
+            </div>
+            <h2 className="me2-poc-headline">
+              <span className="me2-poc-free">FREE</span> POC<br />
+              <span className="me2-poc-headline-white">Available</span>
+            </h2>
+            <div className="me2-poc-rule"></div>
+            <p className="me2-poc-subtitle">
+              Exclusive Offers on{' '}
+              <span className="me2-poc-link-text">ManageEngine IT Management<br />&amp; Security Solutions</span>
+            </p>
+            <p className="me2-poc-desc">
+              Get expert guidance for ManageEngine ITSM, Endpoint Management, Network Monitoring,
+              PAM, SIEM, and IT Operations deployments.
+            </p>
+            <Link to="/contact-us" className="me2-poc-cta-btn">
+              CONTACT TRACE NETWORK <i className="fas fa-arrow-right"></i>
+            </Link>
+            <div className="me2-poc-trust">
+              <span className="me2-poc-trust-item"><i className="fas fa-shield-alt"></i> Zero Risk</span>
+              <span className="me2-poc-trust-item"><i className="fas fa-lock"></i> Secure</span>
+              <span className="me2-poc-trust-item"><i className="fas fa-users"></i> Certified Experts</span>
+            </div>
+          </div>
+          <div className="me2-poc-right">
+            <div className="me2-poc-grid-row">
+              <div className="me2-poc-feat-card">
+                <div className="me2-poc-feat-circle"><i className="fas fa-shield-alt"></i></div>
+                <p className="me2-poc-feat-label">No upfront cost<br />for POC</p>
+              </div>
+              <div className="me2-poc-feat-card">
+                <div className="me2-poc-feat-circle"><i className="fas fa-sliders-h"></i></div>
+                <p className="me2-poc-feat-label">Tailored to your<br />IT environment</p>
+              </div>
+              <div className="me2-poc-feat-card">
+                <div className="me2-poc-feat-circle"><i className="fas fa-tag"></i></div>
+                <p className="me2-poc-feat-label">Exclusive pricing<br />on ME solutions</p>
+              </div>
+            </div>
+            <div className="me2-poc-grid-divider"></div>
+            <div className="me2-poc-grid-row">
+              <div className="me2-poc-feat-card">
+                <div className="me2-poc-feat-circle"><i className="fas fa-headset"></i></div>
+                <p className="me2-poc-feat-label">Expert guidance<br />throughout</p>
+              </div>
+              <div className="me2-poc-feat-card">
+                <div className="me2-poc-feat-circle"><i className="fas fa-desktop"></i></div>
+                <p className="me2-poc-feat-label">Test real solutions<br />in your environment</p>
+              </div>
+              <div className="me2-poc-feat-card">
+                <div className="me2-poc-feat-circle"><i className="fas fa-chart-bar"></i></div>
+                <p className="me2-poc-feat-label">Make confident<br />IT decisions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Awards Section */}
+      <section className="awards-section">
+        <div className="section-title text-center">
+          <div className="section-title__tagline-box">
+            <div className="section-title__tagline-shape-1"></div>
+            <span className="section-title__tagline">Awards</span>
+            <div className="section-title__tagline-shape-2"></div>
+          </div>
+          <h2 className="section-title__title">Recognized &amp; Trusted <span>for Delivering </span><br />Value &amp; Excellence</h2>
+        </div>
+        <div className="awards-slider">
+          <div className="awards-track">
+            <div className="award-card"><img src="/assets/images/award/1.png" alt="Sophos Best Performing Partner (2024)" /><span>Sophos Best Performing Partner (2024)</span></div>
+            <div className="award-card"><img src="/assets/images/award/2.png" alt="Certification of Completion Aruba Instant (2023)" /><span>Certification of Completion Aruba Instant (2023)</span></div>
+            <div className="award-card"><img src="/assets/images/award/3.png" alt="Core Champion HPE Aruba Networking (2023)" /><span>Core Champion HPE Aruba Networking (2023)</span></div>
+            <div className="award-card"><img src="/assets/images/award/4.png" alt="Sophos Top Performer of the Region" /><span>Sophos Top Performer of the Region</span></div>
+            <div className="award-card"><img src="/assets/images/award/5.png" alt="Sophos Best Solution Partner" /><span>Sophos Best Solution Partner</span></div>
+            <div className="award-card"><img src="/assets/images/award/6.png" alt="Certified by SonicWall (2022)" /><span>Certified by SonicWall (2022)</span></div>
+            <div className="award-card"><img src="/assets/images/award/7.png" alt="HPE Aruba Accelerating Next (2022)" /><span>HPE Aruba Accelerating Next (2022)</span></div>
+            <div className="award-card"><img src="/assets/images/award/11.png" alt="Sophos Best Top Performing Partner (2020)" /><span>Sophos Best Top Performing Partner (2020)</span></div>
+            <div className="award-card"><img src="/assets/images/award/12.png" alt="Sophos Platinum Partner (2019)" /><span>Sophos Platinum Partner (2019)</span></div>
+            <div className="award-card"><img src="/assets/images/award/19.png" alt="Sophos Top Performer Of the Region" /><span>Sophos Top Performer Of the Region</span></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Leading Brands Choose Trace */}
+      <section className="premium-cards-section" style={{ marginTop: '-20px' }}>
+        <div className="premium-container">
+          <div className="section-title text-center pb-4">
+            <h2 className="section-title__title">Why Leading<span> Brands</span> Choose<span> Trace</span></h2>
+          </div>
+          <div className="premium-card-grid">
+            <div className="premium-service-card">
+              <div className="premium-icon-wrapper"><img src="/assets/images/certified.png" alt="certified" /></div>
+              <p><strong>Multi-vendor, Certified Network Security Expertise</strong> Partnering with 40+ global OEMs, Trace Network offers multi-vendor cybersecurity and network solutions that are future-proof, scalable, and tailored to your exact IT security needs.</p>
+            </div>
+            <div className="premium-service-card">
+              <div className="premium-icon-wrapper"><img src="/assets/images/leadership.png" alt="leadership" /></div>
+              <p><strong>20+ Years of Cybersecurity Leadership</strong> With two decades of proven expertise, we provide penetration testing, vulnerability assessments, and enterprise IT security solutions for Top Campuses, Global Capability Centres, data centres, and enterprises across India.</p>
+            </div>
+            <div className="premium-service-card">
+              <div className="premium-icon-wrapper"><img src="/assets/images/luxury.png" alt="luxury" /></div>
+              <p><strong>Customer-First, Value-Driven</strong> Our cost-effective IT management services ensure maximum efficiency with right-sized solutions, reducing risks and delivering the lowest total cost of ownership (TCO).</p>
+            </div>
+            <div className="premium-service-card">
+              <div className="premium-icon-wrapper"><img src="/assets/images/technical-support.png" alt="technical-support" /></div>
+              <p><strong>Local Presence with Rapid IT Support</strong> Trace Network engineers are available in Hyderabad, Bengaluru, Chennai, Vijayawada, and Vizag, ensuring quick on-site support whenever you need them.</p>
+            </div>
+            <div className="premium-service-card">
+              <div className="premium-icon-wrapper"><img src="/assets/images/iso-certificate.png" alt="iso-certificate" /></div>
+              <p><strong>ISO 27001-Certified Cybersecurity Provider</strong> As an ISO 27001-certified company, we follow stringent change management and compliance practices, aligning with global information security standards.</p>
+            </div>
+            <div className="premium-service-card">
+              <div className="premium-icon-wrapper"><img src="/assets/images/frame.png" alt="frame" /></div>
+              <p><strong>Proven IT Management Deployment Framework</strong> Our structured approach, Assess → Design → Deploy → Optimise → Support, minimises downtime and ensures maximum ROI from your IT investments.</p>
+            </div>
+            <div className="premium-service-card">
+              <div className="premium-icon-wrapper"><img src="/assets/images/agile.png" alt="agile" /></div>
+              <p><strong>Flexible MSSP &amp; Security Pricing Models</strong> Choose from CapEx, OpEx, or Managed Security Service Provider (MSSP) models to align IT investments with your organisation's business goals.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
+}

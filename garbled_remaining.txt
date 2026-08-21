@@ -1,0 +1,206 @@
+                  Enterprise-grade performance, reliability, and scalability for modern IT infrastructure ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Solutions.
+                    Experience the power of HPE servers firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our team will set up a complete proof of concept tailored to your environment so you can see the results before you invest.
+                  AI-powered, cloud-managed, and secure network infrastructure for modern businesses ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                    Powered by Aruba Central, Aruba provides a single unified platform to manage wired, wireless, and WAN networks ÃƒÂ¢Ã¢â€šÂ¬" ensuring real-time visibility, automation, and performance optimization.
+                    Experience the power of Aruba networking firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our team will set up a complete proof of concept tailored to your environment so you can see the results before you invest.
+                  Modernize your IT with enterprise-grade Nutanix HCI ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering, your trusted partner in India &amp; SAARC.
+                  <p>Flexible cloud &amp; hypervisor choice ÃƒÂ¢Ã¢â€šÂ¬" run on any cloud, any hypervisor</p>
+                    Experience the power of Nutanix HCI firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our certified team will set up a complete proof of concept tailored to your environment so you can see the results before you invest.
+                  Secure, back up, and restore business-critical data across virtual, physical, and cloud environments ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                    Experience the power of Veeam Backup firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our certified team will set up a complete proof of concept tailored to your environment so you can see the results before you invest.
+                  Continuously see, understand, and reduce cyber risk across hybrid and cloud environments ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                  By automating vulnerability detection and prioritization, Tenable dramatically increases security team throughput ÃƒÂ¢Ã¢â€šÂ¬" scanning faster, analyzing smarter, and reducing manual effort. Teams achieve higher output with fewer resources, fixing critical risks quicker and minimizing attack surfaces proactively.
+                  Tenable doesn't just improve security ÃƒÂ¢Ã¢â€šÂ¬" it accelerates results, strengthens resilience, and delivers measurable risk reduction.
+                  <p>Automates vulnerability detection and prioritization ÃƒÂ¢Ã¢â€šÂ¬" scanning faster, analyzing smarter, reducing manual effort</p>
+                    Trace Network &amp; Engineering brings Tenable's industry-leading cyber exposure management to life through deep expertise, structured delivery, and continuous client support. As a trusted Tenable partner, Trace ensures organizations don't just deploy Tenable ÃƒÂ¢Ã¢â€šÂ¬" but extract measurable security outcomes from it.
+                    <p>Trace focuses on business-aligned outcomes, not just technical findings ÃƒÂ¢Ã¢â€šÂ¬" helping clients translate vulnerabilities into clear risk insights, compliance readiness, and stronger cyber resilience.</p>
+                    <p className="tnb-trace-tagline">With Trace Network &amp; Engineering and Tenable, organizations gain <strong>visibility, velocity, and value</strong> ÃƒÂ¢Ã¢â€šÂ¬" turning cyber risk into controlled, measurable outcomes.</p>
+                    Experience the power of Tenable's cyber exposure management firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our certified team will set up a complete proof of concept tailored to your environment so you can see measurable results before you invest.
+                  <span className="dell-badge-icon"><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</span>
+                  Secure, high-performance, and scalable IT infrastructure for enterprises, SMBs, healthcare, education, banking, and government ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                  <div className="partner-icon-circle"><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                    <li><span className="dell-check">✓</span> Quick resolution ÃƒÂ¢Ã¢â€šÂ¬" issues addressed within 6 hours</li>
+                <h2><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â Complete Portfolio of Dell Solutions</h2>
+                  <div className="partner-icon-circle"><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                  <div className="partner-icon-circle"><i className="fas fa-archive"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                <h2><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â Dell Laptop, Desktop &amp; Server Use Cases</h2>
+                  <div className="dell-case-header"><span className="partner-icon-circle sm"><i className="fas fa-archive"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</span><div><h3>12. Data Center &amp; Virtualization</h3><span className="dell-case-tag">Enterprise Workload Infrastructure</span></div></div>
+                    Experience the power of Dell enterprise solutions firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our certified team will set up a complete proof of concept tailored to your environment so you can see measurable results before you invest.
+                  Comprehensive threat detection, incident response, and risk visibility across modern IT environments ÃƒÂ¢Ã¢â€šÂ¬" powered by AI and delivered by Trace Network &amp; Engineering.
+                    Trace Networks is a trusted implementation and managed services partner for Seceon, helping organizations maximize the value of AI-driven cybersecurity. With deep expertise in SIEM, SOAR, UEBA, and XDR deployments, Trace Networks ensures Seceon is not just deployed ÃƒÂ¢Ã¢â€šÂ¬" but fully optimized to deliver real security outcomes.
+                    <li><span className="seceon-check">✓</span> Expert Seceon implementation ÃƒÂ¢Ã¢â€šÂ¬" SIEM, SOAR, UEBA &amp; XDR</li>
+                    <li><span className="seceon-check">✓</span> Faster threat detection ÃƒÂ¢Ã¢â€šÂ¬" reduced MTTR via automation</li>
+                  <div className="seceon-adv-icon"><i className="fas fa-building"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                    Experience the power of Seceon's unified threat detection platform firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our certified security team will set up a complete proof of concept tailored to your environment so you can see measurable results before you invest.
+                  Securely manage, monitor, and control enterprise devices across Android, Windows, Linux, macOS, iOS, rugged devices, kiosks, and IoT ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                  <div className="partner-icon-circle"><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                    Experience the power of 42Gears unified endpoint management firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our certified team will set up a complete proof of concept tailored to your environment so you can see measurable results before you invest.
+                    <span>Sophos Partner of the Year 2025 ÃƒÂ¢Ã¢â€šÂ¬" India & SAARC</span>
+                      <h4><i className="fas fa-award"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â Recognition Details:</h4>
+                <strong>Sophos Partner of the Year ÃƒÂ¢Ã¢â€šÂ¬" India & SAARC</strong>
+                <p>Multi-channel support via E-mail, WhatsApp & Custom Portal ÃƒÂ¢Ã¢â€šÂ¬" always available when you need us</p>
+              <h2>From 30,000-user enterprise networks to multi-branch hospitals and retail chains ÃƒÂ¢Ã¢â€šÂ¬" we deliver security that scales, performs, and protects.</h2>
+                  Enterprise-grade cloud, data center, network connectivity, and cybersecurity solutions ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Solutions, your trusted Sify partner.
+                    Sify's comprehensive portfolio spans managed services, cloud platforms, enterprise networking, and security ÃƒÂ¢Ã¢â€šÂ¬" making it a one-stop partner for organizations looking to modernize their IT infrastructure and accelerate digital transformation.
+                    <p>Proven track record of successful enterprise deployments across diverse business environments ÃƒÂ¢Ã¢â€šÂ¬" from hospitality to utilities and government sectors.</p>
+                    Experience the power of Sify's cloud and connectivity solutions firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our team will set up a complete proof of concept tailored to your environment so you can see the results before you invest.
+                  Secure remote access, ZTNA, virtual desktop infrastructure, and digital workspace solutions for modern hybrid enterprises ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                    <li><span className="accops-check">✓</span> Secure Remote Access &amp; ZTNA ÃƒÂ¢Ã¢â€šÂ¬" Zero Trust principles for authorized access only</li>
+                  <div className="partner-icon-circle"><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                    <span className="partner-icon-circle sm"><i className="fas fa-hammer"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</span>
+                    Experience the power of Accops secure access and VDI solutions firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our team will set up a complete proof of concept tailored to your environment so you can see the results before you invest.
+                  Comprehensive IAM, IGA, Zero Trust, SSO and MFA platform securing enterprise identities across hybrid IT environments ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                {/* Left ÃƒÂ¢Ã¢â€šÂ¬" Why Cymmetri */}
+                    <li><span className="cymmetri-check">✓</span> Comprehensive IAM ÃƒÂ¢Ã¢â€šÂ¬" user identities, RBAC, provisioning &amp; governance</li>
+                    <li><span className="cymmetri-check">✓</span> Automated User Lifecycle Management ÃƒÂ¢Ã¢â€šÂ¬" onboarding to offboarding</li>
+                    <li><span className="cymmetri-check">✓</span> Compliance &amp; Governance ÃƒÂ¢Ã¢â€šÂ¬" audit trails, reporting &amp; risk visibility</li>
+                {/* Right ÃƒÂ¢Ã¢â€šÂ¬" Why Trace */}
+                  <p>Allow users to securely access multiple enterprise applications through a single authentication platform ÃƒÂ¢Ã¢â€šÂ¬" seamless and secure.</p>
+                    Experience the power of Cymmetri IAM and identity governance firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our team will set up a complete proof of concept tailored to your environment so you can see the results before you invest.
+                  Unified IT monitoring, AI-powered observability, and service management for enterprise infrastructure ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                {/* Left ÃƒÂ¢Ã¢â€šÂ¬" Why Motadata */}
+                    <li><span className="motadata-check">✓</span> Unified monitoring ÃƒÂ¢Ã¢â€šÂ¬" servers, networks, apps, databases, cloud &amp; VMs</li>
+                    <li><span className="motadata-check">✓</span> AI-Powered Observability ÃƒÂ¢Ã¢â€šÂ¬" anomaly detection &amp; predictive analytics</li>
+                    <li><span className="motadata-check">✓</span> IT Service Management (ITSM) ÃƒÂ¢Ã¢â€šÂ¬" incidents, assets, change &amp; ticketing</li>
+                    <li><span className="motadata-check">✓</span> Cloud &amp; Hybrid Infrastructure Support ÃƒÂ¢Ã¢â€šÂ¬" on-prem, multi-cloud &amp; branches</li>
+                {/* Right ÃƒÂ¢Ã¢â€šÂ¬" Why Trace */}
+                  <div className="partner-icon-circle"><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                    <span className="partner-icon-circle sm"><i className="fas fa-building"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</span>
+                    Experience the power of Motadata IT monitoring and observability firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our team will set up a complete proof of concept tailored to your environment so you can see the results before you invest.
+                  Advanced NGFW, Zero Trust, AI-powered threat prevention, cloud security, and endpoint protection for modern enterprises ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                {/* Left ÃƒÂ¢Ã¢â€šÂ¬" Why Palo Alto */}
+                    <li><span className="paloalto-check">✓</span> Advanced NGFW ÃƒÂ¢Ã¢â€šÂ¬" app-aware security, IPS, SSL inspection &amp; URL filtering</li>
+                    <li><span className="paloalto-check">✓</span> Zero Trust Security Architecture ÃƒÂ¢Ã¢â€šÂ¬" continuous verification of users &amp; devices</li>
+                    <li><span className="paloalto-check">✓</span> AI-Powered Threat Prevention ÃƒÂ¢Ã¢â€šÂ¬" ransomware, phishing, APTs &amp; fileless attacks</li>
+                    <li><span className="paloalto-check">✓</span> Cloud Security &amp; SASE ÃƒÂ¢Ã¢â€šÂ¬" Prisma Cloud, Prisma Access &amp; container security</li>
+                    <li><span className="paloalto-check">✓</span> Endpoint Protection with Cortex ÃƒÂ¢Ã¢â€šÂ¬" EDR, XDR &amp; automated incident response</li>
+                    <li><span className="paloalto-check">✓</span> Centralized Security Management ÃƒÂ¢Ã¢â€šÂ¬" unified dashboards, logs &amp; automation</li>
+                {/* Right ÃƒÂ¢Ã¢â€šÂ¬" Why Trace */}
+                  <p>Continuously verify users, devices, and applications before granting access ÃƒÂ¢Ã¢â€šÂ¬" eliminating implicit trust across your entire environment.</p>
+                  <h3>Endpoint Protection ÃƒÂ¢Ã¢â€šÂ¬" Cortex</h3>
+                    Experience the power of Palo Alto Networks cybersecurity firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our team will set up a complete proof of concept tailored to your environment so you can see the results before you invest.
+                  Enterprise video conferencing, smart meeting rooms, unified collaboration, and hybrid workplace solutions ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                {/* Left ÃƒÂ¢Ã¢â€šÂ¬" Why PeopleLink */}
+                    <li><span className="peoplelink-check">✓</span> Unified Platform ÃƒÂ¢Ã¢â€šÂ¬" video, audio, webinars, whiteboarding &amp; screen sharing</li>
+                    <li><span className="peoplelink-check">✓</span> Smart Meeting Room Solutions ÃƒÂ¢Ã¢â€šÂ¬" PTZ cameras, displays &amp; audio systems</li>
+                {/* Right ÃƒÂ¢Ã¢â€šÂ¬" Why Trace */}
+                  <div className="partner-icon-circle"><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                    Experience the power of PeopleLink unified communication and collaboration firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our team will set up a complete proof of concept tailored to your environment so you can see the results before you invest.
+                  Continuous vulnerability management, compliance monitoring, patch automation, and real-time threat visibility across hybrid IT environments ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                {/* Left ÃƒÂ¢Ã¢â€šÂ¬" Why Qualys */}
+                    Powered by the Qualys Cloud Platform, Qualys delivers unified visibility across on-premises, cloud, endpoints, applications, and hybrid environments ÃƒÂ¢Ã¢â€šÂ¬" allowing businesses to strengthen their security posture with automation, continuous monitoring, and risk prioritization.
+                    <li><span className="qualys-check">✓</span> <strong>Unified Cloud Platform</strong> ÃƒÂ¢Ã¢â€šÂ¬" VM, compliance, patching &amp; threat detection</li>
+                    <li><span className="qualys-check">✓</span> <strong>Real-Time Threat Visibility</strong> ÃƒÂ¢Ã¢â€šÂ¬" exposed assets &amp; missing patches</li>
+                    <li><span className="qualys-check">✓</span> <strong>Compliance Monitoring</strong> ÃƒÂ¢Ã¢â€šÂ¬" ISO 27001, PCI-DSS, HIPAA, GDPR, SOC 2, CIS</li>
+                    <li><span className="qualys-check">✓</span> <strong>Complete Security Suite</strong> ÃƒÂ¢Ã¢â€šÂ¬" VMDR, EDR, Web App Scanning, FIM &amp; Container Security</li>
+                    <li><span className="qualys-check">✓</span> <strong>Cloud-Native Architecture</strong> ÃƒÂ¢Ã¢â€šÂ¬" Scalable, reliable, and always up-to-date</li>
+                    <li><span className="qualys-check">✓</span> <strong>Global Threat Intelligence</strong> ÃƒÂ¢Ã¢â€šÂ¬" Powered by billions of security events</li>
+                {/* Right ÃƒÂ¢Ã¢â€šÂ¬" Why Trace */}
+                    Experience the power of Qualys vulnerability management and compliance platform firsthand. Our certified experts will conduct a complete security assessment of your environment and set up a tailored proof of concept ÃƒÂ¢Ã¢â€šÂ¬" absolutely free, with no commitment required.
+                    <div className="qualys-offer-point"><span className="qualys-check">✓</span> <strong>Free Vulnerability Scan</strong> ÃƒÂ¢Ã¢â€šÂ¬" Complete assessment of your IT infrastructure</div>
+                    <div className="qualys-offer-point"><span className="qualys-check">✓</span> <strong>Compliance Gap Analysis</strong> ÃƒÂ¢Ã¢â€šÂ¬" Identify compliance gaps and remediation steps</div>
+                    <div className="qualys-offer-point"><span className="qualys-check">✓</span> <strong>Custom POC Setup</strong> ÃƒÂ¢Ã¢â€šÂ¬" Tailored demonstration in your environment</div>
+                    <div className="qualys-offer-point"><span className="qualys-check">✓</span> <strong>Expert Consultation</strong> ÃƒÂ¢Ã¢â€šÂ¬" Security recommendations from certified professionals</div>
+                    <div className="qualys-offer-point"><span className="qualys-check">✓</span> <strong>Exclusive Pricing</strong> ÃƒÂ¢Ã¢â€šÂ¬" Special discounts on Qualys solutions</div>
+                    <div className="qualys-offer-point"><span className="qualys-check">✓</span> <strong>24/7 Support</strong> ÃƒÂ¢Ã¢â€šÂ¬" Ongoing support and guidance throughout</div>
+                  Advanced Data Loss Prevention (DLP) and Insider Risk Management solutions that protect sensitive business data from accidental leaks, insider threats, and unauthorized transfers ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                {/* Left ÃƒÂ¢Ã¢â€šÂ¬" Why Safetica */}
+                    Safetica is a leading Data Loss Prevention (DLP) and Insider Risk Management solution that helps organizations protect sensitive business data from accidental leaks, insider threats, and unauthorized transfers. Safetica provides complete visibility into user activities, data movement, and security risksÃƒÂ¢Ã¢â€šÂ¬"helping businesses secure their critical information while maintaining productivity.
+                    <li><span className="safetica-check">✓</span> <strong>Advanced Data Loss Prevention (DLP)</strong> ÃƒÂ¢Ã¢â€šÂ¬" Prevent data leakage through USB, email, cloud apps, web uploads</li>
+                    <li><span className="safetica-check">✓</span> <strong>Insider Risk Management</strong> ÃƒÂ¢Ã¢â€šÂ¬" Monitor user activities and detect risky behavior</li>
+                    <li><span className="safetica-check">✓</span> <strong>Real-Time Visibility &amp; Monitoring</strong> ÃƒÂ¢Ã¢â€šÂ¬" Centralized dashboard for employee activity and security events</li>
+                    <li><span className="safetica-check">✓</span> <strong>Policy-Based Data Protection</strong> ÃƒÂ¢Ã¢â€šÂ¬" Enforce security policies based on users, departments, and file types</li>
+                    <li><span className="safetica-check">✓</span> <strong>Endpoint &amp; Cloud Protection</strong> ÃƒÂ¢Ã¢â€šÂ¬" Comprehensive protection across all data channels</li>
+                    <li><span className="safetica-check">✓</span> <strong>USB &amp; Removable Media Control</strong> ÃƒÂ¢Ã¢â€šÂ¬" Complete control over external device access</li>
+                {/* Right ÃƒÂ¢Ã¢â€šÂ¬" Why Trace */}
+                    Experience the power of Safetica Data Loss Prevention and Insider Risk Management firsthand. Our certified experts will conduct a complete assessment of your data security needs and set up a tailored proof of concept ÃƒÂ¢Ã¢â€šÂ¬" absolutely free, with no commitment required.
+                    <div className="safetica-offer-point"><span className="safetica-check">✓</span> <strong>Free DLP Assessment</strong> ÃƒÂ¢Ã¢â€šÂ¬" Complete evaluation of your data protection needs</div>
+                    <div className="safetica-offer-point"><span className="safetica-check">✓</span> <strong>Insider Risk Analysis</strong> ÃƒÂ¢Ã¢â€šÂ¬" Identify potential security risks and vulnerabilities</div>
+                    <div className="safetica-offer-point"><span className="safetica-check">✓</span> <strong>Custom POC Setup</strong> ÃƒÂ¢Ã¢â€šÂ¬" Tailored demonstration in your environment</div>
+                    <div className="safetica-offer-point"><span className="safetica-check">✓</span> <strong>Expert Consultation</strong> ÃƒÂ¢Ã¢â€šÂ¬" DLP recommendations from certified professionals</div>
+                    <div className="safetica-offer-point"><span className="safetica-check">✓</span> <strong>Exclusive Pricing</strong> ÃƒÂ¢Ã¢â€šÂ¬" Special discounts on Safetica solutions</div>
+                    <div className="safetica-offer-point"><span className="safetica-check">✓</span> <strong>24/7 Support</strong> ÃƒÂ¢Ã¢â€šÂ¬" Ongoing support and guidance throughout</div>
+                  Complete enterprise IT management, IT security, network monitoring, identity management, endpoint management, and IT service management solutions ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                {/* Left ÃƒÂ¢Ã¢â€šÂ¬" Why ManageEngine */}
+                    ManageEngine provides unified visibility, automation, monitoring, and control across IT infrastructure, networks, endpoints, applications, and usersÃƒÂ¢Ã¢â€šÂ¬"helping businesses improve operational efficiency, strengthen cybersecurity, and streamline IT administration.
+                    <li><span className="manageengine-check">✓</span> <strong>Complete IT Management Platform</strong> ÃƒÂ¢Ã¢â€šÂ¬" ITSM, Endpoint Management, Network Monitoring</li>
+                    <li><span className="manageengine-check">✓</span> <strong>Centralized IT Visibility</strong> ÃƒÂ¢Ã¢â€šÂ¬" Monitor servers, endpoints, users, and applications</li>
+                    <li><span className="manageengine-check">✓</span> <strong>Strong Cybersecurity &amp; Compliance</strong> ÃƒÂ¢Ã¢â€šÂ¬" Privileged access, SIEM, MFA, patch management</li>
+                    <li><span className="manageengine-check">✓</span> <strong>Automated IT Operations</strong> ÃƒÂ¢Ã¢â€šÂ¬" Ticketing, patch deployment, user provisioning</li>
+                    <li><span className="manageengine-check">✓</span> <strong>Endpoint &amp; Remote Workforce Management</strong> ÃƒÂ¢Ã¢â€šÂ¬" Secure distributed environments</li>
+                    <li><span className="manageengine-check">✓</span> <strong>Enterprise Scalability</strong> ÃƒÂ¢Ã¢â€šÂ¬" SMBs to large multi-location organizations</li>
+                {/* Right ÃƒÂ¢Ã¢â€šÂ¬" Why Trace */}
+                  <div className="partner-icon-circle"><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                    Experience the power of ManageEngine IT management and security solutions firsthand. Our certified experts will conduct a complete assessment of your IT infrastructure needs and set up a tailored proof of concept ÃƒÂ¢Ã¢â€šÂ¬" absolutely free, with no commitment required.
+                    <div className="manageengine-offer-point"><span className="manageengine-check">✓</span> <strong>Free IT Assessment</strong> ÃƒÂ¢Ã¢â€šÂ¬" Complete evaluation of your IT management needs</div>
+                    <div className="manageengine-offer-point"><span className="manageengine-check">✓</span> <strong>Infrastructure Analysis</strong> ÃƒÂ¢Ã¢â€šÂ¬" Identify optimization opportunities and security gaps</div>
+                    <div className="manageengine-offer-point"><span className="manageengine-check">✓</span> <strong>Custom POC Setup</strong> ÃƒÂ¢Ã¢â€šÂ¬" Tailored demonstration in your environment</div>
+                    <div className="manageengine-offer-point"><span className="manageengine-check">✓</span> <strong>Expert Consultation</strong> ÃƒÂ¢Ã¢â€šÂ¬" IT management recommendations from certified professionals</div>
+                    <div className="manageengine-offer-point"><span className="manageengine-check">✓</span> <strong>Exclusive Pricing</strong> ÃƒÂ¢Ã¢â€šÂ¬" Special discounts on ManageEngine solutions</div>
+                    <div className="manageengine-offer-point"><span className="manageengine-check">✓</span> <strong>24/7 Support</strong> ÃƒÂ¢Ã¢â€šÂ¬" Ongoing support and guidance throughout</div>
+                  Backup, disaster recovery, endpoint security, ransomware protection, and centralized management ÃƒÂ¢Ã¢â€šÂ¬" all in one integrated platform, delivered by Trace Network &amp; Engineering.
+                    <li><span className="acronis-check">✓</span> Quick resolution ÃƒÂ¢Ã¢â€šÂ¬" issues addressed within 6 hours</li>
+                <p>Complete cyber protection for modern enterprises ÃƒÂ¢Ã¢â€šÂ¬" all in one platform</p>
+                  <p>Acronis combines backup, cybersecurity, disaster recovery, and endpoint protection into one unified platform ÃƒÂ¢Ã¢â€šÂ¬" eliminating the need for multiple point solutions.</p>
+                  <div className="partner-icon-circle"><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                  <p>Manage backup, endpoint protection, patching, and monitoring through a single centralized console ÃƒÂ¢Ã¢â€šÂ¬" simplifying IT operations across your organization.</p>
+                  <p>Comprehensive backup for Microsoft 365, Google Workspace, and cloud workloads ÃƒÂ¢Ã¢â€šÂ¬" ensuring SaaS data is always protected and recoverable.</p>
+                    Experience the power of Acronis cyber protection firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our certified experts will conduct a complete assessment and set up a tailored proof of concept for your environment.
+                  Premium performance, seamless ecosystem integration, and advanced security for modern enterprises ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                    <li><span className="apple-check">✓</span> Quick resolution ÃƒÂ¢Ã¢â€šÂ¬" issues addressed within 6 hours</li>
+                  <div className="partner-icon-circle"><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                  alt="Apple Authorized Partner ÃƒÂ¢Ã¢â€šÂ¬" Trace Network & Engineering"
+                    Experience the power of Apple devices firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our certified team will set up a complete proof of concept tailored to your environment so you can see measurable results before you invest.
+                  Email security, network monitoring, patch management, and business communication solutions ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                    <li><span className="gfi-check">✓</span> Quick resolution ÃƒÂ¢Ã¢â€šÂ¬" issues addressed within 6 hours</li>
+                  <div className="partner-icon-circle"><i className="fas fa-archive"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                  <div className="partner-icon-circle"><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                  alt="GFI Software Authorized Partner ÃƒÂ¢Ã¢â€šÂ¬" Trace Network &amp; Engineering"
+                    Experience the power of GFI Software firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our certified experts will conduct a complete assessment and set up a tailored proof of concept for your environment.
+                  Secure, high-performance, and scalable HP IT infrastructure designed for modern enterprises ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                    <li><span className="hp-check">✓</span> HP Wolf Security ÃƒÂ¢Ã¢â€šÂ¬" hardware-level endpoint protection</li>
+                <h2><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â Complete HP Portfolio</h2>
+                  <div className="partner-icon-circle"><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                  <div className="partner-icon-circle"><i className="fas fa-building"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                  Secure, high-performance, and scalable Lenovo IT infrastructure designed for enterprises, SMBs, healthcare, education, banking, and government ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                    <li><span className="hp-check">✓</span> Lenovo ThinkShield ÃƒÂ¢Ã¢â€šÂ¬" advanced endpoint security</li>
+                <h2><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â Complete Lenovo Portfolio</h2>
+                  <div className="partner-icon-circle"><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                  <div className="partner-icon-circle"><i className="fas fa-archive"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                  <div className="partner-icon-circle"><i className="fas fa-building"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                  Scalable, secure, and highly available IT environments through server virtualization, cloud management, networking, and disaster recovery ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                    <li><span className="vmware-check">✓</span> Quick resolution ÃƒÂ¢Ã¢â€šÂ¬" issues addressed within 6 hours</li>
+                  <div className="partner-icon-circle"><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                  <div className="partner-icon-circle"><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                <h2><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â VMware Use Cases</h2>
+                    Experience the power of VMware virtualization firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our certified team will set up a complete proof of concept tailored to your environment.
+                  Complete visibility into networks, servers, applications, databases, cloud infrastructure, and security environments ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                    <li><span className="solarwinds-check">✓</span> Quick resolution ÃƒÂ¢Ã¢â€šÂ¬" issues addressed within 6 hours</li>
+                  <div className="partner-icon-circle"><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                  <div className="partner-icon-circle"><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                  <div className="partner-icon-circle"><i className="fas fa-archive"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                    Experience the power of SolarWinds monitoring firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our certified team will set up a complete proof of concept tailored to your environment.
+                ÃƒÂ¢Ã¢â‚¬Â Ã‚Â All Partners
+                  Centralized threat detection, real-time analytics, SOC modernization, and compliance monitoring ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                    From SOC modernization and threat intelligence to compliance management and incident response, LogRhythm enables enterprises to build intelligent, scalable, and proactive cybersecurity operations. LogRhythm solutions provide centralized visibility across networks, endpoints, servers, firewalls, cloud infrastructure, and applications ÃƒÂ¢Ã¢â€šÂ¬" helping organizations strengthen security posture and reduce cyber risk.
+                    <li><span className="logrythm-check">✓</span> Quick resolution ÃƒÂ¢Ã¢â€šÂ¬" security incidents addressed within 6 hours</li>
+                  <div className="partner-icon-circle"><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                    Experience the power of LogRhythm SIEM firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our team will set up a complete proof of concept tailored to your environment so you can see the results before you invest.
+                  Secure communication, cloud-based collaboration, endpoint management, and business productivity tools for hybrid work environments ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                    <li><span className="microsoft365-check">✓</span> Quick resolution ÃƒÂ¢Ã¢â€šÂ¬" issues addressed within 6 hours</li>
+                    Experience the power of Microsoft 365 firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our team will set up a complete proof of concept tailored to your environment so you can see the results before you invest.
+                  Professional headsets, video conferencing, and hybrid workplace communication solutions for modern enterprises ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                    <li><span className="poly-check">✓</span> Quick resolution ÃƒÂ¢Ã¢â€šÂ¬" issues addressed within 6 hours</li>
+                  <div className="partner-icon-circle"><i className="fas fa-microphone"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â</div>
+                    Experience the power of Poly firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our team will set up a complete proof of concept tailored to your environment so you can see the results before you invest.
+                  Secure, scalable, and enterprise-grade cloud infrastructure for businesses, government, healthcare, banking, and manufacturing ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering.
+                  <h3><i className="fas fa-desktop"></i>ÃƒÂ¯Ã‚Â¸Ã‚Â Cloud Infrastructure Services</h3>
+                    Experience the power of Microsoft Azure firsthand ÃƒÂ¢Ã¢â€šÂ¬" zero risk, zero commitment. Our team will set up a complete proof of concept tailored to your environment so you can see the results before you invest.
+                  Advanced DLP, Zero Trust Security, Insider Threat Protection, and Secure Web Access ÃƒÂ¢Ã¢â€šÂ¬" delivered by Trace Network &amp; Engineering Pvt Ltd.
+                    <li><span className="forcepoint-check">✓</span> Quick Resolution ÃƒÂ¢Ã¢â€šÂ¬" issues addressed within 12 hours</li>
+                    <li><span className="forcepoint-check">✓</span> Certified Experts ÃƒÂ¢Ã¢â€šÂ¬" experienced cybersecurity, DLP, and Zero Trust specialists</li>
+                    <li><span className="forcepoint-check">✓</span> Proven Experience ÃƒÂ¢Ã¢â€šÂ¬" 1000+ successful enterprise cybersecurity deployments</li>
+                    <li><span className="forcepoint-check">✓</span> End-to-End Security Solutions ÃƒÂ¢Ã¢â€šÂ¬" DLP, Zero Trust, web security, cloud security, insider threat monitoring &amp; compliance</li>
+                    <li><span className="forcepoint-check">✓</span> Multi-Channel Support ÃƒÂ¢Ã¢â€šÂ¬" Email, WhatsApp, Phone &amp; dedicated support portal</li>
+                    <li><span className="forcepoint-check">✓</span> Scalable Enterprise Solutions ÃƒÂ¢Ã¢â€šÂ¬" designed for BFSI, healthcare, manufacturing, government &amp; education</li>
+                    <li><span className="forcepoint-check">✓</span> Customer-First Approach ÃƒÂ¢Ã¢â€šÂ¬" proactive support &amp; long-term cybersecurity management</li>

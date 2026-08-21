@@ -1,0 +1,560 @@
+/* =============================================================
+   DESKTOP DROPDOWN — dark navy theme
+   ============================================================= */
+
+/* Glassmorphism navbar - semi-transparent to show beautiful page background */
+.main-header-two {
+  background: rgba(0, 20, 50, 0.7) !important; /* Semi-transparent navy */
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  position: relative;
+  z-index: 999;
+  border-bottom: 1px solid rgba(30, 100, 200, 0.12);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.main-menu-two__wrapper {
+  background: transparent !important;
+}
+
+.main-menu-two__wrapper-inner {
+  background: transparent !important;
+}
+
+.main-menu__list > li.dropdown {
+  position: relative;
+}
+
+.main-menu__list > li > ul,
+.main-menu__list > li > ul > li > ul {
+  background-color: #0B192C !important;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: 31px 20px;
+  box-shadow: 0 10px 60px rgba(0,0,0,0.30);
+  list-style: none !important;
+  list-style-type: none !important;
+}
+
+/* Only push the first-level dropdown down, not nested sub-menus */
+.main-menu .main-menu__list > li > ul,
+.stricky-header .main-menu__list > li > ul {
+  top: calc(100% + 20px) !important;
+  margin-top: 0 !important;
+}
+
+/* Nested sub-menus fly out sideways — keep at top: 0 */
+.main-menu .main-menu__list > li > ul > li > ul,
+.stricky-header .main-menu__list > li > ul > li > ul {
+  top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.main-menu__list > li > ul > li,
+.main-menu__list > li > ul > li > ul > li {
+  list-style: none !important;
+  list-style-type: none !important;
+}
+
+.main-menu__list > li > ul > li > a,
+.main-menu__list > li > ul > li > ul > li > a {
+  background-color: #0B192C !important;
+  color: #C5C8CD !important;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.main-menu__list > li > ul > li:hover > a,
+.main-menu__list > li > ul > li > ul > li:hover > a {
+  background-color: rgba(255,255,255,0.10) !important;
+  color: #C5C8CD !important;
+}
+
+/* Remove the arrow/dot pseudo-element from all dropdown links */
+.main-menu__list > li > ul > li > a::before,
+.main-menu__list > li > ul > li > ul > li > a::before,
+.main-menu__list > li > ul > li:hover > a::before,
+.main-menu__list > li > ul > li > ul > li:hover > a::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Also override the base style.css ::before arrow on sub-menu items */
+.main-menu .main-menu__list > li > ul > li > a::before,
+.main-menu .main-menu__list > li > ul > li > ul > li > a::before,
+.stricky-header .main-menu__list > li > ul > li > a::before,
+.stricky-header .main-menu__list > li > ul > li > ul > li > a::before,
+.main-menu .main-menu__list > li > ul > li:hover > a::before,
+.main-menu .main-menu__list > li > ul > li > ul > li:hover > a::before,
+.stricky-header .main-menu__list > li > ul > li:hover > a::before,
+.stricky-header .main-menu__list > li > ul > li > ul > li:hover > a::before {
+  display: none !important;
+  content: none !important;
+  transform: none !important;
+}
+
+/* Dropdown arrow on top-level items */
+.main-menu__list > li.dropdown > a::after {
+  content: '\f107';
+  font-family: 'Font Awesome 5 Pro';
+  font-weight: 900;
+  margin-left: 5px;
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+.main-menu__list > li.dropdown:hover > a::after,
+.main-menu__list > li.dropdown.active > a::after {
+  transform: rotate(180deg);
+}
+.main-menu__list > li > ul > li.dropdown > a::after {
+  display: none;
+}
+
+/* =============================================================
+   PARTNERS MEGA-MENU
+   ============================================================= */
+.custom-partners-menu { 
+  position: relative; 
+  cursor: pointer; 
+}
+
+/* Open Source TOOL flyout is handled entirely via React state (inline styles) */
+.open-source-tool-menu { position: relative !important; }
+.main-menu-two__main-menu-box { position: relative; }
+
+.partners-megamenu {
+  position: absolute !important;
+  top: 100% !important;
+  right: 0 !important;
+  left: auto !important;
+  transform: none !important;
+  width: 900px !important;
+  max-width: calc(100vw - 20px) !important;
+  max-height: calc(100vh - 120px) !important;
+  overflow-y: auto !important;
+  background-color: rgba(10, 12, 22, 0.85) !important;
+  backdrop-filter: blur(25px) !important;
+  -webkit-backdrop-filter: blur(25px) !important;
+  padding: 24px 30px 24px 24px !important; /* Extra right padding for scrollbar */
+  box-sizing: border-box !important;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  z-index: 9999 !important;
+  border-radius: 0 0 20px 20px !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Custom scrollbar for mega menu */
+.partners-megamenu::-webkit-scrollbar {
+  width: 6px;
+}
+.partners-megamenu::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 3px;
+}
+.partners-megamenu::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+.partners-megamenu::-webkit-scrollbar-thumb:hover {
+  background: #eb5a0f;
+}
+
+.partners-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)) !important;
+  gap: 15px !important;
+  width: 100% !important;
+}
+
+.partner-logo {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.partner-logo a {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-radius: 16px !important;
+  padding: 10px !important;
+  width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.8) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-sizing: border-box !important;
+}
+
+.partner-logo a:hover {
+  background: #ffffff !important;
+  transform: translateY(-6px) scale(1.05) !important;
+  box-shadow: 0 20px 30px rgba(235, 90, 15, 0.3), 0 0 20px rgba(235, 90, 15, 0.2) !important;
+  border-color: rgba(235, 90, 15, 0.5) !important;
+}
+
+.partner-logo img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  display: block !important;
+  object-fit: contain !important;
+  border-radius: 0 !important; /* Handled by wrapper 'a' tag */
+}
+
+/* =============================================================
+   HIDE DESKTOP NAV ON MOBILE — only the direct child ul
+   ============================================================= */
+@media (max-width: 1199px) {
+  .main-menu-two__main-menu-box > .main-menu__list {
+    display: none !important;
+  }
+  .partners-megamenu {
+    display: none !important;
+  }
+  .mobile-nav__toggler {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .partners-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* =============================================================
+   MOBILE DRAWER — mob-nav__* classes (no conflicts with style.css)
+   ============================================================= */
+
+/* The drawer wrapper — style.css already handles open/close animation
+   via .mobile-nav__wrapper and .mobile-nav__wrapper.expanded.
+   We only need to ensure z-index is high enough. */
+.mobile-nav__wrapper {
+  z-index: 99999;
+}
+
+/* Ensure the expanded state overrides any stale styles */
+.mobile-nav__wrapper.expanded {
+  visibility: visible !important;
+  transform: translateX(0%) !important;
+  opacity: 1 !important;
+}
+.mobile-nav__wrapper.expanded .mobile-nav__content {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateX(0) !important;
+}
+
+/* Nav wrapper inside the drawer */
+.mob-nav {
+  margin-top: 8px;
+}
+
+/* List reset */
+.mob-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Each row */
+.mob-nav__item {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ── Top-level link (Home, Partners) ── */
+.mob-nav__link {
+  display: block;
+  padding: 15px 4px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  transition: color 0.2s;
+}
+.mob-nav__link:hover,
+.mob-nav__link:focus {
+  color: #ff7a00 !important;
+  text-decoration: none !important;
+}
+.mob-nav__link--active {
+  color: #ff7a00 !important;
+}
+
+/* ── Dropdown toggle button ── */
+.mob-nav__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px 4px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: color 0.2s;
+}
+.mob-nav__toggle:hover,
+.mob-nav__toggle:focus {
+  color: #ff7a00;
+  outline: none;
+}
+.mob-nav__toggle.mob-nav__link--active {
+  color: #ff7a00;
+}
+.mob-nav__toggle i {
+  font-size: 13px;
+  margin-left: 10px;
+  flex-shrink: 0;
+}
+
+/* ── Mobile Partners logo grid ── */
+.mob-nav__partners-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 12px 4px 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.mob-nav__partners-grid a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-radius: 12px;
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.5);
+  text-decoration: none !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mob-nav__partners-grid a:hover {
+  background: #ffffff !important;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 12px 20px rgba(235, 90, 15, 0.25), 0 0 10px rgba(235, 90, 15, 0.15);
+  border-color: rgba(235, 90, 15, 0.4);
+}
+
+.mob-nav__partners-grid img {
+  width: 100%;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+  border-radius: 6px;
+}
+.mob-nav__sub {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0 10px 18px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.mob-nav__sub li {
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.mob-nav__sub li:last-child {
+  border-bottom: none;
+}
+.mob-nav__sub-link {
+  display: block;
+  padding: 10px 4px;
+  font-size: 14px;
+  color: #bbbbbb !important;
+  text-decoration: none !important;
+  background: transparent !important;
+  transition: color 0.2s;
+}
+.mob-nav__sub-link:hover,
+.mob-nav__sub-link:focus {
+  color: #ff7a00 !important;
+  text-decoration: none !important;
+}
+
+
+/* Active nav link with gradient + shimmer effect */
+.main-menu__list > li.activity > a {
+    color: #fff !important;
+    background: linear-gradient(90deg, #d44a00, #ff7f32);
+    padding: 8px 16px;
+    border-radius: 30px;
+    box-shadow: 0 0 15px rgba(212, 74, 0, 0.7);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    transform: scale(1.05);
+    animation: glowPulse 1.5s infinite alternate;
+}
+
+/* Partners active state - identical pill to Home/other active nav items */
+.main-menu__list > li.custom-partners-menu.activity > a {
+    color: #fff !important;
+    background: linear-gradient(90deg, #d44a00, #ff7f32) !important;
+    padding: 8px 16px !important;
+    border-radius: 30px !important;
+    box-shadow: 0 0 15px rgba(212, 74, 0, 0.7) !important;
+    transform: scale(1.05) !important;
+    animation: glowPulse 1.5s infinite alternate !important;
+}
+
+/* Shimmer effect */
+.main-menu__list > li.activity > a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.2) 100%
+    );
+    transform: skewX(-20deg);
+    animation: shimmer 3s infinite;
+}
+
+/* Glow animation */
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 8px rgba(212, 74, 0, 0.6);
+        transform: scale(1.05);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(212, 74, 0, 0.9);
+        transform: scale(1.08);
+    }
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+    0% {
+        left: -75%;
+    }
+    100% {
+        left: 125%;
+    }
+}
+
+/* button-styles.css */
+.btn-get-started {
+  display: inline-flex;
+  align-items: center;
+  background-color: #ffffff;
+  color: #000;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.btn-get-started:hover {
+  background-color: #D44A00;
+  color: #fff;
+}
+
+.btn-get-started span {
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.btn-arrow {
+  order: 2;
+  background-color: #D44A00;
+  color: #fff;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  margin-left: 12px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+}
+
+.btn-arrow::before {
+  content: "↗";
+  transition: all 0.3s ease;
+}
+
+.btn-text {
+  order: 1;
+  transition: all 0.3s ease;
+}
+
+.btn-get-started:hover .btn-arrow {
+  background-color: #fff;
+  color: #D44A00;
+  margin-right: 12px;
+  margin-left: 0;
+  order: 1;
+}
+
+.btn-get-started:hover .btn-text {
+  order: 2;
+}
+
+.btn-get-started:hover .btn-arrow::before {
+  content: "➔";
+}
+
+/* ===== Navbar button row ===== */
+.main-menu-two__btn-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Hide Under Attack on mobile */
+@media (max-width: 991px) {
+  .main-menu-two__btn-box a:first-child {
+    display: none;
+  }
+}
+
+/* ===== Compact Header Button Modifier ===== */
+.btn-get-started--sm {
+  padding: 6px 18px !important;
+  font-size: 13px !important;
+}
+
+.btn-get-started--sm .btn-arrow {
+  width: 24px !important;
+  height: 24px !important;
+  font-size: 12px !important;
+  margin-left: 8px !important;
+}
+
+.btn-get-started--sm:hover .btn-arrow {
+  margin-right: 8px !important;
+  margin-left: 0 !important;
+}
+

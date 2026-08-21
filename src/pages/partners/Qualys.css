@@ -1,0 +1,32 @@
+@import './shared.css';
+
+/* ── Awards & Why Leading Brands — Black Background Override ── */
+.qualys-page .awards-section {
+  background: #000000 !important;
+}
+.qualys-page .awards-section .section-title__title {
+  color: #ffffff !important;
+}
+.qualys-page .awards-section .section-title__tagline {
+  color: var(--accent-color, #ef4444) !important;
+}
+.qualys-page .awards-section .award-card span {
+  color: #ffffff !important;
+}
+
+.qualys-page .premium-cards-section {
+  background: #000000 !important;
+}
+.qualys-page .premium-cards-section .section-title__title {
+  color: #ffffff !important;
+}
+.qualys-page .premium-service-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+.qualys-page .premium-service-card strong {
+  color: #ffffff !important;
+}
+.qualys-page .premium-service-card p {
+  color: rgba(255, 255, 255, 0.75) !important;
+}

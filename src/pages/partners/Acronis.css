@@ -1,0 +1,92 @@
+@import './shared.css';
+
+/* ── Awards Section — Dark Navy Design ── */
+.acronis-page .awards-section {
+  background: #070a13 !important;
+}
+.acronis-page .awards-section .section-title__title {
+  color: #ffffff !important;
+}
+.acronis-page .awards-section .section-title__tagline {
+  color: var(--accent-color, #ef4444) !important;
+}
+.acronis-page .awards-section .section-title__tagline-shape-1,
+.acronis-page .awards-section .section-title__tagline-shape-2 {
+  background: var(--accent-color, #ef4444) !important;
+}
+.acronis-page .awards-section .section-title__title span {
+  color: var(--accent-color, #ef4444) !important;
+}
+.acronis-page .awards-section .award-card {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+.acronis-page .awards-section .award-card:hover {
+  border-color: var(--accent-color, #ef4444) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+.acronis-page .awards-section .award-card span {
+  color: #94a3b8 !important;
+}
+
+.acronis-page .premium-cards-section {
+  background: #000000 !important;
+}
+.acronis-page .premium-cards-section .section-title__title {
+  color: #ffffff !important;
+}
+.acronis-page .premium-service-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+.acronis-page .premium-service-card strong {
+  color: #ffffff !important;
+}
+.acronis-page .premium-service-card p {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* ── Awards Section — Dark Navy Design (partner-acronis outer wrapper) ── */
+.partner-acronis .awards-section {
+  background: #070a13 !important;
+}
+.partner-acronis .awards-section .section-title__title {
+  color: #ffffff !important;
+}
+.partner-acronis .awards-section .section-title__title span {
+  color: #ef4444 !important;
+}
+.partner-acronis .awards-section .section-title__tagline {
+  color: #ef4444 !important;
+}
+.partner-acronis .awards-section .section-title__tagline-shape-1,
+.partner-acronis .awards-section .section-title__tagline-shape-2 {
+  background: #ef4444 !important;
+}
+.partner-acronis .awards-section .award-card span {
+  color: #94a3b8 !important;
+}
+.partner-acronis .awards-section .award-card {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.partner-acronis .premium-cards-section {
+  background: #000000 !important;
+}
+.partner-acronis .premium-cards-section .section-title__title {
+  color: #ffffff !important;
+}
+.partner-acronis .premium-cards-section .section-title__title span {
+  color: #ef4444 !important;
+}
+.partner-acronis .premium-service-card {
+  background: rgba(255,255,255,0.05) !important;
+  border-color: rgba(255,255,255,0.12) !important;
+}
+.partner-acronis .premium-service-card strong {
+  color: #ffffff !important;
+}
+.partner-acronis .premium-service-card p {
+  color: rgba(255,255,255,0.75) !important;
+}

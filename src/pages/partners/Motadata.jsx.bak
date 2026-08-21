@@ -1,0 +1,313 @@
+﻿import React from 'react';
+import { Link } from 'react-router-dom';
+import UseCaseSlider from '../../components/UseCaseSlider';
+import { useAwardsSlider } from '../../hooks/useAwardsSlider';
+import './Motadata.css';
+
+const motadataUseCases = [
+  { id: 'datacenter', category: 'DATA CENTER', icon: 'fas fa-building', title: 'Data Center Infrastructure Monitoring (Servers, Storage & Virtualization)', description: 'Problem: Organizations require centralized visibility into servers, storage, virtualization, and critical infrastructure to prevent downtime.', image: '/assets/images/use-cases/usecase6.png', linkTo: '/case-studies' },
+  { id: 'network', category: 'NETWORK', icon: 'fas fa-globe', title: 'Network Performance Monitoring (Bandwidth, Latency & Branch Visibility)', description: 'Problem: Enterprises need continuous visibility into network devices, bandwidth usage, latency, and branch connectivity.', image: '/assets/images/use-cases/usecase3.png', linkTo: '/case-studies' },
+  { id: 'multibranch', category: 'ENTERPRISE', icon: 'fas fa-building', title: 'Multi-Branch Enterprise Monitoring (Centralized Distributed IT Management)', description: 'Problem: Organizations with multiple branches require centralized monitoring and management of distributed IT infrastructure.', image: '/assets/images/use-cases/usecase7.png', linkTo: '/case-studies' },
+  { id: 'bfsi', category: 'BANKING', icon: 'fas fa-university', title: 'BFSI Infrastructure & Service Monitoring (High Availability for Banking Systems)', description: 'Problem: Banks require high availability monitoring for critical banking applications, servers, and network infrastructure.', image: '/assets/images/use-cases/usecase4.png', linkTo: '/case-studies' },
+  { id: 'healthcare', category: 'HEALTHCARE', icon: 'fas fa-hospital', title: 'Healthcare IT Monitoring (Critical Systems & Application Availability)', description: 'Problem: Hospitals require continuous monitoring of healthcare applications, servers, connected devices, and critical systems.', image: '/assets/images/use-cases/usecase5.png', linkTo: '/case-studies' },
+  { id: 'cloud', category: 'CLOUD', icon: 'fas fa-cloud', title: 'Cloud & Hybrid Infrastructure Monitoring (Unified Multi-Cloud Observability)', description: 'Problem: Organizations operating hybrid and cloud environments require unified visibility across on-premise and cloud workloads.', image: '/assets/images/use-cases/usecase2.png', linkTo: '/case-studies' },
+];
+
+export default function Motadata() {
+  useAwardsSlider();
+  return (
+    <div className="motadata-page mdt-v2-page">
+
+      {/* -- HERO -- */}
+      <section className="mdt2-hero">
+        <div className="mdt2-hero-glow-left" aria-hidden="true"></div>
+        <div className="mdt2-hero-glow-right" aria-hidden="true"></div>
+        <div className="mdt2-hero-inner container">
+
+          <div className="mdt2-left" data-aos="fade-right" data-aos-duration="900">
+            <h1 className="mdt2-headline">
+              Motadata IT Monitoring<br />
+              &amp; Observability for<br />
+              <span className="mdt2-headline-accent">Intelligent Enterprises</span>
+            </h1>
+            <div className="mdt2-headline-rule"></div>
+            <p className="mdt2-desc">
+              Unified IT monitoring, AI-powered observability, and service management for enterprise infrastructure � delivered by{' '}
+              <a href="/contact-us" className="mdt2-desc-link">Trace Network &amp; Engineering.</a>
+            </p>
+
+            <div className="mdt2-feature-row">
+              <div className="mdt2-feat">
+                <div className="mdt2-feat-icon"><i className="fas fa-robot"></i></div>
+                <div className="mdt2-feat-body"><strong>AI-Powered Observability</strong><span>Anomaly detection &amp; predictive analytics.</span></div>
+              </div>
+              <div className="mdt2-feat">
+                <div className="mdt2-feat-icon"><i className="fas fa-bolt"></i></div>
+                <div className="mdt2-feat-body"><strong>Real-Time Monitoring</strong><span>Instant alerts and performance dashboards.</span></div>
+              </div>
+              <div className="mdt2-feat">
+                <div className="mdt2-feat-icon"><i className="fas fa-chart-line"></i></div>
+                <div className="mdt2-feat-body"><strong>Unified Platform</strong><span>Servers, networks, apps, cloud &amp; VMs.</span></div>
+              </div>
+            </div>
+
+            <div className="mdt2-stats-row">
+              <div className="mdt2-stat-card"><i className="fas fa-server"></i><div><span className="mdt2-stat-num">1000+</span><span className="mdt2-stat-lbl">ENTERPRISE<br />DEPLOYMENTS</span></div></div>
+              <div className="mdt2-stat-card"><i className="fas fa-clock"></i><div><span className="mdt2-stat-num">6hrs</span><span className="mdt2-stat-lbl">ISSUE<br />RESOLUTION</span></div></div>
+              <div className="mdt2-stat-card mdt2-stat-brand">
+                <img src="/assets/images/partners/MOTADATA.jpg" alt="Motadata" className="mdt2-brand-logo" onError={e=>{e.target.style.opacity='0.3';}} />
+                <span className="mdt2-stat-lbl">SAARC<br />PARTNER</span>
+              </div>
+            </div>
+
+            <div className="mdt2-cta-row">
+              <a href="#mdt-portfolio" className="mdt2-btn-primary">Explore Motadata Solutions <i className="fas fa-arrow-right"></i></a>
+              <a href="/contact-us" className="mdt2-btn-ghost">Talk to Our Experts <i className="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+
+          <div className="mdt2-right" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
+            <div className="mdt2-product-glow" aria-hidden="true"></div>
+            <div className="mdt2-showcase">
+              <img src="/assets/images/partners/MOTADATA.jpg" alt="Motadata IT Monitoring Platform" className="mdt2-hero-product-img" onError={e=>{e.target.style.opacity='0.3';}} />
+            </div>
+            <div className="mdt2-industry-strip">
+              <span className="mdt2-ind-item"><i className="fas fa-server"></i> Infrastructure</span>
+              <span className="mdt2-ind-sep"></span>
+              <span className="mdt2-ind-item"><i className="fas fa-globe"></i> Networks</span>
+              <span className="mdt2-ind-sep"></span>
+              <span className="mdt2-ind-item"><i className="fas fa-cloud"></i> Cloud</span>
+              <span className="mdt2-ind-sep"></span>
+              <span className="mdt2-ind-item"><i className="fas fa-database"></i> Databases</span>
+              <span className="mdt2-ind-sep"></span>
+              <span className="mdt2-ind-item"><i className="fas fa-code"></i> Applications</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* -- WHY CHOOSE -- */}
+      <section className="mdt2-why-section">
+        <div className="mdt2-why-container">
+          <div className="mdt2-why-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="mdt2-why-badge"><i className="fas fa-chart-bar"></i><span>LEADING MOTADATA PARTNER IN SAARC.</span></div>
+            <h2 className="mdt2-why-title">Why Choose <span className="mdt2-why-accent">Motadata &amp;</span><br /><span className="mdt2-why-accent">Trace Network &amp; Engineering?</span></h2>
+            <p className="mdt2-why-subtitle">Intelligent observability. Proven expertise. Partnership you can rely on.</p>
+            <div className="mdt2-why-title-rule"></div>
+          </div>
+
+          <div className="mdt2-why-card-outer" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
+            <div className="mdt2-why-panel mdt2-why-panel-left">
+              <div className="mdt2-why-icon-circle"><i className="fas fa-chart-bar"></i></div>
+              <p className="mdt2-why-card-sup">Why Choose</p>
+              <h3 className="mdt2-why-card-title">Motadata Solutions?</h3>
+              <p className="mdt2-why-card-desc">Motadata is a leading IT monitoring, observability, and service management platform providing unified visibility across infrastructure, networks, applications, cloud environments, and IT services.</p>
+              <ul className="mdt2-why-list">
+                <li><span className="mdt2-why-list-icon"><i className="fas fa-desktop"></i></span><span>Unified monitoring<br /><small>servers, networks, apps, databases, cloud &amp; VMs</small></span></li>
+                <li><span className="mdt2-why-list-icon"><i className="fas fa-robot"></i></span><span>AI-Powered Observability<br /><small>anomaly detection &amp; predictive analytics</small></span></li>
+                <li><span className="mdt2-why-list-icon"><i className="fas fa-bolt"></i></span><span>Real-Time Monitoring &amp; Alerts<br /><small>with instant dashboards</small></span></li>
+                <li><span className="mdt2-why-list-icon"><i className="fas fa-globe"></i></span><span>End-to-End Network Visibility<br /><small>across distributed environments</small></span></li>
+                <li><span className="mdt2-why-list-icon"><i className="fas fa-ticket-alt"></i></span><span>IT Service Management (ITSM)<br /><small>incidents, assets, change &amp; ticketing</small></span></li>
+              </ul>
+            </div>
+            <div className="mdt2-why-panel mdt2-why-panel-right">
+              <div className="mdt2-why-icon-circle mdt2-why-icon-alt"><i className="fas fa-server"></i></div>
+              <p className="mdt2-why-card-sup">Why Choose</p>
+              <h3 className="mdt2-why-card-title mdt2-why-card-title-teal">Trace Network &amp; Engineering?</h3>
+              <p className="mdt2-why-card-desc">Trace Network &amp; Engineering Pvt Ltd is a trusted Motadata partner delivering end-to-end monitoring and observability deployments with certified professionals and 1000+ successful enterprise deployments.</p>
+              <ul className="mdt2-why-list mdt2-why-list-check">
+                <li><span className="mdt2-why-list-icon mdt2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>Issues addressed within 6 hours of complaint</span></li>
+                <li><span className="mdt2-why-list-icon mdt2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>1000+ successful enterprise IT deployments</span></li>
+                <li><span className="mdt2-why-list-icon mdt2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>Complete end-to-end monitoring &amp; infrastructure solutions</span></li>
+                <li><span className="mdt2-why-list-icon mdt2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>Multi-channel support: Email, WhatsApp &amp; portal</span></li>
+                <li><span className="mdt2-why-list-icon mdt2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>Solutions for enterprise, BFSI, healthcare &amp; manufacturing</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mdt2-why-stats-bar" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <div className="mdt2-why-stat"><div className="mdt2-why-stat-icon"><i className="fas fa-eye"></i></div><div className="mdt2-why-stat-text"><strong>Unified Visibility</strong><span>across all IT layers</span></div></div>
+            <div className="mdt2-why-stat-sep" aria-hidden="true"></div>
+            <div className="mdt2-why-stat"><div className="mdt2-why-stat-icon"><i className="fas fa-robot"></i></div><div className="mdt2-why-stat-text"><strong>AI-Driven</strong><span>intelligent observability</span></div></div>
+            <div className="mdt2-why-stat-sep" aria-hidden="true"></div>
+            <div className="mdt2-why-stat"><div className="mdt2-why-stat-icon"><i className="fas fa-cloud"></i></div><div className="mdt2-why-stat-text"><strong>Hybrid Ready</strong><span>on-prem &amp; multi-cloud</span></div></div>
+            <div className="mdt2-why-stat-sep" aria-hidden="true"></div>
+            <div className="mdt2-why-stat"><div className="mdt2-why-stat-icon"><i className="fas fa-handshake"></i></div><div className="mdt2-why-stat-text"><strong>Trusted</strong><span>SAARC partnership</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      {/* -- PORTFOLIO -- */}
+      <section className="mdt2-port-section" id="mdt-portfolio">
+        <div className="mdt2-port-container">
+          <div className="mdt2-port-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="mdt2-port-header-icon" aria-hidden="true"><i className="fas fa-chart-bar"></i></div>
+            <h2 className="mdt2-port-title">Complete <span className="mdt2-port-accent">Motadata</span> Portfolio</h2>
+            <div className="mdt2-port-title-decor" aria-hidden="true"><span className="mdt2-port-decor-line"></span><span className="mdt2-port-decor-dot"></span><span className="mdt2-port-decor-line"></span></div>
+            <p className="mdt2-port-subtitle">End-to-end monitoring and observability solutions for every enterprise need</p>
+          </div>
+
+          <div className="mdt2-port-top-row">
+            <div className="mdt2-port-card" data-aos="fade-up" data-aos-duration="800">
+              <div className="mdt2-port-card-img mdt2-port-img-a"><div className="mdt2-port-card-img-overlay"></div></div>
+              <div className="mdt2-port-card-body">
+                <div className="mdt2-port-card-icon"><i className="fas fa-server"></i></div>
+                <h3 className="mdt2-port-card-title">Infrastructure <span className="mdt2-port-accent">Monitoring</span></h3>
+                <p className="mdt2-port-card-desc">Centralized monitoring for servers, storage, virtualization, and critical infrastructure.</p>
+                <ul className="mdt2-port-list"><li><i className="fas fa-check"></i>Server &amp; VM Monitoring</li><li><i className="fas fa-check"></i>Storage Monitoring</li><li><i className="fas fa-check"></i>Virtualization Visibility</li></ul>
+                <a href="/contact-us" className="mdt2-port-link">Explore <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="mdt2-port-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+              <div className="mdt2-port-card-img mdt2-port-img-b"><div className="mdt2-port-card-img-overlay"></div></div>
+              <div className="mdt2-port-card-body">
+                <div className="mdt2-port-card-icon"><i className="fas fa-globe"></i></div>
+                <h3 className="mdt2-port-card-title">Network <span className="mdt2-port-accent">Performance</span></h3>
+                <p className="mdt2-port-card-desc">Monitor routers, switches, firewalls, bandwidth, and network performance enterprise-wide.</p>
+                <ul className="mdt2-port-list"><li><i className="fas fa-check"></i>Network Device Monitoring</li><li><i className="fas fa-check"></i>Bandwidth Analysis</li><li><i className="fas fa-check"></i>Branch Visibility</li></ul>
+                <a href="/contact-us" className="mdt2-port-link">Explore <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="mdt2-port-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+              <div className="mdt2-port-card-img mdt2-port-img-c"><div className="mdt2-port-card-img-overlay"></div></div>
+              <div className="mdt2-port-card-body">
+                <div className="mdt2-port-card-icon"><i className="fas fa-ticket-alt"></i></div>
+                <h3 className="mdt2-port-card-title">IT Service <span className="mdt2-port-accent">Management</span></h3>
+                <p className="mdt2-port-card-desc">Streamline incidents, assets, changes, ticketing, and service desk operations.</p>
+                <ul className="mdt2-port-list"><li><i className="fas fa-check"></i>Incident Management</li><li><i className="fas fa-check"></i>Asset Management</li><li><i className="fas fa-check"></i>Change Management</li></ul>
+                <a href="/contact-us" className="mdt2-port-link">Explore <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div className="mdt2-port-bottom-row" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+            <div className="mdt2-port-dc-card">
+              <div className="mdt2-port-dc-img"><div className="mdt2-port-dc-img-overlay"></div></div>
+              <div className="mdt2-port-dc-body">
+                <div className="mdt2-port-card-icon mdt2-port-dc-icon"><i className="fas fa-cloud"></i></div>
+                <h3 className="mdt2-port-card-title">Cloud &amp; Hybrid <span className="mdt2-port-accent">Observability</span></h3>
+                <p className="mdt2-port-card-desc">Monitor hybrid IT environments including on-premise, multi-cloud, and remote locations.</p>
+                <ul className="mdt2-port-list"><li><i className="fas fa-check"></i>Multi-cloud monitoring</li><li><i className="fas fa-check"></i>Hybrid infrastructure visibility</li><li><i className="fas fa-check"></i>Application performance management</li></ul>
+                <a href="/contact-us" className="mdt2-port-link">Explore <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="mdt2-port-why-panel">
+              <h3 className="mdt2-port-why-title">Why Choose <span className="mdt2-port-accent">Motadata?</span></h3>
+              <div className="mdt2-port-why-grid">
+                <div className="mdt2-port-why-item"><div className="mdt2-port-why-icon"><i className="fas fa-robot"></i></div><strong>AI-Powered</strong><span>Intelligent analytics &amp; automation.</span></div>
+                <div className="mdt2-port-why-item"><div className="mdt2-port-why-icon"><i className="fas fa-eye"></i></div><strong>Unified View</strong><span>Single pane of glass.</span></div>
+                <div className="mdt2-port-why-item"><div className="mdt2-port-why-icon"><i className="fas fa-expand-arrows-alt"></i></div><strong>Scalable</strong><span>Grows with your IT estate.</span></div>
+                <div className="mdt2-port-why-item"><div className="mdt2-port-why-icon"><i className="fas fa-headset"></i></div><strong>ITSM Built-in</strong><span>Service desk integration.</span></div>
+              </div>
+              <div className="mdt2-port-cta-bar">
+                <div className="mdt2-port-cta-icon"><i className="fas fa-comments"></i></div>
+                <div className="mdt2-port-cta-text"><strong>Need a monitoring assessment?</strong><span>Our experts are ready to help.</span></div>
+                <a href="/contact-us" className="mdt2-port-cta-btn">Talk to an Expert <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* -- INDUSTRIES -- */}
+      <section className="mdt2-ind-section">
+        <div className="mdt2-ind-bg-glow mdt2-ind-bg-glow-left" aria-hidden="true"></div>
+        <div className="mdt2-ind-bg-glow mdt2-ind-bg-glow-right" aria-hidden="true"></div>
+        <div className="mdt2-ind-container">
+          <div className="mdt2-ind-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="mdt2-ind-badge"><span className="mdt2-ind-badge-dot"></span><i className="fas fa-crown"></i><span>TRUSTED ACROSS INDUSTRIES</span><span className="mdt2-ind-badge-dot"></span></div>
+            <h2 className="mdt2-ind-title">Industries Where <span className="mdt2-ind-accent">Motadata</span><br /><span className="mdt2-ind-accent">Monitoring</span> Excels</h2>
+            <p className="mdt2-ind-subtitle">Trusted across diverse sectors for intelligent IT observability</p>
+          </div>
+          <div className="mdt2-ind-grid">
+            {[
+              { cls:'green',   icon:'fa-building',       num:'01', title:'Large Enterprises',          desc:'Unified monitoring for distributed enterprise IT infrastructure.' },
+              { cls:'emerald', icon:'fa-university',     num:'02', title:'Banking & Financial',         desc:'High-availability monitoring for critical BFSI applications.' },
+              { cls:'teal',    icon:'fa-hospital',       num:'03', title:'Healthcare & Hospitals',      desc:'Continuous monitoring for healthcare applications and connected devices.' },
+              { cls:'lime',    icon:'fa-graduation-cap', num:'04', title:'Education Institutions',      desc:'Campus-wide IT visibility for connected learning environments.' },
+              { cls:'cyan',    icon:'fa-industry',       num:'05', title:'Manufacturing',               desc:'Production system monitoring and industrial network visibility.' },
+              { cls:'sage',    icon:'fa-cloud',          num:'06', title:'Cloud & Hybrid Environments', desc:'Unified observability for multi-cloud and on-prem workloads.' },
+            ].map(({ cls, icon, num, title, desc }) => (
+              <div key={num} className={`mdt2-ind-card mdt2-ind-card-${cls}`} data-aos="fade-up" data-aos-duration="700">
+                <div className="mdt2-ind-card-top">
+                  <div className={`mdt2-ind-icon-wrap mdt2-ind-icon-${cls}`}><i className={`fas ${icon}`}></i></div>
+                  <span className="mdt2-ind-num">{num}</span>
+                </div>
+                <div className={`mdt2-ind-num-rule mdt2-ind-rule-${cls}`}></div>
+                <h3 className="mdt2-ind-card-title">{title}</h3>
+                <p className="mdt2-ind-card-desc">{desc}</p>
+                <a href="/contact-us" className={`mdt2-ind-arrow mdt2-ind-arrow-${cls}`} aria-label={`Learn more about ${title}`}><i className="fas fa-arrow-right"></i></a>
+                <div className="mdt2-ind-card-bg-pattern" aria-hidden="true"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases */}
+      <UseCaseSlider useCases={motadataUseCases} partnerColor="#10b981" title="Motadata Use Cases" subtitle="Successfully Deployed by Trace Network across diverse industry sectors" />
+
+      {/* Awards */}
+      <section className="awards-section">
+        <div className="section-title text-center">
+          <div className="section-title__tagline-box"><div className="section-title__tagline-shape-1"></div><span className="section-title__tagline">Awards</span><div className="section-title__tagline-shape-2"></div></div>
+          <h2 className="section-title__title">Recognized &amp; Trusted <span>for Delivering </span><br />Value &amp; Excellence</h2>
+        </div>
+        <div className="awards-slider"><div className="awards-track">
+          {[1,2,3,4,5,6,7,11,12,13,14,15,16,17,18,19].map(n => (
+            <div key={n} className="award-card"><img src={`/assets/images/award/${n}.png`} alt={`Award ${n}`} /><span>Award {n}</span></div>
+          ))}
+        </div></div>
+      </section>
+
+      {/* Why Leading Brands */}
+      <section className="premium-cards-section" style={{ marginTop: '-20px' }}>
+        <div className="premium-container">
+          <div className="section-title text-center pb-4"><h2 className="section-title__title">Why Leading<span> Brands</span> Choose<span> Trace</span></h2></div>
+          <div className="premium-card-grid">
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/certified.png" alt="certified" /></div><p><strong>Multi-vendor, Certified Network Security Expertise</strong> Partnering with 40+ global OEMs, Trace Network offers multi-vendor cybersecurity and network solutions that are future-proof and scalable.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/leadership.png" alt="leadership" /></div><p><strong>20+ Years of Cybersecurity Leadership</strong> With two decades of proven expertise, we provide enterprise IT security solutions across India.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/luxury.png" alt="luxury" /></div><p><strong>Customer-First, Value-Driven</strong> Our cost-effective services ensure maximum protection with right-sized solutions and lowest TCO.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/technical-support.png" alt="technical-support" /></div><p><strong>Local Presence with Rapid IT Support</strong> Engineers available in Hyderabad, Bengaluru, Chennai, Vijayawada, and Vizag.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/iso-certificate.png" alt="iso-certificate" /></div><p><strong>ISO 27001-Certified Cybersecurity Provider</strong> Following stringent change management and compliance practices.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/frame.png" alt="frame" /></div><p><strong>Proven Deployment Framework</strong> Assess → Design → Deploy → Optimise → Support ensures maximum ROI.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/agile.png" alt="agile" /></div><p><strong>Flexible MSSP &amp; Security Pricing Models</strong> CapEx, OpEx, or MSSP models to align with your business goals.</p></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Career CTA */}
+      <section className="career-cta-section">
+        <div className="career-cta-container">
+          <h2 className="career-cta-title">Ready to Gain Full IT Visibility?</h2>
+          <p className="career-cta-text">Speak with a senior monitoring consultant today. In 30 minutes you'll know:<br /><br />� Blind spots in your current IT infrastructure<br />� Quick wins to reduce downtime with proactive monitoring<br />� An exact timeline &amp; cost estimate�no obligations</p>
+          <div className="about-two__btn-box"><a href="tel:9000314411" className="btn-get-started"><span className="btn-text">Book Your Free Strategy Call </span><span className="btn-arrow"></span></a></div>
+        </div>
+      </section>
+
+      {/* Special Offer */}
+      <section className="mdt2-offer-section" data-aos="zoom-in" data-aos-duration="1000">
+        <div className="mdt2-offer-container">
+          <div className="mdt2-offer-banner">
+            <div className="mdt2-offer-glow"></div>
+            <div className="mdt2-offer-content">
+              <div className="mdt2-offer-badge"><i className="fas fa-gift"></i> SPECIAL OFFER</div>
+              <h2 className="mdt2-offer-title"><i className="fas fa-fire"></i> FREE POC Available</h2>
+              <p className="mdt2-offer-subtitle">Exclusive Offers on Motadata IT Monitoring Solutions</p>
+              <p className="mdt2-offer-desc">Experience the power of Motadata IT monitoring and observability firsthand � zero risk, zero commitment. Our team will set up a complete proof of concept tailored to your environment so you can see the results before you invest.</p>
+              <div className="mdt2-offer-highlights">
+                <div className="mdt2-offer-point"><span className="mdt2-offer-check">?</span> No upfront cost for POC</div>
+                <div className="mdt2-offer-point"><span className="mdt2-offer-check">?</span> Tailored to your infrastructure</div>
+                <div className="mdt2-offer-point"><span className="mdt2-offer-check">?</span> Exclusive pricing on Motadata solutions</div>
+                <div className="mdt2-offer-point"><span className="mdt2-offer-check">?</span> Expert guidance throughout</div>
+              </div>
+              <Link to="/contact-us" className="mdt2-contact-btn"><i className="fas fa-phone-alt"></i> Get in Touch for a FREE Demo &amp; Consultation ?</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
+}

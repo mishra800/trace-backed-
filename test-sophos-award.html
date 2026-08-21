@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Sophos Award Highlight</title>
+</head>
+<body>
+    <h1>Test Links for Sophos Award Highlight</h1>
+    
+    <h2>Test the Partners page with different parameters:</h2>
+    
+    <ul>
+        <li>
+            <a href="/partners" target="_blank">Normal Partners Page</a>
+            <p>This should show the regular partners page without the award highlight.</p>
+        </li>
+        
+        <li>
+            <a href="/partners?partner=sophos" target="_blank">Partners Page with Sophos Award Highlight</a>
+            <p>This should show the partners page with the prominent Sophos Partner of the Year 2025 award section at the top.</p>
+        </li>
+        
+        <li>
+            <a href="/partners?partner=other" target="_blank">Partners Page with Other Parameter</a>
+            <p>This should show the regular partners page (award highlight only shows for partner=sophos).</p>
+        </li>
+    </ul>
+    
+    <h2>Expected Behavior:</h2>
+    <ul>
+        <li>When <code>?partner=sophos</code> is in the URL, a special award celebration section should appear at the top</li>
+        <li>The hero section should be more compact and focused on the partnership</li>
+        <li>An award highlight box should appear in the Platinum Partner section</li>
+        <li>The special offers section should mention the award celebration</li>
+        <li>The existing Sophos 2025 award image should be prominently displayed</li>
+    </ul>
+    
+    <h2>Key Features Added:</h2>
+    <ul>
+        <li>✅ URL parameter detection for <code>partner=sophos</code></li>
+        <li>✅ Prominent award celebration section with animations</li>
+        <li>✅ Dynamic content changes based on the parameter</li>
+        <li>✅ Responsive design for mobile devices</li>
+        <li>✅ Integration with existing Sophos award image</li>
+        <li>✅ Enhanced visual effects (floating, glowing, shimmer animations)</li>
+    </ul>
+</body>
+</html>

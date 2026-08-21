@@ -1,0 +1,561 @@
+﻿import React from 'react';
+import { Link } from 'react-router-dom';
+import UseCaseSlider from '../../components/UseCaseSlider';
+import { useAwardsSlider } from '../../hooks/useAwardsSlider';
+import './Arcon.css';
+
+const arconUseCases = [
+  { id: 'banking', category: 'BANKING', icon: 'fas fa-university', title: 'Banking & Financial Services (Privileged Access Control)', description: 'Problem: Banks require strict control over privileged accounts and admin access to protect critical financial systems and sensitive customer data from insider threats.', image: '/assets/images/use-cases/usecase4.png', linkTo: '/case-studies' },
+  { id: 'government', category: 'GOVERNMENT & DEFENCE', icon: 'fas fa-shield-alt', title: 'Government & Defence (Secure Admin Access & Compliance)', description: 'Problem: Government organizations require centralized control over administrator access to critical infrastructure, ensuring compliance and preventing unauthorized access.', image: '/assets/images/use-cases/usecase1.png', linkTo: '/case-studies' },
+  { id: 'healthcare', category: 'HEALTHCARE', icon: 'fas fa-hospital', title: 'Healthcare & Hospitals (Clinical System Access Security)', description: 'Problem: Hospitals require audited and controlled access to patient databases, medical systems, and clinical applications to prevent data breaches.', image: '/assets/images/use-cases/usecase5.png', linkTo: '/case-studies' },
+  { id: 'manufacturing', category: 'MANUFACTURING', icon: 'fas fa-industry', title: 'Manufacturing Industry (OT & IT Privileged Access)', description: 'Problem: Manufacturing organizations require controlled privileged access across production systems, OT environments, and IT infrastructure.', image: '/assets/images/use-cases/usecase7.png', linkTo: '/case-studies' },
+  { id: 'it', category: 'IT & SOFTWARE', icon: 'fas fa-laptop', title: 'IT & Software Companies (Cloud & DevOps Access Governance)', description: 'Problem: IT companies require governed privileged access for DevOps, cloud infrastructure, and multi-tenant environments.', image: '/assets/images/use-cases/usecase6.png', linkTo: '/case-studies' },
+  { id: 'enterprise', category: 'ENTERPRISE', icon: 'fas fa-building', title: 'Large Enterprises (Enterprise PAM & Identity Governance)', description: 'Problem: Enterprises require unified privileged access management across on-premises, hybrid cloud, and multi-location environments.', image: '/assets/images/use-cases/usecase3.png', linkTo: '/case-studies' },
+];
+
+export default function Arcon() {
+  useAwardsSlider();
+  return (
+    <div className="arcon-page arcon-v2-page">
+
+      {/* ── Hero ── */}
+      <section className="arcon2-hero">
+        <div className="arcon2-hero-bg" aria-hidden="true"></div>
+        <div className="arcon2-hero-glow-left" aria-hidden="true"></div>
+        <div className="arcon2-hero-glow-right" aria-hidden="true"></div>
+        <div className="arcon2-hero-inner container">
+
+          {/* LEFT */}
+          <div className="arcon2-left" data-aos="fade-right" data-aos-duration="900">
+            <h1 className="arcon2-headline">
+              ARCON Privileged<br />
+              Access Management<br />
+              <span className="arcon2-headline-accent">Solutions Provider</span>
+            </h1>
+            <div className="arcon2-headline-rule"></div>
+            <p className="arcon2-desc">
+              Enterprise PAM, identity security, privileged session management, and zero-trust access
+              governance — delivered by{' '}
+              <a href="/contact-us" className="arcon2-desc-link">Trace Network &amp; Engineering.</a>
+            </p>
+            <div className="arcon2-feature-row">
+              <div className="arcon2-feat">
+                <div className="arcon2-feat-icon"><i className="fas fa-user-lock"></i></div>
+                <div className="arcon2-feat-body">
+                  <strong>Privileged Access Mgmt</strong>
+                  <span>Control &amp; audit all privileged accounts.</span>
+                </div>
+              </div>
+              <div className="arcon2-feat">
+                <div className="arcon2-feat-icon"><i className="fas fa-shield-alt"></i></div>
+                <div className="arcon2-feat-body">
+                  <strong>Zero-Trust Security</strong>
+                  <span>Least-privilege &amp; just-in-time access.</span>
+                </div>
+              </div>
+              <div className="arcon2-feat">
+                <div className="arcon2-feat-icon"><i className="fas fa-clipboard-list"></i></div>
+                <div className="arcon2-feat-body">
+                  <strong>Compliance Ready</strong>
+                  <span>Audit trails for regulated industries.</span>
+                </div>
+              </div>
+            </div>
+            <div className="arcon2-stats-row">
+              <div className="arcon2-stat-card">
+                <i className="fas fa-server"></i>
+                <div>
+                  <span className="arcon2-stat-num">1000+</span>
+                  <span className="arcon2-stat-lbl">ENTERPRISE<br />DEPLOYMENTS</span>
+                </div>
+              </div>
+              <div className="arcon2-stat-card">
+                <i className="fas fa-clock"></i>
+                <div>
+                  <span className="arcon2-stat-num">6hrs</span>
+                  <span className="arcon2-stat-lbl">ISSUE<br />RESOLUTION</span>
+                </div>
+              </div>
+              <div className="arcon2-stat-card arcon2-stat-brand">
+                <img src="/assets/images/partners/ARCON.jpg" alt="ARCON" className="arcon2-brand-logo"
+                  onError={(e) => { e.target.style.opacity = '0.3'; }} />
+                <span className="arcon2-stat-lbl">PAM<br />CERTIFIED</span>
+              </div>
+            </div>
+            <div className="arcon2-cta-row">
+              <a href="#arcon-portfolio" className="arcon2-btn-primary">
+                Explore ARCON Solutions <i className="fas fa-arrow-right"></i>
+              </a>
+              <a href="/contact-us" className="arcon2-btn-ghost">
+                Talk to Our Experts <i className="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+
+          {/* RIGHT */}
+          <div className="arcon2-right" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
+            <div className="arcon2-product-glow" aria-hidden="true"></div>
+            <div className="arcon2-showcase">
+              <img src="/assets/images/partners/ARCON.jpg" alt="ARCON PAM Platform"
+                className="arcon2-hero-product-img"
+                onError={(e) => { e.target.style.opacity = '0.3'; }} />
+              <div className="arcon2-platform" aria-hidden="true">
+                <div className="arcon2-plat-ring arcon2-plat-ring-1"></div>
+                <div className="arcon2-plat-ring arcon2-plat-ring-2"></div>
+                <div className="arcon2-plat-ring arcon2-plat-ring-3"></div>
+                <div className="arcon2-plat-surface"></div>
+              </div>
+            </div>
+            <div className="arcon2-industry-strip">
+              <span className="arcon2-ind-item"><i className="fas fa-university"></i> Banking</span>
+              <span className="arcon2-ind-sep"></span>
+              <span className="arcon2-ind-item"><i className="fas fa-shield-alt"></i> Government</span>
+              <span className="arcon2-ind-sep"></span>
+              <span className="arcon2-ind-item"><i className="fas fa-hospital"></i> Healthcare</span>
+              <span className="arcon2-ind-sep"></span>
+              <span className="arcon2-ind-item"><i className="fas fa-industry"></i> Manufacturing</span>
+              <span className="arcon2-ind-sep"></span>
+              <span className="arcon2-ind-item"><i className="fas fa-building"></i> Enterprise</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Why Choose Section */}
+      <section className="arcon2-why-section">
+        <div className="arcon2-why-container">
+          <div className="arcon2-why-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="arcon2-why-badge">
+              <i className="fas fa-user-lock"></i>
+              <span>TRUSTED PRIVILEGED ACCESS MANAGEMENT PARTNER</span>
+            </div>
+            <h2 className="arcon2-why-title">
+              Why Choose <span className="arcon2-why-accent">ARCON &amp;</span><br />
+              <span className="arcon2-why-accent">Trace Network &amp; Engineering?</span>
+            </h2>
+            <p className="arcon2-why-subtitle">Industry-leading PAM. Certified expertise. Identity security you can trust.</p>
+            <div className="arcon2-why-title-rule"></div>
+          </div>
+
+          <div className="arcon2-why-card-outer" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
+            {/* Left panel */}
+            <div className="arcon2-why-panel arcon2-why-panel-left">
+              <div className="arcon2-why-content">
+                <div className="arcon2-why-icon-row">
+                  <div className="arcon2-why-icon-circle"><i className="fas fa-user-lock"></i></div>
+                </div>
+                <p className="arcon2-why-card-sup">Why Choose</p>
+                <h3 className="arcon2-why-card-title arcon2-why-card-title-red">ARCON Solutions?</h3>
+                <p className="arcon2-why-card-desc">
+                  ARCON is a leading provider of Privileged Access Management (PAM), Identity Security, and Zero-Trust access governance solutions — helping organizations control, monitor, and audit privileged accounts across on-premises, cloud, and hybrid environments.
+                </p>
+                <ul className="arcon2-why-list">
+                  <li>
+                    <span className="arcon2-why-list-icon"><i className="fas fa-user-lock"></i></span>
+                    <span>Privileged Access Management (PAM)<br /><small>control &amp; audit all privileged accounts</small></span>
+                  </li>
+                  <li>
+                    <span className="arcon2-why-list-icon"><i className="fas fa-shield-alt"></i></span>
+                    <span>Zero-Trust &amp; least-privilege access<br /><small>just-in-time access provisioning</small></span>
+                  </li>
+                  <li>
+                    <span className="arcon2-why-list-icon"><i className="fas fa-video"></i></span>
+                    <span>Privileged session recording &amp; monitoring<br /><small>complete visibility and audit trails</small></span>
+                  </li>
+                  <li>
+                    <span className="arcon2-why-list-icon"><i className="fas fa-key"></i></span>
+                    <span>Password vault &amp; rotation<br /><small>automated credential management</small></span>
+                  </li>
+                  <li>
+                    <span className="arcon2-why-list-icon"><i className="fas fa-clipboard-list"></i></span>
+                    <span>Compliance &amp; regulatory reporting<br /><small>BFSI, healthcare, govt &amp; enterprise</small></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="arcon2-why-divider" aria-hidden="true"></div>
+
+            {/* Right panel */}
+            <div className="arcon2-why-panel arcon2-why-panel-right">
+              <div className="arcon2-why-content">
+                <div className="arcon2-why-icon-row">
+                  <div className="arcon2-why-icon-circle arcon2-why-icon-teal"><i className="fas fa-building"></i></div>
+                </div>
+                <p className="arcon2-why-card-sup">Why Choose</p>
+                <h3 className="arcon2-why-card-title arcon2-why-card-title-teal">Trace Network &amp; Engineering?</h3>
+                <p className="arcon2-why-card-desc">
+                  Trace Network &amp; Engineering is a trusted ARCON partner delivering end-to-end PAM, identity security, and zero-trust expertise. With certified professionals and 1000+ successful security deployments, Trace provides consultative design, seamless implementation, and proactive support.
+                </p>
+                <ul className="arcon2-why-list arcon2-why-list-check">
+                  <li>
+                    <span className="arcon2-why-list-icon arcon2-why-list-check-icon"><i className="fas fa-check-circle"></i></span>
+                    <span>Security incidents addressed within 6 hours</span>
+                  </li>
+                  <li>
+                    <span className="arcon2-why-list-icon arcon2-why-list-check-icon"><i className="fas fa-check-circle"></i></span>
+                    <span>Certified PAM &amp; identity security professionals</span>
+                  </li>
+                  <li>
+                    <span className="arcon2-why-list-icon arcon2-why-list-check-icon"><i className="fas fa-check-circle"></i></span>
+                    <span>1000+ successful enterprise security deployments</span>
+                  </li>
+                  <li>
+                    <span className="arcon2-why-list-icon arcon2-why-list-check-icon"><i className="fas fa-check-circle"></i></span>
+                    <span>Multi-channel support: Email, WhatsApp, Phone &amp; portal</span>
+                  </li>
+                  <li>
+                    <span className="arcon2-why-list-icon arcon2-why-list-check-icon"><i className="fas fa-check-circle"></i></span>
+                    <span>Solutions for BFSI, healthcare, govt &amp; enterprise</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="arcon2-why-img-wrap arcon2-why-img-right" aria-hidden="true">
+                <div className="arcon2-why-img-gradient arcon2-why-img-gradient-right"></div>
+                <div className="arcon2-why-server-bg"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Stats bar */}
+          <div className="arcon2-why-stats-bar" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <div className="arcon2-why-stat">
+              <div className="arcon2-why-stat-icon"><i className="fas fa-user-lock"></i></div>
+              <div className="arcon2-why-stat-text"><strong>Privileged Access</strong><span>complete account control</span></div>
+            </div>
+            <div className="arcon2-why-stat-sep" aria-hidden="true"></div>
+            <div className="arcon2-why-stat">
+              <div className="arcon2-why-stat-icon"><i className="fas fa-shield-alt"></i></div>
+              <div className="arcon2-why-stat-text"><strong>Zero-Trust</strong><span>least-privilege by design</span></div>
+            </div>
+            <div className="arcon2-why-stat-sep" aria-hidden="true"></div>
+            <div className="arcon2-why-stat">
+              <div className="arcon2-why-stat-icon"><i className="fas fa-clipboard-list"></i></div>
+              <div className="arcon2-why-stat-text"><strong>Compliant</strong><span>full audit trail &amp; reporting</span></div>
+            </div>
+            <div className="arcon2-why-stat-sep" aria-hidden="true"></div>
+            <div className="arcon2-why-stat">
+              <div className="arcon2-why-stat-icon"><i className="fas fa-handshake"></i></div>
+              <div className="arcon2-why-stat-text"><strong>Trusted</strong><span>certified partner</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Section */}
+      <section className="arcon2-port-section" id="arcon-portfolio">
+        <div className="arcon2-port-container">
+          <div className="arcon2-port-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="arcon2-port-header-icon" aria-hidden="true"><i className="fas fa-user-lock"></i></div>
+            <h2 className="arcon2-port-title">Complete <span className="arcon2-port-accent">ARCON</span> Portfolio</h2>
+            <div className="arcon2-port-title-decor" aria-hidden="true">
+              <span className="arcon2-port-decor-line"></span>
+              <span className="arcon2-port-decor-dot"></span>
+              <span className="arcon2-port-decor-line"></span>
+            </div>
+            <p className="arcon2-port-subtitle">End-to-end PAM and identity security solutions for every enterprise need</p>
+          </div>
+
+          <div className="arcon2-port-top-row">
+            <div className="arcon2-port-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
+              <div className="arcon2-port-card-img arcon2-port-img-pam"><div className="arcon2-port-card-img-overlay"></div></div>
+              <div className="arcon2-port-card-body">
+                <div className="arcon2-port-card-icon"><i className="fas fa-user-lock"></i></div>
+                <h3 className="arcon2-port-card-title">Privileged Access <span className="arcon2-port-accent">Management (PAM)</span></h3>
+                <p className="arcon2-port-card-desc">Control, monitor, and audit all privileged accounts and admin access across your infrastructure.</p>
+                <ul className="arcon2-port-list">
+                  <li><i className="fas fa-check"></i> Privileged account discovery</li>
+                  <li><i className="fas fa-check"></i> Access request &amp; approval workflows</li>
+                  <li><i className="fas fa-check"></i> Just-in-time access provisioning</li>
+                </ul>
+                <a href="/contact-us" className="arcon2-port-link">Explore PAM Solutions <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="arcon2-port-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+              <div className="arcon2-port-card-img arcon2-port-img-session"><div className="arcon2-port-card-img-overlay"></div></div>
+              <div className="arcon2-port-card-body">
+                <div className="arcon2-port-card-icon"><i className="fas fa-video"></i></div>
+                <h3 className="arcon2-port-card-title">Privileged Session <span className="arcon2-port-accent">Recording &amp; Monitoring</span></h3>
+                <p className="arcon2-port-card-desc">Record and monitor all privileged sessions for complete audit trails and insider threat detection.</p>
+                <ul className="arcon2-port-list">
+                  <li><i className="fas fa-check"></i> Full session recording &amp; playback</li>
+                  <li><i className="fas fa-check"></i> Real-time session monitoring</li>
+                  <li><i className="fas fa-check"></i> Anomaly detection &amp; alerts</li>
+                </ul>
+                <a href="/contact-us" className="arcon2-port-link">Explore Session Mgmt <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="arcon2-port-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+              <div className="arcon2-port-card-img arcon2-port-img-vault"><div className="arcon2-port-card-img-overlay"></div></div>
+              <div className="arcon2-port-card-body">
+                <div className="arcon2-port-card-icon"><i className="fas fa-key"></i></div>
+                <h3 className="arcon2-port-card-title">Password Vault &amp; <span className="arcon2-port-accent">Credential Management</span></h3>
+                <p className="arcon2-port-card-desc">Secure, store, and automatically rotate privileged credentials across all systems.</p>
+                <ul className="arcon2-port-list">
+                  <li><i className="fas fa-check"></i> Encrypted password vault</li>
+                  <li><i className="fas fa-check"></i> Automated credential rotation</li>
+                  <li><i className="fas fa-check"></i> SSH key &amp; certificate management</li>
+                </ul>
+                <a href="/contact-us" className="arcon2-port-link">Explore Credential Vault <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div className="arcon2-port-bottom-row" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+            <div className="arcon2-port-dc-card">
+              <div className="arcon2-port-dc-img"><div className="arcon2-port-dc-img-overlay"></div></div>
+              <div className="arcon2-port-dc-body">
+                <div className="arcon2-port-card-icon arcon2-port-dc-icon"><i className="fas fa-clipboard-list"></i></div>
+                <h3 className="arcon2-port-card-title">Compliance &amp; <span className="arcon2-port-accent">Audit Reporting</span></h3>
+                <p className="arcon2-port-card-desc">Meet regulatory requirements with comprehensive audit logs and compliance reporting.</p>
+                <ul className="arcon2-port-list">
+                  <li><i className="fas fa-check"></i> Compliance reporting (BFSI, HIPAA, GDPR)</li>
+                  <li><i className="fas fa-check"></i> Complete audit log management</li>
+                  <li><i className="fas fa-check"></i> Risk &amp; policy violation alerts</li>
+                </ul>
+                <a href="/contact-us" className="arcon2-port-link">Explore Compliance <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="arcon2-port-why-panel">
+              <h3 className="arcon2-port-why-title">Why Choose <span className="arcon2-port-accent">ARCON?</span></h3>
+              <div className="arcon2-port-why-grid">
+                <div className="arcon2-port-why-item">
+                  <div className="arcon2-port-why-icon"><i className="fas fa-user-lock"></i></div>
+                  <strong>Proven PAM</strong>
+                  <span>Industry-recognized privileged access platform.</span>
+                </div>
+                <div className="arcon2-port-why-item">
+                  <div className="arcon2-port-why-icon"><i className="fas fa-shield-alt"></i></div>
+                  <strong>Zero-Trust</strong>
+                  <span>Least-privilege and context-aware access.</span>
+                </div>
+                <div className="arcon2-port-why-item">
+                  <div className="arcon2-port-why-icon"><i className="fas fa-chart-bar"></i></div>
+                  <strong>Scalable</strong>
+                  <span>From SMBs to large multi-location enterprises.</span>
+                </div>
+                <div className="arcon2-port-why-item">
+                  <div className="arcon2-port-why-icon"><i className="fas fa-headset"></i></div>
+                  <strong>Expert Support</strong>
+                  <span>Certified PAM professionals at your service.</span>
+                </div>
+              </div>
+              <div className="arcon2-port-cta-bar">
+                <div className="arcon2-port-cta-icon"><i className="fas fa-comments"></i></div>
+                <div className="arcon2-port-cta-text">
+                  <strong>Need help securing privileged access?</strong>
+                  <span>Our PAM experts are ready to help.</span>
+                </div>
+                <a href="/contact-us" className="arcon2-port-cta-btn">Talk to an Expert <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Industries */}
+      <section className="arcon2-ind-section">
+        <div className="arcon2-ind-bg-glow arcon2-ind-bg-glow-left" aria-hidden="true"></div>
+        <div className="arcon2-ind-bg-glow arcon2-ind-bg-glow-right" aria-hidden="true"></div>
+        <div className="arcon2-ind-container">
+          <div className="arcon2-ind-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="arcon2-ind-badge">
+              <span className="arcon2-ind-badge-dot"></span>
+              <i className="fas fa-crown"></i>
+              <span>TRUSTED ACROSS INDUSTRIES</span>
+              <span className="arcon2-ind-badge-dot"></span>
+            </div>
+            <h2 className="arcon2-ind-title">
+              Industries Where <span className="arcon2-ind-accent">ARCON</span><br />
+              <span className="arcon2-ind-accent">Solutions</span> Excel
+            </h2>
+            <p className="arcon2-ind-subtitle">Trusted PAM and identity security across diverse sectors</p>
+          </div>
+          <div className="arcon2-ind-grid">
+            {[
+              { icon: 'fas fa-university', num: '01', title: 'Banking & Financial', desc: 'Privileged access control for critical financial systems and sensitive data.' },
+              { icon: 'fas fa-shield-alt', num: '02', title: 'Government & Defence', desc: 'Centralized admin access control and compliance for critical infrastructure.' },
+              { icon: 'fas fa-hospital', num: '03', title: 'Healthcare & Hospitals', desc: 'Audited access to patient databases, medical systems, and clinical apps.' },
+              { icon: 'fas fa-industry', num: '04', title: 'Manufacturing', desc: 'Controlled privileged access across OT and IT production environments.' },
+              { icon: 'fas fa-laptop', num: '05', title: 'IT & Software Companies', desc: 'Governed privileged access for DevOps, cloud, and multi-tenant environments.' },
+              { icon: 'fas fa-building', num: '06', title: 'Large Enterprises', desc: 'Unified PAM across on-premises, hybrid cloud, and multi-location environments.' },
+            ].map((item) => (
+              <div className="arcon2-ind-card" key={item.num} data-aos="fade-up" data-aos-duration="700">
+                <div className="arcon2-ind-card-top">
+                  <div className="arcon2-ind-icon-wrap"><i className={item.icon}></i></div>
+                  <span className="arcon2-ind-num">{item.num}</span>
+                </div>
+                <div className="arcon2-ind-num-rule"></div>
+                <h3 className="arcon2-ind-card-title">{item.title}</h3>
+                <p className="arcon2-ind-card-desc">{item.desc}</p>
+                <a href="/contact-us" className="arcon2-ind-arrow" aria-label={`Learn more about ${item.title}`}>
+                  <i className="fas fa-arrow-right"></i>
+                </a>
+                <div className="arcon2-ind-card-bg-pattern" aria-hidden="true"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases Slider */}
+      <UseCaseSlider
+        useCases={arconUseCases}
+        partnerColor="#ef4444"
+        title="ARCON PAM Use Cases"
+        subtitle="Successfully Delivered by Trace Network across diverse industry sectors"
+      />
+
+      {/* Career CTA */}
+      <section className="career-cta-section">
+        <div className="career-cta-container">
+          <h2 className="career-cta-title">Ready to Secure Your Privileged Access?</h2>
+          <p className="career-cta-text">
+            Speak with a senior PAM consultant today. In 30 minutes you'll know:<br /><br />
+            • The top three privileged access risks in your environment<br />
+            • Quick wins to improve access control without disruption<br />
+            • An exact timeline &amp; cost estimate—no obligations
+          </p>
+          <div className="about-two__btn-box">
+            <a href="tel:9000314411" className="btn-get-started">
+              <span className="btn-text">Book Your Free PAM Assessment</span>
+              <span className="btn-arrow"></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* POC Section */}
+      <section className="arcon2-poc-section" data-aos="fade-up" data-aos-duration="900">
+        <div className="arcon2-poc-glow-tl" aria-hidden="true"></div>
+        <div className="arcon2-poc-glow-br" aria-hidden="true"></div>
+        <div className="arcon2-poc-inner container">
+          <div className="arcon2-poc-left">
+            <div className="arcon2-poc-badge">
+              <i className="fas fa-user-lock"></i>
+              <span>SPECIAL OFFER</span>
+            </div>
+            <h2 className="arcon2-poc-headline">
+              <span className="arcon2-poc-free">FREE</span> POC<br />
+              <span className="arcon2-poc-headline-white">Available</span>
+            </h2>
+            <div className="arcon2-poc-rule"></div>
+            <p className="arcon2-poc-subtitle">
+              Exclusive Offers on{' '}
+              <span className="arcon2-poc-link-text">ARCON PAM, Session Management<br />&amp; Identity Security Solutions</span>
+            </p>
+            <p className="arcon2-poc-desc">
+              Get expert guidance for ARCON PAM deployment, privileged session management, password vault setup,
+              zero-trust access governance, and compliance reporting.
+            </p>
+            <Link to="/contact-us" className="arcon2-poc-cta-btn">
+              CONTACT TRACE NETWORK <i className="fas fa-arrow-right"></i>
+            </Link>
+            <div className="arcon2-poc-trust">
+              <span className="arcon2-poc-trust-item"><i className="fas fa-shield-alt"></i> Zero Risk</span>
+              <span className="arcon2-poc-trust-item"><i className="fas fa-lock"></i> Secure</span>
+              <span className="arcon2-poc-trust-item"><i className="fas fa-users"></i> Certified Experts</span>
+            </div>
+          </div>
+          <div className="arcon2-poc-right">
+            <div className="arcon2-poc-grid-row">
+              <div className="arcon2-poc-feat-card">
+                <div className="arcon2-poc-feat-circle"><i className="fas fa-shield-alt"></i></div>
+                <p className="arcon2-poc-feat-label">No upfront cost<br />for POC</p>
+              </div>
+              <div className="arcon2-poc-feat-card">
+                <div className="arcon2-poc-feat-circle"><i className="fas fa-sliders-h"></i></div>
+                <p className="arcon2-poc-feat-label">Tailored to your<br />security requirements</p>
+              </div>
+              <div className="arcon2-poc-feat-card">
+                <div className="arcon2-poc-feat-circle"><i className="fas fa-tag"></i></div>
+                <p className="arcon2-poc-feat-label">Exclusive pricing<br />on ARCON solutions</p>
+              </div>
+            </div>
+            <div className="arcon2-poc-grid-divider"></div>
+            <div className="arcon2-poc-grid-row">
+              <div className="arcon2-poc-feat-card">
+                <div className="arcon2-poc-feat-circle"><i className="fas fa-headset"></i></div>
+                <p className="arcon2-poc-feat-label">Expert guidance<br />throughout</p>
+              </div>
+              <div className="arcon2-poc-feat-card">
+                <div className="arcon2-poc-feat-circle"><i className="fas fa-user-lock"></i></div>
+                <p className="arcon2-poc-feat-label">Test real PAM<br />in your environment</p>
+              </div>
+              <div className="arcon2-poc-feat-card">
+                <div className="arcon2-poc-feat-circle"><i className="fas fa-chart-bar"></i></div>
+                <p className="arcon2-poc-feat-label">Make confident<br />PAM decisions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Awards Section */}
+      <section className="awards-section">
+        <div className="section-title text-center">
+          <div className="section-title__tagline-box">
+            <div className="section-title__tagline-shape-1"></div>
+            <span className="section-title__tagline">Awards</span>
+            <div className="section-title__tagline-shape-2"></div>
+          </div>
+          <h2 className="section-title__title">Recognized &amp; Trusted <span>for Delivering </span><br />Value &amp; Excellence</h2>
+        </div>
+        <div className="awards-slider">
+          <div className="awards-track">
+            <div className="award-card"><img src="/assets/images/award/1.png" alt="Sophos Best Performing Partner (2024)" /><span>Sophos Best Performing Partner (2024)</span></div>
+            <div className="award-card"><img src="/assets/images/award/2.png" alt="Certification of Completion Aruba Instant (2023)" /><span>Certification of Completion Aruba Instant (2023)</span></div>
+            <div className="award-card"><img src="/assets/images/award/3.png" alt="Core Champion HPE Aruba Networking (2023)" /><span>Core Champion HPE Aruba Networking (2023)</span></div>
+            <div className="award-card"><img src="/assets/images/award/4.png" alt="Sophos Top Performer of the Region" /><span>Sophos Top Performer of the Region</span></div>
+            <div className="award-card"><img src="/assets/images/award/5.png" alt="Sophos Best Solution Partner" /><span>Sophos Best Solution Partner</span></div>
+            <div className="award-card"><img src="/assets/images/award/6.png" alt="Certified by SonicWall (2022)" /><span>Certified by SonicWall (2022)</span></div>
+            <div className="award-card"><img src="/assets/images/award/7.png" alt="HPE Aruba Accelerating Next (2022)" /><span>HPE Aruba Accelerating Next (2022)</span></div>
+            <div className="award-card"><img src="/assets/images/award/11.png" alt="Sophos Best Top Performing Partner (2020)" /><span>Sophos Best Top Performing Partner (2020)</span></div>
+            <div className="award-card"><img src="/assets/images/award/19.png" alt="Sophos Top Performer Of the Region" /><span>Sophos Top Performer Of the Region</span></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Leading Brands Choose Trace */}
+      <section className="premium-cards-section" style={{ marginTop: '-20px' }}>
+        <div className="premium-container">
+          <div className="section-title text-center pb-4">
+            <h2 className="section-title__title">Why Leading<span> Brands</span> Choose<span> Trace</span></h2>
+          </div>
+          <div className="premium-card-grid">
+            <div className="premium-service-card">
+              <div className="premium-icon-wrapper"><img src="/assets/images/certified.png" alt="certified" /></div>
+              <p><strong>Multi‑vendor, Certified Network Security Expertise</strong> Partnering with 40+ global OEMs, Trace Network offers multi-vendor cybersecurity and network solutions that are future-proof, scalable, and tailored to your exact IT security needs.</p>
+            </div>
+            <div className="premium-service-card">
+              <div className="premium-icon-wrapper"><img src="/assets/images/leadership.png" alt="leadership" /></div>
+              <p><strong>20+ Years of Cybersecurity Leadership</strong> With two decades of proven expertise, we provide PAM implementations, vulnerability assessments, and enterprise IT security solutions for campuses, data centres, and enterprises across India.</p>
+            </div>
+            <div className="premium-service-card">
+              <div className="premium-icon-wrapper"><img src="/assets/images/luxury.png" alt="luxury" /></div>
+              <p><strong>Customer‑First, Value‑Driven</strong> Our cost-effective PAM services ensure maximum security with right-sized solutions, reducing risks and delivering the lowest total cost of ownership (TCO).</p>
+            </div>
+            <div className="premium-service-card">
+              <div className="premium-icon-wrapper"><img src="/assets/images/technical-support.png" alt="technical-support" /></div>
+              <p><strong>Local Presence with Rapid IT Support</strong> Trace Network engineers are available in Hyderabad, Bengaluru, Chennai, Vijayawada, and Vizag, ensuring quick on-site support whenever you need them.</p>
+            </div>
+            <div className="premium-service-card">
+              <div className="premium-icon-wrapper"><img src="/assets/images/iso-certificate.png" alt="iso-certificate" /></div>
+              <p><strong>ISO 27001‑Certified Cybersecurity Provider</strong> As an ISO 27001-certified company, we follow stringent change management and compliance practices, aligning with global information security standards.</p>
+            </div>
+            <div className="premium-service-card">
+              <div className="premium-icon-wrapper"><img src="/assets/images/frame.png" alt="frame" /></div>
+              <p><strong>Proven PAM Deployment Framework</strong> Our structured approach, Assess → Design → Deploy → Optimise → Support, minimises downtime and ensures maximum ROI from your identity security investments.</p>
+            </div>
+            <div className="premium-service-card">
+              <div className="premium-icon-wrapper"><img src="/assets/images/agile.png" alt="agile" /></div>
+              <p><strong>Flexible MSSP &amp; Security Pricing Models</strong> Choose from CapEx, OpEx, or Managed Security Service Provider models to align PAM investments with your organisation's business goals.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
+}

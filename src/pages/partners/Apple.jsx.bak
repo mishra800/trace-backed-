@@ -1,0 +1,314 @@
+﻿import React from 'react';
+import { Link } from 'react-router-dom';
+import UseCaseSlider from '../../components/UseCaseSlider';
+import { useAwardsSlider } from '../../hooks/useAwardsSlider';
+import './Apple.css';
+
+const appleUseCases = [
+  { id: 'it', category: 'IT & SOFTWARE', icon: 'fas fa-laptop', title: 'IT & Software Companies (Development Infrastructure)', description: 'Problem: Software companies require high-performance and reliable devices for coding, testing, DevOps, and hybrid workforce operations.', image: '/assets/images/use-cases/usecase6.png', linkTo: '/case-studies' },
+  { id: 'media', category: 'MEDIA', icon: 'fas fa-film', title: 'Media & Creative Industry (Creative Workstations)', description: 'Problem: Creative teams require powerful systems for video editing, animation, designing, rendering, and content production.', image: '/assets/images/use-cases/usecase5.png', linkTo: '/case-studies' },
+  { id: 'education', category: 'EDUCATION', icon: 'fas fa-graduation-cap', title: 'Education Sector (Digital Learning Environment)', description: 'Problem: Educational institutions require secure and reliable devices for faculty, students, digital classrooms, and content creation.', image: '/assets/images/use-cases/usecase2.png', linkTo: '/case-studies' },
+  { id: 'healthcare', category: 'HEALTHCARE', icon: 'fas fa-hospital', title: 'Healthcare Sector (Medical & Administrative Operations)', description: 'Problem: Hospitals require reliable devices for administration, diagnostics, telemedicine, and patient management.', image: '/assets/images/use-cases/usecase5.png', linkTo: '/case-studies' },
+  { id: 'enterprise', category: 'ENTERPRISE', icon: 'fas fa-building', title: 'Corporate Enterprises & Hybrid Workforce (Executive Computing)', description: 'Problem: Organizations require secure, lightweight, and high-performance devices for executives and hybrid workforce operations.', image: '/assets/images/use-cases/usecase7.png', linkTo: '/case-studies' },
+  { id: 'design', category: 'DESIGN & ANIMATION', icon: 'fas fa-palette', title: 'Design & Animation Studios (High-Performance Creative Infrastructure)', description: 'Problem: Studios require high-performance systems for 3D rendering, animation, graphic design, and multimedia production.', image: '/assets/images/use-cases/usecase4.png', linkTo: '/case-studies' },
+];
+
+export default function Apple() {
+  useAwardsSlider();
+  return (
+    <div className="apple-page apl-v2-page">
+
+      {/* ── HERO ── */}
+      <section className="apl2-hero">
+        <div className="apl2-hero-glow-left" aria-hidden="true"></div>
+        <div className="apl2-hero-glow-right" aria-hidden="true"></div>
+        <div className="apl2-hero-inner container">
+
+          <div className="apl2-left" data-aos="fade-right" data-aos-duration="900">
+            <h1 className="apl2-headline">
+              Apple MacBook, iMac<br />
+              &amp; Mac Solutions for<br />
+              <span className="apl2-headline-accent">Premium Modern Enterprises</span>
+            </h1>
+            <div className="apl2-headline-rule"></div>
+            <p className="apl2-desc">
+              Premium performance, seamless ecosystem integration, and advanced security for modern enterprises – delivered by{' '}
+              <a href="/contact-us" className="apl2-desc-link">Trace Network &amp; Engineering.</a>
+            </p>
+
+            <div className="apl2-feature-row">
+              <div className="apl2-feat">
+                <div className="apl2-feat-icon"><i className="fas fa-microchip"></i></div>
+                <div className="apl2-feat-body"><strong>Apple Silicon Performance</strong><span>Unmatched power efficiency for enterprise workloads.</span></div>
+              </div>
+              <div className="apl2-feat">
+                <div className="apl2-feat-icon"><i className="fas fa-shield-alt"></i></div>
+                <div className="apl2-feat-body"><strong>Advanced Security</strong><span>Touch ID, FileVault, Gatekeeper &amp; macOS Sequoia.</span></div>
+              </div>
+              <div className="apl2-feat">
+                <div className="apl2-feat-icon"><i className="fas fa-layer-group"></i></div>
+                <div className="apl2-feat-body"><strong>Seamless Ecosystem</strong><span>Mac, iPhone, iPad &amp; iCloud working in harmony.</span></div>
+              </div>
+            </div>
+
+            <div className="apl2-stats-row">
+              <div className="apl2-stat-card"><i className="fas fa-laptop"></i><div><span className="apl2-stat-num">1000+</span><span className="apl2-stat-lbl">ENTERPRISE<br />DEPLOYMENTS</span></div></div>
+              <div className="apl2-stat-card"><i className="fas fa-clock"></i><div><span className="apl2-stat-num">6hrs</span><span className="apl2-stat-lbl">ISSUE<br />RESOLUTION</span></div></div>
+              <div className="apl2-stat-card apl2-stat-brand">
+                <img src="/assets/images/partners/APPLE-2.jpg" alt="Apple" className="apl2-brand-logo" onError={e=>{e.target.style.opacity='0.3';}} />
+                <span className="apl2-stat-lbl">AUTHORIZED<br />PARTNER</span>
+              </div>
+            </div>
+
+            <div className="apl2-cta-row">
+              <a href="#apl-portfolio" className="apl2-btn-primary">Explore Apple Solutions <i className="fas fa-arrow-right"></i></a>
+              <a href="/contact-us" className="apl2-btn-ghost">Talk to Our Experts <i className="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+
+          <div className="apl2-right" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
+            <div className="apl2-product-glow" aria-hidden="true"></div>
+            <div className="apl2-showcase">
+              <img src="/assets/images/partners/APPLE-2.jpg" alt="Apple MacBook Pro, iMac and Mac Studio" className="apl2-hero-product-img" onError={e=>{e.target.style.opacity='0.3';}} />
+            </div>
+            <div className="apl2-industry-strip">
+              <span className="apl2-ind-item"><i className="fas fa-laptop"></i> IT &amp; Software</span>
+              <span className="apl2-ind-sep"></span>
+              <span className="apl2-ind-item"><i className="fas fa-film"></i> Media</span>
+              <span className="apl2-ind-sep"></span>
+              <span className="apl2-ind-item"><i className="fas fa-palette"></i> Design</span>
+              <span className="apl2-ind-sep"></span>
+              <span className="apl2-ind-item"><i className="fas fa-graduation-cap"></i> Education</span>
+              <span className="apl2-ind-sep"></span>
+              <span className="apl2-ind-item"><i className="fas fa-building"></i> Enterprise</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── WHY CHOOSE ── */}
+      <section className="apl2-why-section">
+        <div className="apl2-why-container">
+          <div className="apl2-why-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="apl2-why-badge"><i className="fas fa-star"></i><span>AUTHORIZED APPLE DEVICE SOLUTIONS PARTNER.</span></div>
+            <h2 className="apl2-why-title">Why Choose <span className="apl2-why-accent">Apple &amp;</span><br /><span className="apl2-why-accent">Trace Network &amp; Engineering?</span></h2>
+            <p className="apl2-why-subtitle">Premium technology. Proven expertise. Seamless enterprise deployment.</p>
+            <div className="apl2-why-title-rule"></div>
+          </div>
+
+          <div className="apl2-why-card-outer" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
+            <div className="apl2-why-panel apl2-why-panel-left">
+              <div className="apl2-why-icon-circle"><i className="fas fa-laptop"></i></div>
+              <p className="apl2-why-card-sup">Why Choose</p>
+              <h3 className="apl2-why-card-title">Apple Solutions?</h3>
+              <p className="apl2-why-card-desc">Apple is a global leader in premium business computing delivering high-performance laptops, desktops, and enterprise productivity solutions for modern organizations with advanced security and exceptional user experience.</p>
+              <ul className="apl2-why-list">
+                <li><span className="apl2-why-list-icon"><i className="fas fa-microchip"></i></span><span>Apple Silicon – M4, M4 Pro &amp; M4 Max<br /><small>unmatched performance per watt</small></span></li>
+                <li><span className="apl2-why-list-icon"><i className="fas fa-shield-alt"></i></span><span>Advanced security: Touch ID, FileVault,<br /><small>Gatekeeper &amp; macOS built-in protection</small></span></li>
+                <li><span className="apl2-why-list-icon"><i className="fas fa-layer-group"></i></span><span>Seamless Apple ecosystem<br /><small>Mac, iPhone, iPad &amp; cloud integration</small></span></li>
+                <li><span className="apl2-why-list-icon"><i className="fas fa-th-large"></i></span><span>Complete portfolio: MacBook Air, MacBook Pro,<br /><small>iMac, Mac Mini, Mac Studio &amp; Mac Pro</small></span></li>
+                <li><span className="apl2-why-list-icon"><i className="fas fa-battery-full"></i></span><span>Exceptional battery life &amp; build quality<br /><small>for executive &amp; creative professionals</small></span></li>
+              </ul>
+            </div>
+            <div className="apl2-why-panel apl2-why-panel-right">
+              <div className="apl2-why-icon-circle apl2-why-icon-alt"><i className="fas fa-building"></i></div>
+              <p className="apl2-why-card-sup">Why Choose</p>
+              <h3 className="apl2-why-card-title apl2-why-card-title-alt">Trace Network &amp; Engineering?</h3>
+              <p className="apl2-why-card-desc">Trace Network &amp; Engineering Pvt Ltd is a trusted Apple partner delivering end-to-end expertise across Apple device and productivity solutions. With certified professionals and 1000+ successful enterprise IT deployments, Trace provides consultative design and lifecycle management.</p>
+              <ul className="apl2-why-list apl2-why-list-check">
+                <li><span className="apl2-why-list-icon apl2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>Issues addressed within 6 hours of complaint</span></li>
+                <li><span className="apl2-why-list-icon apl2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>1000+ successful enterprise IT deployments</span></li>
+                <li><span className="apl2-why-list-icon apl2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>End-to-end: devices, networking, cybersecurity &amp; cloud</span></li>
+                <li><span className="apl2-why-list-icon apl2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>Multi-channel support: Email, WhatsApp, Phone &amp; portal</span></li>
+                <li><span className="apl2-why-list-icon apl2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>Customer-first approach with fast deployment &amp; long-term support</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="apl2-why-stats-bar" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <div className="apl2-why-stat"><div className="apl2-why-stat-icon"><i className="fas fa-microchip"></i></div><div className="apl2-why-stat-text"><strong>Apple Silicon</strong><span>best-in-class performance</span></div></div>
+            <div className="apl2-why-stat-sep" aria-hidden="true"></div>
+            <div className="apl2-why-stat"><div className="apl2-why-stat-icon"><i className="fas fa-shield-alt"></i></div><div className="apl2-why-stat-text"><strong>Secure</strong><span>hardware-level protection</span></div></div>
+            <div className="apl2-why-stat-sep" aria-hidden="true"></div>
+            <div className="apl2-why-stat"><div className="apl2-why-stat-icon"><i className="fas fa-layer-group"></i></div><div className="apl2-why-stat-text"><strong>Ecosystem</strong><span>seamlessly connected</span></div></div>
+            <div className="apl2-why-stat-sep" aria-hidden="true"></div>
+            <div className="apl2-why-stat"><div className="apl2-why-stat-icon"><i className="fas fa-handshake"></i></div><div className="apl2-why-stat-text"><strong>Trusted</strong><span>authorized partnership</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PORTFOLIO ── */}
+      <section className="apl2-port-section" id="apl-portfolio">
+        <div className="apl2-port-container">
+          <div className="apl2-port-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="apl2-port-header-icon" aria-hidden="true"><i className="fas fa-laptop"></i></div>
+            <h2 className="apl2-port-title">Complete <span className="apl2-port-accent">Apple</span> Portfolio</h2>
+            <div className="apl2-port-title-decor" aria-hidden="true"><span className="apl2-port-decor-line"></span><span className="apl2-port-decor-dot"></span><span className="apl2-port-decor-line"></span></div>
+            <p className="apl2-port-subtitle">End-to-end Apple device and productivity solutions for every business need</p>
+          </div>
+
+          <div className="apl2-port-top-row">
+            <div className="apl2-port-card" data-aos="fade-up" data-aos-duration="800">
+              <div className="apl2-port-card-img apl2-port-img-a"><div className="apl2-port-card-img-overlay"></div></div>
+              <div className="apl2-port-card-body">
+                <div className="apl2-port-card-icon"><i className="fas fa-laptop"></i></div>
+                <h3 className="apl2-port-card-title">Apple <span className="apl2-port-accent">Business Laptops</span></h3>
+                <p className="apl2-port-card-desc">Powerful, ultra-thin laptops with Apple Silicon for enterprise productivity anywhere.</p>
+                <ul className="apl2-port-list"><li><i className="fas fa-check"></i>MacBook Air (M3 &amp; M4)</li><li><i className="fas fa-check"></i>MacBook Pro (M4 Pro &amp; Max)</li><li><i className="fas fa-check"></i>Enterprise deployment &amp; MDM ready</li></ul>
+                <a href="/contact-us" className="apl2-port-link">Explore MacBooks <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="apl2-port-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+              <div className="apl2-port-card-img apl2-port-img-b"><div className="apl2-port-card-img-overlay"></div></div>
+              <div className="apl2-port-card-body">
+                <div className="apl2-port-card-icon"><i className="fas fa-desktop"></i></div>
+                <h3 className="apl2-port-card-title">Apple <span className="apl2-port-accent">Desktop Solutions</span></h3>
+                <p className="apl2-port-card-desc">Stunning all-in-ones and powerhouse desktops for creative and enterprise workloads.</p>
+                <ul className="apl2-port-list"><li><i className="fas fa-check"></i>iMac (M4)</li><li><i className="fas fa-check"></i>Mac Mini &amp; Mac Studio</li><li><i className="fas fa-check"></i>Mac Pro for intensive workloads</li></ul>
+                <a href="/contact-us" className="apl2-port-link">Explore Desktops <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="apl2-port-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+              <div className="apl2-port-card-img apl2-port-img-c"><div className="apl2-port-card-img-overlay"></div></div>
+              <div className="apl2-port-card-body">
+                <div className="apl2-port-card-icon"><i className="fas fa-building"></i></div>
+                <h3 className="apl2-port-card-title">Enterprise <span className="apl2-port-accent">Productivity</span></h3>
+                <p className="apl2-port-card-desc">Seamless hybrid work experience with Apple's integrated productivity ecosystem.</p>
+                <ul className="apl2-port-list"><li><i className="fas fa-check"></i>Hybrid workplace enablement</li><li><i className="fas fa-check"></i>Collaboration tools integration</li><li><i className="fas fa-check"></i>Creative and development environments</li></ul>
+                <a href="/contact-us" className="apl2-port-link">Explore Solutions <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div className="apl2-port-bottom-row" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+            <div className="apl2-port-dc-card">
+              <div className="apl2-port-dc-img"><div className="apl2-port-dc-img-overlay"></div></div>
+              <div className="apl2-port-dc-body">
+                <div className="apl2-port-card-icon apl2-port-dc-icon"><i className="fas fa-mobile-alt"></i></div>
+                <h3 className="apl2-port-card-title">Mobility &amp; <span className="apl2-port-accent">Remote Work</span></h3>
+                <p className="apl2-port-card-desc">Secure remote workforce devices with enterprise management and deployment solutions.</p>
+                <ul className="apl2-port-list"><li><i className="fas fa-check"></i>Secure remote workforce devices</li><li><i className="fas fa-check"></i>Device management (MDM) integration</li><li><i className="fas fa-check"></i>Enterprise deployment solutions</li></ul>
+                <a href="/contact-us" className="apl2-port-link">Explore <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="apl2-port-why-panel">
+              <h3 className="apl2-port-why-title">Why Choose <span className="apl2-port-accent">Apple?</span></h3>
+              <div className="apl2-port-why-grid">
+                <div className="apl2-port-why-item"><div className="apl2-port-why-icon"><i className="fas fa-microchip"></i></div><strong>Apple Silicon</strong><span>Fastest chips ever built.</span></div>
+                <div className="apl2-port-why-item"><div className="apl2-port-why-icon"><i className="fas fa-shield-alt"></i></div><strong>Secure</strong><span>Hardware-level protection.</span></div>
+                <div className="apl2-port-why-item"><div className="apl2-port-why-icon"><i className="fas fa-layer-group"></i></div><strong>Ecosystem</strong><span>Unified device experience.</span></div>
+                <div className="apl2-port-why-item"><div className="apl2-port-why-icon"><i className="fas fa-palette"></i></div><strong>Premium Design</strong><span>Iconic hardware craftsmanship.</span></div>
+              </div>
+              <div className="apl2-port-cta-bar">
+                <div className="apl2-port-cta-icon"><i className="fas fa-comments"></i></div>
+                <div className="apl2-port-cta-text"><strong>Need help choosing the right Apple device?</strong><span>Our experts are here to help.</span></div>
+                <a href="/contact-us" className="apl2-port-cta-btn">Talk to an Expert <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── INDUSTRIES ── */}
+      <section className="apl2-ind-section">
+        <div className="apl2-ind-bg-glow apl2-ind-bg-glow-left" aria-hidden="true"></div>
+        <div className="apl2-ind-bg-glow apl2-ind-bg-glow-right" aria-hidden="true"></div>
+        <div className="apl2-ind-container">
+          <div className="apl2-ind-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="apl2-ind-badge"><span className="apl2-ind-badge-dot"></span><i className="fas fa-crown"></i><span>TRUSTED ACROSS INDUSTRIES</span><span className="apl2-ind-badge-dot"></span></div>
+            <h2 className="apl2-ind-title">Industries Where <span className="apl2-ind-accent">Apple</span><br /><span className="apl2-ind-accent">Solutions</span> Excel</h2>
+            <p className="apl2-ind-subtitle">Trusted across diverse sectors for premium, high-performance computing</p>
+          </div>
+          <div className="apl2-ind-grid">
+            {[
+              { cls:'silver',   icon:'fa-laptop',        num:'01', title:'IT & Software Companies',     desc:'High-performance development infrastructure for DevOps and engineering teams.' },
+              { cls:'rose',     icon:'fa-film',          num:'02', title:'Media & Creative Industry',   desc:'Powerful workstations for video editing, animation, and content production.' },
+              { cls:'platinum', icon:'fa-graduation-cap',num:'03', title:'Education Institutions',      desc:'Secure, reliable devices for digital classrooms and faculty.' },
+              { cls:'gold',     icon:'fa-hospital',      num:'04', title:'Healthcare & Hospitals',      desc:'Reliable devices for administration, diagnostics, and telemedicine.' },
+              { cls:'slate',    icon:'fa-building',      num:'05', title:'Corporate Enterprises',       desc:'Sleek, powerful devices for executive and hybrid workforces.' },
+              { cls:'warm',     icon:'fa-palette',       num:'06', title:'Design & Animation Studios',  desc:'Mac Pro and Mac Studio for intensive 3D rendering and design workloads.' },
+            ].map(({ cls, icon, num, title, desc }) => (
+              <div key={num} className={`apl2-ind-card apl2-ind-card-${cls}`} data-aos="fade-up" data-aos-duration="700">
+                <div className="apl2-ind-card-top">
+                  <div className={`apl2-ind-icon-wrap apl2-ind-icon-${cls}`}><i className={`fas ${icon}`}></i></div>
+                  <span className="apl2-ind-num">{num}</span>
+                </div>
+                <div className={`apl2-ind-num-rule apl2-ind-rule-${cls}`}></div>
+                <h3 className="apl2-ind-card-title">{title}</h3>
+                <p className="apl2-ind-card-desc">{desc}</p>
+                <a href="/contact-us" className={`apl2-ind-arrow apl2-ind-arrow-${cls}`} aria-label={`Learn more about ${title}`}><i className="fas fa-arrow-right"></i></a>
+                <div className="apl2-ind-card-bg-pattern" aria-hidden="true"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases */}
+      <UseCaseSlider useCases={appleUseCases} partnerColor="#c0c0c0" title="Apple Laptop & Desktop Use Cases" subtitle="Successfully Delivered by Trace Network across diverse industry sectors" />
+
+      {/* Awards */}
+      <section className="awards-section">
+        <div className="section-title text-center">
+          <div className="section-title__tagline-box"><div className="section-title__tagline-shape-1"></div><span className="section-title__tagline">Awards</span><div className="section-title__tagline-shape-2"></div></div>
+          <h2 className="section-title__title">Recognized &amp; Trusted <span>for Delivering </span><br />Value &amp; Excellence</h2>
+        </div>
+        <div className="awards-slider"><div className="awards-track">
+          {[1,2,3,4,5,6,7,11,12,13,14,15,16,17,18,19].map(n => (
+            <div key={n} className="award-card"><img src={`/assets/images/award/${n}.png`} alt={`Award ${n}`} /><span>Award {n}</span></div>
+          ))}
+        </div></div>
+      </section>
+
+      {/* Why Leading Brands */}
+      <section className="premium-cards-section" style={{ marginTop: '-20px' }}>
+        <div className="premium-container">
+          <div className="section-title text-center pb-4"><h2 className="section-title__title">Why Leading<span> Brands</span> Choose<span> Trace</span></h2></div>
+          <div className="premium-card-grid">
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/certified.png" alt="certified" /></div><p><strong>Multi‑vendor, Certified Network Security Expertise</strong> Partnering with 40+ global OEMs, Trace Network offers future-proof, scalable solutions.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/leadership.png" alt="leadership" /></div><p><strong>20+ Years of Cybersecurity Leadership</strong> Two decades of proven expertise in enterprise IT security solutions across India.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/luxury.png" alt="luxury" /></div><p><strong>Customer‑First, Value‑Driven</strong> Maximum protection with right-sized solutions and lowest TCO.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/technical-support.png" alt="technical-support" /></div><p><strong>Local Presence with Rapid IT Support</strong> Engineers available in Hyderabad, Bengaluru, Chennai, Vijayawada, and Vizag.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/iso-certificate.png" alt="iso-certificate" /></div><p><strong>ISO 27001‑Certified Cybersecurity Provider</strong> Stringent change management and global compliance practices.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/frame.png" alt="frame" /></div><p><strong>Proven Deployment Framework</strong> Assess → Design → Deploy → Optimise → Support for maximum ROI.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/agile.png" alt="agile" /></div><p><strong>Flexible Pricing Models</strong> CapEx, OpEx, or MSSP models aligned with your business goals.</p></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Career CTA */}
+      <section className="career-cta-section">
+        <div className="career-cta-container">
+          <h2 className="career-cta-title">Ready to Build a Future-Ready IT Environment?</h2>
+          <p className="career-cta-text">Speak with a senior consultant today. In 30 minutes you'll know:<br /><br />• The top three risks hiding in your current stack<br />• Quick wins that boost performance without new hardware<br />• An exact timeline &amp; cost estimate—no obligations</p>
+          <div className="about-two__btn-box"><a href="tel:9000314411" className="btn-get-started"><span className="btn-text">Book Your Free Strategy Call </span><span className="btn-arrow"></span></a></div>
+        </div>
+      </section>
+
+      {/* Special Offer */}
+      <section className="apl2-offer-section" data-aos="zoom-in" data-aos-duration="1000">
+        <div className="apl2-offer-container">
+          <div className="apl2-offer-banner">
+            <div className="apl2-offer-glow"></div>
+            <div className="apl2-offer-content">
+              <div className="apl2-offer-badge"><i className="fas fa-gift"></i> SPECIAL OFFER</div>
+              <h2 className="apl2-offer-title">FREE POC Available</h2>
+              <p className="apl2-offer-subtitle">Exclusive Offers on Apple MacBooks &amp; Desktop Devices</p>
+              <p className="apl2-offer-desc">Experience the power of Apple devices firsthand – zero risk, zero commitment. Our certified team will set up a complete proof of concept tailored to your environment so you can see measurable results before you invest.</p>
+              <div className="apl2-offer-highlights">
+                <div className="apl2-offer-point"><span className="apl2-offer-check">✓</span> FREE Infrastructure Assessment</div>
+                <div className="apl2-offer-point"><span className="apl2-offer-check">✓</span> FREE Solution Consultation</div>
+                <div className="apl2-offer-point"><span className="apl2-offer-check">✓</span> Special Enterprise Pricing</div>
+                <div className="apl2-offer-point"><span className="apl2-offer-check">✓</span> Deployment &amp; Configuration Support</div>
+                <div className="apl2-offer-point"><span className="apl2-offer-check">✓</span> Priority Technical Assistance</div>
+              </div>
+              <Link to="/contact-us" className="apl2-contact-btn"><i className="fas fa-phone-alt"></i> Contact Trace Network →</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
+}

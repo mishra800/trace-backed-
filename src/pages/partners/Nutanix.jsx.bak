@@ -1,0 +1,400 @@
+﻿import React from 'react';
+import { Link } from 'react-router-dom';
+import UseCaseSlider from '../../components/UseCaseSlider';
+import { useAwardsSlider } from '../../hooks/useAwardsSlider';
+import './Nutanix.css';
+
+const nutanixUseCases = [
+  { id: 'manufacturing', category: 'MANUFACTURING', icon: 'fas fa-industry', title: 'Manufacturing Industry (Smart Factory with Nutanix HCI)', description: 'Problem: Manufacturing units need high availability, real-time processing, and centralized IT infrastructure for production systems and IoT.', image: '/assets/images/use-cases/usecase7.png', linkTo: '/case-studies' },
+  { id: 'education', category: 'EDUCATION', icon: 'fas fa-graduation-cap', title: 'Education Sector (Modern Campus IT Infrastructure)', description: 'Problem: Educational institutions require scalable, cost-effective IT infrastructure to support digital learning and applications.', image: '/assets/images/use-cases/usecase2.png', linkTo: '/case-studies' },
+  { id: 'enterprise', category: 'ENTERPRISE', icon: 'fas fa-building', title: 'Large-Scale Enterprises (Cloud & Data Center Modernization)', description: 'Problem: Enterprises need scalable, flexible, and high-performance infrastructure to support business-critical applications.', image: '/assets/images/use-cases/usecase6.png', linkTo: '/case-studies' },
+  { id: 'bfsi', category: 'BANKING', icon: 'fas fa-university', title: 'BFSI (High Availability Core Banking Infrastructure)', description: 'Problem: Banks require always-on infrastructure with self-healing capabilities for core banking and payment systems.', image: '/assets/images/use-cases/usecase4.png', linkTo: '/case-studies' },
+  { id: 'healthcare', category: 'HEALTHCARE', icon: 'fas fa-hospital', title: 'Healthcare (Clinical Workload Virtualization)', description: 'Problem: Hospitals need scalable HCI for clinical applications, medical imaging, and electronic health record systems.', image: '/assets/images/use-cases/usecase5.png', linkTo: '/case-studies' },
+  { id: 'cloud', category: 'CLOUD', icon: 'fas fa-cloud', title: 'Cloud & Hybrid (Multi-Cloud Infrastructure Management)', description: 'Problem: Organizations need unified management for hybrid and multi-cloud workloads with consistent governance.', image: '/assets/images/use-cases/usecase3.png', linkTo: '/case-studies' },
+];
+
+export default function Nutanix() {
+  useAwardsSlider();
+  return (
+    <div className="nutanix-page ntx-v2-page">
+
+      {/* -- HERO -- */}
+      <section className="ntx2-hero">
+        <div className="ntx2-hero-glow-left" aria-hidden="true"></div>
+        <div className="ntx2-hero-glow-right" aria-hidden="true"></div>
+        <div className="ntx2-hero-inner container">
+
+          <div className="ntx2-left" data-aos="fade-right" data-aos-duration="900">
+            <h1 className="ntx2-headline">
+              Nutanix Hyperconverged<br />
+              Infrastructure &amp; Cloud<br />
+              <span className="ntx2-headline-accent">Platform Solutions</span>
+            </h1>
+            <div className="ntx2-headline-rule"></div>
+            <p className="ntx2-desc">
+              Modernize your IT with enterprise-grade Nutanix HCI — one-click management, 97% less downtime, and 43% TCO reduction — delivered by{' '}
+              <a href="/contact-us" className="ntx2-desc-link">Trace Network &amp; Engineering.</a>
+            </p>
+
+            <div className="ntx2-feature-row">
+              <div className="ntx2-feat">
+                <div className="ntx2-feat-icon"><i className="fas fa-chart-line"></i></div>
+                <div className="ntx2-feat-body"><strong>Reduce TCO by 43%</strong><span>Significant ROI from simplified IT operations.</span></div>
+              </div>
+              <div className="ntx2-feat">
+                <div className="ntx2-feat-icon"><i className="fas fa-clock"></i></div>
+                <div className="ntx2-feat-body"><strong>One-Click Management</strong><span>Unified compute, storage &amp; networking.</span></div>
+              </div>
+              <div className="ntx2-feat">
+                <div className="ntx2-feat-icon"><i className="fas fa-shield-alt"></i></div>
+                <div className="ntx2-feat-body"><strong>97% Less Downtime</strong><span>Self-healing infrastructure always available.</span></div>
+              </div>
+            </div>
+
+            <div className="ntx2-stats-row">
+              <div className="ntx2-stat-card"><i className="fas fa-chart-line"></i><div><span className="ntx2-stat-num">43%</span><span className="ntx2-stat-lbl">TCO<br />REDUCTION</span></div></div>
+              <div className="ntx2-stat-card"><i className="fas fa-shield-alt"></i><div><span className="ntx2-stat-num">97%</span><span className="ntx2-stat-lbl">LESS<br />DOWNTIME</span></div></div>
+              <div className="ntx2-stat-card ntx2-stat-brand">
+                <img src="/assets/images/partners/nutanix.png" alt="Nutanix" className="ntx2-brand-logo" onError={e=>{e.target.style.opacity='0.3';}} />
+                <span className="ntx2-stat-lbl">CERTIFIED<br />PARTNER</span>
+              </div>
+            </div>
+
+            <div className="ntx2-cta-row">
+              <a href="#ntx-portfolio" className="ntx2-btn-primary">Explore Nutanix Solutions <i className="fas fa-arrow-right"></i></a>
+              <a href="/contact-us" className="ntx2-btn-ghost">Talk to Our Experts <i className="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+
+          <div className="ntx2-right" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
+            <div className="ntx2-product-glow" aria-hidden="true"></div>
+            <div className="ntx2-showcase">
+              <img src="/assets/images/partners/nutanix.png" alt="Nutanix HCI Platform" className="ntx2-hero-product-img" onError={e=>{e.target.style.opacity='0.3';}} />
+            </div>
+            <div className="ntx2-industry-strip">
+              <span className="ntx2-ind-item"><i className="fas fa-server"></i> Compute</span>
+              <span className="ntx2-ind-sep"></span>
+              <span className="ntx2-ind-item"><i className="fas fa-database"></i> Storage</span>
+              <span className="ntx2-ind-sep"></span>
+              <span className="ntx2-ind-item"><i className="fas fa-network-wired"></i> Networking</span>
+              <span className="ntx2-ind-sep"></span>
+              <span className="ntx2-ind-item"><i className="fas fa-cloud"></i> Cloud</span>
+              <span className="ntx2-ind-sep"></span>
+              <span className="ntx2-ind-item"><i className="fas fa-brain"></i> AI-Ready</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* -- WHY CHOOSE -- */}
+      <section className="ntx2-why-section">
+        <div className="ntx2-why-container">
+          <div className="ntx2-why-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="ntx2-why-badge"><i className="fas fa-cloud"></i><span>LEADING NUTANIX HCI PARTNER IN INDIA.</span></div>
+            <h2 className="ntx2-why-title">Why Choose <span className="ntx2-why-accent">Nutanix &amp;</span><br /><span className="ntx2-why-accent">Trace Network &amp; Engineering?</span></h2>
+            <p className="ntx2-why-subtitle">Simplified IT. Measurable transformation. Partnership you can rely on.</p>
+            <div className="ntx2-why-title-rule"></div>
+          </div>
+
+          <div className="ntx2-why-card-outer" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
+            <div className="ntx2-why-panel ntx2-why-panel-left">
+              <div className="ntx2-why-icon-circle"><i className="fas fa-cloud"></i></div>
+              <p className="ntx2-why-card-sup">Why Choose</p>
+              <h3 className="ntx2-why-card-title">Nutanix Solutions?</h3>
+              <p className="ntx2-why-card-desc">Nutanix is the world's leading hyperconverged infrastructure platform, providing enterprise-grade compute, storage, networking, and cloud management in a single software stack — no vendor lock-in.</p>
+              <ul className="ntx2-why-list">
+                <li><span className="ntx2-why-list-icon"><i className="fas fa-chart-line"></i></span><span>Reduce TCO by 43%<br /><small>simplified operations &amp; optimized costs</small></span></li>
+                <li><span className="ntx2-why-list-icon"><i className="fas fa-clock"></i></span><span>One-Click Management<br /><small>unified control for compute, storage &amp; networking</small></span></li>
+                <li><span className="ntx2-why-list-icon"><i className="fas fa-shield-alt"></i></span><span>97% Less Downtime<br /><small>self-healing infrastructure for critical workloads</small></span></li>
+                <li><span className="ntx2-why-list-icon"><i className="fas fa-brain"></i></span><span>AI-Ready Platform<br /><small>purpose-built for modern AI at enterprise scale</small></span></li>
+                <li><span className="ntx2-why-list-icon"><i className="fas fa-lock"></i></span><span>Enterprise-Grade Security<br /><small>flexible, open, secure by design</small></span></li>
+              </ul>
+            </div>
+            <div className="ntx2-why-panel ntx2-why-panel-right">
+              <div className="ntx2-why-icon-circle ntx2-why-icon-alt"><i className="fas fa-server"></i></div>
+              <p className="ntx2-why-card-sup">Why Choose</p>
+              <h3 className="ntx2-why-card-title ntx2-why-card-title-alt">Trace Network &amp; Engineering?</h3>
+              <p className="ntx2-why-card-desc">Trace Network &amp; Engineering Pvt Ltd is a trusted Nutanix partner delivering end-to-end HCI deployments with certified professionals ensuring measurable IT transformation.</p>
+              <ul className="ntx2-why-list ntx2-why-list-check">
+                <li><span className="ntx2-why-list-icon ntx2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>Issues addressed within 6 hours of complaint</span></li>
+                <li><span className="ntx2-why-list-icon ntx2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>Certified Nutanix experts for deployment &amp; optimization</span></li>
+                <li><span className="ntx2-why-list-icon ntx2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>Complete HCI lifecycle: assess, deploy &amp; support</span></li>
+                <li><span className="ntx2-why-list-icon ntx2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>Multi-channel support: Email, WhatsApp &amp; portal</span></li>
+                <li><span className="ntx2-why-list-icon ntx2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>Solutions for enterprise, BFSI, healthcare &amp; manufacturing</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="ntx2-why-stats-bar" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <div className="ntx2-why-stat"><div className="ntx2-why-stat-icon"><i className="fas fa-chart-line"></i></div><div className="ntx2-why-stat-text"><strong>43% TCO Reduction</strong><span>proven cost savings</span></div></div>
+            <div className="ntx2-why-stat-sep" aria-hidden="true"></div>
+            <div className="ntx2-why-stat"><div className="ntx2-why-stat-icon"><i className="fas fa-clock"></i></div><div className="ntx2-why-stat-text"><strong>One-Click</strong><span>unified management</span></div></div>
+            <div className="ntx2-why-stat-sep" aria-hidden="true"></div>
+            <div className="ntx2-why-stat"><div className="ntx2-why-stat-icon"><i className="fas fa-cloud"></i></div><div className="ntx2-why-stat-text"><strong>Cloud Ready</strong><span>multi-cloud &amp; hybrid</span></div></div>
+            <div className="ntx2-why-stat-sep" aria-hidden="true"></div>
+            <div className="ntx2-why-stat"><div className="ntx2-why-stat-icon"><i className="fas fa-handshake"></i></div><div className="ntx2-why-stat-text"><strong>Trusted</strong><span>certified Nutanix partner</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      {/* -- PORTFOLIO -- */}
+      <section className="ntx2-port-section" id="ntx-portfolio">
+        <div className="ntx2-port-container">
+          <div className="ntx2-port-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="ntx2-port-header-icon" aria-hidden="true"><i className="fas fa-cloud"></i></div>
+            <h2 className="ntx2-port-title">Complete <span className="ntx2-port-accent">Nutanix</span> Portfolio</h2>
+            <div className="ntx2-port-title-decor" aria-hidden="true"><span className="ntx2-port-decor-line"></span><span className="ntx2-port-decor-dot"></span><span className="ntx2-port-decor-line"></span></div>
+            <p className="ntx2-port-subtitle">End-to-end hyperconverged infrastructure and cloud solutions for every enterprise need</p>
+          </div>
+
+          <div className="ntx2-port-top-row">
+            <div className="ntx2-port-card" data-aos="fade-up" data-aos-duration="800">
+              <div className="ntx2-port-card-img ntx2-port-img-a"><div className="ntx2-port-card-img-overlay"></div></div>
+              <div className="ntx2-port-card-body">
+                <div className="ntx2-port-card-icon"><i className="fas fa-server"></i></div>
+                <h3 className="ntx2-port-card-title">HCI &amp; <span className="ntx2-port-accent">Infrastructure</span></h3>
+                <p className="ntx2-port-card-desc">Consolidate compute, storage, and networking with Nutanix AOS and AHV hypervisor.</p>
+                <ul className="ntx2-port-list"><li><i className="fas fa-check"></i>Nutanix AOS Platform</li><li><i className="fas fa-check"></i>AHV Hypervisor</li><li><i className="fas fa-check"></i>Prism Central management</li></ul>
+                <a href="/contact-us" className="ntx2-port-link">Explore <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="ntx2-port-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+              <div className="ntx2-port-card-img ntx2-port-img-b"><div className="ntx2-port-card-img-overlay"></div></div>
+              <div className="ntx2-port-card-body">
+                <div className="ntx2-port-card-icon"><i className="fas fa-cloud"></i></div>
+                <h3 className="ntx2-port-card-title">Cloud &amp; <span className="ntx2-port-accent">Hybrid</span></h3>
+                <p className="ntx2-port-card-desc">Run any application on any cloud — private, public, or hybrid with Nutanix Cloud Platform.</p>
+                <ul className="ntx2-port-list"><li><i className="fas fa-check"></i>Nutanix Cloud Clusters (NC2)</li><li><i className="fas fa-check"></i>Multi-cloud management</li><li><i className="fas fa-check"></i>Cloud migration tools</li></ul>
+                <a href="/contact-us" className="ntx2-port-link">Explore <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="ntx2-port-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+              <div className="ntx2-port-card-img ntx2-port-img-c"><div className="ntx2-port-card-img-overlay"></div></div>
+              <div className="ntx2-port-card-body">
+                <div className="ntx2-port-card-icon"><i className="fas fa-database"></i></div>
+                <h3 className="ntx2-port-card-title">Unified <span className="ntx2-port-accent">Storage</span></h3>
+                <p className="ntx2-port-card-desc">Scalable, software-defined storage for files, objects, and block workloads in one platform.</p>
+                <ul className="ntx2-port-list"><li><i className="fas fa-check"></i>Nutanix Files &amp; Objects</li><li><i className="fas fa-check"></i>Block storage volumes</li><li><i className="fas fa-check"></i>Data tiering &amp; deduplication</li></ul>
+                <a href="/contact-us" className="ntx2-port-link">Explore <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div className="ntx2-port-bottom-row" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+            <div className="ntx2-port-dc-card">
+              <div className="ntx2-port-dc-img"><div className="ntx2-port-dc-img-overlay"></div></div>
+              <div className="ntx2-port-dc-body">
+                <div className="ntx2-port-card-icon ntx2-port-dc-icon"><i className="fas fa-brain"></i></div>
+                <h3 className="ntx2-port-card-title">AI &amp; <span className="ntx2-port-accent">Data Platform</span></h3>
+                <p className="ntx2-port-card-desc">Purpose-built infrastructure for AI, ML, and data-intensive workloads at enterprise scale.</p>
+                <ul className="ntx2-port-list"><li><i className="fas fa-check"></i>Nutanix GPT-in-a-Box</li><li><i className="fas fa-check"></i>Unified data lakehouse</li><li><i className="fas fa-check"></i>AI workload optimization</li></ul>
+                <a href="/contact-us" className="ntx2-port-link">Explore <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="ntx2-port-why-panel">
+              <h3 className="ntx2-port-why-title">Why Choose <span className="ntx2-port-accent">Nutanix?</span></h3>
+              <div className="ntx2-port-why-grid">
+                <div className="ntx2-port-why-item"><div className="ntx2-port-why-icon"><i className="fas fa-chart-line"></i></div><strong>43% TCO Savings</strong><span>Proven ROI.</span></div>
+                <div className="ntx2-port-why-item"><div className="ntx2-port-why-icon"><i className="fas fa-clock"></i></div><strong>One-Click Mgmt</strong><span>Unified control.</span></div>
+                <div className="ntx2-port-why-item"><div className="ntx2-port-why-icon"><i className="fas fa-expand-arrows-alt"></i></div><strong>Scalable</strong><span>Grows seamlessly.</span></div>
+                <div className="ntx2-port-why-item"><div className="ntx2-port-why-icon"><i className="fas fa-lock"></i></div><strong>Secure</strong><span>Zero compromise.</span></div>
+              </div>
+              <div className="ntx2-port-cta-bar">
+                <div className="ntx2-port-cta-icon"><i className="fas fa-comments"></i></div>
+                <div className="ntx2-port-cta-text"><strong>Need an HCI assessment?</strong><span>Our experts are ready to help.</span></div>
+                <a href="/contact-us" className="ntx2-port-cta-btn">Talk to an Expert <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications */}
+      <section className="ntx2-cert-section">
+        <div className="ntx2-cert-container">
+          <div className="ntx2-cert-header" data-aos="fade-up">
+            <h2 className="ntx2-cert-title">Certifications of Our <span className="ntx2-port-accent">Technical Team</span></h2>
+            <p className="ntx2-cert-subtitle">Nutanix-certified professionals delivering proven expertise across HCI and cloud solutions</p>
+          </div>
+          <div className="ntx2-cert-slider-wrapper">
+            <div className="ntx2-cert-images">
+              {[1,2,3,4,1,2,3,4].map((n, i) => (
+                <div key={i} className="ntx2-cert-img-card">
+                  <img src={`/assets/images/nutanix/image${n}.png`} alt={`Nutanix Certification ${n}`} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* -- INDUSTRIES -- */}
+      <section className="ntx2-ind-section">
+        <div className="ntx2-ind-bg-glow ntx2-ind-bg-glow-left" aria-hidden="true"></div>
+        <div className="ntx2-ind-bg-glow ntx2-ind-bg-glow-right" aria-hidden="true"></div>
+        <div className="ntx2-ind-container">
+          <div className="ntx2-ind-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="ntx2-ind-badge"><span className="ntx2-ind-badge-dot"></span><i className="fas fa-crown"></i><span>TRUSTED ACROSS INDUSTRIES</span><span className="ntx2-ind-badge-dot"></span></div>
+            <h2 className="ntx2-ind-title">Industries Where <span className="ntx2-ind-accent">Nutanix</span><br /><span className="ntx2-ind-accent">HCI</span> Excels</h2>
+            <p className="ntx2-ind-subtitle">Trusted across diverse sectors for modern, scalable IT infrastructure</p>
+          </div>
+          <div className="ntx2-ind-grid">
+            {[
+              { cls:'blue',    icon:'fa-building',       num:'01', title:'Large Enterprises',       desc:'Unified HCI for distributed enterprise IT and multi-location data centers.' },
+              { cls:'indigo',  icon:'fa-university',     num:'02', title:'Banking & Financial',      desc:'Always-on infrastructure for core banking and payment systems.' },
+              { cls:'violet',  icon:'fa-hospital',       num:'03', title:'Healthcare & Hospitals',   desc:'Scalable HCI for clinical applications and medical imaging workloads.' },
+              { cls:'cyan',    icon:'fa-graduation-cap', num:'04', title:'Education Institutions',   desc:'Cost-effective HCI for campus-wide digital learning infrastructure.' },
+              { cls:'sky',     icon:'fa-industry',       num:'05', title:'Manufacturing',            desc:'High-performance compute for production systems and IoT workloads.' },
+              { cls:'teal',    icon:'fa-cloud',          num:'06', title:'Cloud & Hybrid',           desc:'Unified management for multi-cloud and on-premises environments.' },
+            ].map(({ cls, icon, num, title, desc }) => (
+              <div key={num} className={`ntx2-ind-card ntx2-ind-card-${cls}`} data-aos="fade-up" data-aos-duration="700">
+                <div className="ntx2-ind-card-top">
+                  <div className={`ntx2-ind-icon-wrap ntx2-ind-icon-${cls}`}><i className={`fas ${icon}`}></i></div>
+                  <span className="ntx2-ind-num">{num}</span>
+                </div>
+                <div className={`ntx2-ind-num-rule ntx2-ind-rule-${cls}`}></div>
+                <h3 className="ntx2-ind-card-title">{title}</h3>
+                <p className="ntx2-ind-card-desc">{desc}</p>
+                <a href="/contact-us" className={`ntx2-ind-arrow ntx2-ind-arrow-${cls}`} aria-label={`Learn more about ${title}`}><i className="fas fa-arrow-right"></i></a>
+                <div className="ntx2-ind-card-bg-pattern" aria-hidden="true"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases */}
+      <UseCaseSlider useCases={nutanixUseCases} partnerColor="#024DA1" title="Nutanix Use Cases" subtitle="Successfully Deployed by Trace Network across diverse industry sectors" />
+
+      {/* Awards */}
+      <section className="awards-section">
+        <div className="section-title text-center">
+          <div className="section-title__tagline-box"><div className="section-title__tagline-shape-1"></div><span className="section-title__tagline">Awards</span><div className="section-title__tagline-shape-2"></div></div>
+          <h2 className="section-title__title">Recognized &amp; Trusted <span>for Delivering </span><br />Value &amp; Excellence</h2>
+        </div>
+        <div className="awards-slider"><div className="awards-track">
+          {[1,2,3,4,5,6,7,11,12,13,14,15,16,17,18,19].map(n => (
+            <div key={n} className="award-card"><img src={`/assets/images/award/${n}.png`} alt={`Award ${n}`} /><span>Award {n}</span></div>
+          ))}
+        </div></div>
+      </section>
+
+      {/* Why Leading Brands */}
+      <section className="premium-cards-section" style={{ marginTop: '-20px' }}>
+        <div className="premium-container">
+          <div className="section-title text-center pb-4"><h2 className="section-title__title">Why Leading<span> Brands</span> Choose<span> Trace</span></h2></div>
+          <div className="premium-card-grid">
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/certified.png" alt="certified" /></div><p><strong>Multi-vendor, Certified Network Security Expertise</strong> Partnering with 40+ global OEMs, Trace Network offers multi-vendor cybersecurity and network solutions that are future-proof and scalable.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/leadership.png" alt="leadership" /></div><p><strong>20+ Years of Cybersecurity Leadership</strong> With two decades of proven expertise, we provide enterprise IT security solutions across India.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/luxury.png" alt="luxury" /></div><p><strong>Customer-First, Value-Driven</strong> Our cost-effective services ensure maximum protection with right-sized solutions and lowest TCO.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/technical-support.png" alt="technical-support" /></div><p><strong>Local Presence with Rapid IT Support</strong> Engineers available in Hyderabad, Bengaluru, Chennai, Vijayawada, and Vizag.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/iso-certificate.png" alt="iso-certificate" /></div><p><strong>ISO 27001-Certified Cybersecurity Provider</strong> Following stringent change management and compliance practices.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/frame.png" alt="frame" /></div><p><strong>Proven Deployment Framework</strong> Assess → Design → Deploy → Optimise → Support ensures maximum ROI.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/agile.png" alt="agile" /></div><p><strong>Flexible MSSP &amp; Security Pricing Models</strong> CapEx, OpEx, or MSSP models to align with your business goals.</p></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Career CTA */}
+      <section className="career-cta-section">
+        <div className="career-cta-container">
+          <h2 className="career-cta-title">Ready to Modernize Your IT Infrastructure?</h2>
+          <p className="career-cta-text">Speak with a senior HCI consultant today. In 30 minutes you'll know:<br /><br />&#8226; Infrastructure bottlenecks holding your business back<br />&#8226; Quick wins to reduce TCO and improve uptime<br />&#8226; An exact timeline &amp; cost estimate&mdash;no obligations</p>
+          <div className="about-two__btn-box"><a href="tel:9000314411" className="btn-get-started"><span className="btn-text">Book Your Free Strategy Call </span><span className="btn-arrow"></span></a></div>
+        </div>
+      </section>
+
+      {/* Special Offer */}
+      <section className="ntx2-special-offer" data-aos="fade-up" data-aos-duration="900">
+        <div className="container">
+          <div className="ntx2-offer-card">
+
+            {/* Glows */}
+            <div className="ntx2-offer-glow-left"  aria-hidden="true"></div>
+            <div className="ntx2-offer-glow-right" aria-hidden="true"></div>
+            <div className="ntx2-offer-stars"      aria-hidden="true">
+              <span className="ntx2-star ntx2-star-1">&#10022;</span>
+              <span className="ntx2-star ntx2-star-2">&#10022;</span>
+              <span className="ntx2-star ntx2-star-3">&#10022;</span>
+              <span className="ntx2-star ntx2-star-4">&#10022;</span>
+            </div>
+
+            {/* LEFT — image */}
+            <div className="ntx2-offer-img-col">
+              <img
+                src="/assets/images/partners/nutanix.png"
+                alt="Nutanix HCI Platform"
+                className="ntx2-offer-img"
+              />
+            </div>
+
+            {/* RIGHT — content */}
+            <div className="ntx2-offer-content">
+
+              <div className="ntx2-offer-badge">
+                <i className="fas fa-gift"></i>&nbsp; SPECIAL OFFER
+              </div>
+
+              <h2 className="ntx2-offer-title">
+                <span className="ntx2-offer-free">FREE</span> POC &amp; Assessment
+              </h2>
+
+              <div className="ntx2-offer-pill">
+                <span className="ntx2-offer-pill-dot"></span>
+                EXCLUSIVE OFFERS ON NUTANIX HCI SOLUTIONS
+                <span className="ntx2-offer-pill-dot"></span>
+              </div>
+
+              <p className="ntx2-offer-desc">
+                Experience the power of Nutanix hyperconverged infrastructure firsthand — zero risk, zero commitment.
+                Our certified team will set up a complete proof of concept tailored to your environment so you can
+                see measurable results before you invest.
+              </p>
+
+              {/* Feature grid */}
+              <div className="ntx2-offer-grid">
+                {[
+                  { icon: 'fas fa-flask',          label: 'FREE HCI Proof of Concept'        },
+                  { icon: 'fas fa-desktop',         label: 'Guided Platform Demo'             },
+                  { icon: 'fas fa-people-arrows',   label: 'Seamless Migration Consultation'  },
+                  { icon: 'fas fa-headset',         label: 'Priority Implementation Support'  },
+                ].map((pt) => (
+                  <div className="ntx2-offer-feature" key={pt.label}>
+                    <div className="ntx2-offer-feat-icon">
+                      <i className={pt.icon}></i>
+                    </div>
+                    <span>{pt.label}</span>
+                    <div className="ntx2-offer-feat-bar"></div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Modules row */}
+              <div className="ntx2-offer-modules-row">
+                <span className="ntx2-offer-modules-label">Get Expert Guidance for:</span>
+                <div className="ntx2-offer-modules-list">
+                  {['HCI Infrastructure', 'Cloud & Hybrid', 'Unified Storage', 'AI & Data Platform'].map((m, i) => (
+                    <React.Fragment key={m}>
+                      <span className="ntx2-offer-module">
+                        <i className="fas fa-check-circle"></i> {m}
+                      </span>
+                      {i < 3 && <span className="ntx2-offer-sep">|</span>}
+                    </React.Fragment>
+                  ))}
+                </div>
+              </div>
+
+              <Link to="/contact-us" className="ntx2-contact-btn">
+                <i className="fas fa-paper-plane"></i>
+                &nbsp; CONTACT TRACE NETWORK &nbsp;&#8594;
+              </Link>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
+}

@@ -1,0 +1,90 @@
+/* Slider Fix - Ensure slides have proper height and visible backgrounds */
+
+.main-slider-two {
+    min-height: 100vh !important;
+    height: 100vh !important;
+}
+
+.main-slider-two .swiper-container,
+.main-slider-two .thm-swiper__slider {
+    min-height: 100vh !important;
+    height: 100vh !important;
+}
+
+.main-slider-two .swiper-slide {
+    min-height: 100vh !important;
+    height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.main-slider-two .swiper-wrapper {
+    min-height: 100vh !important;
+    height: 100vh !important;
+}
+
+.main-slider-two__bg {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+    z-index: 1 !important;
+}
+
+/* Lighten the dark overlays to make background images more visible */
+.main-slider-two__bg:before {
+    opacity: 0.3 !important; /* Reduce darkness */
+}
+
+.main-slider-two__bg::after {
+    opacity: 0.3 !important; /* Reduce darkness */
+}
+
+.main-slider-two .container {
+    position: relative !important;
+    z-index: 10 !important;
+    padding-top: 120px !important;
+    padding-bottom: 60px !important;
+}
+
+.main-slider-two__content {
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+.main-slider-two__title,
+.main-slider-two__text {
+    color: #fff !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
+}
+
+/* ── Services Carousel — prevent owl-loading opacity:0 flash ─────────────────
+   Owl adds .owl-loading (opacity:0) while initialising. On SPA first-load
+   the carousel can get stuck in that state if the init script loses the race.
+   We force the container and its children visible so content is never hidden. */
+.portfolio-two__carousel,
+.portfolio-two__carousel.owl-loading,
+.portfolio-two__carousel.owl-hidden {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+/* Once owl finishes loading the .owl-loaded class is applied; keep it visible */
+.portfolio-two__carousel.owl-loaded {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Ensure the items inside are never hidden before owl wraps them */
+.portfolio-two__carousel > .item,
+.portfolio-two__carousel > div {
+    opacity: 1 !important;
+    visibility: visible !important;
+}

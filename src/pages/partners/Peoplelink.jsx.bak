@@ -1,0 +1,736 @@
+﻿import React from 'react';
+import { Link } from 'react-router-dom';
+import UseCaseSlider from '../../components/UseCaseSlider';
+import { useAwardsSlider } from '../../hooks/useAwardsSlider';
+import './Peoplelink.css';
+
+const peoplelinkUseCases = [
+  {
+    id: 'defence',
+    category: 'DEFENCE',
+    icon: 'fas fa-shield-alt',
+    title: 'Defence Sector (Secure Communication Infrastructure)',
+    description: 'Problem: Defence organizations require secure and reliable communication systems for coordination across multiple locations and departments.',
+    image: '/assets/images/use-cases/usecase1.png',
+    linkTo: '/case-studies'
+  },
+  {
+    id: 'education',
+    category: 'EDUCATION',
+    icon: 'fas fa-graduation-cap',
+    title: 'Education Sector (Smart Classrooms & Virtual Learning)',
+    description: 'Problem: Educational institutions require reliable platforms for online classes, hybrid learning, and virtual collaboration.',
+    image: '/assets/images/use-cases/usecase2.png',
+    linkTo: '/case-studies'
+  },
+  {
+    id: 'retail',
+    category: 'RETAIL',
+    icon: 'fas fa-shopping-cart',
+    title: 'Retail Sector (Multi-Branch Communication)',
+    description: 'Problem: Retail organizations require centralized communication between branches, corporate offices, and operational teams.',
+    image: '/assets/images/use-cases/usecase3.png',
+    linkTo: '/case-studies'
+  },
+  {
+    id: 'banking',
+    category: 'BANKING',
+    icon: 'fas fa-university',
+    title: 'Banking Sector (Secure Enterprise Collaboration)',
+    description: 'Problem: Banks require secure conferencing systems for executive meetings, remote collaboration, and customer engagement.',
+    image: '/assets/images/use-cases/usecase4.png',
+    linkTo: '/case-studies'
+  },
+  {
+    id: 'healthcare',
+    category: 'HEALTHCARE',
+    icon: 'fas fa-hospital',
+    title: 'Healthcare Sector (Telemedicine & Hospital Collaboration)',
+    description: 'Problem: Hospitals and healthcare providers require reliable communication systems for telemedicine, remote consultation, and staff collaboration.',
+    image: '/assets/images/use-cases/usecase5.png',
+    linkTo: '/case-studies'
+  },
+  {
+    id: 'enterprise',
+    category: 'ENTERPRISE',
+    icon: 'fas fa-building',
+    title: 'Large Enterprises (Hybrid Workplace Collaboration)',
+    description: 'Problem: Enterprises require scalable collaboration platforms to support hybrid work environments and distributed teams.',
+    image: '/assets/images/use-cases/usecase6.png',
+    linkTo: '/case-studies'
+  },
+  {
+    id: 'manufacturing',
+    category: 'MANUFACTURING',
+    icon: 'fas fa-industry',
+    title: 'Manufacturing Industry (Plant-to-HQ Collaboration)',
+    description: 'Problem: Manufacturing organizations require real-time communication between factory floors, production units, and corporate offices.',
+    image: '/assets/images/use-cases/usecase7.png',
+    linkTo: '/case-studies'
+  }
+];
+
+export default function Peoplelink() {
+  useAwardsSlider();
+  return (
+    <div className="peoplelink-page pl2-page">
+
+      {/* ── PeopleLink Premium Hero ── */}
+      <section className="pl2-hero">
+        <div className="pl2-hero-bg" aria-hidden="true"></div>
+        <div className="pl2-hero-glow-left" aria-hidden="true"></div>
+        <div className="pl2-hero-glow-right" aria-hidden="true"></div>
+
+        <div className="pl2-hero-inner container">
+
+          {/* LEFT CONTENT */}
+          <div className="pl2-left" data-aos="fade-right" data-aos-duration="900">
+
+            <h1 className="pl2-headline">
+              PeopleLink Unified<br />
+              Communication &amp;<br />
+              <span className="pl2-headline-accent">Collaboration Solutions</span>
+            </h1>
+            <div className="pl2-headline-rule"></div>
+
+            <p className="pl2-desc">
+              Enterprise video conferencing, smart meeting rooms, unified collaboration,
+              and hybrid workplace solutions — delivered by{' '}
+              <a href="/contact-us" className="pl2-desc-link">Trace Network &amp; Engineering.</a>
+            </p>
+
+            <div className="pl2-feature-row">
+              <div className="pl2-feat">
+                <div className="pl2-feat-icon"><i className="fas fa-video"></i></div>
+                <div className="pl2-feat-body">
+                  <strong>HD Conferencing</strong>
+                  <span>Crystal-clear enterprise video for every room.</span>
+                </div>
+              </div>
+              <div className="pl2-feat">
+                <div className="pl2-feat-icon"><i className="fas fa-lock"></i></div>
+                <div className="pl2-feat-body">
+                  <strong>Secure &amp; Encrypted</strong>
+                  <span>Enterprise-grade encrypted communication.</span>
+                </div>
+              </div>
+              <div className="pl2-feat">
+                <div className="pl2-feat-icon"><i className="fas fa-expand-arrows-alt"></i></div>
+                <div className="pl2-feat-body">
+                  <strong>Scalable Platform</strong>
+                  <span>Grow from SMBs to large enterprises.</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="pl2-stats-row">
+              <div className="pl2-stat-card">
+                <i className="fas fa-server"></i>
+                <div>
+                  <span className="pl2-stat-num">1000+</span>
+                  <span className="pl2-stat-lbl">ENTERPRISE<br />DEPLOYMENTS</span>
+                </div>
+              </div>
+              <div className="pl2-stat-card">
+                <i className="fas fa-clock"></i>
+                <div>
+                  <span className="pl2-stat-num">6hrs</span>
+                  <span className="pl2-stat-lbl">ISSUE<br />RESOLUTION</span>
+                </div>
+              </div>
+              <div className="pl2-stat-card pl2-stat-brand">
+                <img
+                  src="/assets/images/partners/PEOPLE-LINK.jpg"
+                  alt="PeopleLink"
+                  className="pl2-brand-logo"
+                />
+                <span className="pl2-stat-lbl">SAARC<br />LEADING PARTNER</span>
+              </div>
+            </div>
+
+            <div className="pl2-cta-row">
+              <a href="#pl-portfolio" className="pl2-btn-primary">
+                Explore Solutions <i className="fas fa-arrow-right"></i>
+              </a>
+              <a href="/contact-us" className="pl2-btn-ghost">
+                Talk to Our Experts <i className="fas fa-chevron-right"></i>
+              </a>
+            </div>
+
+          </div>
+
+          {/* RIGHT — Product Showcase */}
+          <div className="pl2-right" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
+
+            <div className="pl2-product-glow" aria-hidden="true"></div>
+
+            <div className="pl2-showcase">
+              <img
+                src="/assets/images/partners/PEOPLE-LINK.jpg"
+                alt="PeopleLink Unified Communication Solutions"
+                className="pl2-hero-product-img"
+                onError={(e) => { e.target.style.opacity = '0.3'; }}
+              />
+              <div className="pl2-platform" aria-hidden="true">
+                <div className="pl2-plat-ring pl2-plat-ring-1"></div>
+                <div className="pl2-plat-ring pl2-plat-ring-2"></div>
+                <div className="pl2-plat-ring pl2-plat-ring-3"></div>
+                <div className="pl2-plat-surface"></div>
+              </div>
+            </div>
+
+            <div className="pl2-industry-strip">
+              <span className="pl2-ind-item"><i className="fas fa-building"></i> Enterprises</span>
+              <span className="pl2-ind-sep"></span>
+              <span className="pl2-ind-item"><i className="fas fa-university"></i> Government</span>
+              <span className="pl2-ind-sep"></span>
+              <span className="pl2-ind-item"><i className="fas fa-hospital"></i> Healthcare</span>
+              <span className="pl2-ind-sep"></span>
+              <span className="pl2-ind-item"><i className="fas fa-graduation-cap"></i> Education</span>
+              <span className="pl2-ind-sep"></span>
+              <span className="pl2-ind-item"><i className="fas fa-industry"></i> Manufacturing</span>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* Why Choose Section */}
+      <section className="pl2-why-section">
+        <div className="pl2-why-container">
+
+          <div className="pl2-why-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="pl2-why-badge">
+              <i className="fas fa-video"></i>
+              <span>TRUSTED BY ENTERPRISES. BUILT FOR COLLABORATION.</span>
+            </div>
+            <h2 className="pl2-why-title">
+              Why Choose <span className="pl2-why-accent">PeopleLink &amp;</span><br />
+              <span className="pl2-why-accent">Trace Network &amp; Engineering?</span>
+            </h2>
+            <p className="pl2-why-subtitle">
+              Powerful communication technology. Proven expertise. Partnership you can count on.
+            </p>
+            <div className="pl2-why-title-rule"></div>
+          </div>
+
+          <div className="pl2-why-card-outer" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
+
+            {/* Left panel — PeopleLink */}
+            <div className="pl2-why-panel pl2-why-panel-left">
+              <div className="pl2-why-content">
+                <div className="pl2-why-icon-row">
+                  <div className="pl2-why-icon-circle">
+                    <i className="fas fa-video"></i>
+                  </div>
+                </div>
+                <p className="pl2-why-card-sup">Why Choose</p>
+                <h3 className="pl2-why-card-title pl2-why-card-title-cyan">PeopleLink Solutions?</h3>
+                <p className="pl2-why-card-desc">
+                  PeopleLink is a leading provider of enterprise video conferencing, unified communication, and collaboration solutions designed to enhance business communication and digital workplaces.
+                </p>
+                <ul className="pl2-why-list">
+                  <li>
+                    <span className="pl2-why-list-icon"><i className="fas fa-video"></i></span>
+                    <span>Enterprise HD Video Conferencing<br /><small>for boardrooms &amp; hybrid workplaces</small></span>
+                  </li>
+                  <li>
+                    <span className="pl2-why-list-icon"><i className="fas fa-lock"></i></span>
+                    <span>Secure &amp; Encrypted Conferencing<br /><small>enterprise-grade communication security</small></span>
+                  </li>
+                  <li>
+                    <span className="pl2-why-list-icon"><i className="fas fa-link"></i></span>
+                    <span>Unified Platform<br /><small>video, audio, webinars &amp; whiteboarding</small></span>
+                  </li>
+                  <li>
+                    <span className="pl2-why-list-icon"><i className="fas fa-home"></i></span>
+                    <span>Hybrid Workplace Enablement<br /><small>remote &amp; on-site team collaboration</small></span>
+                  </li>
+                  <li>
+                    <span className="pl2-why-list-icon"><i className="fas fa-chart-bar"></i></span>
+                    <span>Centralized Management<br /><small>unified dashboards &amp; monitoring</small></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="pl2-why-divider" aria-hidden="true"></div>
+
+            {/* Right panel — Trace */}
+            <div className="pl2-why-panel pl2-why-panel-right">
+              <div className="pl2-why-content">
+                <div className="pl2-why-icon-row">
+                  <div className="pl2-why-icon-circle pl2-why-icon-teal">
+                    <i className="fas fa-building"></i>
+                  </div>
+                </div>
+                <p className="pl2-why-card-sup">Why Choose</p>
+                <h3 className="pl2-why-card-title pl2-why-card-title-teal">Trace Network &amp; Engineering?</h3>
+                <p className="pl2-why-card-desc">
+                  Trace Network &amp; Engineering Pvt Ltd is a trusted PeopleLink partner delivering end-to-end expertise. One of the leading PeopleLink partners in SAARC with certified professionals and a customer-first approach.
+                </p>
+                <ul className="pl2-why-list pl2-why-list-check">
+                  <li>
+                    <span className="pl2-why-list-icon pl2-why-list-check-icon"><i className="fas fa-check-circle"></i></span>
+                    <span>Issues addressed within 6 hours of complaint</span>
+                  </li>
+                  <li>
+                    <span className="pl2-why-list-icon pl2-why-list-check-icon"><i className="fas fa-check-circle"></i></span>
+                    <span>1000+ successful enterprise IT deployments</span>
+                  </li>
+                  <li>
+                    <span className="pl2-why-list-icon pl2-why-list-check-icon"><i className="fas fa-check-circle"></i></span>
+                    <span>Complete end-to-end AV &amp; collaboration solutions</span>
+                  </li>
+                  <li>
+                    <span className="pl2-why-list-icon pl2-why-list-check-icon"><i className="fas fa-check-circle"></i></span>
+                    <span>Multi-channel support: Email, WhatsApp,<br />Phone &amp; portal</span>
+                  </li>
+                  <li>
+                    <span className="pl2-why-list-icon pl2-why-list-check-icon"><i className="fas fa-check-circle"></i></span>
+                    <span>Solutions for enterprises, education,<br />healthcare &amp; BFSI</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="pl2-why-img-wrap pl2-why-img-right" aria-hidden="true">
+                <div className="pl2-why-img-gradient pl2-why-img-gradient-right"></div>
+                <div className="pl2-why-server-bg"></div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Bottom stats bar */}
+          <div className="pl2-why-stats-bar" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <div className="pl2-why-stat">
+              <div className="pl2-why-stat-icon"><i className="fas fa-video"></i></div>
+              <div className="pl2-why-stat-text">
+                <strong>HD Quality</strong>
+                <span>crystal-clear video</span>
+              </div>
+            </div>
+            <div className="pl2-why-stat-sep" aria-hidden="true"></div>
+            <div className="pl2-why-stat">
+              <div className="pl2-why-stat-icon"><i className="fas fa-lock"></i></div>
+              <div className="pl2-why-stat-text">
+                <strong>Secure</strong>
+                <span>encrypted by design</span>
+              </div>
+            </div>
+            <div className="pl2-why-stat-sep" aria-hidden="true"></div>
+            <div className="pl2-why-stat">
+              <div className="pl2-why-stat-icon"><i className="fas fa-expand-arrows-alt"></i></div>
+              <div className="pl2-why-stat-text">
+                <strong>Scalable</strong>
+                <span>for future growth</span>
+              </div>
+            </div>
+            <div className="pl2-why-stat-sep" aria-hidden="true"></div>
+            <div className="pl2-why-stat">
+              <div className="pl2-why-stat-icon"><i className="fas fa-handshake"></i></div>
+              <div className="pl2-why-stat-text">
+                <strong>Trusted</strong>
+                <span>SAARC partnership</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Complete PeopleLink Portfolio */}
+      <section className="pl2-port-section" id="pl-portfolio">
+        <div className="pl2-port-container">
+
+          <div className="pl2-port-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="pl2-port-header-icon" aria-hidden="true">
+              <i className="fas fa-video"></i>
+            </div>
+            <h2 className="pl2-port-title">
+              Complete <span className="pl2-port-accent">PeopleLink</span> Portfolio
+            </h2>
+            <div className="pl2-port-title-decor" aria-hidden="true">
+              <span className="pl2-port-decor-line"></span>
+              <span className="pl2-port-decor-dot"></span>
+              <span className="pl2-port-decor-line"></span>
+            </div>
+            <p className="pl2-port-subtitle">End-to-end unified communication solutions for every business need</p>
+          </div>
+
+          <div className="pl2-port-top-row">
+
+            {/* Card 1 — Enterprise Video Conferencing */}
+            <div className="pl2-port-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
+              <div className="pl2-port-card-img pl2-port-img-video">
+                <div className="pl2-port-card-img-overlay"></div>
+              </div>
+              <div className="pl2-port-card-body">
+                <div className="pl2-port-card-icon">
+                  <i className="fas fa-video"></i>
+                </div>
+                <h3 className="pl2-port-card-title">
+                  PeopleLink <span className="pl2-port-accent">Video Conferencing</span>
+                </h3>
+                <p className="pl2-port-card-desc">
+                  High-quality HD video conferencing solutions for boardrooms, training rooms, and hybrid workplaces.
+                </p>
+                <ul className="pl2-port-list">
+                  <li><i className="fas fa-check"></i> Boardroom Video Conferencing</li>
+                  <li><i className="fas fa-check"></i> Huddle Room Solutions</li>
+                  <li><i className="fas fa-check"></i> Large Auditorium Systems</li>
+                </ul>
+                <a href="/contact-us" className="pl2-port-link">
+                  Explore Video Solutions <i className="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            {/* Card 2 — Smart Meeting Rooms */}
+            <div className="pl2-port-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+              <div className="pl2-port-card-img pl2-port-img-meeting">
+                <div className="pl2-port-card-img-overlay"></div>
+              </div>
+              <div className="pl2-port-card-body">
+                <div className="pl2-port-card-icon">
+                  <i className="fas fa-desktop"></i>
+                </div>
+                <h3 className="pl2-port-card-title">
+                  PeopleLink <span className="pl2-port-accent">Smart Meeting Rooms</span>
+                </h3>
+                <p className="pl2-port-card-desc">
+                  Complete meeting room solutions with displays, PTZ cameras, audio systems, and automation.
+                </p>
+                <ul className="pl2-port-list">
+                  <li><i className="fas fa-check"></i> Interactive Displays</li>
+                  <li><i className="fas fa-check"></i> PTZ Cameras &amp; Audio Systems</li>
+                  <li><i className="fas fa-check"></i> Wireless Presentation Systems</li>
+                </ul>
+                <a href="/contact-us" className="pl2-port-link">
+                  Explore Meeting Rooms <i className="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            {/* Card 3 — Unified Collaboration */}
+            <div className="pl2-port-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+              <div className="pl2-port-card-img pl2-port-img-collab">
+                <div className="pl2-port-card-img-overlay"></div>
+              </div>
+              <div className="pl2-port-card-body">
+                <div className="pl2-port-card-icon">
+                  <i className="fas fa-link"></i>
+                </div>
+                <h3 className="pl2-port-card-title">
+                  PeopleLink <span className="pl2-port-accent">Unified Collaboration</span>
+                </h3>
+                <p className="pl2-port-card-desc">
+                  Seamless collaboration integrating video, audio, webinars, screen sharing, and whiteboarding.
+                </p>
+                <ul className="pl2-port-list">
+                  <li><i className="fas fa-check"></i> Webinar &amp; Virtual Events Platform</li>
+                  <li><i className="fas fa-check"></i> Screen Sharing &amp; Whiteboarding</li>
+                  <li><i className="fas fa-check"></i> Hybrid Team Collaboration</li>
+                </ul>
+                <a href="/contact-us" className="pl2-port-link">
+                  Explore Collaboration <i className="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Bottom row */}
+          <div className="pl2-port-bottom-row" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+
+            {/* Hybrid Work card */}
+            <div className="pl2-port-dc-card">
+              <div className="pl2-port-dc-img">
+                <div className="pl2-port-dc-img-overlay"></div>
+              </div>
+              <div className="pl2-port-dc-body">
+                <div className="pl2-port-card-icon pl2-port-dc-icon">
+                  <i className="fas fa-home"></i>
+                </div>
+                <h3 className="pl2-port-card-title">
+                  Hybrid Workplace &amp; <span className="pl2-port-accent">Remote Work</span>
+                </h3>
+                <p className="pl2-port-card-desc">
+                  Complete solutions enabling seamless collaboration across remote employees, branches, and on-site teams.
+                </p>
+                <ul className="pl2-port-list">
+                  <li><i className="fas fa-check"></i> Remote team conferencing infrastructure</li>
+                  <li><i className="fas fa-check"></i> Centralized device management</li>
+                  <li><i className="fas fa-check"></i> Scalable cloud conferencing platform</li>
+                </ul>
+                <a href="/contact-us" className="pl2-port-link">
+                  Explore Hybrid Work <i className="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            {/* Why Choose PeopleLink mini panel */}
+            <div className="pl2-port-why-panel">
+              <h3 className="pl2-port-why-title">
+                Why Choose <span className="pl2-port-accent">PeopleLink?</span>
+              </h3>
+              <div className="pl2-port-why-grid">
+                <div className="pl2-port-why-item">
+                  <div className="pl2-port-why-icon"><i className="fas fa-video"></i></div>
+                  <strong>HD Quality</strong>
+                  <span>Industry-leading video &amp; audio quality.</span>
+                </div>
+                <div className="pl2-port-why-item">
+                  <div className="pl2-port-why-icon"><i className="fas fa-lock"></i></div>
+                  <strong>Secure</strong>
+                  <span>End-to-end encrypted enterprise conferencing.</span>
+                </div>
+                <div className="pl2-port-why-item">
+                  <div className="pl2-port-why-icon"><i className="fas fa-chart-bar"></i></div>
+                  <strong>Scalable</strong>
+                  <span>Flexible solutions that grow with your team.</span>
+                </div>
+                <div className="pl2-port-why-item">
+                  <div className="pl2-port-why-icon"><i className="fas fa-headset"></i></div>
+                  <strong>24/7 Support</strong>
+                  <span>Dedicated support when you need it most.</span>
+                </div>
+              </div>
+              <div className="pl2-port-cta-bar">
+                <div className="pl2-port-cta-icon"><i className="fas fa-comments"></i></div>
+                <div className="pl2-port-cta-text">
+                  <strong>Need help choosing the right solution?</strong>
+                  <span>Our experts are here to help.</span>
+                </div>
+                <a href="/contact-us" className="pl2-port-cta-btn">
+                  Talk to an Expert <i className="fas fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* Industries */}
+      <section className="pl2-ind-section">
+        <div className="pl2-ind-bg-glow pl2-ind-bg-glow-left" aria-hidden="true"></div>
+        <div className="pl2-ind-bg-glow pl2-ind-bg-glow-right" aria-hidden="true"></div>
+
+        <div className="pl2-ind-container">
+
+          <div className="pl2-ind-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="pl2-ind-badge">
+              <span className="pl2-ind-badge-dot"></span>
+              <i className="fas fa-crown"></i>
+              <span>TRUSTED ACROSS INDUSTRIES</span>
+              <span className="pl2-ind-badge-dot"></span>
+            </div>
+            <h2 className="pl2-ind-title">
+              Industries Where <span className="pl2-ind-accent">PeopleLink</span><br />
+              <span className="pl2-ind-accent">Solutions</span> Excel
+            </h2>
+            <p className="pl2-ind-subtitle">Trusted across diverse sectors for reliable unified communication</p>
+          </div>
+
+          <div className="pl2-ind-grid">
+
+            <div className="pl2-ind-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="0">
+              <div className="pl2-ind-card-top">
+                <div className="pl2-ind-icon-wrap"><i className="fas fa-building"></i></div>
+                <span className="pl2-ind-num">01</span>
+              </div>
+              <div className="pl2-ind-num-rule"></div>
+              <h3 className="pl2-ind-card-title">Large Enterprises</h3>
+              <p className="pl2-ind-card-desc">Scalable conferencing solutions for digital workplace transformation.</p>
+              <a href="/contact-us" className="pl2-ind-arrow" aria-label="Learn more about Large Enterprises"><i className="fas fa-arrow-right"></i></a>
+              <div className="pl2-ind-card-bg-pattern" aria-hidden="true"></div>
+            </div>
+
+            <div className="pl2-ind-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="80">
+              <div className="pl2-ind-card-top">
+                <div className="pl2-ind-icon-wrap"><i className="fas fa-university"></i></div>
+                <span className="pl2-ind-num">02</span>
+              </div>
+              <div className="pl2-ind-num-rule"></div>
+              <h3 className="pl2-ind-card-title">Banking &amp; Financial Services</h3>
+              <p className="pl2-ind-card-desc">Secure, compliant conferencing for executive meetings and customer engagement.</p>
+              <a href="/contact-us" className="pl2-ind-arrow" aria-label="Learn more about Banking"><i className="fas fa-arrow-right"></i></a>
+              <div className="pl2-ind-card-bg-pattern" aria-hidden="true"></div>
+            </div>
+
+            <div className="pl2-ind-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="160">
+              <div className="pl2-ind-card-top">
+                <div className="pl2-ind-icon-wrap"><i className="fas fa-hospital"></i></div>
+                <span className="pl2-ind-num">03</span>
+              </div>
+              <div className="pl2-ind-num-rule"></div>
+              <h3 className="pl2-ind-card-title">Healthcare &amp; Hospitals</h3>
+              <p className="pl2-ind-card-desc">Telemedicine, remote consultation, and hospital-wide staff collaboration.</p>
+              <a href="/contact-us" className="pl2-ind-arrow" aria-label="Learn more about Healthcare"><i className="fas fa-arrow-right"></i></a>
+              <div className="pl2-ind-card-bg-pattern" aria-hidden="true"></div>
+            </div>
+
+            <div className="pl2-ind-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="240">
+              <div className="pl2-ind-card-top">
+                <div className="pl2-ind-icon-wrap"><i className="fas fa-graduation-cap"></i></div>
+                <span className="pl2-ind-num">04</span>
+              </div>
+              <div className="pl2-ind-num-rule"></div>
+              <h3 className="pl2-ind-card-title">Education Institutions</h3>
+              <p className="pl2-ind-card-desc">Smart classrooms, virtual learning, and campus-wide collaboration.</p>
+              <a href="/contact-us" className="pl2-ind-arrow" aria-label="Learn more about Education"><i className="fas fa-arrow-right"></i></a>
+              <div className="pl2-ind-card-bg-pattern" aria-hidden="true"></div>
+            </div>
+
+            <div className="pl2-ind-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="320">
+              <div className="pl2-ind-card-top">
+                <div className="pl2-ind-icon-wrap"><i className="fas fa-industry"></i></div>
+                <span className="pl2-ind-num">05</span>
+              </div>
+              <div className="pl2-ind-num-rule"></div>
+              <h3 className="pl2-ind-card-title">Manufacturing</h3>
+              <p className="pl2-ind-card-desc">Plant-to-HQ real-time communication for operational efficiency.</p>
+              <a href="/contact-us" className="pl2-ind-arrow" aria-label="Learn more about Manufacturing"><i className="fas fa-arrow-right"></i></a>
+              <div className="pl2-ind-card-bg-pattern" aria-hidden="true"></div>
+            </div>
+
+            <div className="pl2-ind-card" data-aos="fade-up" data-aos-duration="700" data-aos-delay="400">
+              <div className="pl2-ind-card-top">
+                <div className="pl2-ind-icon-wrap"><i className="fas fa-shield-alt"></i></div>
+                <span className="pl2-ind-num">06</span>
+              </div>
+              <div className="pl2-ind-num-rule"></div>
+              <h3 className="pl2-ind-card-title">Government &amp; Defence</h3>
+              <p className="pl2-ind-card-desc">Secure, policy-driven communication for government and defence organizations.</p>
+              <a href="/contact-us" className="pl2-ind-arrow" aria-label="Learn more about Government"><i className="fas fa-arrow-right"></i></a>
+              <div className="pl2-ind-card-bg-pattern" aria-hidden="true"></div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases Slider */}
+      <UseCaseSlider
+        useCases={peoplelinkUseCases}
+        partnerColor="#06b6d4"
+        title="PeopleLink Use Cases"
+        subtitle="Successfully Deployed by Trace Network across diverse industry sectors"
+      />
+
+      {/* Career CTA Section */}
+      <section className="career-cta-section">
+        <div className="career-cta-container">
+          <h2 className="career-cta-title">Ready to Build a Future-Ready IT Environment?</h2>
+          <p className="career-cta-text">
+            Speak with a senior consultant today. In 30 minutes you'll know:<br /><br />
+            • The top three risks hiding in your current stack<br />
+            • Quick wins that boost performance without new hardware<br />
+            • An exact timeline &amp; cost estimate—no obligations
+          </p>
+          <div className="about-two__btn-box">
+            <a href="tel:9000314411" className="btn-get-started">
+              <span className="btn-text">Book Your Free Strategy Call</span>
+              <span className="btn-arrow"></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Awards Section */}
+      <section className="awards-section">
+        <div className="section-title text-center">
+          <div className="section-title__tagline-box">
+            <div className="section-title__tagline-shape-1"></div>
+            <span className="section-title__tagline">Awards</span>
+            <div className="section-title__tagline-shape-2"></div>
+          </div>
+          <h2 className="section-title__title">
+            Recognized &amp; Trusted <span>for Delivering </span><br />Value &amp; Excellence
+          </h2>
+        </div>
+        <div className="awards-slider">
+          <div className="awards-track">
+            <div className="award-card"><img src="/assets/images/award/1.png" alt="Sophos Best Performing Partner (2024)" /><span>Sophos Best Performing Partner (2024)</span></div>
+            <div className="award-card"><img src="/assets/images/award/2.png" alt="Certification of Completion Aruba Instant (2023)" /><span>Certification of Completion Aruba Instant (2023)</span></div>
+            <div className="award-card"><img src="/assets/images/award/3.png" alt="Core Champion HPE Aruba Networking (2023)" /><span>Core Champion HPE Aruba Networking (2023)</span></div>
+            <div className="award-card"><img src="/assets/images/award/4.png" alt="Sophos Top Performer of the Region" /><span>Sophos Top Performer of the Region</span></div>
+            <div className="award-card"><img src="/assets/images/award/5.png" alt="Sophos Best Solution Partner" /><span>Sophos Best Solution Partner</span></div>
+            <div className="award-card"><img src="/assets/images/award/6.png" alt="Certified by SonicWall (2022)" /><span>Certified by SonicWall (2022)</span></div>
+            <div className="award-card"><img src="/assets/images/award/7.png" alt="HPE Aruba Accelerating Next (2022)" /><span>HPE Aruba Accelerating Next (2022)</span></div>
+            <div className="award-card"><img src="/assets/images/award/11.png" alt="Sophos Best Top Performing Partner (2020)" /><span>Sophos Best Top Performing Partner (2020)</span></div>
+            <div className="award-card"><img src="/assets/images/award/12.png" alt="Sophos Platinum Partner (2019)" /><span>Sophos Platinum Partner (2019)</span></div>
+            <div className="award-card"><img src="/assets/images/award/13.png" alt="Sophos Best Performing Partner (2018)" /><span>Sophos Best Performing Partner (2018)</span></div>
+            <div className="award-card"><img src="/assets/images/award/14.png" alt="Sophos Best Solution Partner (2018)" /><span>Sophos Best Solution Partner (2018)</span></div>
+            <div className="award-card"><img src="/assets/images/award/15.png" alt="Sophos Best Solution Partner (2017)" /><span>Sophos Best Solution Partner (2017)</span></div>
+            <div className="award-card"><img src="/assets/images/award/16.png" alt="Sophos Best Solution Partner (2016)" /><span>Sophos Best Solution Partner (2016)</span></div>
+            <div className="award-card"><img src="/assets/images/award/17.png" alt="Sophos Highest Achiever Business Partner (2015)" /><span>Sophos Highest Achiever Business Partner (2015)</span></div>
+            <div className="award-card"><img src="/assets/images/award/18.png" alt="Cyberoam Authorized Goal Partner (2015)" /><span>Cyberoam Authorized Goal Partner (2015)</span></div>
+            <div className="award-card"><img src="/assets/images/award/19.png" alt="Sophos Top Performer Of the Region" /><span>Sophos Top Performer Of the Region</span></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Leading Brands Choose Trace */}
+      <section className="premium-cards-section" style={{ marginTop: '-20px' }}>
+        <div className="premium-container">
+          <div className="section-title text-center pb-4">
+            <h2 className="section-title__title">Why Leading<span> Brands</span> Choose<span> Trace</span></h2>
+          </div>
+          <div className="premium-card-grid">
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/certified.png" alt="certified" /></div><p><strong>Multi‑vendor, Certified Network Security Expertise</strong> Partnering with 40+ global OEMs, Trace Network offers multi-vendor cybersecurity and network solutions that are future-proof, scalable, and tailored to your exact IT security needs.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/leadership.png" alt="leadership" /></div><p><strong>20+ Years of Cybersecurity Leadership</strong> With two decades of proven expertise, we provide penetration testing, vulnerability assessments, and enterprise IT security solutions for Top Campuses, GCCs, data centres, and enterprises across India.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/luxury.png" alt="luxury" /></div><p><strong>Customer‑First, Value‑Driven</strong> Our cost-effective services ensure maximum protection with right-sized solutions, reducing risks and delivering the lowest total cost of ownership (TCO).</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/technical-support.png" alt="technical-support" /></div><p><strong>Local Presence with Rapid IT Support</strong> Trace Network engineers are available in Hyderabad, Bengaluru, Chennai, Vijayawada, and Vizag, ensuring quick on-site support whenever you need it.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/iso-certificate.png" alt="iso-certificate" /></div><p><strong>ISO 27001‑Certified Provider</strong> As an ISO 27001-certified company, we follow stringent change management and compliance practices aligned with global information security standards.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/frame.png" alt="frame" /></div><p><strong>Proven Deployment Framework</strong> Our structured approach, Assess → Design → Deploy → Optimise → Support, minimises downtime and ensures maximum ROI.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/agile.png" alt="agile" /></div><p><strong>Flexible MSSP &amp; Pricing Models</strong> Choose from CapEx, OpEx, or MSSP models to align investments with your organisation's business goals.</p></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Special Offer */}
+      <section className="pl2-special-offer" data-aos="zoom-in" data-aos-duration="1000">
+        <div className="container">
+          <div className="pl2-offer-banner">
+            <div className="pl2-offer-shield" aria-hidden="true">
+              <i className="fas fa-video"></i>
+            </div>
+            <div className="pl2-offer-content">
+              <div className="pl2-offer-badge"><i className="fas fa-gift"></i> SPECIAL OFFER</div>
+              <h2 className="pl2-offer-title">
+                <span className="pl2-offer-title-accent">FREE POC</span>{' '}
+                <span className="pl2-offer-title-white">Available</span>
+              </h2>
+              <div className="pl2-offer-title-divider"></div>
+              <p className="pl2-offer-subtitle">Exclusive Offers on PeopleLink Solutions</p>
+              <p className="pl2-offer-desc">
+                Experience the power of PeopleLink unified communication firsthand — zero risk, zero commitment. Our team will set up a complete proof of concept tailored to your environment.
+              </p>
+              <div className="pl2-offer-cards">
+                <div className="pl2-offer-card"><div className="pl2-offer-card-icon"><i className="fas fa-shield-alt"></i></div><p className="pl2-offer-card-label">No upfront cost<br />for POC</p><div className="pl2-offer-card-line"></div></div>
+                <div className="pl2-offer-card"><div className="pl2-offer-card-icon"><i className="fas fa-sliders-h"></i></div><p className="pl2-offer-card-label">Tailored to your<br />environment</p><div className="pl2-offer-card-line"></div></div>
+                <div className="pl2-offer-card"><div className="pl2-offer-card-icon"><i className="fas fa-tag"></i></div><p className="pl2-offer-card-label">Exclusive pricing<br />on PeopleLink solutions</p><div className="pl2-offer-card-line"></div></div>
+                <div className="pl2-offer-card"><div className="pl2-offer-card-icon"><i className="fas fa-headset"></i></div><p className="pl2-offer-card-label">Expert guidance<br />throughout</p><div className="pl2-offer-card-line"></div></div>
+              </div>
+              <Link to="/contact-us" className="pl2-contact-btn">
+                CONTACT TRACE NETWORK <i className="fas fa-arrow-right"></i>
+              </Link>
+              <div className="pl2-offer-trust">
+                <span className="pl2-offer-trust-item"><i className="fas fa-shield-alt"></i> Zero Risk</span>
+                <span className="pl2-offer-trust-sep">|</span>
+                <span className="pl2-offer-trust-item"><i className="fas fa-lock"></i> Secure</span>
+                <span className="pl2-offer-trust-sep">|</span>
+                <span className="pl2-offer-trust-item"><i className="fas fa-users"></i> Certified Experts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
+}

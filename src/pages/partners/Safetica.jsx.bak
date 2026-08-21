@@ -1,0 +1,315 @@
+﻿import React from 'react';
+import { Link } from 'react-router-dom';
+import UseCaseSlider from '../../components/UseCaseSlider';
+import { useAwardsSlider } from '../../hooks/useAwardsSlider';
+import './Safetica.css';
+
+const safeticaUseCases = [
+  { id: 'defence', category: 'DEFENCE', icon: 'fas fa-shield-alt', title: 'Defence Sector (Preventing Sensitive Data Leakage)', description: 'Problem: Defence organizations require strict monitoring and prevention of confidential data leakage across endpoints and removable devices.', image: '/assets/images/use-cases/usecase1.png', linkTo: '/case-studies' },
+  { id: 'education', category: 'EDUCATION', icon: 'fas fa-graduation-cap', title: 'Education Sector (Protecting Student & Institutional Data)', description: 'Problem: Educational institutions need to secure student records, examination data, and internal documents while supporting BYOD environments.', image: '/assets/images/use-cases/usecase2.png', linkTo: '/case-studies' },
+  { id: 'retail', category: 'RETAIL', icon: 'fas fa-shopping-cart', title: 'Retail Sector (Securing Customer & POS Data)', description: 'Problem: Retail businesses require protection for customer information, billing systems, POS data, and branch operations.', image: '/assets/images/use-cases/usecase3.png', linkTo: '/case-studies' },
+  { id: 'banking', category: 'BANKING', icon: 'fas fa-university', title: 'Banking Sector (Compliance & Data Security)', description: 'Problem: Banks require strict control over confidential financial data, customer records, and regulatory compliance.', image: '/assets/images/use-cases/usecase4.png', linkTo: '/case-studies' },
+  { id: 'healthcare', category: 'HEALTHCARE', icon: 'fas fa-hospital', title: 'Healthcare Sector (Protecting Patient Information)', description: 'Problem: Hospitals and healthcare organizations need to secure patient records, medical reports, and sensitive healthcare data.', image: '/assets/images/use-cases/usecase5.png', linkTo: '/case-studies' },
+  { id: 'enterprise', category: 'ENTERPRISE', icon: 'fas fa-building', title: 'Large Enterprises (Enterprise Data Protection)', description: 'Problem: Large organizations require centralized visibility and control over data movement across departments and branch locations.', image: '/assets/images/use-cases/usecase6.png', linkTo: '/case-studies' },
+];
+
+export default function Safetica() {
+  useAwardsSlider();
+  return (
+    <div className="safetica-page sft-v2-page">
+
+      {/* ── HERO ── */}
+      <section className="sft2-hero">
+        <div className="sft2-hero-glow-left" aria-hidden="true"></div>
+        <div className="sft2-hero-glow-right" aria-hidden="true"></div>
+        <div className="sft2-hero-inner container">
+
+          <div className="sft2-left" data-aos="fade-right" data-aos-duration="900">
+            <h1 className="sft2-headline">
+              Safetica DLP &amp; Insider<br />
+              Risk Management for<br />
+              <span className="sft2-headline-accent">Secure Enterprises</span>
+            </h1>
+            <div className="sft2-headline-rule"></div>
+            <p className="sft2-desc">
+              Advanced Data Loss Prevention (DLP) and Insider Risk Management solutions protecting sensitive business data from leaks, threats, and unauthorized transfers – delivered by{' '}
+              <a href="/contact-us" className="sft2-desc-link">Trace Network &amp; Engineering.</a>
+            </p>
+
+            <div className="sft2-feature-row">
+              <div className="sft2-feat">
+                <div className="sft2-feat-icon"><i className="fas fa-lock"></i></div>
+                <div className="sft2-feat-body"><strong>Advanced DLP Protection</strong><span>Prevent data leakage via USB, email, cloud &amp; web.</span></div>
+              </div>
+              <div className="sft2-feat">
+                <div className="sft2-feat-icon"><i className="fas fa-user-secret"></i></div>
+                <div className="sft2-feat-body"><strong>Insider Risk Management</strong><span>Detect risky behavior before incidents occur.</span></div>
+              </div>
+              <div className="sft2-feat">
+                <div className="sft2-feat-icon"><i className="fas fa-eye"></i></div>
+                <div className="sft2-feat-body"><strong>Real-Time Visibility</strong><span>Centralized dashboard for all security events.</span></div>
+              </div>
+            </div>
+
+            <div className="sft2-stats-row">
+              <div className="sft2-stat-card"><i className="fas fa-shield-alt"></i><div><span className="sft2-stat-num">1000+</span><span className="sft2-stat-lbl">ENTERPRISE<br />DEPLOYMENTS</span></div></div>
+              <div className="sft2-stat-card"><i className="fas fa-clock"></i><div><span className="sft2-stat-num">6hrs</span><span className="sft2-stat-lbl">ISSUE<br />RESOLUTION</span></div></div>
+              <div className="sft2-stat-card sft2-stat-brand">
+                <img src="/assets/images/partners/SafeticaONE.jpg" alt="Safetica" className="sft2-brand-logo" onError={e=>{e.target.style.opacity='0.3';}} />
+                <span className="sft2-stat-lbl">SAARC<br />PARTNER</span>
+              </div>
+            </div>
+
+            <div className="sft2-cta-row">
+              <a href="#sft-portfolio" className="sft2-btn-primary">Explore Safetica Solutions <i className="fas fa-arrow-right"></i></a>
+              <a href="/contact-us" className="sft2-btn-ghost">Talk to Our Experts <i className="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+
+          <div className="sft2-right" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
+            <div className="sft2-product-glow" aria-hidden="true"></div>
+            <div className="sft2-showcase">
+              <img src="/assets/images/partners/SafeticaONE.jpg" alt="Safetica DLP Platform" className="sft2-hero-product-img" onError={e=>{e.target.style.opacity='0.3';}} />
+            </div>
+            <div className="sft2-industry-strip">
+              <span className="sft2-ind-item"><i className="fas fa-university"></i> Banking</span>
+              <span className="sft2-ind-sep"></span>
+              <span className="sft2-ind-item"><i className="fas fa-hospital"></i> Healthcare</span>
+              <span className="sft2-ind-sep"></span>
+              <span className="sft2-ind-item"><i className="fas fa-shield-alt"></i> Defence</span>
+              <span className="sft2-ind-sep"></span>
+              <span className="sft2-ind-item"><i className="fas fa-building"></i> Enterprise</span>
+              <span className="sft2-ind-sep"></span>
+              <span className="sft2-ind-item"><i className="fas fa-industry"></i> Manufacturing</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── WHY CHOOSE ── */}
+      <section className="sft2-why-section">
+        <div className="sft2-why-container">
+          <div className="sft2-why-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="sft2-why-badge"><i className="fas fa-shield-alt"></i><span>LEADING SAFETICA DLP PARTNER IN SAARC.</span></div>
+            <h2 className="sft2-why-title">Why Choose <span className="sft2-why-accent">Safetica &amp;</span><br /><span className="sft2-why-accent">Trace Network &amp; Engineering?</span></h2>
+            <p className="sft2-why-subtitle">Advanced DLP technology. Proven expertise. Data security you can rely on.</p>
+            <div className="sft2-why-title-rule"></div>
+          </div>
+
+          <div className="sft2-why-card-outer" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
+            <div className="sft2-why-panel sft2-why-panel-left">
+              <div className="sft2-why-icon-circle"><i className="fas fa-shield-alt"></i></div>
+              <p className="sft2-why-card-sup">Why Choose</p>
+              <h3 className="sft2-why-card-title">Safetica Solutions?</h3>
+              <p className="sft2-why-card-desc">Safetica is a leading Data Loss Prevention (DLP) and Insider Risk Management solution providing complete visibility into user activities, data movement, and security risks – helping businesses secure critical information while maintaining productivity.</p>
+              <ul className="sft2-why-list">
+                <li><span className="sft2-why-list-icon"><i className="fas fa-lock"></i></span><span>Advanced DLP – prevent leakage via<br /><small>USB, email, cloud, web &amp; printing</small></span></li>
+                <li><span className="sft2-why-list-icon"><i className="fas fa-user-secret"></i></span><span>Insider Risk Management<br /><small>behavioral analytics &amp; early detection</small></span></li>
+                <li><span className="sft2-why-list-icon"><i className="fas fa-eye"></i></span><span>Real-Time Visibility &amp; Monitoring<br /><small>centralized unified dashboard</small></span></li>
+                <li><span className="sft2-why-list-icon"><i className="fas fa-clipboard-list"></i></span><span>Policy-Based Data Protection<br /><small>granular control by users, departments &amp; file types</small></span></li>
+                <li><span className="sft2-why-list-icon"><i className="fas fa-plug"></i></span><span>USB &amp; Device Control<br /><small>complete removable media protection</small></span></li>
+              </ul>
+            </div>
+            <div className="sft2-why-panel sft2-why-panel-right">
+              <div className="sft2-why-icon-circle sft2-why-icon-alt"><i className="fas fa-building"></i></div>
+              <p className="sft2-why-card-sup">Why Choose</p>
+              <h3 className="sft2-why-card-title sft2-why-card-title-alt">Trace Network &amp; Engineering?</h3>
+              <p className="sft2-why-card-desc">Trace Network &amp; Engineering Pvt Ltd is a certified Safetica partner delivering end-to-end DLP deployments with expert professionals and 1000+ successful enterprise deployments. We assess, design, and deploy Safetica solutions tailored to your data security needs.</p>
+              <ul className="sft2-why-list sft2-why-list-check">
+                <li><span className="sft2-why-list-icon sft2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>Critical issues resolved within 6 hours</span></li>
+                <li><span className="sft2-why-list-icon sft2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>1000+ successful enterprise deployments</span></li>
+                <li><span className="sft2-why-list-icon sft2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>End-to-end: from assessment to ongoing management</span></li>
+                <li><span className="sft2-why-list-icon sft2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>24/7 support via email, WhatsApp &amp; portal</span></li>
+                <li><span className="sft2-why-list-icon sft2-why-list-check-icon"><i className="fas fa-check-circle"></i></span><span>Specialized for healthcare, BFSI, manufacturing &amp; education</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="sft2-why-stats-bar" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <div className="sft2-why-stat"><div className="sft2-why-stat-icon"><i className="fas fa-lock"></i></div><div className="sft2-why-stat-text"><strong>Data Loss Prevention</strong><span>all channels protected</span></div></div>
+            <div className="sft2-why-stat-sep" aria-hidden="true"></div>
+            <div className="sft2-why-stat"><div className="sft2-why-stat-icon"><i className="fas fa-user-secret"></i></div><div className="sft2-why-stat-text"><strong>Insider Risk</strong><span>detection &amp; prevention</span></div></div>
+            <div className="sft2-why-stat-sep" aria-hidden="true"></div>
+            <div className="sft2-why-stat"><div className="sft2-why-stat-icon"><i className="fas fa-eye"></i></div><div className="sft2-why-stat-text"><strong>Real-Time</strong><span>unified visibility</span></div></div>
+            <div className="sft2-why-stat-sep" aria-hidden="true"></div>
+            <div className="sft2-why-stat"><div className="sft2-why-stat-icon"><i className="fas fa-handshake"></i></div><div className="sft2-why-stat-text"><strong>Trusted</strong><span>SAARC partnership</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PORTFOLIO ── */}
+      <section className="sft2-port-section" id="sft-portfolio">
+        <div className="sft2-port-container">
+          <div className="sft2-port-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="sft2-port-header-icon" aria-hidden="true"><i className="fas fa-shield-alt"></i></div>
+            <h2 className="sft2-port-title">Complete <span className="sft2-port-accent">Safetica</span> Portfolio</h2>
+            <div className="sft2-port-title-decor" aria-hidden="true"><span className="sft2-port-decor-line"></span><span className="sft2-port-decor-dot"></span><span className="sft2-port-decor-line"></span></div>
+            <p className="sft2-port-subtitle">Comprehensive DLP and Insider Risk Management for every enterprise need</p>
+          </div>
+
+          <div className="sft2-port-top-row">
+            <div className="sft2-port-card" data-aos="fade-up" data-aos-duration="800">
+              <div className="sft2-port-card-img sft2-port-img-a"><div className="sft2-port-card-img-overlay"></div></div>
+              <div className="sft2-port-card-body">
+                <div className="sft2-port-card-icon"><i className="fas fa-lock"></i></div>
+                <h3 className="sft2-port-card-title">Data Loss <span className="sft2-port-accent">Prevention (DLP)</span></h3>
+                <p className="sft2-port-card-desc">Prevent sensitive data leakage through all channels with intelligent content inspection.</p>
+                <ul className="sft2-port-list"><li><i className="fas fa-check"></i>USB &amp; removable media control</li><li><i className="fas fa-check"></i>Email &amp; cloud app protection</li><li><i className="fas fa-check"></i>Web upload prevention</li></ul>
+                <a href="/contact-us" className="sft2-port-link">Explore DLP <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="sft2-port-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+              <div className="sft2-port-card-img sft2-port-img-b"><div className="sft2-port-card-img-overlay"></div></div>
+              <div className="sft2-port-card-body">
+                <div className="sft2-port-card-icon"><i className="fas fa-user-secret"></i></div>
+                <h3 className="sft2-port-card-title">Insider Risk <span className="sft2-port-accent">Management</span></h3>
+                <p className="sft2-port-card-desc">Monitor user activities and detect risky behavior before it leads to data theft or security incidents.</p>
+                <ul className="sft2-port-list"><li><i className="fas fa-check"></i>Behavioral analytics</li><li><i className="fas fa-check"></i>Anomaly detection</li><li><i className="fas fa-check"></i>Risk scoring &amp; alerts</li></ul>
+                <a href="/contact-us" className="sft2-port-link">Explore IRM <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="sft2-port-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+              <div className="sft2-port-card-img sft2-port-img-c"><div className="sft2-port-card-img-overlay"></div></div>
+              <div className="sft2-port-card-body">
+                <div className="sft2-port-card-icon"><i className="fas fa-cloud"></i></div>
+                <h3 className="sft2-port-card-title">Endpoint &amp; Cloud <span className="sft2-port-accent">Protection</span></h3>
+                <p className="sft2-port-card-desc">Comprehensive protection across endpoints, laptops, cloud apps, and remote workforce environments.</p>
+                <ul className="sft2-port-list"><li><i className="fas fa-check"></i>Endpoint DLP agent</li><li><i className="fas fa-check"></i>Cloud app monitoring</li><li><i className="fas fa-check"></i>Remote worker protection</li></ul>
+                <a href="/contact-us" className="sft2-port-link">Explore <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div className="sft2-port-bottom-row" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+            <div className="sft2-port-dc-card">
+              <div className="sft2-port-dc-img"><div className="sft2-port-dc-img-overlay"></div></div>
+              <div className="sft2-port-dc-body">
+                <div className="sft2-port-card-icon sft2-port-dc-icon"><i className="fas fa-clipboard-list"></i></div>
+                <h3 className="sft2-port-card-title">Policy-Based <span className="sft2-port-accent">Data Protection</span></h3>
+                <p className="sft2-port-card-desc">Create and enforce security policies based on users, departments, file types, and business requirements.</p>
+                <ul className="sft2-port-list"><li><i className="fas fa-check"></i>Granular policy controls</li><li><i className="fas fa-check"></i>Department-level enforcement</li><li><i className="fas fa-check"></i>Compliance-ready reporting</li></ul>
+                <a href="/contact-us" className="sft2-port-link">Explore <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+            <div className="sft2-port-why-panel">
+              <h3 className="sft2-port-why-title">Why Choose <span className="sft2-port-accent">Safetica?</span></h3>
+              <div className="sft2-port-why-grid">
+                <div className="sft2-port-why-item"><div className="sft2-port-why-icon"><i className="fas fa-lock"></i></div><strong>Complete DLP</strong><span>All channels covered.</span></div>
+                <div className="sft2-port-why-item"><div className="sft2-port-why-icon"><i className="fas fa-user-secret"></i></div><strong>Insider Risk</strong><span>Behavioral threat detection.</span></div>
+                <div className="sft2-port-why-item"><div className="sft2-port-why-icon"><i className="fas fa-expand-arrows-alt"></i></div><strong>Scalable</strong><span>From SMB to enterprise.</span></div>
+                <div className="sft2-port-why-item"><div className="sft2-port-why-icon"><i className="fas fa-headset"></i></div><strong>SAARC Leader</strong><span>Trusted DLP partner.</span></div>
+              </div>
+              <div className="sft2-port-cta-bar">
+                <div className="sft2-port-cta-icon"><i className="fas fa-comments"></i></div>
+                <div className="sft2-port-cta-text"><strong>Need a DLP assessment?</strong><span>Our experts are ready to help.</span></div>
+                <a href="/contact-us" className="sft2-port-cta-btn">Talk to an Expert <i className="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── INDUSTRIES ── */}
+      <section className="sft2-ind-section">
+        <div className="sft2-ind-bg-glow sft2-ind-bg-glow-left" aria-hidden="true"></div>
+        <div className="sft2-ind-bg-glow sft2-ind-bg-glow-right" aria-hidden="true"></div>
+        <div className="sft2-ind-container">
+          <div className="sft2-ind-header" data-aos="fade-up" data-aos-duration="800">
+            <div className="sft2-ind-badge"><span className="sft2-ind-badge-dot"></span><i className="fas fa-crown"></i><span>TRUSTED ACROSS INDUSTRIES</span><span className="sft2-ind-badge-dot"></span></div>
+            <h2 className="sft2-ind-title">Industries Where <span className="sft2-ind-accent">Safetica</span><br /><span className="sft2-ind-accent">DLP</span> Excels</h2>
+            <p className="sft2-ind-subtitle">Protecting sensitive data across every industry vertical</p>
+          </div>
+          <div className="sft2-ind-grid">
+            {[
+              { cls:'red',     icon:'fa-shield-alt',     num:'01', title:'Defence & Government',         desc:'Prevent classified data leakage across endpoints and removable devices.' },
+              { cls:'crimson', icon:'fa-university',     num:'02', title:'Banking & BFSI',               desc:'Strict compliance and control over confidential financial data.' },
+              { cls:'orange',  icon:'fa-hospital',       num:'03', title:'Healthcare & Hospitals',       desc:'Protect patient records, medical reports, and sensitive healthcare data.' },
+              { cls:'rose',    icon:'fa-graduation-cap', num:'04', title:'Education Institutions',       desc:'Secure student records and institutional data in BYOD environments.' },
+              { cls:'amber',   icon:'fa-building',       num:'05', title:'Large Enterprises',            desc:'Centralized data visibility and control across all departments.' },
+              { cls:'ruby',    icon:'fa-industry',       num:'06', title:'Manufacturing & IT',           desc:'Protect IP, production data, and technical documentation.' },
+            ].map(({ cls, icon, num, title, desc }) => (
+              <div key={num} className={`sft2-ind-card sft2-ind-card-${cls}`} data-aos="fade-up" data-aos-duration="700">
+                <div className="sft2-ind-card-top">
+                  <div className={`sft2-ind-icon-wrap sft2-ind-icon-${cls}`}><i className={`fas ${icon}`}></i></div>
+                  <span className="sft2-ind-num">{num}</span>
+                </div>
+                <div className={`sft2-ind-num-rule sft2-ind-rule-${cls}`}></div>
+                <h3 className="sft2-ind-card-title">{title}</h3>
+                <p className="sft2-ind-card-desc">{desc}</p>
+                <a href="/contact-us" className={`sft2-ind-arrow sft2-ind-arrow-${cls}`} aria-label={`Learn more about ${title}`}><i className="fas fa-arrow-right"></i></a>
+                <div className="sft2-ind-card-bg-pattern" aria-hidden="true"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases */}
+      <UseCaseSlider useCases={safeticaUseCases} partnerColor="#ef4444" title="Safetica DLP Use Cases" subtitle="Successfully Deployed by Trace Network across diverse industry sectors" />
+
+      {/* Career CTA */}
+      <section className="career-cta-section">
+        <div className="career-cta-container">
+          <h2 className="career-cta-title">Ready to Stop Data Loss Before It Happens?</h2>
+          <p className="career-cta-text">Speak with a senior DLP consultant today. In 30 minutes you'll know:<br /><br />• The top three data leak risks in your current environment<br />• How Safetica DLP can eliminate them in days<br />• An exact timeline &amp; cost estimate—no obligations</p>
+          <div className="about-two__btn-box"><a href="tel:9000314411" className="btn-get-started"><span className="btn-text">Book Your Free Strategy Call </span><span className="btn-arrow"></span></a></div>
+        </div>
+      </section>
+
+      {/* Awards */}
+      <section className="awards-section">
+        <div className="section-title text-center">
+          <div className="section-title__tagline-box"><div className="section-title__tagline-shape-1"></div><span className="section-title__tagline">Awards</span><div className="section-title__tagline-shape-2"></div></div>
+          <h2 className="section-title__title">Recognized &amp; Trusted <span>for Delivering </span><br />Value &amp; Excellence</h2>
+        </div>
+        <div className="awards-slider"><div className="awards-track">
+          {[1,2,3,4,5,6,7,11,12,13,14,15,16,17,18,19].map(n => (
+            <div key={n} className="award-card"><img src={`/assets/images/award/${n}.png`} alt={`Award ${n}`} /><span>Award {n}</span></div>
+          ))}
+        </div></div>
+      </section>
+
+      {/* Why Leading Brands */}
+      <section className="premium-cards-section" style={{ marginTop: '-20px' }}>
+        <div className="premium-container">
+          <div className="section-title text-center pb-4"><h2 className="section-title__title">Why Leading<span> Brands</span> Choose<span> Trace</span></h2></div>
+          <div className="premium-card-grid">
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/certified.png" alt="certified" /></div><p><strong>Multi‑vendor, Certified Network Security Expertise</strong> Partnering with 40+ global OEMs, Trace Network offers future-proof, scalable cybersecurity solutions.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/leadership.png" alt="leadership" /></div><p><strong>20+ Years of Cybersecurity Leadership</strong> Two decades of proven expertise in enterprise IT security across India.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/luxury.png" alt="luxury" /></div><p><strong>Customer‑First, Value‑Driven</strong> Maximum protection with right-sized solutions and lowest TCO.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/technical-support.png" alt="technical-support" /></div><p><strong>Local Presence with Rapid IT Support</strong> Engineers available in Hyderabad, Bengaluru, Chennai, Vijayawada, and Vizag.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/iso-certificate.png" alt="iso-certificate" /></div><p><strong>ISO 27001‑Certified Cybersecurity Provider</strong> Stringent change management and global compliance practices.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/frame.png" alt="frame" /></div><p><strong>Proven Deployment Framework</strong> Assess → Design → Deploy → Optimise → Support for maximum ROI.</p></div>
+            <div className="premium-service-card"><div className="premium-icon-wrapper"><img src="/assets/images/agile.png" alt="agile" /></div><p><strong>Flexible MSSP Pricing Models</strong> CapEx, OpEx, or MSSP models aligned with your goals.</p></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Special Offer */}
+      <section className="sft2-offer-section" data-aos="zoom-in" data-aos-duration="1000">
+        <div className="sft2-offer-container">
+          <div className="sft2-offer-banner">
+            <div className="sft2-offer-glow"></div>
+            <div className="sft2-offer-content">
+              <div className="sft2-offer-badge"><i className="fas fa-gift"></i> EXCLUSIVE OFFER</div>
+              <h2 className="sft2-offer-title"><i className="fas fa-fire"></i> FREE POC Available</h2>
+              <p className="sft2-offer-subtitle">Exclusive Offers on Safetica DLP Solutions</p>
+              <p className="sft2-offer-desc">Experience the power of Safetica Data Loss Prevention and Insider Risk Management firsthand. Our certified experts will conduct a complete assessment of your data security needs and set up a tailored proof of concept – absolutely free, no commitment required.</p>
+              <div className="sft2-offer-highlights">
+                <div className="sft2-offer-point"><span className="sft2-offer-check">✓</span> Free DLP Assessment</div>
+                <div className="sft2-offer-point"><span className="sft2-offer-check">✓</span> Insider Risk Analysis</div>
+                <div className="sft2-offer-point"><span className="sft2-offer-check">✓</span> Custom POC Setup in your environment</div>
+                <div className="sft2-offer-point"><span className="sft2-offer-check">✓</span> Expert DLP Consultation</div>
+                <div className="sft2-offer-point"><span className="sft2-offer-check">✓</span> Exclusive Pricing on Safetica solutions</div>
+                <div className="sft2-offer-point"><span className="sft2-offer-check">✓</span> 24/7 Support throughout</div>
+              </div>
+              <Link to="/contact-us" className="sft2-contact-btn"><i className="fas fa-phone-alt"></i> Get Your FREE Demo &amp; Consultation →</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
+}
