@@ -39,25 +39,26 @@ const getCertificateRecipients = () => {
     ];
 };
 
-// ─── Nodemailer Transporter Factory ───────────────────────────
-const createTransporter = () => {
+// ─── Nodemailer Transporter Factory with IPv4 Force & Port Fallback ─
+const createTransporter = (overridePort = null, overrideSecure = null) => {
     const host = process.env.EMAIL_HOST || 'smtp.gmail.com';
-    const port = parseInt(process.env.EMAIL_PORT, 10) || 465;
+    const port = overridePort || parseInt(process.env.EMAIL_PORT, 10) || 465;
     
-    // Auto-detect secure flag based on port if not explicitly set
     let secure = port === 465;
-    if (process.env.EMAIL_SECURE !== undefined) {
+    if (overrideSecure !== null) {
+        secure = overrideSecure;
+    } else if (process.env.EMAIL_SECURE !== undefined) {
         secure = process.env.EMAIL_SECURE === 'true';
     }
 
     const emailUser = process.env.EMAIL_USER || '';
-    // Clean password (remove spaces if user copied an app password with spaces)
     const emailPass = process.env.EMAIL_PASS ? process.env.EMAIL_PASS.replace(/\s+/g, '') : '';
 
     return nodemailer.createTransport({
         host,
         port,
         secure,
+        family: 4, // CRITICAL: Force IPv4 DNS lookup to prevent ETIMEDOUT on Render/cloud hosts where IPv6 is unrouted
         auth: {
             user: emailUser,
             pass: emailPass,
@@ -65,10 +66,27 @@ const createTransporter = () => {
         tls: {
             rejectUnauthorized: false
         },
-        connectionTimeout: 10000, // 10s connection timeout for cloud hosting
+        connectionTimeout: 10000,
         greetingTimeout: 5000,
         socketTimeout: 15000
     });
+};
+
+// Robust helper that attempts primary transport and auto-retries alternative port (465 <-> 587) if needed
+const sendMailWithFallback = async (mailOptions) => {
+    try {
+        const primaryTransporter = createTransporter();
+        return await primaryTransporter.sendMail(mailOptions);
+    } catch (primaryErr) {
+        console.warn('Primary SMTP transport failed, trying fallback port...', primaryErr.message);
+        
+        const currentPort = parseInt(process.env.EMAIL_PORT, 10) || 465;
+        const fallbackPort = currentPort === 465 ? 587 : 465;
+        const fallbackSecure = fallbackPort === 465;
+
+        const fallbackTransporter = createTransporter(fallbackPort, fallbackSecure);
+        return await fallbackTransporter.sendMail(mailOptions);
+    }
 };
 
 const getSenderEmail = () => process.env.EMAIL_USER || 'connect@tracenetwork.in';
@@ -116,21 +134,33 @@ router.get('/verify-smtp', async (req, res) => {
             });
         }
 
-        const transporter = createTransporter();
-        const verification = await transporter.verify();
+        let verificationResult;
+        let activePort = port;
+        let activeSecure = secure;
+
+        try {
+            const primaryTransporter = createTransporter();
+            verificationResult = await primaryTransporter.verify();
+        } catch (primaryErr) {
+            console.warn('Primary verify failed, testing fallback port...', primaryErr.message);
+            activePort = port === 465 ? 587 : 465;
+            activeSecure = activePort === 465;
+            const fallbackTransporter = createTransporter(activePort, activeSecure);
+            verificationResult = await fallbackTransporter.verify();
+        }
 
         res.json({
             success: true,
             status: 'SMTP Connection Verified Successfully!',
             config: {
                 host,
-                port,
-                secure,
+                port: activePort,
+                secure: activeSecure,
                 userConfigured,
                 passConfigured,
                 emailUser: process.env.EMAIL_USER ? process.env.EMAIL_USER.replace(/(.{2})(.*)(?=@)/, '$1***') : 'NOT SET'
             },
-            verification
+            verification: verificationResult
         });
     } catch (err) {
         console.error('SMTP verification failed:', err);
@@ -174,11 +204,10 @@ router.post('/send', async (req, res) => {
 
         if (dbErr) console.error('DB insert error (contact):', dbErr.message);
 
-        // 2. Await emails (Critical for Serverless / Cloud Hosting runtime preservation)
-        const transporter = createTransporter();
+        // 2. Await emails with IPv4 force & fallback support
         const sender = getSenderEmail();
 
-        const adminMailPromise = transporter.sendMail({
+        const adminMailPromise = sendMailWithFallback({
             from: `"${name}" <${sender}>`,
             replyTo: email,
             to: getContactRecipients(),
@@ -194,7 +223,7 @@ router.post('/send', async (req, res) => {
             `,
         });
 
-        const userMailPromise = transporter.sendMail({
+        const userMailPromise = sendMailWithFallback({
             from: `"Trace Network & Engineering" <${sender}>`,
             to: email,
             subject: 'Thank you for contacting Trace Network & Engineering',
@@ -247,7 +276,6 @@ router.post('/submit', upload.single('resume'), async (req, res) => {
 
         if (dbErr) console.error('DB insert error (career):', dbErr.message);
 
-        const transporter = createTransporter();
         const sender = getSenderEmail();
 
         // 2. Prepare and await email notifications
@@ -273,9 +301,9 @@ router.post('/submit', upload.single('resume'), async (req, res) => {
             }];
         }
 
-        const adminMailPromise = transporter.sendMail(mailOptions);
+        const adminMailPromise = sendMailWithFallback(mailOptions);
 
-        const userMailPromise = transporter.sendMail({
+        const userMailPromise = sendMailWithFallback({
             from: `"Trace Career Team" <${sender}>`,
             to: email,
             subject: 'Application Received - Trace Network & Engineering',
@@ -327,10 +355,9 @@ router.post('/service-request', async (req, res) => {
         if (dbErr) console.error('DB insert error (service-request):', dbErr.message);
 
         // 2. Await emails
-        const transporter = createTransporter();
         const sender = getSenderEmail();
 
-        const adminMailPromise = transporter.sendMail({
+        const adminMailPromise = sendMailWithFallback({
             from: `"${name}" <${sender}>`,
             replyTo: email,
             to: getContactRecipients(),
@@ -347,7 +374,7 @@ router.post('/service-request', async (req, res) => {
             `,
         });
 
-        const userMailPromise = transporter.sendMail({
+        const userMailPromise = sendMailWithFallback({
             from: `"Trace Network & Engineering" <${sender}>`,
             to: email,
             subject: 'Free VAPT Offer Request Received - Trace Network',
@@ -422,10 +449,9 @@ router.post('/certificate-register', async (req, res) => {
         }
 
         // 2. Await emails
-        const transporter = createTransporter();
         const sender = getSenderEmail();
 
-        const adminMailPromise = transporter.sendMail({
+        const adminMailPromise = sendMailWithFallback({
             from: `"${fullName}" <${sender}>`,
             replyTo: email,
             to: getCertificateRecipients(),
@@ -443,7 +469,7 @@ router.post('/certificate-register', async (req, res) => {
             `,
         });
 
-        const userMailPromise = transporter.sendMail({
+        const userMailPromise = sendMailWithFallback({
             from: `"Trace Network Academy" <${sender}>`,
             to: email,
             subject: 'Certificate Account Registration Received - Trace Network',
