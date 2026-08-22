@@ -4,6 +4,7 @@ const nodemailer = require('nodemailer');
 const multer = require('multer');
 const { v4: uuidv4 } = require('uuid');
 const dns = require('dns');
+const net = require('net');
 const supabase = require('../db');
 
 const upload = multer({ storage: multer.memoryStorage() });
@@ -116,6 +117,32 @@ async function uploadResume(file) {
     const { data } = supabase.storage.from(RESUME_BUCKET).getPublicUrl(path);
     return data.publicUrl;
 }
+
+// ─── GET /api/contact/test-network  (Raw TCP Diagnostic) ────
+router.get('/test-network', async (req, res) => {
+    const testPort = (host, port) => new Promise((resolve) => {
+        const socket = net.connect({ host, port, timeout: 5000 }, () => {
+            socket.destroy();
+            resolve({ host, port, status: 'OPEN / CONNECTED' });
+        });
+        socket.on('error', (err) => {
+            resolve({ host, port, status: 'FAILED', error: err.message, code: err.code });
+        });
+        socket.on('timeout', () => {
+            socket.destroy();
+            resolve({ host, port, status: 'TIMEOUT' });
+        });
+    });
+
+    const results = await Promise.all([
+        testPort('smtp.gmail.com', 465),
+        testPort('smtp.gmail.com', 587),
+        testPort('smtp.gmail.com', 25),
+        testPort('smtp.gmail.com', 2525),
+    ]);
+
+    res.json({ success: true, results });
+});
 
 // ─── GET /api/contact/verify-smtp  (Diagnostic route for production) ──
 router.get('/verify-smtp', async (req, res) => {
