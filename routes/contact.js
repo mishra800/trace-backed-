@@ -3,6 +3,7 @@ const router = express.Router();
 const nodemailer = require('nodemailer');
 const multer = require('multer');
 const { v4: uuidv4 } = require('uuid');
+const dns = require('dns');
 const supabase = require('../db');
 
 const upload = multer({ storage: multer.memoryStorage() });
@@ -39,7 +40,7 @@ const getCertificateRecipients = () => {
     ];
 };
 
-// ─── Nodemailer Transporter Factory with IPv4 Force & Port Fallback ─
+// ─── Nodemailer Transporter Factory with Strict IPv4 DNS Lookup ──
 const createTransporter = (overridePort = null, overrideSecure = null) => {
     const host = process.env.EMAIL_HOST || 'smtp.gmail.com';
     const port = overridePort || parseInt(process.env.EMAIL_PORT, 10) || 465;
@@ -58,7 +59,10 @@ const createTransporter = (overridePort = null, overrideSecure = null) => {
         host,
         port,
         secure,
-        family: 4, // CRITICAL: Force IPv4 DNS lookup to prevent ETIMEDOUT on Render/cloud hosts where IPv6 is unrouted
+        // FORCE IPv4 lookup via custom DNS resolver to eliminate ENETUNREACH IPv6 errors on Render/cloud servers
+        lookup: (hostname, options, callback) => {
+            dns.lookup(hostname, { family: 4 }, callback);
+        },
         auth: {
             user: emailUser,
             pass: emailPass,
@@ -66,9 +70,9 @@ const createTransporter = (overridePort = null, overrideSecure = null) => {
         tls: {
             rejectUnauthorized: false
         },
-        connectionTimeout: 10000,
-        greetingTimeout: 5000,
-        socketTimeout: 15000
+        connectionTimeout: 15000,
+        greetingTimeout: 10000,
+        socketTimeout: 20000
     });
 };
 
