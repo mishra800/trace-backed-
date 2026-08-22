@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 const multer = require('multer');
 const { v4: uuidv4 } = require('uuid');
 const dns = require('dns');
@@ -8,8 +9,10 @@ const net = require('net');
 const supabase = require('../db');
 
 const upload = multer({ storage: multer.memoryStorage() });
-
 const RESUME_BUCKET = 'resumes';
+
+const RESEND_KEY = process.env.RESEND_API_KEY;
+const resendClient = RESEND_KEY ? new Resend(RESEND_KEY) : null;
 
 // ─── Helper to parse email recipients ─────────────────────────
 const getContactRecipients = () => {
@@ -41,7 +44,7 @@ const getCertificateRecipients = () => {
     ];
 };
 
-// ─── Nodemailer Transporter Factory with Strict IPv4 DNS Lookup ──
+// ─── Nodemailer Transporter Factory (Fallback) ──────────────────
 const createTransporter = (overridePort = null, overrideSecure = null) => {
     const host = process.env.EMAIL_HOST || 'smtp.gmail.com';
     const port = overridePort || parseInt(process.env.EMAIL_PORT, 10) || 465;
@@ -60,7 +63,6 @@ const createTransporter = (overridePort = null, overrideSecure = null) => {
         host,
         port,
         secure,
-        // FORCE IPv4 lookup via custom DNS resolver to eliminate ENETUNREACH IPv6 errors on Render/cloud servers
         lookup: (hostname, options, callback) => {
             dns.lookup(hostname, { family: 4 }, callback);
         },
@@ -77,14 +79,12 @@ const createTransporter = (overridePort = null, overrideSecure = null) => {
     });
 };
 
-// Robust helper that attempts primary transport and auto-retries alternative port (465 <-> 587) if needed
 const sendMailWithFallback = async (mailOptions) => {
     try {
         const primaryTransporter = createTransporter();
         return await primaryTransporter.sendMail(mailOptions);
     } catch (primaryErr) {
         console.warn('Primary SMTP transport failed, trying fallback port...', primaryErr.message);
-        
         const currentPort = parseInt(process.env.EMAIL_PORT, 10) || 465;
         const fallbackPort = currentPort === 465 ? 587 : 465;
         const fallbackSecure = fallbackPort === 465;
@@ -92,6 +92,60 @@ const sendMailWithFallback = async (mailOptions) => {
         const fallbackTransporter = createTransporter(fallbackPort, fallbackSecure);
         return await fallbackTransporter.sendMail(mailOptions);
     }
+};
+
+// ─── Smart Mailer (HTTPS Resend API primary, Nodemailer fallback) ──
+const sendMailSmart = async (mailOptions) => {
+    if (resendClient) {
+        try {
+            let toList = Array.isArray(mailOptions.to) ? mailOptions.to : [mailOptions.to];
+            const senderHeader = process.env.RESEND_FROM || 'Trace Network <onboarding@resend.dev>';
+            
+            const payload = {
+                from: senderHeader,
+                to: toList,
+                replyTo: mailOptions.replyTo || mailOptions.reply_to || undefined,
+                subject: mailOptions.subject,
+                html: mailOptions.html,
+            };
+
+            if (mailOptions.attachments && mailOptions.attachments.length > 0) {
+                payload.attachments = mailOptions.attachments.map(att => ({
+                    filename: att.filename,
+                    content: Buffer.isBuffer(att.content) ? att.content.toString('base64') : att.content
+                }));
+            }
+
+            const resendResult = await resendClient.emails.send(payload);
+
+            if (!resendResult.error) {
+                console.log('Email sent successfully via Resend HTTPS API:', resendResult.data.id);
+                return resendResult.data;
+            }
+
+            // If 403 testing domain restriction occurs on Resend, route to account owner email so lead is NEVER lost
+            if (resendResult.error && (resendResult.error.statusCode === 403 || resendResult.error.name === 'validation_error')) {
+                console.warn('Resend test domain restriction active. Routing email to verified owner email (abhishekmishra.it216@gmail.com)...');
+                const ownerPayload = {
+                    ...payload,
+                    to: ['abhishekmishra.it216@gmail.com'],
+                    subject: `[WEBSITE LEAD] ${mailOptions.subject} (Target: ${toList.join(', ')})`
+                };
+                const ownerResult = await resendClient.emails.send(ownerPayload);
+                if (!ownerResult.error) {
+                    console.log('Email successfully delivered to owner via Resend:', ownerResult.data.id);
+                    return ownerResult.data;
+                }
+            }
+
+            console.warn('Resend returned error, attempting Nodemailer fallback...', resendResult.error);
+        } catch (resendErr) {
+            console.warn('Resend API exception, falling back to Nodemailer SMTP:', resendErr.message);
+        }
+    }
+
+    // Fallback to SMTP
+    return await sendMailWithFallback(mailOptions);
 };
 
 const getSenderEmail = () => process.env.EMAIL_USER || 'connect@tracenetwork.in';
@@ -141,73 +195,51 @@ router.get('/test-network', async (req, res) => {
         testPort('smtp.gmail.com', 2525),
     ]);
 
-    res.json({ success: true, results });
+    res.json({ success: true, results, resendConfigured: Boolean(RESEND_KEY) });
 });
 
 // ─── GET /api/contact/verify-smtp  (Diagnostic route for production) ──
 router.get('/verify-smtp', async (req, res) => {
     try {
-        const host = process.env.EMAIL_HOST || 'smtp.gmail.com';
-        const port = parseInt(process.env.EMAIL_PORT, 10) || 465;
-        let secure = port === 465;
-        if (process.env.EMAIL_SECURE !== undefined) {
-            secure = process.env.EMAIL_SECURE === 'true';
-        }
-        const userConfigured = Boolean(process.env.EMAIL_USER);
-        const passConfigured = Boolean(process.env.EMAIL_PASS);
+        let resendStatus = 'Not Configured';
+        let resendTestResult = null;
 
-        if (!userConfigured || !passConfigured) {
-            return res.status(400).json({
-                success: false,
-                status: 'Missing Configuration',
-                message: 'EMAIL_USER or EMAIL_PASS environment variable is not set on server.',
-                config: { host, port, secure, userConfigured, passConfigured }
-            });
-        }
-
-        let verificationResult;
-        let activePort = port;
-        let activeSecure = secure;
-
-        try {
-            const primaryTransporter = createTransporter();
-            verificationResult = await primaryTransporter.verify();
-        } catch (primaryErr) {
-            console.warn('Primary verify failed, testing fallback port...', primaryErr.message);
-            activePort = port === 465 ? 587 : 465;
-            activeSecure = activePort === 465;
-            const fallbackTransporter = createTransporter(activePort, activeSecure);
-            verificationResult = await fallbackTransporter.verify();
+        if (resendClient) {
+            try {
+                const testResult = await resendClient.emails.send({
+                    from: process.env.RESEND_FROM || 'Trace Network <onboarding@resend.dev>',
+                    to: ['abhishekmishra.it216@gmail.com'],
+                    subject: 'Verify Resend API Status',
+                    html: '<p>Resend API is active and working!</p>'
+                });
+                if (!testResult.error) {
+                    resendStatus = 'OPERATIONAL (HTTPS Port 443)';
+                    resendTestResult = testResult.data;
+                } else {
+                    resendStatus = 'Error: ' + testResult.error.message;
+                }
+            } catch (rErr) {
+                resendStatus = 'Exception: ' + rErr.message;
+            }
         }
 
         res.json({
             success: true,
-            status: 'SMTP Connection Verified Successfully!',
+            status: 'Email Delivery Engine Ready',
+            resendEngine: resendStatus,
+            resendData: resendTestResult,
             config: {
-                host,
-                port: activePort,
-                secure: activeSecure,
-                userConfigured,
-                passConfigured,
-                emailUser: process.env.EMAIL_USER ? process.env.EMAIL_USER.replace(/(.{2})(.*)(?=@)/, '$1***') : 'NOT SET'
-            },
-            verification: verificationResult
+                resendConfigured: Boolean(RESEND_KEY),
+                emailUserConfigured: Boolean(process.env.EMAIL_USER),
+                emailPassConfigured: Boolean(process.env.EMAIL_PASS)
+            }
         });
     } catch (err) {
-        console.error('SMTP verification failed:', err);
+        console.error('Email engine verification failed:', err);
         res.status(500).json({
             success: false,
-            status: 'SMTP Verification Failed',
-            error: err.message,
-            code: err.code,
-            command: err.command,
-            config: {
-                host: process.env.EMAIL_HOST || 'smtp.gmail.com',
-                port: parseInt(process.env.EMAIL_PORT, 10) || 465,
-                secure: (parseInt(process.env.EMAIL_PORT, 10) || 465) === 465,
-                userConfigured: Boolean(process.env.EMAIL_USER),
-                passConfigured: Boolean(process.env.EMAIL_PASS)
-            }
+            status: 'Engine Verification Failed',
+            error: err.message
         });
     }
 });
@@ -235,10 +267,10 @@ router.post('/send', async (req, res) => {
 
         if (dbErr) console.error('DB insert error (contact):', dbErr.message);
 
-        // 2. Await emails with IPv4 force & fallback support
+        // 2. Await emails with Smart Mailer (Resend HTTPS primary)
         const sender = getSenderEmail();
 
-        const adminMailPromise = sendMailWithFallback({
+        const adminMailPromise = sendMailSmart({
             from: `"${name}" <${sender}>`,
             replyTo: email,
             to: getContactRecipients(),
@@ -254,7 +286,7 @@ router.post('/send', async (req, res) => {
             `,
         });
 
-        const userMailPromise = sendMailWithFallback({
+        const userMailPromise = sendMailSmart({
             from: `"Trace Network & Engineering" <${sender}>`,
             to: email,
             subject: 'Thank you for contacting Trace Network & Engineering',
@@ -332,9 +364,9 @@ router.post('/submit', upload.single('resume'), async (req, res) => {
             }];
         }
 
-        const adminMailPromise = sendMailWithFallback(mailOptions);
+        const adminMailPromise = sendMailSmart(mailOptions);
 
-        const userMailPromise = sendMailWithFallback({
+        const userMailPromise = sendMailSmart({
             from: `"Trace Career Team" <${sender}>`,
             to: email,
             subject: 'Application Received - Trace Network & Engineering',
@@ -388,7 +420,7 @@ router.post('/service-request', async (req, res) => {
         // 2. Await emails
         const sender = getSenderEmail();
 
-        const adminMailPromise = sendMailWithFallback({
+        const adminMailPromise = sendMailSmart({
             from: `"${name}" <${sender}>`,
             replyTo: email,
             to: getContactRecipients(),
@@ -405,7 +437,7 @@ router.post('/service-request', async (req, res) => {
             `,
         });
 
-        const userMailPromise = sendMailWithFallback({
+        const userMailPromise = sendMailSmart({
             from: `"Trace Network & Engineering" <${sender}>`,
             to: email,
             subject: 'Free VAPT Offer Request Received - Trace Network',
@@ -482,7 +514,7 @@ router.post('/certificate-register', async (req, res) => {
         // 2. Await emails
         const sender = getSenderEmail();
 
-        const adminMailPromise = sendMailWithFallback({
+        const adminMailPromise = sendMailSmart({
             from: `"${fullName}" <${sender}>`,
             replyTo: email,
             to: getCertificateRecipients(),
@@ -500,7 +532,7 @@ router.post('/certificate-register', async (req, res) => {
             `,
         });
 
-        const userMailPromise = sendMailWithFallback({
+        const userMailPromise = sendMailSmart({
             from: `"Trace Network Academy" <${sender}>`,
             to: email,
             subject: 'Certificate Account Registration Received - Trace Network',
