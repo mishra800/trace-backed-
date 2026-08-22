@@ -39,19 +39,39 @@ const getCertificateRecipients = () => {
     ];
 };
 
-// ─── Nodemailer transporter ──────────────────────────────────
-const transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST || 'smtp.gmail.com',
-    port: parseInt(process.env.EMAIL_PORT, 10) || 587,
-    secure: process.env.EMAIL_SECURE === 'true', // true for port 465, false for other ports
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-    },
-    tls: {
-        rejectUnauthorized: false
+// ─── Nodemailer Transporter Factory ───────────────────────────
+const createTransporter = () => {
+    const host = process.env.EMAIL_HOST || 'smtp.gmail.com';
+    const port = parseInt(process.env.EMAIL_PORT, 10) || 465;
+    
+    // Auto-detect secure flag based on port if not explicitly set
+    let secure = port === 465;
+    if (process.env.EMAIL_SECURE !== undefined) {
+        secure = process.env.EMAIL_SECURE === 'true';
     }
-});
+
+    const emailUser = process.env.EMAIL_USER || '';
+    // Clean password (remove spaces if user copied an app password with spaces)
+    const emailPass = process.env.EMAIL_PASS ? process.env.EMAIL_PASS.replace(/\s+/g, '') : '';
+
+    return nodemailer.createTransport({
+        host,
+        port,
+        secure,
+        auth: {
+            user: emailUser,
+            pass: emailPass,
+        },
+        tls: {
+            rejectUnauthorized: false
+        },
+        connectionTimeout: 10000, // 10s connection timeout for cloud hosting
+        greetingTimeout: 5000,
+        socketTimeout: 15000
+    });
+};
+
+const getSenderEmail = () => process.env.EMAIL_USER || 'connect@tracenetwork.in';
 
 // ─── Upload resume to Supabase Storage ───────────────────────
 async function uploadResume(file) {
@@ -74,6 +94,62 @@ async function uploadResume(file) {
     const { data } = supabase.storage.from(RESUME_BUCKET).getPublicUrl(path);
     return data.publicUrl;
 }
+
+// ─── GET /api/contact/verify-smtp  (Diagnostic route for production) ──
+router.get('/verify-smtp', async (req, res) => {
+    try {
+        const host = process.env.EMAIL_HOST || 'smtp.gmail.com';
+        const port = parseInt(process.env.EMAIL_PORT, 10) || 465;
+        let secure = port === 465;
+        if (process.env.EMAIL_SECURE !== undefined) {
+            secure = process.env.EMAIL_SECURE === 'true';
+        }
+        const userConfigured = Boolean(process.env.EMAIL_USER);
+        const passConfigured = Boolean(process.env.EMAIL_PASS);
+
+        if (!userConfigured || !passConfigured) {
+            return res.status(400).json({
+                success: false,
+                status: 'Missing Configuration',
+                message: 'EMAIL_USER or EMAIL_PASS environment variable is not set on server.',
+                config: { host, port, secure, userConfigured, passConfigured }
+            });
+        }
+
+        const transporter = createTransporter();
+        const verification = await transporter.verify();
+
+        res.json({
+            success: true,
+            status: 'SMTP Connection Verified Successfully!',
+            config: {
+                host,
+                port,
+                secure,
+                userConfigured,
+                passConfigured,
+                emailUser: process.env.EMAIL_USER ? process.env.EMAIL_USER.replace(/(.{2})(.*)(?=@)/, '$1***') : 'NOT SET'
+            },
+            verification
+        });
+    } catch (err) {
+        console.error('SMTP verification failed:', err);
+        res.status(500).json({
+            success: false,
+            status: 'SMTP Verification Failed',
+            error: err.message,
+            code: err.code,
+            command: err.command,
+            config: {
+                host: process.env.EMAIL_HOST || 'smtp.gmail.com',
+                port: parseInt(process.env.EMAIL_PORT, 10) || 465,
+                secure: (parseInt(process.env.EMAIL_PORT, 10) || 465) === 465,
+                userConfigured: Boolean(process.env.EMAIL_USER),
+                passConfigured: Boolean(process.env.EMAIL_PASS)
+            }
+        });
+    }
+});
 
 // ─── POST /api/contact/send  (General contact form) ──────────
 router.post('/send', async (req, res) => {
@@ -98,8 +174,12 @@ router.post('/send', async (req, res) => {
 
         if (dbErr) console.error('DB insert error (contact):', dbErr.message);
 
-        transporter.sendMail({
-            from: `"${name}" <${process.env.EMAIL_USER}>`,
+        // 2. Await emails (Critical for Serverless / Cloud Hosting runtime preservation)
+        const transporter = createTransporter();
+        const sender = getSenderEmail();
+
+        const adminMailPromise = transporter.sendMail({
+            from: `"${name}" <${sender}>`,
             replyTo: email,
             to: getContactRecipients(),
             subject: `New Contact Form Submission from ${name}`,
@@ -112,13 +192,10 @@ router.post('/send', async (req, res) => {
                 <p><strong>Message:</strong></p>
                 <p>${message.replace(/\n/g, '<br>')}</p>
             `,
-        }).catch(err => {
-            console.error('Email send failure (contact):', err);
         });
 
-        // Send confirmation email to the submitter
-        transporter.sendMail({
-            from: `"Trace Network & Engineering" <${process.env.EMAIL_USER}>`,
+        const userMailPromise = transporter.sendMail({
+            from: `"Trace Network & Engineering" <${sender}>`,
             to: email,
             subject: 'Thank you for contacting Trace Network & Engineering',
             html: `
@@ -134,14 +211,19 @@ router.post('/send', async (req, res) => {
                 <p>Best regards,</p>
                 <p><strong>Trace Network & Engineering Team</strong></p>
             `,
-        }).catch(err => {
-            console.error('Confirmation email send failure (contact):', err);
+        });
+
+        const mailResults = await Promise.allSettled([adminMailPromise, userMailPromise]);
+        mailResults.forEach((result, idx) => {
+            if (result.status === 'rejected') {
+                console.error(`Email send failure (contact endpoint - index ${idx}):`, result.reason);
+            }
         });
 
         res.json({ success: true, message: 'Message sent successfully!' });
     } catch (error) {
         console.error('Contact form error:', error);
-        res.status(500).json({ success: false, message: 'Message sending failed. Please try again.' });
+        res.status(500).json({ success: false, message: 'Message sending failed: ' + error.message });
     }
 });
 
@@ -165,9 +247,12 @@ router.post('/submit', upload.single('resume'), async (req, res) => {
 
         if (dbErr) console.error('DB insert error (career):', dbErr.message);
 
-        // 2. Send email notification in the background (non-blocking)
+        const transporter = createTransporter();
+        const sender = getSenderEmail();
+
+        // 2. Prepare and await email notifications
         const mailOptions = {
-            from: `"${name}" <${process.env.EMAIL_USER}>`,
+            from: `"${name}" <${sender}>`,
             replyTo: email,
             to: getCareerRecipients(),
             subject: 'New Career Application',
@@ -181,7 +266,6 @@ router.post('/submit', upload.single('resume'), async (req, res) => {
             `,
         };
 
-        // Attach file buffer directly to email as well
         if (req.file) {
             mailOptions.attachments = [{
                 filename: req.file.originalname,
@@ -189,13 +273,10 @@ router.post('/submit', upload.single('resume'), async (req, res) => {
             }];
         }
 
-        transporter.sendMail(mailOptions).catch(err => {
-            console.error('Email send failure (career):', err);
-        });
+        const adminMailPromise = transporter.sendMail(mailOptions);
 
-        // Send confirmation email to the applicant
-        transporter.sendMail({
-            from: `"Trace Career Team" <${process.env.EMAIL_USER}>`,
+        const userMailPromise = transporter.sendMail({
+            from: `"Trace Career Team" <${sender}>`,
             to: email,
             subject: 'Application Received - Trace Network & Engineering',
             html: `
@@ -206,8 +287,13 @@ router.post('/submit', upload.single('resume'), async (req, res) => {
                 <p>Best regards,</p>
                 <p><strong>HR & Careers Team</strong><br>Trace Network & Engineering</p>
             `,
-        }).catch(err => {
-            console.error('Confirmation email send failure (career):', err);
+        });
+
+        const mailResults = await Promise.allSettled([adminMailPromise, userMailPromise]);
+        mailResults.forEach((result, idx) => {
+            if (result.status === 'rejected') {
+                console.error(`Email send failure (career endpoint - index ${idx}):`, result.reason);
+            }
         });
 
         res.json({ success: true, message: 'Application sent successfully!' });
@@ -240,9 +326,12 @@ router.post('/service-request', async (req, res) => {
 
         if (dbErr) console.error('DB insert error (service-request):', dbErr.message);
 
-        // 2. Send email notification in the background (non-blocking)
-        transporter.sendMail({
-            from: `"${name}" <${process.env.EMAIL_USER}>`,
+        // 2. Await emails
+        const transporter = createTransporter();
+        const sender = getSenderEmail();
+
+        const adminMailPromise = transporter.sendMail({
+            from: `"${name}" <${sender}>`,
             replyTo: email,
             to: getContactRecipients(),
             subject: `New Service Request: ${service} - ${name}`,
@@ -256,13 +345,10 @@ router.post('/service-request', async (req, res) => {
                 ${message ? `<p><strong>Additional Info:</strong></p><p>${message.replace(/\n/g, '<br>')}</p>` : ''}
                 <br><p style="color:#ff7a00;font-weight:bold;">From the Free VAPT Offer popup.</p>
             `,
-        }).catch(err => {
-            console.error('Email send failure (service-request):', err);
         });
 
-        // Send confirmation email to the submitter
-        transporter.sendMail({
-            from: `"Trace Network & Engineering" <${process.env.EMAIL_USER}>`,
+        const userMailPromise = transporter.sendMail({
+            from: `"Trace Network & Engineering" <${sender}>`,
             to: email,
             subject: 'Free VAPT Offer Request Received - Trace Network',
             html: `
@@ -277,14 +363,19 @@ router.post('/service-request', async (req, res) => {
                 <p>Best regards,</p>
                 <p><strong>Security Operations Team</strong><br>Trace Network & Engineering</p>
             `,
-        }).catch(err => {
-            console.error('Confirmation email send failure (service-request):', err);
+        });
+
+        const mailResults = await Promise.allSettled([adminMailPromise, userMailPromise]);
+        mailResults.forEach((result, idx) => {
+            if (result.status === 'rejected') {
+                console.error(`Email send failure (service-request endpoint - index ${idx}):`, result.reason);
+            }
         });
 
         res.json({ success: true, message: 'Service request sent successfully!' });
     } catch (error) {
         console.error('Service request error:', error);
-        res.status(500).json({ success: false, message: 'Request sending failed. Please try again.' });
+        res.status(500).json({ success: false, message: 'Request sending failed: ' + error.message });
     }
 });
 
@@ -330,9 +421,12 @@ router.post('/certificate-register', async (req, res) => {
             console.error('DB insert exception (certificate-registration):', dbEx);
         }
 
-        // 2. Send email notification to certificate recipients
-        transporter.sendMail({
-            from: `"${fullName}" <${process.env.EMAIL_USER}>`,
+        // 2. Await emails
+        const transporter = createTransporter();
+        const sender = getSenderEmail();
+
+        const adminMailPromise = transporter.sendMail({
+            from: `"${fullName}" <${sender}>`,
             replyTo: email,
             to: getCertificateRecipients(),
             subject: `New Certificate Account Registration - ${fullName}`,
@@ -347,13 +441,10 @@ router.post('/certificate-register', async (req, res) => {
                 <hr>
                 <p style="font-size: 12px; color: #666;">This notification was automatically sent upon new account creation.</p>
             `,
-        }).catch(err => {
-            console.error('Email send failure (certificate-registration):', err);
         });
 
-        // 3. Send confirmation email to the user
-        transporter.sendMail({
-            from: `"Trace Network Academy" <${process.env.EMAIL_USER}>`,
+        const userMailPromise = transporter.sendMail({
+            from: `"Trace Network Academy" <${sender}>`,
             to: email,
             subject: 'Certificate Account Registration Received - Trace Network',
             html: `
@@ -371,14 +462,19 @@ router.post('/certificate-register', async (req, res) => {
                 <p>Best regards,</p>
                 <p><strong>Trace Network & Engineering Team</strong></p>
             `,
-        }).catch(err => {
-            console.error('Confirmation email send failure (certificate-registration):', err);
+        });
+
+        const mailResults = await Promise.allSettled([adminMailPromise, userMailPromise]);
+        mailResults.forEach((result, idx) => {
+            if (result.status === 'rejected') {
+                console.error(`Email send failure (certificate-registration - index ${idx}):`, result.reason);
+            }
         });
 
         res.json({ success: true, message: 'Account registration details submitted successfully!' });
     } catch (error) {
         console.error('Certificate registration error:', error);
-        res.status(500).json({ success: false, message: 'Registration email failed. Please try again.' });
+        res.status(500).json({ success: false, message: 'Registration email failed: ' + error.message });
     }
 });
 
